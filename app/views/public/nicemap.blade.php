@@ -36,6 +36,14 @@
                             <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="куда">
                         </div>
                     </div>
+                    <h2 class="subtitle">Тип перевозки</h2>
+                    <div class="bottom-form-inputs">
+                        <select name="cargo_type" id="cargo_type">
+                            <option value="Крытая" selected="true">Крытая</option>
+                            <option value="Рефрежератор">Рефрежератор</option>
+                            <option value="ADR перевозка">ADR перевозка</option>
+                        </select>
+                    </div>
                     <h2 class="subtitle">Параметры груза</h2>
                     <div class="bottom-form-inputs">
                         <div class="evth-row">
@@ -297,7 +305,8 @@
                     w: document.getElementById('w'),
                     l: document.getElementById('l'),
                     h: document.getElementById('h'),
-                    m: document.getElementById('m')
+                    m: document.getElementById('m'),
+                    type: document.getElementById('cargo_type')
                 },
                 price: 1,
                 render: function(){
@@ -360,7 +369,7 @@
                             }
                         }
                     };
-                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist;                    
+                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist;                     
                 },
                 showAll: function() {
                     this.render();
@@ -381,12 +390,13 @@
                             'Коэффициент расстояния: ' + this.coeffs.distance + '<br>' +
                             'Коэффициент страны: ' + this.coeffs.country + '<br>' + 
                             'Коэффициент груза: ' + this.coeffs.load + '<br>' +
+                            'Тип перевозки: ' + this.cargo.type.value + '<br>' +
                             'Цена: ' + this.price*0.001;                    
                     var outs = {
                         price: document.getElementById('output-price'),
                         length: document.getElementById('output-length')
                     };
-                    outs.length.innerHTML = this.output.dist.toLocaleString() + ' м';
+                    outs.length.innerHTML = Math.round(this.output.dist*0.001).toLocaleString() + ' км';
                     outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' <i class="fa fa-eur"></i>';
                 },
             };
