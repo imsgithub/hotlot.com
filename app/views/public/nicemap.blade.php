@@ -405,7 +405,7 @@
                             'Коэффициент страны: ' + this.coeffs.country + '<br>' + 
                             'Коэффициент груза: ' + this.coeffs.load + '<br>' +
                             'Тип перевозки: ' + this.cargo.type.value + '<br>' +
-                            'Цена: ' + this.price*0.001;                    
+                            'Цена: ' + this.price*0.001 + ' ' + this.currency.name;                    
                     var outs = {
                         price: document.getElementById('output-price'),
                         length: document.getElementById('output-length')
