@@ -4,6 +4,7 @@
     <a href="/admin/countries" class="list-group-item"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Настройки коэффициентов для стран</a>    
     <a href="/admin/codes" class="list-group-item"><span class="glyphicon glyphicon-barcode"></span> Коды стран</a> 
     <a href="/admin/rules" class="list-group-item"><span class="glyphicon glyphicon-equalizer"></span> Настройка коэффициентов расчета</a> 
+    <a href="/admin/currencies" class="list-group-item"><span class="glyphicon glyphicon-euro"></span> Настройка валют</a> 
 </div>
 <script>
     var sidebar = document.querySelector('.sidebar');

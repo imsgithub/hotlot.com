@@ -80,7 +80,16 @@
                     <h2 class="subtitle grey">Длина маршрута</h2>
                     <span class="output" id="output-length">1860 км.</span>
                     <h2 class="subtitle grey">Стоимость</h2>
-                    <span class="output" id="output-price"><i class="fa fa-eur"></i></span>
+                    <select name="currency" id="currency">
+                        @foreach ($currencies as $currency)
+                            @if (($currency->name == 'EUR')&&($currency->id == '1'))
+                            <option value="{{$currency->value}}" selected="true">{{$currency->name}}</option>
+                            @else
+                            <option value="{{$currency->value}}">{{$currency->name}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    <span class="output" id="output-price"></span>
                     <div class="orange-block">
                         <h2>Для уточнения условий доставки и цены оставьте заявку </h2>
                         <div class="evth-row child-on-center">
@@ -308,6 +317,11 @@
                     m: document.getElementById('m'),
                     type: document.getElementById('cargo_type')
                 },
+                currency: {
+                    dom: document.getElementById('currency'),
+                    name: 'EUR',
+                    value: 1
+                },
                 price: 1,
                 render: function(){
                     var temp, reverse_temp;
@@ -369,7 +383,7 @@
                             }
                         }
                     };
-                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist;                     
+                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist*this.currency.value;                     
                 },
                 showAll: function() {
                     this.render();
@@ -397,7 +411,7 @@
                         length: document.getElementById('output-length')
                     };
                     outs.length.innerHTML = Math.round(this.output.dist*0.001).toLocaleString() + ' км';
-                    outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' <i class="fa fa-eur"></i>';
+                    outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
                 },
             };
             data.checkbox.bootstrapSwitch({
@@ -425,6 +439,11 @@
                         data.output.dist.innerHTML = dist;
                     });
                 };        
+            });
+            $(data.currency.dom).on('change', function(){
+                data.currency.value = $(this).val();
+                data.currency.name = $(this).find(':selected').text();                
+                data.showAll();
             });
             function initialize(data) {
                 var styles = [
@@ -537,7 +556,7 @@
                         data.directionsDisplay.setDirections(result);
                         var dist = 0;
                         var leg = result.routes[0].legs;
-                        console.log(result.routes[0].overview_path);
+//                        console.log(result.routes[0].overview_path);
                         for (var i = 0; i < leg.length; i++) {
                             dist += leg[i].distance.value;
                         }

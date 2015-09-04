@@ -58,6 +58,11 @@ Route::get('/admin/orders/condition/{condition}', 'OrdersController@indexByCondi
 
 Route::get('/admin/rules', 'CoeffsController@index')->before('adminauth');
 Route::post('admin/rules', 'CoeffsController@store')->before('adminauth');
+
+Route::get('/admin/currencies', 'CurrenciesController@index')->before('adminauth');
+Route::post('/admin/currencies', 'CurrenciesController@store')->before('adminauth');
+Route::post('/admin/currencies/{id}', 'CurrenciesController@edit')->before('adminauth');
+Route::post('/admin/currencies/destroy/{id}', 'CurrenciesController@destroy')->before('adminauth');
 //Route::post($uri, $action);
 
 //Add new user route
