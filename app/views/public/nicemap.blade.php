@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="evth/public/bootstrap-switch/css/bootstrap-switch.css">
         <link rel="stylesheet" href="evth/public/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
         <script src="evth/public/bootstrap-switch/js/bootstrap-switch.js"></script>        
         <style>
@@ -23,72 +25,101 @@
             <div class="map" id="map"></div>
             <div class="map-forms-wrapper">
                 <div class="map-form-input">
-                    <h1 class="title">Форма заявки</h1>
-                    <h2 class="subtitle">Выберите город</h2>
-                    <div class="top-form-inputs">
-                        <div class="from">
-                            <i class="fa fa-map-marker violet-c"></i>
-                            <input type="text" class="required" id="start" value="{{$inputs['start']}}" placeholder="откуда">
+                    <div class="form-header">
+                        <div class="helper">
+                            <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                            <span class="helper-content">Заполните эту форму и нажмите "Рассчитать".</span>
                         </div>
-                        <div class="arrows"><i class="evth-arrows"></i></div>
-                        <div class="where">
-                            <i class="fa fa-map-marker violet-c"></i>
-                            <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="куда">
-                        </div>
+                        <h1 class="title">Форма заявки</h1>
                     </div>
-                    <h2 class="subtitle">Тип перевозки</h2>
-                    <div class="bottom-form-inputs">
+                    <h2 class="subtitle">Введите города</h2>                    
+                    <div class="input-wrapper">
+                        <div class="helper">
+                            <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                            <span class="helper-content">Введите начало маршрута. Поле не должно быть пустым.</span>
+                        </div>                            
+                        <input type="text" class="required" id="start" value="{{$inputs['start']}}" placeholder="откуда">
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="helper">
+                            <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                            <span class="helper-content">Введите конец маршрута. Поле не должно быть пустым.</span>
+                        </div>  
+                        <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="куда">
+                    </div>                    
+                    <h2 class="subtitle">Добавить транзитный город</h2>
+                    <div class="transit">
+                        <span class="glyphicon glyphicon-plus-sign" id="add_transit" data-id="0"></span>
+                        <span class="glyphicon glyphicon-minus-sign" id="del_transit" data-id="0"></span>
+                    </div>
+                    <h2 class="subtitle">Выберете тип перевозки</h2>
+                    <div class="cargo_type">
+                        <div class="helper">
+                            <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                            <span class="helper-content">Тип перевозки может повлиять не её цену.</span>
+                        </div>  
                         <select name="cargo_type" id="cargo_type">
                             <option value="Крытая" selected="true">Крытая</option>
                             <option value="Рефрежератор">Рефрежератор</option>
                             <option value="ADR перевозка">ADR перевозка</option>
                         </select>
                     </div>
-                    <h2 class="subtitle">Параметры груза</h2>
+                    <h2 class="subtitle">Введите параметры груза</h2>
                     <div class="bottom-form-inputs">
-                        <div class="evth-row">
-                            <div class="bottom-form-group">
-                                <i class="evth-cargo-l evth-cargo"></i>
-                                <input type="text" class="required" id="l" placeholder="длина">
+                        <div class="input-wrapper">
+                            <div class="helper">
+                                <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                                <span class="helper-content">Длина груза в метрах, от 0.1 до 13.6.</span>
                             </div>
-                            <div class="bottom-form-group">
-                                <i class="evth-cargo-w evth-cargo"></i>
-                                <input type="text" class="required" id="w" placeholder="ширина">
-                            </div>  
-                            <div class="bottom-form-group">
-                                <i class="evth-cargo-h evth-cargo"></i>
-                                <input type="text" class="required" id="h" placeholder="высота">
-                            </div>                                                      
+                            <input type="text" class="required" id="l" placeholder="длина">
                         </div>
-                        <div class="evth-row child-on-center">
-                            <div class="bottom-form-group ">
-                                <i class="evth-cargo-m evth-cargo"></i>
-                                <input type="text" class="required" id="m"  placeholder="вес">
-                            </div>                           
+                        <div class="input-wrapper">
+                            <div class="helper">
+                                <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                                <span class="helper-content">Ширина груза в метрах, от 0.1 до 2.</span>
+                            </div>
+                            <input type="text" class="required" id="w" placeholder="ширина">
                         </div>
-                        <div class="top-form-buttons">
+                        <div class="input-wrapper">
+                            <div class="helper">
+                                <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                                <span class="helper-content">Высота груза в метрах, от 0.1 до 3.3.</span>
+                            </div>
+                            <input type="text" class="required" id="h" placeholder="высота">
+                        </div>
+                        <div class="input-wrapper">
+                            <div class="helper">
+                                <span class="glyphicon glyphicon-question-sign helper-question"></span>
+                                <span class="helper-content">Вес груза в тоннах, от 0.1 до 22.</span>
+                            </div>
+                            <input type="text" class="required" id="m"  placeholder="вес">
+                        </div>
+                        <div class="buttons">
                             <button id="rend" class="button">Рассчитать</button>
                             <button class="button-more modal-toggle" data-modal="modal-how">Узнать подробнее</button>
                         </div>
                     </div>
                     <div class="back">
-                        <a href="/home"><i class="fa fa-arrow-circle-left"></i> На главную</a>
+                        <a href="/"><i class="fa fa-arrow-circle-left"></i> На главную</a>
                     </div>
                 </div>
                 <div class="map-form-output">
-                    <h1 class="title">Результат</h1>
-                    <h2 class="subtitle grey">Длина маршрута</h2>
-                    <span class="output" id="output-length">1860 км.</span>
-                    <h2 class="subtitle grey">Стоимость</h2>
-                    <select name="currency" id="currency">
-                        @foreach ($currencies as $currency)
-                            @if (($currency->name == 'EUR')&&($currency->id == '1'))
-                            <option value="{{$currency->value}}" selected="true">{{$currency->name}}</option>
-                            @else
-                            <option value="{{$currency->value}}">{{$currency->name}}</option>
-                            @endif
-                        @endforeach
-                    </select>
+                    <h1 class="title">Результат</h1>                    
+                    <h2 class="subtitle">Длина маршрута</h2>
+                    <span class="output" id="output-length"></span>
+                    
+                    <div class="currency">
+                        <h2 class="subtitle">Стоимость</h2>
+                        <select name="currency" id="currency">
+                            @foreach ($currencies as $currency)
+                                @if (($currency->name == 'EUR')&&($currency->id == '1'))
+                                <option value="{{$currency->value}}" selected="true">{{$currency->name}}</option>
+                                @else
+                                <option value="{{$currency->value}}">{{$currency->name}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
                     <span class="output" id="output-price"></span>
                     <div class="orange-block">
                         <h2>Для уточнения условий доставки и цены оставьте заявку </h2>
@@ -101,6 +132,9 @@
                         <div class="top-form-buttons">
                             <button class="button" id="phone_but">Отправить</button>                            
                         </div>
+                    </div>
+                    <div class="back">
+                        <a href="#" id="back-to-form"><i class="fa fa-arrow-circle-left"></i> Назад к форме расчета</a>
                     </div>
                 </div>                    
             </div>
@@ -200,6 +234,16 @@
             </div>
         </div>
     </div>
+<script>
+    $('.helper').on('click', function(){
+        $('.helper-content.active').removeClass('active');        
+        $(this).find('.helper-content').addClass('active');
+    });
+    $('.helper-content').on('click', function(e){
+        e.stopPropagation();
+        $(this).removeClass('active');
+    });
+</script>
         <script>
             var lol = {
             
@@ -290,9 +334,10 @@
                 cities: {
                     start: document.getElementById('start'),
                     end: document.getElementById('end'),
-                    transit: document.getElementById('transit')
+                    transit: []
                 },                
                 tr_en: false,
+                tr_check: document.getElementById('add_transit'),
                 mapCanvas: document.getElementById('map'),
                 output: {
                     dist: 1,
@@ -398,7 +443,11 @@
 //                            'Цена: ' + this.price*0.001 + '\n';
                     this.output.content = 'Маршрут<br>Откуда: ' + this.cities.start.value + '<br>' +
                             'Куда: ' + this.cities.end.value + '<br>';
-                    if (this.tr_en) this.output.content += 'Транзит: ' + this.cities.transit.value + '<br>';
+                    if (this.tr_en) {
+                        for (i = 0; i < this.cities.transit.length; i++) {
+                            this.output.content += 'Транзит ' + i + ': ' + this.cities.transit[i].value + '<br>';
+                        };                        
+                    };
                     this.output.content += 'Длина маршрута, км: ' + this.output.dist*0.001 + '<br>' +
                             'Страны: ' + this.output.countries.start + '-' + this.output.countries.end + '<br>' +
                             'Коэффициент расстояния: ' + this.coeffs.distance + '<br>' +
@@ -440,11 +489,18 @@
                     });
                 };        
             });
-            $(data.currency.dom).on('change', function(){
-                data.currency.value = $(this).val();
-                data.currency.name = $(this).find(':selected').text();                
-                data.showAll();
+            $(data.currency.dom).selectmenu({
+                change: function(e, ui){
+                    data.currency.value = $(this).val();
+                    data.currency.name = $(this).find(':selected').text();
+                    data.showAll();
+                }
             });
+//            $(data.currency.dom).on('change', function(){
+//                data.currency.value = $(this).val();
+//                data.currency.name = $(this).find(':selected').text();                
+//                data.showAll();
+//            });
             function initialize(data) {
                 var styles = [
                     {
@@ -520,8 +576,14 @@
                 };                
                 data.directionsDisplay.setMap(map);
                 data.autocomplete.start = new google.maps.places.Autocomplete(data.cities.start,acOptions);
-                data.autocomplete.end = new google.maps.places.Autocomplete(data.cities.end,acOptions);
-                if (data.tr_en) data.autocomplete.transit = new google.maps.places.Autocomplete(data.cities.transit,acOptions);
+                data.autocomplete.end = new google.maps.places.Autocomplete(data.cities.end,acOptions);                
+//                var tr_count = parseInt(data.tr_check.getAttribute('data-id'));
+//                if (tr_count > 0) {
+//                    var inputs = document.querySelectorAll('.transit input');
+//                    for (var i = 0; i <inputs.length; i++ ) {
+//                        inputs[i] = new google.maps.places.Autocomplete(data.cities.transit,acOptions);
+//                    }
+//                }                
 //                first_autocomplete.bindTo('bounds',map);
 //                second_autocomplete.bindTo('bounds',map);               
             }
@@ -546,10 +608,18 @@
                     travelMode: google.maps.TravelMode.DRIVING                   
                 };
                 if (data.tr_en) {
-                    request.waypoints = [{
-                            location: data.cities.transit.value,
+                    var wpts = [];
+                    for (var i = 0; i < data.cities.transit.length; i++) {
+                        wpts.push({
+                            location: data.cities.transit[i].value,
                             stopover: true
-                    }]
+                        });
+                    };
+                    request.waypoints = wpts;
+//                    request.waypoints = [{
+//                            location: data.cities.transit.value,
+//                            stopover: true
+//                    }]
                 };
                 data.directionsService.route(request, function(result, status) {
                     if (status == google.maps.DirectionsStatus.OK) {
@@ -625,6 +695,51 @@
 //              };
 //            var calc = document.getElementById('calc');
 //            var addr = document.getElementById('addr');
+            var add_transit, del_transit;
+            add_transit = document.getElementById('add_transit');
+            del_transit = document.getElementById('del_transit');
+            add_transit.addEventListener('click', function(){
+                data.tr_en = true;
+                var data_id = parseInt($(this).attr('data-id'));
+                if (data_id>4) return;                
+                var tr = document.querySelector('.transit');
+                var inp = document.createElement('input');
+                var div = document.createElement('div');                                
+                $(inp).attr({
+                    type: 'text',
+                    class: 'required',
+                    id: 'transit_'+data_id,
+                    placeholder: 'Транзитный город '+(data_id+1),
+                });
+                $(div).attr('class','input-wrapper');
+                div.appendChild(inp);
+                tr.appendChild(div);
+                data.cities.transit.push(inp);
+                temp = new google.maps.places.Autocomplete(inp,{types: ['(cities)']});
+                $(this).attr('data-id', data_id+1);    
+                $('.map-forms-wrapper').css('height', ($('.map-forms-wrapper').height() + 34) + 'px' )
+                if (data_id>-1) {
+                    $(del_transit).css('display', 'inline-block');
+                } else {
+                    $(del_transit).css('display', 'none');
+                }
+            });
+            del_transit.addEventListener('click', function(){
+                var div, inp, id, data_id;
+                div = document.querySelectorAll('.transit .input-wrapper');
+                div = div[div.length-1];
+                inp = div.querySelector('input');
+                id = inp.getAttribute('id');
+                data.cities.transit.pop();
+                div.remove();
+                data_id = parseInt($(add_transit).attr('data-id'));
+                $(add_transit).attr('data-id', data_id-1);
+                $('.map-forms-wrapper').css('height', ($('.map-forms-wrapper').height() - 34) + 'px' )
+                if(data_id < 2) {
+                    $(this).css('display', 'none');
+                    data.tr_en = false;
+                }
+            });
             var rend = document.getElementById('rend');
             var inputs = document.getElementsByClassName('required');
             for (var i = 0; i < inputs.length; i++) {
@@ -668,7 +783,7 @@
                     data.output.dist = dist;
                     data.showAll();
                 });
-                $('.map-forms-wrapper').animate({'width': 772, 'right': $('.map-forms-wrapper').offset().right+281}, 400, function(){                    
+                $('.map-form-input').fadeOut(200, function(){                    
                     $('.map-form-output').fadeIn();
                 });                
             });
@@ -689,6 +804,12 @@
                if (!validate.call(phone_inp)) return;
                ajaxOrder();
             });
+            $('#back-to-form').on('click', function(e){
+                e.preventDefault();
+                $('.map-form-output').fadeOut(200, function(){                    
+                    $('.map-form-input').fadeIn();
+                });
+            })
         </script>
 <script src="evth/public/js/ready.js"></script>
 <script src="evth/public/js/dragonmap.js"></script>

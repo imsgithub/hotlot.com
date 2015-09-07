@@ -1,4 +1,4 @@
-.language {
+.language, .cargo_type, .currency {
     .ui-selectmenu-button span.ui-selectmenu-text {
         padding: 7px;
     }
@@ -37,7 +37,17 @@
         }
     }
 }
-#language-menu{
+.currency {
+    .ui-state-default {
+        margin-top: 3px;
+    }
+}
+.cargo_type, .currency {
+    .ui-selectmenu-button span.ui-selectmenu-text {
+        padding: 4px;
+    }
+}
+#language-menu, #cargo_type-menu, #currency-menu{
     &.ui-widget-content {
         background: transparent;
         /*border: 0px;*/
@@ -49,9 +59,20 @@
         background: rgba(255,255,255,.5);
         .hr(13px);
         color: #000;
+        margin: 0;
     }
     .ui-menu-item {
         padding: 10px;
         border: 0;        
+    }
+}
+#cargo_type-menu, #currency-menu {
+    .ui-state-focus, .ui-widget-content .ui-state-focus {
+        background: #e5e5e5;
+        color: #000;        
+    }
+    &.ui-widget-content {
+        background: #fff;
+        color: #000;        
     }
 }

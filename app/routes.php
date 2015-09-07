@@ -15,8 +15,8 @@
 //{
 //    return View::make('hello');
 //});
-Route::get('/', 'CodesController@showMap');
-Route::get('/home', function(){
+//Route::get('/', 'CodesController@showMap');
+Route::get('/', function(){
     return View::make('public.pages.home');
 });
 Route::get('/map', 'CodesController@showNiceMap');
