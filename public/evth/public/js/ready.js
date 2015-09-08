@@ -30,10 +30,11 @@ function doModal(data) {
     var mw = modal.querySelector('.modal-wrapper');    
     var mi = modal.querySelector('.modal-inner');
     var close = modal.querySelector('.close');
+    var input = modal.querySelector('input');    
     //Показываем окно
     modal.style.display = 'block';       
-    $(mw).animate({'opacity':1}, 400);
-    console.log(data);
+    $(mw).animate({'opacity':1}, 400);    
+    if (input!==null) input.focus();
     mw.addEventListener('click', function(){
         hideModal(data);
     });
@@ -50,6 +51,33 @@ function hideModal(data){
     $(mw).animate({'opacity':0}, 200, function(){
         modal.style.display = 'none';
     });
+}
+function validateEmail() {
+    if (this.value==='') return false;
+    var regexp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return regexp.test(this.value);
+}
+function validatePassword() {
+    if (this.value==='') return false;
+    return true;
+}
+function enterHandler() {
+    var email, password;
+    email = document.getElementById('sing-in-email');
+    password = document.getElementById('sing-in-password');
+    if (!validateEmail.call(email)) {
+        $(email).parent().addClass('has-error');
+        return false;
+    } else {
+        $(email).parent().removeClass('has-error');
+    };
+    if (!validatePassword.call(password)) {
+        $(password).parent().addClass('has-error');
+        return false;
+    } else {
+        $(password).parent().removeClass('has-error');
+    };
+    enter({email: email, password: password});
 }
 $(document).ready(function(){
     if (document.getElementById('language')) {
@@ -72,4 +100,15 @@ $(document).ready(function(){
            width: 100
        });
    };
+    if (document.getElementById('modal-enter')) {
+        var email, password, sing_in, modal_enter;
+        modal_enter = document.getElementById('modal-enter');
+        email = document.getElementById('sing-in-email');
+        password = document.getElementById('sing-in-password');
+        sing_in = document.getElementById('sing-in-submit');
+        sing_in.addEventListener('click', enterHandler);
+        modal_enter.addEventListener('keydown', function(e){            
+            if (e.which===13) enterHandler();            
+        });
+    };
 });

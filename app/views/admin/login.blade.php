@@ -11,7 +11,7 @@
 	<h3 class="center">Страница авторизации</h3>
 	{{Form::open(['url'=>'/admin', 'method'=>'post'])}}
 	<div class="form-group">
-		{{Form::text('name','',['placeholder'=>'Имя', 'class'=>'form-control'])}}
+		{{Form::text('email','',['placeholder'=>'Имя', 'class'=>'form-control'])}}
 
 	</div>
 	<div class="form-group">

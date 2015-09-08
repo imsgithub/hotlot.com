@@ -372,21 +372,21 @@
                     var temp, reverse_temp;
                     if (this.output.dist!=='') {
                         temp = parseInt(this.output.dist);
-                        if (temp<=100000) {
+                        if (temp<=rules.dl.a) {
                             this.coeffs.distance = rules.distance.a;
-                        } else if (temp<=300000) {
+                        } else if (temp<=rules.dl.b) {
                             this.coeffs.distance = rules.distance.b;
-                        } else if (temp<=500000) {
+                        } else if (temp<=rules.dl.c) {
                             this.coeffs.distance = rules.distance.c;
-                        } else if (temp<=750000) {
+                        } else if (temp<=rules.dl.d) {
                             this.coeffs.distance = rules.distance.d;
-                        } else if (temp<=1000000) {
+                        } else if (temp<=rules.dl.e) {
                             this.coeffs.distance = rules.distance.e;
-                        } else if (temp<=1500000) {
+                        } else if (temp<=rules.dl.f) {
                             this.coeffs.distance = rules.distance.f;
-                        } else if (temp<=2500000) {
+                        } else if (temp<=rules.dl.g) {
                             this.coeffs.distance = rules.distance.g;
-                        } else if (temp<=3500000) {
+                        } else if (temp<=rules.dl.h) {
                             this.coeffs.distance = rules.distance.h;
                         } else {
                             this.coeffs.distance = rules.distance.i;
@@ -404,27 +404,27 @@
                         this.coeffs.country = rules.countries[reverse_temp];
                     };
                     if ((this.cargo.h.value>rules.h.middle)&&(this.cargo.h.value<=rules.h.max)) {
-                        this.coeffs.load = 1.2;
+                        this.coeffs.load = rules.load.g;
                     } else {
                         if ((this.cargo.l.value<=rules.l.max)&&(this.cargo.l.value>rules.l.e)) {
-                            this.coeffs.load = 1;
+                            this.coeffs.load = rules.load.f;
                         } else if ((this.cargo.m.value>=rules.m.b)&&(this.cargo.m.value<=rules.m.max)) {
-                            this.coeffs.load = 1;
+                            this.coeffs.load = rules.load.f;
                         } else if ((this.cargo.m.value<rules.m.b)&&(this.cargo.m.value>=rules.m.a)) {
                             if ((this.cargo.l.value<=rules.l.max)&&(this.cargo.l.value>rules.l.e)) {
-                                this.coeffs.load = 1;
+                                this.coeffs.load = rules.load.f;
                             } else if ((this.cargo.l.value<=rules.l.e)&&(this.cargo.l.value>rules.l.d)) {
-                                this.coeffs.load = 0.8;
+                                this.coeffs.load = rules.load.e;
                             } 
                         } else {
                             if ((this.cargo.l.value<=rules.l.d)&&(this.cargo.l.value>rules.l.c)) {
-                                this.coeffs.load = 0.6;
+                                this.coeffs.load = rules.load.d;
                             } else if ((this.cargo.l.value<=rules.l.c)&&(this.cargo.l.value>rules.l.b)) {
-                                this.coeffs.load = 0.5;
+                                this.coeffs.load = rules.load.c;
                             } else if ((this.cargo.l.value<=rules.l.b)&&(this.cargo.l.value>rules.l.a)) {
-                                this.coeffs.load = 0.4;
+                                this.coeffs.load = rules.load.b;
                             } else {
-                                this.coeffs.load = 0.3;
+                                this.coeffs.load = rules.load.a;
                             }
                         }
                     };

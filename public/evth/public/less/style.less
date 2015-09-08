@@ -87,7 +87,7 @@ header {
 .sing-in {
     float: right;
     text-transform: uppercase; 
-    display: none;
+    /*display: none;*/
 }
 .sing-in-link {
     display: inline-block;
@@ -325,7 +325,7 @@ footer {
     min-width: 1349px;
     position: relative;
     overflow: hidden;
-    height: 675px;
+    height: 420px;
     img {
         width: 100%;
         position: absolute;
@@ -340,10 +340,10 @@ footer {
 }
 .contacts {
     width: 316px;
-    float: right;
+    float: left;
     height: 100%;
     background: rgba(255,255,255, .86);
-    padding: 81px 0 0 35px;
+    padding: 30px 0 0 35px;
     > h2 {
         .hb(25px);
         .violet-c;
@@ -440,6 +440,35 @@ footer {
     
 }
 
+#modal-enter {
+    .modal-inner {
+        background: #fff;
+        padding: 20px;
+        .rounded(5px);
+    }
+    .input-wrapper {
+        margin: 0 10px 5px;
+        input {
+            margin-left: 15px;
+            .hr(14px);
+        }
+    }
+    .pre-input {
+        width: 15px;
+    }
+    h2 {
+        .violet-c;
+        .hl(18px);
+        padding: 10px;
+        text-align: center;
+    }
+    .close {
+        right: 4px;
+        top: 0;
+        font-size: 26px;
+        line-height: 1em;
+    }
+}
 
 
 

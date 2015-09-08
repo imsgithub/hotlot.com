@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/hotlot.com/app/controllers/CurrenciesController.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/app/views/public/pages/home.blade.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/public/evth/public/less/style.less</file>
+            <file>file:/C:/wamp/www/hotlot.com/public/evth/public/js/ready.js</file>
             <file>file:/C:/wamp/www/hotlot.com/app/routes.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/views/admin/currencies/index.blade.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/public/evth/public/less/jqui.less</file>
             <file>file:/C:/wamp/www/hotlot.com/app/views/public/nicemap.blade.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/models/Currency.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/controllers/CodesController.php</file>
         </group>
     </open-files>
 </project-private>

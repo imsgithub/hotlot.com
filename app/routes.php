@@ -22,6 +22,9 @@ Route::get('/', function(){
 Route::get('/map', 'CodesController@showNiceMap');
 Route::post('/order', 'OrdersController@store');
 
+
+//User Routes 
+Route::post('/user/login', 'UsersController@user_login');
 //Testing routes
 
 //Route::get('/{lang}/page/{content}', function($lang, $content){    

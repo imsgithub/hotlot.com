@@ -24,9 +24,9 @@
                         <option value="en">EN</option>                    
                     </select>
                 </div>
-                <div class="sing-in">
-                    <span class="sing-in-link"><i class="evth-sing-in"></i> Войти</span>
-                </div>
+                <!--Composer view for unsigned users-->
+                @include('composers.sign')             
+                <!--End of composer view for unsigned users-->
                 <div class="logo">
                     <img src="evth/public/img/logo.png">
                 </div>                
@@ -232,7 +232,7 @@ Rate&Go<br>
         </div>
     </div>
     <footer class="wrapper">
-        <img src="evth/public/img/contacts-bg.png">
+        <img src="evth/public/img/contacts-bg-new.png">
         <div class="inner">
             <div class="contacts">
                 <h2>Контакты</h2>
@@ -243,7 +243,7 @@ Rate&Go<br>
                     +380-67-640-0940 - Ukraine</p>
                 <p>+420-272-04-9016 - Czech Republic</p>
                 <p>+998(71)1502846 - Uzbekistan </p>
-                <div class="copyright"><a href="#">IMS MEDIA 2015</a></div>
+                <div class="copyright"><a href="http://imsmedia.net.ua/" target="_blank">IMS MEDIA 2015</a></div>
             </div>
         </div>
     </footer>
@@ -281,8 +281,26 @@ Rate&Go<br>
             </div>
         </div>
     </div>
+    <div id="modal-enter" class="modal">
+                    <div class="modal-wrapper">
+                        <div class="modal-inner">
+                            <span class="close">&times;</span>
+                            <div>
+                                <h2>Войти на сайт</h2>
+                                <div class="input-wrapper">
+                                    <i class="fa fa-user pre-input"></i><input name="email" id="sing-in-email" type="text" placeholder="Email">
+                                </div>
+                                <div class="input-wrapper">
+                                    <i class="fa fa-key pre-input"></i><input type="password" name="password" id="sing-in-password" placeholder="Пароль">
+                                </div>
+                                <div class="input-wrapper evth-right-text"><button type="submit" id="sing-in-submit" class="evth-btn violet-c"><i class="fa fa-arrow-circle-right"></i> Войти</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div>
 <script src="evth/public/js/ready.js"></script>
+<script src="evth/public/js/enter.js"></script>
 <script src="evth/public/js/home.js"></script>
 </body>
 </html>

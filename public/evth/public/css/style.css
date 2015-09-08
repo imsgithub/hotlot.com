@@ -429,6 +429,26 @@ button {
   width: 25%;
   float: left;
 }
+.evth-btn {
+  display: inline-block;
+  font-family: "HelveticaRegular", sans-serif;
+  font-size: 14px;
+  background: #ccc;
+  border: none;
+  border-bottom: 2px solid #b3b3b3;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.evth-btn:active {
+  border-bottom: none;
+  border-top: 2px solid #fff;
+}
+.evth-right-text {
+  text-align: right;
+}
 @font-face {
   font-family: 'icomoon';
   src: url('../fonts/icomoon/icomoon.eot?fnqwvy');
@@ -466,6 +486,7 @@ button {
 }
 .modal {
   display: none;
+  z-index: 3;
 }
 .modal-wrapper {
   width: 100%;
@@ -558,7 +579,7 @@ header {
 .sing-in {
   float: right;
   text-transform: uppercase;
-  display: none;
+  /*display: none;*/
 }
 .sing-in-link {
   display: inline-block;
@@ -810,7 +831,7 @@ footer {
   min-width: 1349px;
   position: relative;
   overflow: hidden;
-  height: 675px;
+  height: 420px;
 }
 footer img {
   width: 100%;
@@ -829,10 +850,10 @@ footer .inner {
 }
 .contacts {
   width: 316px;
-  float: right;
+  float: left;
   height: 100%;
   background: rgba(255, 255, 255, 0.86);
-  padding: 81px 0 0 35px;
+  padding: 30px 0 0 35px;
   position: relative;
 }
 .contacts > h2 {
@@ -930,6 +951,37 @@ footer .inner {
   font-size: 13px;
   line-height: 17px;
   color: rgba(0, 0, 0, 0.57);
+}
+#modal-enter .modal-inner {
+  background: #fff;
+  padding: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#modal-enter .input-wrapper {
+  margin: 0 10px 5px;
+}
+#modal-enter .input-wrapper input {
+  margin-left: 15px;
+  font-family: "HelveticaRegular", sans-serif;
+  font-size: 14px;
+}
+#modal-enter .pre-input {
+  width: 15px;
+}
+#modal-enter h2 {
+  color: #553074;
+  font-family: "HelveticaLight", sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+}
+#modal-enter .close {
+  right: 4px;
+  top: 0;
+  font-size: 26px;
+  line-height: 1em;
 }
 .tabs ul > li {
   list-style-type: none;
