@@ -1,8 +1,13 @@
 <?php
 
 class UsersController extends \BaseController {
-    
-    public function show_login_page() {//показать страницу входа админа
+    protected $user, $person;
+    public function __construct(User $user, Person $person) {
+        $this->user = $user;        
+        $this->person = $person;        
+    }
+
+        public function show_login_page() {//показать страницу входа админа
         if(Session::get('role')=='admin'){// Если пользователь уже залогинен, то его редиректит на /admin           
             return Redirect::to('/admin');
         }
@@ -31,7 +36,7 @@ class UsersController extends \BaseController {
             }
         }  
     }
-    public function admin_index() {
+    public function admin_index() {        
         return View::make('admin.index');
     }
     
@@ -45,6 +50,7 @@ class UsersController extends \BaseController {
         if ($role->name=='member') {
             if (Auth::attempt(Input::only('email','password'))) {
                 Session::put('role', 'member');
+                Session::put('email',$user->email);
                 $response = ['valid'=>true];                
             } else {
                 $response = ['valid'=>false];                
@@ -52,7 +58,37 @@ class UsersController extends \BaseController {
             return $response;
         }
     }
-
+    public function show_profile() {
+        $user = $this->user->whereEmail(Session::get('email'))->first();
+        return View::make('member.index')->withUser($user);
+    }
+    public function person_edit(){
+        $user = $this->user->whereEmail(Session::get('email'))->first();
+        return View::make('member.person.index')->withUser($user);
+    }
+    public function person_save() {
+        $inputs = Input::only('name', 'surname');
+        $person = $this->person;
+        $person->name = Input::get('name');
+        $person->surname = Input::get('surname');
+        if (!$person->is_valid($inputs)) {
+            return Redirect::back()->withInput()->withErrors(Person::$errors);
+        }
+        $user = $this->user->whereEmail(Session::get('email'))->first();
+        if (!isset($user->person->name)) {
+            $person = $this->person;
+            $person->name = Input::get('name');
+            $person->surname = Input::get('surname');
+            $user->person()->save($person);
+            return Redirect::back()->withUser($user);
+        } else {
+            $person = $this->person->where('user_id', '=', $user->id)->first();
+            $person->name = Input::get('name');
+            $person->surname = Input::get('surname');
+            $person->save();
+            return Redirect::back()->withUser($user);
+        }
+    }
 //	public function index() 
 //	{
 //		$user = Auth::user();

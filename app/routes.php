@@ -19,12 +19,27 @@
 Route::get('/', function(){
     return View::make('public.pages.home');
 });
-Route::get('/map', 'CodesController@showNiceMap');
+Route::get('/map', ['as'=>'map','uses'=>'CodesController@showNiceMap'] );
 Route::post('/order', 'OrdersController@store');
 
 
 //User Routes 
 Route::post('/user/login', 'UsersController@user_login');
+Route::get('/logout', function(){
+    Session::forget('role');
+    return Redirect::back();
+});
+Route::group(['before'=>'userauth'], function(){
+    
+    Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']);
+    Route::get('/profile/person', ['as'=>'person', 'uses'=>'UsersController@person_edit']);
+    Route::post('/profile/person', 'UsersController@person_save');    
+    
+    Route::get('/profile/forms', 'FormsController@index');
+    
+});
+
+
 //Testing routes
 
 //Route::get('/{lang}/page/{content}', function($lang, $content){    

@@ -43,7 +43,22 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('/');
+		}
+	}
+});
+
+Route::filter('userauth', function()
+{
+	if (Session::get('role')!='member')
+	{
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('/');
 		}
 	}
 });

@@ -5,6 +5,7 @@
     <a href="/admin/codes" class="list-group-item"><span class="glyphicon glyphicon-barcode"></span> Коды стран</a> 
     <a href="/admin/rules" class="list-group-item"><span class="glyphicon glyphicon-equalizer"></span> Настройка коэффициентов расчета</a> 
     <a href="/admin/currencies" class="list-group-item"><span class="glyphicon glyphicon-euro"></span> Настройка валют</a> 
+    <a href="/logout" class="list-group-item"><i class="fa fa-sign-out"></i> Выйти</a> 
 </div>
 <script>
     var sidebar = document.querySelector('.sidebar');

@@ -1175,6 +1175,20 @@ footer .inner {
   height: 100vh;
   position: relative;
 }
+.map-wrapper .sing-in {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+}
+.map-wrapper .sing-in .sing-in-link {
+  background: rgba(0, 0, 0, 0.8);
+}
+.map-wrapper .sing-in .sing-in-link:hover {
+  color: #fff;
+  text-decoration: none;
+  background: rgba(64, 64, 64, 0.8);
+  border-color: #fff;
+}
 .map-forms-wrapper {
   height: 501px;
   width: 521px;

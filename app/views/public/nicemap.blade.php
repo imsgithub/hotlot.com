@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>google map</title>
+        <meta name="viewport" content="width=960px">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="evth/public/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="evth/public/bootstrap-switch/css/bootstrap-switch.css">
         <link rel="stylesheet" href="evth/public/css/style.css">
@@ -138,7 +140,9 @@
                     </div>
                 </div>                    
             </div>
-            
+            <!--Composer view for unsigned users-->
+                @include('composers.sign')             
+                <!--End of composer view for unsigned users-->
         </div>
     </div>
 <!--        <div class="col-md-4">
@@ -234,6 +238,23 @@
             </div>
         </div>
     </div>
+    <div id="modal-enter" class="modal">
+                    <div class="modal-wrapper">
+                        <div class="modal-inner">
+                            <span class="close">&times;</span>
+                            <div>
+                                <h2>Войти на сайт</h2>
+                                <div class="input-wrapper">
+                                    <i class="fa fa-user pre-input"></i><input name="email" id="sing-in-email" type="text" placeholder="Email">
+                                </div>
+                                <div class="input-wrapper">
+                                    <i class="fa fa-key pre-input"></i><input type="password" name="password" id="sing-in-password" placeholder="Пароль">
+                                </div>
+                                <div class="input-wrapper evth-right-text"><button type="submit" id="sing-in-submit" class="evth-btn violet-c"><i class="fa fa-arrow-circle-right"></i> Войти</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 <script>
     $('.helper').on('click', function(){
         $('.helper-content.active').removeClass('active');        
@@ -813,5 +834,6 @@
         </script>
 <script src="evth/public/js/ready.js"></script>
 <script src="evth/public/js/dragonmap.js"></script>
+<script src="evth/public/js/enter.js"></script>
     </body>
 </html>
