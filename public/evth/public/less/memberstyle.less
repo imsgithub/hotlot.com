@@ -6,6 +6,11 @@
     width: 100%;  
     min-width: 1000px;
     height: 100vh;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 a {
     text-decoration: underline;
@@ -17,7 +22,7 @@ a {
 .sidebar {
     width: 25%;    
     min-width: 250px;
-    height: 100vh;
+    height: 100%;
     float: left;
     background-color: #333;
     color: #fff;
@@ -55,9 +60,10 @@ a {
 }
 h2 {
     font-size: 18px;
+    padding: 5px;
 }
 .input-wrapper {
-    padding: 5px 0;
+    padding: 5px;
     label {
         display: block;
         padding: 3px 0;
@@ -69,12 +75,158 @@ h2 {
         border: 1px solid rgba(0,0,0,0.8);
         .rounded(2px);
         .hr(16px);
+        &:focus {
+            .box-shadow(0px 0px 5px 0 rgba(0,0,0,.5));
+        }
     }
     .text-danger {
         font-size: 12px;
         color: #9E0000;
     }
+    &.long-inputs {
+        input {
+            width: 100%;
+        }
+    }
+    &.col-2 {
+        padding: 5px;
+        input {
+            width: 100%;
+        }
+    }
+}
+.square-wrapper {
+    width: 100%;
+    padding: 5px;
+}
+.square-inner {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.8);
+    .rounded(5px); 
+    .transition(0.3s);
+    &:hover {
+        .box-shadow(0 0 5px 0 rgba(0,0,0,.5));
+    }
+    .left {
+        width: 80%;
+        float:left; 
+        border-right: 1px solid rgba(0,0,0,.8);
+        padding: 10px;
+        span {
+            font-size: 14px;
+            display: block;
+            line-height: 1.3em;
+        }
+    }
+    .right {
+        width: 20%;
+        float: right;
+        padding: 10px;
+        a {
+            margin-bottom: 5px;
+            display: block;
+            text-align: center;
+        }
+    }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.red {
+    background-color: rgba(255,0,0,.1);    
+}
+.green {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+.text-wrapper {
+    padding: 5px;
+}
+.text-success {
+    margin: 5px;
+    color: #fff;
+    background-color: #089900;
+    display: block;
+    padding: 5px;
+    .rounded(3px);
+}
+p {
+    line-height: 1.3em;
+}
+strong {
+    .hb;
+    font-size: inherit;
 }
 .footer {
     background-color: #333;
+}
+
+
+
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: rgba(0,0,0,.8);
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.8);
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  z-index: 3;
+  color: rgba(0,0,0,.5);
+  background-color: #eee;
+  border-color: rgba(0,0,0,0.8);
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: rgba(0,0,0,.8);
+  border-color: rgba(0,0,0,.8);
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: rgba(0,0,0,0.8);
 }

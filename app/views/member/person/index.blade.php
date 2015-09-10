@@ -8,12 +8,12 @@
 <h2>Введите ваши данные и нажмите &laquo;Сохранить&raquo;</h2>
 {{Form::open(['method', 'POST'])}}
 <div class="input-wrapper">
-    <label for="#name">Имя</label>
+    <label for="name">Имя</label>
     {{Form::text('name', '', ['id'=>'name', 'placeholder'=>'Иван'])}}
     {{$errors->first('name', '<span class="text-danger">:message</span>')}}
 </div>
 <div class="input-wrapper">
-    <label for="#surname">Фамилия</label>
+    <label for="surname">Фамилия</label>
     {{Form::text('surname', '', ['id'=>'surname', 'placeholder'=>'Иванов'])}}
     {{$errors->first('surname', '<span class="text-danger">:message</span>')}}
 </div>
@@ -26,12 +26,12 @@
 
 {{Form::open(['method', 'POST'])}}
 <div class="input-wrapper">
-    <label for="#name">Имя</label>
+    <label for="name">Имя</label>
     {{Form::text('name', $user->person->name, ['id'=>'name', 'placeholder'=>'Иван'])}}
     {{$errors->first('name', '<span class="text-danger">:message</span>')}}
 </div>
 <div class="input-wrapper">
-    <label for="#surname">Фамилия</label>
+    <label for="surname">Фамилия</label>
     {{Form::text('surname', $user->person->surname, ['id'=>'surname', 'placeholder'=>'Иванов'])}}
     {{$errors->first('surname', '<span class="text-danger">:message</span>')}}
 </div>

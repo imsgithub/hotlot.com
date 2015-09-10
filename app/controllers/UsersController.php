@@ -4,7 +4,7 @@ class UsersController extends \BaseController {
     protected $user, $person;
     public function __construct(User $user, Person $person) {
         $this->user = $user;        
-        $this->person = $person;        
+        $this->person = $person;                
     }
 
         public function show_login_page() {//показать страницу входа админа
@@ -51,6 +51,7 @@ class UsersController extends \BaseController {
             if (Auth::attempt(Input::only('email','password'))) {
                 Session::put('role', 'member');
                 Session::put('email',$user->email);
+                Session::put('id',$user->id);
                 $response = ['valid'=>true];                
             } else {
                 $response = ['valid'=>false];                
@@ -59,11 +60,11 @@ class UsersController extends \BaseController {
         }
     }
     public function show_profile() {
-        $user = $this->user->whereEmail(Session::get('email'))->first();
+        $user = $this->user->whereId(Session::get('id'))->first();
         return View::make('member.index')->withUser($user);
     }
     public function person_edit(){
-        $user = $this->user->whereEmail(Session::get('email'))->first();
+        $user = $this->user->whereId(Session::get('id'))->first();
         return View::make('member.person.index')->withUser($user);
     }
     public function person_save() {

@@ -60,16 +60,36 @@
     display: inline-block;
     .hr(14px);
     background: #ccc;
-    border: none;
-    border-bottom: 2px solid darken(#ccc, 10%);
+    border: none;    
     padding: 5px;
     .rounded(3px);
     cursor: pointer;
-    &:active {
-        border-bottom: none;
-        border-top: 2px solid #fff;
+    border: 1px solid darken(#ccc, 10%);
+    &:active {        
+        background: darken(#ccc, 20%);
+        border: 1px solid darken(#ccc, 30%);
+    }
+    &:hover {
+        background: darken(#ccc, 10%); 
+        border: 1px solid darken(#ccc, 20%);
+        &:active {
+            background: darken(#ccc, 20%);
+            border: 1px solid darken(#ccc, 30%);
+        }
     }
 }
 .evth-right-text {
     text-align: right;
+}
+a.evth-btn {
+    text-decoration: none;
+    color: #000;
+    line-height: normal;
+}
+.wrapper {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }

@@ -9,6 +9,7 @@ View::composer('member.layouts.sidebar', function($view){
         'map'=>URL::route('map'),
         'person'=>URL::route('person'),
         'profile'=>URL::route('profile'),
+        'forms'=>URL::route('forms')
     ];
     $view->withUrls($urls);
 });

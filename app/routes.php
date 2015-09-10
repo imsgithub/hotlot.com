@@ -35,8 +35,12 @@ Route::group(['before'=>'userauth'], function(){
     Route::get('/profile/person', ['as'=>'person', 'uses'=>'UsersController@person_edit']);
     Route::post('/profile/person', 'UsersController@person_save');    
     
-    Route::get('/profile/forms', 'FormsController@index');
-    
+    Route::get('/profile/forms', ['as'=>'forms', 'uses'=>'DeliveryFormsController@index']);
+    Route::get('/profile/forms/create', ['as'=>'create_form', 'uses'=>'DeliveryFormsController@create']);
+    Route::post('/profile/forms/create', 'DeliveryFormsController@store');
+    Route::get('/profile/forms/view/{id}', 'DeliveryFormsController@show');
+    Route::get('/profile/forms/edit/{id}', 'DeliveryFormsController@edit');
+    Route::post('/profile/forms/edit/{id}', 'DeliveryFormsController@update');
 });
 
 
