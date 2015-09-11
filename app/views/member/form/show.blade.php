@@ -15,6 +15,7 @@
         <p>Адрес загрузки: <strong>{{$form->load_address}}</strong>;</p>
         <p>Адрес разгрузки: <strong>{{$form->unloading_address}}</strong>;</p>
         <p>Дата и время загрузки: <strong>{{$form->load_datetime}}</strong>;</p>
+        <p>Предпочитаемые дата и время доставки: <strong>{{$form->delivery_datetime}}</strong>;</p>
         <p>Форма оплаты: <strong>{{$form->method_of_payment}}</strong>;</p>
     </div>
     <div class="input-wrapper">

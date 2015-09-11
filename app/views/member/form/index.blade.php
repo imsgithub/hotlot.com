@@ -10,7 +10,7 @@
 <div class="wrapper">
     @foreach ($forms as $form)        
     <div class="delivery-form square-wrapper">
-        @if ($form->viewed==1)
+        @if ($form->confirmed==1)
         <div class="square-inner green">
         @else 
         <div class="square-inner red">

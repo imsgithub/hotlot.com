@@ -139,6 +139,31 @@ class DeliveryFormsController extends \BaseController {
 	{
 		//
 	}
-
+        public function show_user_forms($id) {
+            $user = $this->user->find($id);
+            $forms = $user->form()->orderBy('created_at','DESC')->paginate(20);
+            return View::make('admin.form.index')->withForms($forms)->withUser($user);
+        }
+        public function show_user_form($user_id,$form_id) {
+            $user = $this->user->find($user_id);
+            $form = $this->form->find($form_id);
+            return View::make('admin.form.show')->withForm($form)->withUser($user);
+        }
+        public function update_user_form($user_id,$form_id) {
+            $user = $this->user->find($user_id);
+            $form = $this->form->find($form_id);
+            $data = Input::except('_token');
+            if ($form->is_valid($data)) {
+                $form->fill($data);
+                $form->save();
+                return View::make('admin.form.show')->withForm($form)->withUser($user)->withErrors(['msg'=>[ 'Сохранено!']]);
+            }
+            return Redirect::back()->withInput()->withErrors(DeliveryForm::$errors);
+        }
+        public function printForm($user_id,$form_id) {
+            $user = $this->user->find($user_id);
+            $form = $this->form->find($form_id);
+            return View::make('admin.form.print')->withForm($form)->withUser($user);
+        }
 
 }

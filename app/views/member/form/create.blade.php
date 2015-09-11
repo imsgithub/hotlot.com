@@ -47,7 +47,7 @@
         {{$errors->first('load_datetime', '<span class="text-danger">:message</span>')}}
     </div>
     <div class="input-wrapper long-inputs col-2 clear">
-        <label for="delivery_datetime">Дата и время доставки</label>
+        <label for="delivery_datetime">Предпочитаемые дата и время доставки</label>
         {{Form::text('delivery_datetime','',['id'=>'delivery_datetime','placeholder'=>''])}}
         {{$errors->first('delivery_datetime', '<span class="text-danger">:message</span>')}}
     </div>

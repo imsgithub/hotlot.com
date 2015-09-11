@@ -90,6 +90,10 @@ class UsersController extends \BaseController {
             return Redirect::back()->withUser($user);
         }
     }
+    public function show_users(){
+        $users = $this->user->all();
+        return View::make('admin.user.index')->withUsers($users);
+    }
 //	public function index() 
 //	{
 //		$user = Auth::user();

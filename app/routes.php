@@ -85,6 +85,14 @@ Route::get('/admin/currencies', 'CurrenciesController@index')->before('adminauth
 Route::post('/admin/currencies', 'CurrenciesController@store')->before('adminauth');
 Route::post('/admin/currencies/{id}', 'CurrenciesController@edit')->before('adminauth');
 Route::post('/admin/currencies/destroy/{id}', 'CurrenciesController@destroy')->before('adminauth');
+
+Route::group(['before'=>'adminauth'], function(){
+   Route::get('/admin/users', 'UsersController@show_users'); 
+   Route::get('/admin/users/{id}/forms', 'DeliveryFormsController@show_user_forms');
+   Route::get('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@show_user_form');
+   Route::post('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@update_user_form');
+   Route::get('/admin/users/{user_id}/forms/{form_id}/print', 'DeliveryFormsController@printForm');
+});
 //Route::post($uri, $action);
 
 //Add new user route

@@ -6,6 +6,17 @@
 $i = 1;
 ?>
 @foreach ($coeffs as $coeff)
+@if ($coeff->name == 'dl')
+<div class="col-md-3 dl">
+    <h5>{{$coeff->ru_name}}</h5>        
+        @foreach ($coeff->rule as $rule)
+        <div class="input-group input-group-sm" style="padding-bottom: 10px">
+            <span class="input-group-addon" style="width: 60px;">{{$rule->letter}}</span>            
+            {{Form::text($rule->id,$rule->value,array('class'=>'form-control'))}}            
+        </div>
+        @endforeach           
+</div>
+@else
 <div class="col-md-3">
     <h5>{{$coeff->ru_name}}</h5>        
         @foreach ($coeff->rule as $rule)
@@ -21,6 +32,7 @@ $i = 1;
 <?php
 $i++;
 ?>
+@endif
 @endforeach
 <div class="clearfix"></div>
 {{Form::button('Сохранить',['type'=>'submit','id'=>'submit-coeffs-form','class'=>'btn btn-primary'])}}
@@ -62,9 +74,13 @@ $i++;
         };
         return true;
     };
-    var submit,inputs;
+    var submit, inputs, dl_inputs;
+    dl_inputs = document.querySelectorAll('.dl input[type="text"]')
     submit = document.getElementById('submit-coeffs-form');
-    inputs = document.querySelectorAll('input[type="text"]');
+    inputs = document.querySelectorAll('input[type="text"]');    
+    for (var i = 0; i < dl_inputs.length; i++) {
+        dl_inputs[i].value = dl_inputs[i].value/1000;
+    };
     submit.addEventListener('click', function(e){
         var err_arr= [];
         for(var i = 0; i<inputs.length; i++ ) {
@@ -73,6 +89,9 @@ $i++;
         if (err_arr.length>0) {
             e.preventDefault();
             return false;            
+        };
+        for (var i = 0; i < dl_inputs.length; i++) {
+            dl_inputs[i].value = dl_inputs[i].value*1000;
         };
         return true;
     });
