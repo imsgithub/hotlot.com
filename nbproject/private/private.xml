@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/hotlot.com/app/models/DeliveryForm.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/models/User.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/public/evth/public/less/memberstyle.less</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/views/member/form/index.blade.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/routes.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/views/member/form/show.blade.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/controllers/DeliveryFormsController.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/lang/ru/validation.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/views/member/form/empty.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/public/evth/public/less/evth.less</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/views/member/form/edit.blade.php</file>
-            <file>file:/C:/wamp/www/hotlot.com/app/views/member/form/create.blade.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/app/database/migrations/2015_09_11_125332_add_fields_to_forms_table_cargo_and_agreement_numbers.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/app/views/admin/form/show.blade.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/app/config/mail.php</file>
+            <file>file:/C:/wamp/www/hotlot.com/app/views/admin/coeffs/index.blade.php</file>
         </group>
     </open-files>
 </project-private>

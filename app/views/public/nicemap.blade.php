@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>google map</title>
-        <meta name="viewport" content="width=960px">
+        <meta name="viewport" content="width=960">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="evth/public/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="evth/public/bootstrap-switch/css/bootstrap-switch.css">
@@ -108,8 +108,7 @@
                 <div class="map-form-output">
                     <h1 class="title">Результат</h1>                    
                     <h2 class="subtitle">Длина маршрута</h2>
-                    <span class="output" id="output-length"></span>
-                    
+                    <span class="output" id="output-length"></span>                    
                     <div class="currency">
                         <h2 class="subtitle">Стоимость</h2>
                         <select name="currency" id="currency">
@@ -123,16 +122,18 @@
                         </select>
                     </div>
                     <span class="output" id="output-price"></span>
-                    <div class="orange-block">
-                        <h2>Для уточнения условий доставки и цены оставьте заявку </h2>
-                        <div class="evth-row child-on-center">
-                            <div class="bottom-form-group ">
-                                <i class="evth-cargo evth-cargo-tel"></i>
-                                <input type="text" class="phone" id="phone_inp" placeholder="тел">
-                            </div>                           
-                        </div>
-                        <div class="top-form-buttons">
-                            <button class="button" id="phone_but">Отправить</button>                            
+                    <div class="orange-block">                        
+                        <div id="ajax-inputs">
+                            <h2>Для уточнения условий доставки и цены оставьте заявку </h2>
+                            <div class="evth-row child-on-center">
+                                <div class="bottom-form-group ">
+                                    <i class="evth-cargo evth-cargo-tel"></i>
+                                    <input type="text" class="phone" id="phone_inp" placeholder="тел">
+                                </div>                           
+                            </div>
+                            <div class="top-form-buttons">
+                                <button class="button" id="phone_but">Отправить</button>                            
+                            </div>
                         </div>
                     </div>
                     <div class="back">
@@ -676,7 +677,8 @@
                 });                
               };
               function ajaxOrder() {
-                  var xhr, body, box;
+                  var xhr, body, box, ajax_inputs;
+                  ajax_inputs = document.getElementById('ajax-inputs');
                   box = document.querySelector('.orange-block');
                   xhr = new XMLHttpRequest();
                   xhr.open('POST', '/order', true);
@@ -685,14 +687,16 @@
                   xhr.send(body);
                   xhr.onreadystatechange = function (){
                       if (xhr.readyState != 4) return;
-                      if (xhr.responseText==='saved') {
-                          box.innerHTML = '<h2>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</h2>';
+                      var output = document.createElement('div');
+                      output.setAttribute('id', 'ajax-output');                      
+                      if (xhr.responseText==='saved') {                          
+                          output.innerHTML = '<h2>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</h2><div class="success-order"><i class="fa fa-check-square-o"></i></div>';                          
                       } else {
-                          box.innerHTML = '<h2>Что-то пошло не так... Просто позвоните нам по телефону на главной странице!</h2>'
+                          output.innerHTML = '<h2>Что-то пошло не так... Просто позвоните нам по телефону на главной странице!</h2>'
                       }
-                      
+                      box.appendChild(output);                      
                   };
-                  box.innerHTML = '<h2>Секундочку...</h2>';
+                  ajax_inputs.style.display = 'none';
               }
 //            function codeAddress(data) {                
 //                geocoder.geocode( { 'address': data.cities.start.value}, function(results, status) {
@@ -829,6 +833,8 @@
                 e.preventDefault();
                 $('.map-form-output').fadeOut(200, function(){                    
                     $('.map-form-input').fadeIn();
+                    $('#ajax-output').remove();
+                    $('#ajax-inputs').css('display', 'block');
                 });
             })
         </script>

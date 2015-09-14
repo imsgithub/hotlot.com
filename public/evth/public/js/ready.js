@@ -110,5 +110,5 @@ $(document).ready(function(){
         modal_enter.addEventListener('keydown', function(e){            
             if (e.which===13) enterHandler();            
         });
-    };
+    };    
 });

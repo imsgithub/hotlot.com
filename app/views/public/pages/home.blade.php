@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
-    <meta name="viewport" content="width=960px">
+    <meta name="viewport" content="width=960">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="evth/public/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -15,8 +15,10 @@
 <body>
 <div class="overlay">
     <div class="wrapper top">
-        <video class="background-video" autoplay="autoplay" loop="loop" muted>
-            <source src="evth/public/video/video.mp4" type='video/mp4'>
+        <img id="video-preloader" class="video-preloader" src="evth/public/img/video-preloader.png" alt="preloader">
+        <video style="display: none" class="background-video" id="video" autoplay="autoplay" loop="loop" muted>
+            <source src="evth/public/video/screen.mp4" type='video/mp4'>
+             <source src="evth/public/video/screen.webm" type='video/webm;'>
         </video>
         <div class="inner">             
             <header>
