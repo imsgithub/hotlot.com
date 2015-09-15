@@ -68,10 +68,12 @@ class UsersController extends \BaseController {
         return View::make('member.person.index')->withUser($user);
     }
     public function person_save() {
-        $inputs = Input::only('name', 'surname');
+        $inputs = Input::except('_token');
         $person = $this->person;
         $person->name = Input::get('name');
         $person->surname = Input::get('surname');
+        $person->patronymic = Input::get('patronymic');
+        $person->phone = Input::get('phone');
         if (!$person->is_valid($inputs)) {
             return Redirect::back()->withInput()->withErrors(Person::$errors);
         }
@@ -80,19 +82,56 @@ class UsersController extends \BaseController {
             $person = $this->person;
             $person->name = Input::get('name');
             $person->surname = Input::get('surname');
+            $person->patronymic = Input::get('patronymic');
+            $person->phone = Input::get('phone');
             $user->person()->save($person);
             return Redirect::back()->withUser($user);
         } else {
             $person = $this->person->where('user_id', '=', $user->id)->first();
             $person->name = Input::get('name');
             $person->surname = Input::get('surname');
+            $person->patronymic = Input::get('patronymic');
+            $person->phone = Input::get('phone');
             $person->save();
-            return Redirect::back()->withUser($user);
+            return Redirect::back()->withUser($user)->withErrors(['success-msg'=>['Персональные данные сохранены!']]);
         }
     }
     public function show_users(){
         $users = $this->user->all();
         return View::make('admin.user.index')->withUsers($users);
+    }
+    public function user_register() {
+        $user = $this->user;
+        $data = Input::only('email', 'password');
+        if (!$user->is_valid($data)) {
+            return Redirect::back()->withInput()->withErrors(User::$errors);
+        }
+        $user->email = Input::get('email');
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+        $role = Role::whereName('member')->first();
+        $user->roles()->attach($role->id);
+        Session::put('role', 'member');
+        Session::put('email',$user->email);
+        Session::put('id',$user->id);
+        return Redirect::to('/');
+    }
+    public function notAjaxLogin(){
+        $user = User::whereEmail(Input::get('email'))->first();//Ищется пользователь с таким именем
+        if (!isset($user->email)) {//проверяется его существование, если такого имени нет, то в топку
+            return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);
+        }
+        $role = $user->roles->first();
+        if ($role->name=='member') {
+            if (Auth::attempt(Input::only('email','password'))) {
+                Session::put('role', 'member');
+                Session::put('email',$user->email);
+                Session::put('id',$user->id);                
+            } else {
+                return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);                
+            }
+            return Redirect::to('/');
+        }
     }
 //	public function index() 
 //	{

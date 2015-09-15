@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Главная страница</title>
+    <title>Rate&GO!</title>
     <meta name="viewport" content="width=960">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="evth/public/css/style.css">
@@ -15,8 +15,8 @@
 <body>
 <div class="overlay">
     <div class="wrapper top">
-        <img id="video-preloader" class="video-preloader" src="evth/public/img/video-preloader.png" alt="preloader">
-        <video style="display: none" class="background-video" id="video" autoplay="autoplay" loop="loop" muted>
+<!--        <img id="video-preloader" class="video-preloader" src="evth/public/img/video-preloader.png" alt="preloader">-->
+        <video poster="evth/public/img/video-preloader.png" class="background-video" id="video" autoplay="autoplay" loop="loop" muted>
             <source src="evth/public/video/screen.mp4" type='video/mp4'>
              <source src="evth/public/video/screen.webm" type='video/webm;'>
         </video>
@@ -285,7 +285,7 @@ Rate&Go<br>
             </div>
         </div>
     </div>
-    <div id="modal-enter" class="modal">
+<!--    <div id="modal-enter" class="modal">
                     <div class="modal-wrapper">
                         <div class="modal-inner">
                             <span class="close">&times;</span>
@@ -297,14 +297,14 @@ Rate&Go<br>
                                 <div class="input-wrapper">
                                     <i class="fa fa-key pre-input"></i><input type="password" name="password" id="sing-in-password" placeholder="Пароль">
                                 </div>
-                                <div class="input-wrapper evth-right-text"><button type="submit" id="sing-in-submit" class="evth-btn violet-c"><i class="fa fa-arrow-circle-right"></i> Войти</button></div>
+                                <div class="input-wrapper evth-right-text"><a href="{{action('RemindersController@getRemind')}}">Забыли пароль?</a>&nbsp;<button type="submit" id="sing-in-submit" class="evth-btn violet-c"><i class="fa fa-arrow-circle-right"></i> Войти</button></div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 </div>
 <script src="evth/public/js/ready.js"></script>
-<script src="evth/public/js/enter.js"></script>
+<!--<script src="evth/public/js/enter.js"></script>-->
 <script src="evth/public/js/home.js"></script>
 </body>
 </html>

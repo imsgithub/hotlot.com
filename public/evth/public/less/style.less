@@ -452,6 +452,16 @@ footer {
             margin-left: 15px;
             .hr(14px);
         }
+        a {
+            text-decoration: none;
+            .hr(14px);            
+            &:hover {
+                text-decoration: underline;
+            }
+            &:active {
+                .orange-c;
+            }
+        }
     }
     .pre-input {
         width: 15px;
@@ -1021,4 +1031,95 @@ div.has-error {
 #map {
     width: 100vw;
     height: 100vh;
+}
+
+.register-wrapper {    
+    .hr(16px);
+    color: #fff;
+    .logo {
+        margin-top: 70px;        
+    }    
+    .title {
+        font-size: 20px;
+        padding: 15px 0;
+    }
+}
+.register-form {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    background: rgba(0,0,0,.73);
+    .rounded(5px);
+    border: 1px solid @orange;
+    top: 150px;
+    left: 50%;
+    .translate(-50%, 0);
+    .input-wrapper {
+        label {
+            display: block;
+            width: 80%;
+            padding: 5px 0;
+            margin: 0 10%;
+        }
+        input {
+            display: block;
+            width: 80%;
+            padding: 5px 0 ;
+            margin: 0 10%;
+            font-size: 16px;
+        }
+        .button {
+            cursor: pointer;
+            .orange-bg;
+            .hl(15px);
+            color: #fff;
+            text-transform: uppercase;
+            padding: 11px 35px;
+            .rounded(4px);
+            text-decoration: none;
+            display: inline-block;
+            width: 80%;
+            margin: 20px 0 20px 10%;
+            border: none;
+            /*.transition(0.4s);*/
+            &:hover {
+                opacity: .8
+            }
+            &:active {
+                background-color: darken(@orange, 10%);
+            }
+        }
+        .text-danger {
+            display: block;
+            width: 80%;
+            margin: 5px 10%;
+            font-size: 12px;
+            color: #C45E5E;
+        }
+        .text-success {
+            display: block;
+            width: 80%;
+            margin: 5px 10%;
+            font-size: 12px;
+            color: @orange;
+        }
+        a {
+            display: block;
+            text-align: right;
+            width: 80%;
+            margin: 5px 10%;
+            color: #fff;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    &.login-form {
+        .input-wrapper {
+            .button {
+                margin-top: 0;
+            }
+        }
+    }
 }

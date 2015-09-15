@@ -5,6 +5,6 @@
 
 @section('content')
 
-{{$user}}
+
 
 @stop

@@ -8,7 +8,7 @@ if (document.querySelector('.top-form')) {
    from = new google.maps.places.Autocomplete(from,{types: ['(cities)']});
    where = new google.maps.places.Autocomplete(where,{types: ['(cities)']});       
 };
-$(window).load(function(){
-    video.style.display = 'block';
-    video_preloader.style.display = 'none';
-});
+//$(window).load(function(){
+//    video.style.display = 'block';
+//    video_preloader.style.display = 'none';
+//});

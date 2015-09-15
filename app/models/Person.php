@@ -6,7 +6,9 @@ class Person extends Eloquent {
     public static $errors;
     public static $rules = [
         'name'=>'required|min:2',
-        'surname'=>'required|min:2'
+        'surname'=>'required|min:2',
+        'patronymic'=>'required|min:2',
+        'phone'=>'required|regex:/\+*\d+[\d-( ).^+]*/'
     ];
     public static function is_valid($data) {
         $validator = Validator::make($data, static::$rules);

@@ -8,6 +8,7 @@ function enter(data) {
     xhr.onreadystatechange = function (){
         if (xhr.readyState !== 4) return;
         var response;
+//        console.log(xhr.responseText);
         response = JSON.parse(xhr.responseText);
         console.log(response);
         if (response.valid === true) {

@@ -28,6 +28,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 //        public function __construct(Session $session) {
 //            $this->session = $session;
 //        }
+        public static $rules = [
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:6'
+        ];
+        public static $errors;
         public function roles() {
             return $this->belongsToMany('Role');
         }
@@ -36,5 +41,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         }
         public function form() {
             return $this->hasMany('DeliveryForm');
+        }
+        public function is_valid($data){
+            $validator = Validator::make($data, static::$rules);
+            if ($validator->passes()) {
+                return true;
+            }
+            static::$errors = $validator->messages();
+            return FALSE;
         }
 }

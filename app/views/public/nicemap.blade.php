@@ -289,8 +289,7 @@
                         {{$rule->letter}}:{{$rule->value}},
                         @endforeach
                     },
-                @endforeach        
-                
+                @endforeach                        
             };
         </script>
         <script>
@@ -669,7 +668,7 @@
                       var l = results[0].address_components.length;
                       var code = results[0].address_components[l-1].short_name;
                       if (code.length>2) code = results[0].address_components[l-2].short_name;
-                      callback.call(this, code);                      
+                      callback.call(this, code);                                     
                   } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                     callback.call(this);

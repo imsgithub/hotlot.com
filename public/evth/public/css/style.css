@@ -985,6 +985,17 @@ footer .inner {
   font-family: "HelveticaRegular", sans-serif;
   font-size: 14px;
 }
+#modal-enter .input-wrapper a {
+  text-decoration: none;
+  font-family: "HelveticaRegular", sans-serif;
+  font-size: 14px;
+}
+#modal-enter .input-wrapper a:hover {
+  text-decoration: underline;
+}
+#modal-enter .input-wrapper a:active {
+  color: #e16f0e;
+}
 #modal-enter .pre-input {
   width: 15px;
 }
@@ -1555,4 +1566,98 @@ div.has-error {
 #map {
   width: 100vw;
   height: 100vh;
+}
+.register-wrapper {
+  font-family: "HelveticaRegular", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+.register-wrapper .logo {
+  margin-top: 70px;
+}
+.register-wrapper .title {
+  font-size: 20px;
+  padding: 15px 0;
+}
+.register-form {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  background: rgba(0, 0, 0, 0.73);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #e16f0e;
+  top: 150px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+.register-form .input-wrapper label {
+  display: block;
+  width: 80%;
+  padding: 5px 0;
+  margin: 0 10%;
+}
+.register-form .input-wrapper input {
+  display: block;
+  width: 80%;
+  padding: 5px 0 ;
+  margin: 0 10%;
+  font-size: 16px;
+}
+.register-form .input-wrapper .button {
+  cursor: pointer;
+  background-color: #e16f0e;
+  font-family: "HelveticaLight", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 11px 35px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  width: 80%;
+  margin: 20px 0 20px 10%;
+  border: none;
+  /*.transition(0.4s);*/
+}
+.register-form .input-wrapper .button:hover {
+  opacity: 0.8;
+}
+.register-form .input-wrapper .button:active {
+  background-color: #b1570b;
+}
+.register-form .input-wrapper .text-danger {
+  display: block;
+  width: 80%;
+  margin: 5px 10%;
+  font-size: 12px;
+  color: #C45E5E;
+}
+.register-form .input-wrapper .text-success {
+  display: block;
+  width: 80%;
+  margin: 5px 10%;
+  font-size: 12px;
+  color: #e16f0e;
+}
+.register-form .input-wrapper a {
+  display: block;
+  text-align: right;
+  width: 80%;
+  margin: 5px 10%;
+  color: #fff;
+  text-decoration: underline;
+}
+.register-form .input-wrapper a:hover {
+  text-decoration: none;
+}
+.register-form.login-form .input-wrapper .button {
+  margin-top: 0;
 }

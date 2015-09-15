@@ -21,10 +21,21 @@ Route::get('/', function(){
 });
 Route::get('/map', ['as'=>'map','uses'=>'CodesController@showNiceMap'] );
 Route::post('/order', 'OrdersController@store');
-
-
+Route::get('/sing-up', function(){
+    return View::make('public.pages.singup');
+});
+Route::get('/login', function() {
+    $role = Session::get('role');
+    if ($role != '') {
+        return Redirect::to('/');
+    }
+    return View::make('public.pages.login');
+});
+Route::post('/login', 'UsersController@notAjaxLogin');
 //User Routes 
+
 Route::post('/user/login', 'UsersController@user_login');
+Route::post('/user/register', 'UsersController@user_register');
 Route::get('/logout', function(){
     Session::forget('role');
     return Redirect::back();
@@ -43,9 +54,23 @@ Route::group(['before'=>'userauth'], function(){
     Route::post('/profile/forms/edit/{id}', 'DeliveryFormsController@update');
 });
 
+//Password reminder
+Route::get('/password/remind', 'RemindersController@getRemind');
+Route::post('/password/remind', 'RemindersController@postRemind');
+Route::get('/password/reset/{token}', 'RemindersController@getReset');
+Route::post('/password/reset/{token}', 'RemindersController@postReset');
+
 
 //Testing routes
-
+//Route::get('/lol', function(){
+//    $foo = file_get_contents('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
+//    $bar = json_decode($foo);
+//});
+//Route::get('/lol', function(){
+//    Mail::send('emails.lol', ['lol'=>'lol'], function($message){
+//       $message->to('umer.hurramov@gmail.com')->subject('Тест mail.isogram.org');
+//    });
+//});
 //Route::get('/{lang}/page/{content}', function($lang, $content){    
 //    Session::put('lang', $lang);
 //    App::setLocale($lang);

@@ -8,6 +8,7 @@
 </div> 
 @else
 <div class="sing-in">
-    <span class="sing-in-link modal-toggle" data-modal="modal-enter"><i class="fa fa-sign-in"></i> Войти</span>
+    <a class="sing-in-link" href="/sing-up"><i class="fa fa-user-plus"></i> Зарегестрироваться</a>
+    <a href="/login" class="sing-in-link" data-modal="modal-enter"><i class="fa fa-sign-in"></i> Войти</a>
 </div>
 @endif
