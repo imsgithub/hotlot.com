@@ -481,7 +481,22 @@
                         length: document.getElementById('output-length')
                     };
                     outs.length.innerHTML = Math.round(this.output.dist*0.001).toLocaleString() + ' км';
-                    outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
+                    if (Math.round(this.output.dist*0.001)<=500) {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00012)+ ' до ' +Math.round(this.price*0.001+this.price*0.00012) + ' ' + this.currency.name;
+                    } else if (Math.round(this.output.dist*0.001)<=1000) {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
+                    } else if (Math.round(this.output.dist*0.001)<=2000) {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00007)+ ' до ' +Math.round(this.price*0.001+this.price*0.00007) + ' ' + this.currency.name;
+                    } else if (Math.round(this.output.dist*0.001)<=3000) {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00006)+ ' до ' +Math.round(this.price*0.001+this.price*0.00006) + ' ' + this.currency.name;
+                    } else if (Math.round(this.output.dist*0.001)<=4000) {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00005)+ ' до ' +Math.round(this.price*0.001+this.price*0.00005) + ' ' + this.currency.name;
+                    } else if (Math.round(this.output.dist*0.001)<=7000) {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00004)+ ' до ' +Math.round(this.price*0.001+this.price*0.00004) + ' ' + this.currency.name;
+                    }else {
+                        outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00003)+ ' до ' +Math.round(this.price*0.001+this.price*0.00003) + ' ' + this.currency.name;
+                    }
+//                    outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
                 },
             };
             data.checkbox.bootstrapSwitch({
