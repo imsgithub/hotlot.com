@@ -466,6 +466,11 @@ a.evth-btn {
   display: table;
   clear: both;
 }
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 @font-face {
   font-family: 'icomoon';
   src: url('../fonts/icomoon/icomoon.eot?fnqwvy');
@@ -486,20 +491,26 @@ a.evth-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-money-bag:before {
+.icon-car:before {
   content: "\e600";
 }
-.icon-storehouse:before {
+.icon-load:before {
   content: "\e601";
 }
-.icon-ship:before {
+.icon-money-bag:before {
   content: "\e602";
 }
 .icon-rulers:before {
   content: "\e603";
 }
-.icon-umbrella:before {
+.icon-ship:before {
   content: "\e604";
+}
+.icon-storehouse:before {
+  content: "\e605";
+}
+.icon-umbrella:before {
+  content: "\e606";
 }
 .modal {
   display: none;
@@ -578,6 +589,11 @@ a.evth-btn {
   position: absolute;
   z-index: 0;
   width: 100%;
+  /*        width: 1920px;
+    height: 1080px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;*/
 }
 .top {
   overflow: hidden;
@@ -832,6 +848,9 @@ p {
 }
 .col-3 .service-description {
   width: 220px;
+}
+.col-4 .service-description {
+  width: 136px;
 }
 .inner > div.col-3:last-child .service-icon span {
   font-size: 41px;

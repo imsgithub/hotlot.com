@@ -177,58 +177,82 @@
     <div class="wrapper">
         <div class="inner">
             <h2 class="title">Услуги</h2>
-            <div class="col-2 more-padding-left">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-umbrella"></span>
-                    </div>                    
-                    <div class="service-description">
-                        <h3>Страхование</h3>
-                        <p>Страхование груза от повреждений и форс-мажорных обстоятельств при транспортировке. Ответственность перевозчика за аварию.</p>
-                    </div>                    
+            <div class="clearfix">
+                <div class="col-3">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-car"></span>
+                        </div>                    
+                        <div class="service-description">
+                            <h3>Автомобильные международные перевозки</h3>
+                            <p>экспортных, импортных и транзитных грузов. Внутри Европы, СНГ, Средняя Азия.</p>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-ship"></span>
+                        </div>                    
+                        <div class="service-description">
+                            <h3>Морские контейнерные перевозки</h3>
+                            <p>Особый вид экономических отношений, призванный обеспечить страховую защиту людей (или организаций).</p>
+                        </div>                    
+                    </div>
+                </div>             
+                <div class="col-3">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-load"></span>
+                        </div>                    
+                        <div class="service-description">
+                            <h3>Перевозка сводных грузов</h3>
+                            <p>(группаж) весом от 100 кг с консолидацией на любом из наших лицензионных складов в Европе, СНГ.</p>
+                        </div>                    
+                    </div>
                 </div>
             </div>
-            <div class="col-2 more-padding-right">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-storehouse"></span>
-                    </div>                    
-                    <div class="service-description">
-                        <h3>Хранение</h3>
-                        <p>Хранение в складском помещении с гарантией сохранности Вашего груза. Возможность оставить груз как на временное хранение, так и на длительный период.</p>
-                    </div>                    
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-ship"></span>
-                    </div>                    
-                    <div class="service-description">
-                        <h3>Морские перевозки</h3>
-                        <p>Морские контейнерные перевозки на большое расстояния с опломбированием и запечатыванием товара для сохранности.</p>
-                    </div>                    
-                </div>
-            </div>
-            <div class="col-3">
+            <div class="col-4">
                 <div class="service">
                     <div class="service-icon">
                         <span class="icon-money-bag"></span>
                     </div>                    
                     <div class="service-description">
                         <h3>Брокерские услуги</h3>
-                        <p>Таможенное оформление экспортных, импортных и транзитных грузов. Прохождение сертификации товара и получение необходимых разрешений.</p>
+                        <p>Особый вид экономических отношений, призванный обеспечить страховую защиту людей (или организаций).</p>
                     </div>                    
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-4">
+                <div class="service">
+                    <div class="service-icon">
+                        <span class="icon-umbrella"></span>
+                    </div>                    
+                    <div class="service-description">
+                        <h3>Страхование</h3>
+                        <p>Особый вид экономических отношений, призванный обеспечить страховую защиту людей (или организаций).</p>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col-4">
                 <div class="service">
                     <div class="service-icon">
                         <span class="icon-rulers"></span>
                     </div>                    
                     <div class="service-description">
                         <h3>Негабариты</h3>
-                        <p>Перевозка автопарком негабаритных, крупногабаритных, длинномерных и тяжеловесных грузов.</p>
+                        <p>Особый вид экономических отношений, призванный обеспечить страховую защиту людей (или организаций).</p>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="service">
+                    <div class="service-icon">
+                        <span class="icon-rulers"></span>
+                    </div>                    
+                    <div class="service-description">
+                        <h3>Хранение</h3>
+                        <p>Особый вид экономических отношений, призванный обеспечить страховую защиту людей (или организаций).</p>
                     </div>                    
                 </div>
             </div>
