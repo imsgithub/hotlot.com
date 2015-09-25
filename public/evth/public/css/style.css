@@ -265,12 +265,12 @@ button {
   font-weight: normal;
 }
 .language .ui-selectmenu-button span.ui-selectmenu-text,
-.cargo_type .ui-selectmenu-button span.ui-selectmenu-text,
+.cargotype .ui-selectmenu-button span.ui-selectmenu-text,
 .currency .ui-selectmenu-button span.ui-selectmenu-text {
   padding: 7px;
 }
 .language .ui-state-default,
-.cargo_type .ui-state-default,
+.cargotype .ui-state-default,
 .currency .ui-state-default {
   background: none;
   color: #fff;
@@ -283,17 +283,17 @@ button {
   transition: all 0.4s ease-out;
 }
 .language .ui-state-default:hover,
-.cargo_type .ui-state-default:hover,
+.cargotype .ui-state-default:hover,
 .currency .ui-state-default:hover {
   border-color: #e16f0e;
 }
 .language .ui-state-default:hover span.ui-icon,
-.cargo_type .ui-state-default:hover span.ui-icon,
+.cargotype .ui-state-default:hover span.ui-icon,
 .currency .ui-state-default:hover span.ui-icon {
   border-color: #e16f0e;
 }
 .language .ui-selectmenu-button span.ui-icon,
-.cargo_type .ui-selectmenu-button span.ui-icon,
+.cargotype .ui-selectmenu-button span.ui-icon,
 .currency .ui-selectmenu-button span.ui-icon {
   width: 23px;
   border-left: 1px solid #fff;
@@ -308,13 +308,13 @@ button {
   transition: all 0.4s ease-out;
 }
 .language .ui-selectmenu-button span.ui-icon:after,
-.cargo_type .ui-selectmenu-button span.ui-icon:after,
+.cargotype .ui-selectmenu-button span.ui-icon:after,
 .currency .ui-selectmenu-button span.ui-icon:after {
   content: "";
   display: block;
   position: absolute;
   width: 10px;
-  height: 7px;
+  height: 8px;
   background: url("../img/sprite.png") 0 0 no-repeat;
   top: 50%;
   left: 50%;
@@ -327,12 +327,12 @@ button {
 .currency .ui-state-default {
   margin-top: 3px;
 }
-.cargo_type .ui-selectmenu-button span.ui-selectmenu-text,
+.cargotype .ui-selectmenu-button span.ui-selectmenu-text,
 .currency .ui-selectmenu-button span.ui-selectmenu-text {
   padding: 4px;
 }
 #language-menu.ui-widget-content,
-#cargo_type-menu.ui-widget-content,
+#cargotype-menu.ui-widget-content,
 #currency-menu.ui-widget-content {
   background: transparent;
   /*border: 0px;*/
@@ -341,10 +341,10 @@ button {
   color: #fff;
 }
 #language-menu .ui-state-focus,
-#cargo_type-menu .ui-state-focus,
+#cargotype-menu .ui-state-focus,
 #currency-menu .ui-state-focus,
 #language-menu .ui-widget-content .ui-state-focus,
-#cargo_type-menu .ui-widget-content .ui-state-focus,
+#cargotype-menu .ui-widget-content .ui-state-focus,
 #currency-menu .ui-widget-content .ui-state-focus {
   background: rgba(255, 255, 255, 0.5);
   font-family: "HelveticaRegular", sans-serif;
@@ -353,19 +353,19 @@ button {
   margin: 0;
 }
 #language-menu .ui-menu-item,
-#cargo_type-menu .ui-menu-item,
+#cargotype-menu .ui-menu-item,
 #currency-menu .ui-menu-item {
   padding: 10px;
   border: 0;
 }
-#cargo_type-menu .ui-state-focus,
+#cargotype-menu .ui-state-focus,
 #currency-menu .ui-state-focus,
-#cargo_type-menu .ui-widget-content .ui-state-focus,
+#cargotype-menu .ui-widget-content .ui-state-focus,
 #currency-menu .ui-widget-content .ui-state-focus {
   background: #e5e5e5;
   color: #000;
 }
-#cargo_type-menu.ui-widget-content,
+#cargotype-menu.ui-widget-content,
 #currency-menu.ui-widget-content {
   background: #fff;
   color: #000;
@@ -581,7 +581,7 @@ a.evth-btn {
 }
 .top {
   overflow: hidden;
-  height: 550px;
+  height: 100vh;
 }
 header {
   padding: 20px 10px;
@@ -1324,13 +1324,13 @@ footer .inner {
 .helper .helper-content.active {
   display: block;
 }
-.cargo_type {
+.cargotype {
   padding-left: 32px;
   position: relative;
 }
-.cargo_type .helper {
+.cargotype .helper {
   top: 7px;
-  right: 136px;
+  right: 20px;
 }
 .input-wrapper {
   /*background: #e5e5e5;*/

@@ -117,6 +117,11 @@ Route::group(['before'=>'adminauth'], function(){
    Route::get('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@show_user_form');
    Route::post('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@update_user_form');
    Route::get('/admin/users/{user_id}/forms/{form_id}/print', 'DeliveryFormsController@printForm');
+   
+   Route::get('/admin/cargotypes', 'CargoTypesController@index');
+   Route::post('/admin/cargotypes', 'CargoTypesController@store');
+   Route::post('/admin/cargotypes/{id}', 'CargoTypesController@edit');
+   Route::post('/admin/cargotypes/destroy/{id}', 'CargoTypesController@destroy');
 });
 //Route::post($uri, $action);
 

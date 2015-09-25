@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>google map</title>
+        <title>Rate&Go калькулятор расчета</title>
         <meta name="viewport" content="width=960">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="evth/public/bootstrap/css/bootstrap.min.css">
@@ -55,15 +55,15 @@
                         <span class="glyphicon glyphicon-minus-sign" id="del_transit" data-id="0"></span>
                     </div>
                     <h2 class="subtitle">Выберете тип перевозки</h2>
-                    <div class="cargo_type">
+                    <div class="cargotype">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
                             <span class="helper-content">Тип перевозки может повлиять не её цену.</span>
                         </div>  
-                        <select name="cargo_type" id="cargo_type">
-                            <option value="Крытая" selected="true">Крытая</option>
-                            <option value="Рефрежератор">Рефрежератор</option>
-                            <option value="ADR перевозка">ADR перевозка</option>
+                        <select name="cargotype" id="cargotype">
+                            @foreach ($cargotypes as $cargotype)
+                                <option value="{{$cargotype->value}}">{{$cargotype->name}}</option>                                
+                            @endforeach
                         </select>
                     </div>
                     <h2 class="subtitle">Введите параметры груза</h2>
@@ -381,7 +381,7 @@
                     l: document.getElementById('l'),
                     h: document.getElementById('h'),
                     m: document.getElementById('m'),
-                    type: document.getElementById('cargo_type')
+                    type: document.getElementById('cargotype')
                 },
                 currency: {
                     dom: document.getElementById('currency'),
@@ -449,7 +449,7 @@
                             }
                         }
                     };
-                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist*this.currency.value;                     
+                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist*this.currency.value*this.cargo.type.value;                     
                 },
                 showAll: function() {
                     this.render();
@@ -473,9 +473,11 @@
                             'Страны: ' + this.output.countries.start + '-' + this.output.countries.end + '<br>' +
                             'Коэффициент расстояния: ' + this.coeffs.distance + '<br>' +
                             'Коэффициент страны: ' + this.coeffs.country + '<br>' + 
-                            'Коэффициент груза: ' + this.coeffs.load + '<br>' +
-                            'Тип перевозки: ' + this.cargo.type.value + '<br>' +
-                            'Цена: ' + this.price*0.001 + ' ' + this.currency.name;                    
+                            'Коэффициент груза: ' + this.coeffs.load + '<br>';
+                    for( var i = 0; i< data.cargo.type.options.length; i++) {
+                        if(this.cargo.type.value===this.cargo.type.options[i].value) this.output.content += 'Тип перевозки: ' + this.cargo.type.options[i].textContent + '<br>';
+                    };
+                    this.output.content += 'Цена: ' + this.price*0.001 + ' ' + this.currency.name;    
                     var outs = {
                         price: document.getElementById('output-price'),
                         length: document.getElementById('output-length')

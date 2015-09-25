@@ -92,8 +92,10 @@ $(document).ready(function(){
             doModal({id:this.getAttribute('data-modal')});
        });
    };   
-   if (document.getElementById('cargo_type')) {
-       $('#cargo_type').selectmenu({});
+   if (document.getElementById('cargotype')) {
+       $('#cargotype').selectmenu({
+           width: 250
+       });
    };
    if (document.getElementById('currency')) {
        $('#currency').selectmenu({
