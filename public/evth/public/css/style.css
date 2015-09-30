@@ -491,6 +491,9 @@ a.evth-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-boxes:before {
+  content: "\e607";
+}
 .icon-car:before {
   content: "\e600";
 }
@@ -906,6 +909,13 @@ footer .inner {
   color: #553074;
   line-height: 22px;
   padding-bottom: 20px;
+}
+.contacts a {
+  color: #553074;
+  text-decoration: none;
+}
+.contacts a:hover {
+  text-decoration: underline;
 }
 .copyright {
   height: 45px;
