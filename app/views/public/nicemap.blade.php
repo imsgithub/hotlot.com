@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="evth/public/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
@@ -71,30 +72,30 @@
                         <div class="input-wrapper">
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Длина груза в метрах, от 0.1 до 13.6.</span>
+                                <span class="helper-content">Длина от 0.1 м до 13.6 м (метры).</span>
                             </div>
-                            <input type="text" class="required" id="l" placeholder="длина">
+                            <input type="text" class="required" id="l" placeholder="длина, м">
                         </div>
                         <div class="input-wrapper">
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Ширина груза в метрах, от 0.1 до 2.</span>
+                                <span class="helper-content">Ширина от 0.1 м до 2.5 м (метры).</span>
                             </div>
-                            <input type="text" class="required" id="w" placeholder="ширина">
+                            <input type="text" class="required" id="w" placeholder="ширина, м">
                         </div>
                         <div class="input-wrapper">
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Высота груза в метрах, от 0.1 до 3.3.</span>
+                                <span class="helper-content">Высота от 0.1 м до 3.3 м (метры).</span>
                             </div>
-                            <input type="text" class="required" id="h" placeholder="высота">
+                            <input type="text" class="required" id="h" placeholder="высота, м">
                         </div>
                         <div class="input-wrapper">
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Вес груза в тоннах, от 0.1 до 22.</span>
+                                <span class="helper-content">Вес от 0.1 т до 22 т (тонны).</span>
                             </div>
-                            <input type="text" class="required" id="m"  placeholder="вес">
+                            <input type="text" class="required" id="m"  placeholder="вес, т">
                         </div>
                         <div class="buttons">
                             <button id="rend" class="button">Рассчитать</button>
@@ -124,15 +125,20 @@
                     <span class="output" id="output-price"></span>
                     <div class="orange-block">                        
                         <div id="ajax-inputs">
-                            <h2>Для уточнения условий доставки и цены оставьте заявку </h2>
+                            <h1>Оставьте заявку</h1>
+                            <h2>Для уточнения условий доставки и цены</h2>
                             <div class="evth-row child-on-center">
                                 <div class="bottom-form-group ">
-                                    <i class="evth-cargo evth-cargo-tel"></i>
+                                    <i class="fa fa-envelope-square"></i>
+                                    <input type="text" class="email" id="email_inp" placeholder="email">
+                                </div> 
+                                <div class="bottom-form-group ">
+                                    <i class="fa fa-phone-square"></i>
                                     <input type="text" class="phone" id="phone_inp" placeholder="тел">
                                 </div>                           
                             </div>
                             <div class="top-form-buttons">
-                                <button class="button" id="phone_but">Отправить</button>                            
+                                <button class="button" id="phone_but">Оставить заявку</button>                            
                             </div>
                         </div>
                     </div>
@@ -369,7 +375,7 @@
                     content: ''
                 },
                 directionsService: new google.maps.DirectionsService(),
-                directionsDisplay: new google.maps.DirectionsRenderer(),
+                directionsDisplay: new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "#553074", strokeWeight: 5}}),
                 autocomplete: {},
                 coeffs: {
                     distance: 1,
@@ -473,7 +479,9 @@
                             'Страны: ' + this.output.countries.start + '-' + this.output.countries.end + '<br>' +
                             'Коэффициент расстояния: ' + this.coeffs.distance + '<br>' +
                             'Коэффициент страны: ' + this.coeffs.country + '<br>' + 
-                            'Коэффициент груза: ' + this.coeffs.load + '<br>';
+                            'Коэффициент груза: ' + this.coeffs.load + '<br>' +
+                            'Параметры груза: длина - '+this.cargo.l.value+', ширина - '+this.cargo.w.value+', высота - '+this.cargo.h.value+', вес - '+this.cargo.m.value + '.<br>';
+                    
                     for( var i = 0; i< data.cargo.type.options.length; i++) {
                         if(this.cargo.type.value===this.cargo.type.options[i].value) this.output.content += 'Тип перевозки: ' + this.cargo.type.options[i].textContent + '<br>';
                     };
@@ -534,6 +542,12 @@
                     data.showAll();
                 }
             });
+            function openHelper(){
+                $(this).prev('.helper').click();
+            };
+            function closeHelper(){
+                $(this).prev('.helper').find('.helper-content').click();
+            };
 //            $(data.currency.dom).on('change', function(){
 //                data.currency.value = $(this).val();
 //                data.currency.name = $(this).find(':selected').text();                
@@ -613,8 +627,8 @@
                     types: ['(cities)']
                 };                
                 data.directionsDisplay.setMap(map);
-                data.autocomplete.start = new google.maps.places.Autocomplete(data.cities.start,acOptions);
-                data.autocomplete.end = new google.maps.places.Autocomplete(data.cities.end,acOptions);                
+                data.autocomplete.start = new google.maps.places.Autocomplete(data.cities.start/*,acOptions*/);
+                data.autocomplete.end = new google.maps.places.Autocomplete(data.cities.end/*,acOptions*/);                
 //                var tr_count = parseInt(data.tr_check.getAttribute('data-id'));
 //                if (tr_count > 0) {
 //                    var inputs = document.querySelectorAll('.transit input');
@@ -664,11 +678,11 @@
                         data.directionsDisplay.setDirections(result);
                         var dist = 0;
                         var leg = result.routes[0].legs;
-//                        console.log(result.routes[0].overview_path);
+//                        console.log(result.routes[0].legs[0].steps);
+
                         for (var i = 0; i < leg.length; i++) {
                             dist += leg[i].distance.value;
                         }
-//                        console.log(result.routes[0].legs[0].distance.text);
                         callback.call(this, dist);
                     } else {
                         console.log('Проверьте правильность ввода');
@@ -685,7 +699,9 @@
                       var l = results[0].address_components.length;
                       var code = results[0].address_components[l-1].short_name;
                       if (code.length>2) code = results[0].address_components[l-2].short_name;
-                      callback.call(this, code);                                     
+                      if (results[0].address_components[0].short_name === 'Москва') code = 'MOSCOW';
+                      callback.call(this, code);
+                      console.log(results[0].address_components);
                   } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                     callback.call(this);
@@ -694,6 +710,7 @@
               };
               function ajaxOrder() {
                   var xhr, body, box, ajax_inputs;
+                  if (email_inp.value!=='') data.output.content = 'Email отправителя: <strong>' + email_inp.value +'</strong><br>' + data.output.content;
                   ajax_inputs = document.getElementById('ajax-inputs');
                   box = document.querySelector('.orange-block');
                   xhr = new XMLHttpRequest();
@@ -789,9 +806,11 @@
                     var mes = par.querySelector('.message');                    
                     if (mes!==null) par.removeChild(mes);
                     par.classList.remove('has-error');
+                    openHelper.call(this);
                 });
                 inputs[i].addEventListener('blur',function(){
                     validate.call(this);
+                    closeHelper.call(this);
                 });
             };
 //            calc.addEventListener('click', function(){
@@ -829,9 +848,10 @@
                 });                
             });
             
-            var phone_but, phone_inp;
+            var phone_but, phone_inp, email_inp;
             phone_but = document.getElementById('phone_but');
             phone_inp = document.getElementById('phone_inp');
+            email_inp = document.getElementById('email_inp');
             phone_inp.addEventListener('blur', function(){
                 validate.call(this);
             });
@@ -857,5 +877,6 @@
 <script src="evth/public/js/ready.js"></script>
 <script src="evth/public/js/dragonmap.js"></script>
 <script src="evth/public/js/enter.js"></script>
+@include('counters.metrika')
     </body>
 </html>

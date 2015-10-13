@@ -1304,7 +1304,7 @@ footer .inner {
   font-size: 15px;
   padding-right: 37px;
   display: block;
-  padding-top: 10px;
+  padding-top: 8px;
   text-align: right;
 }
 .back a {
@@ -1344,7 +1344,7 @@ footer .inner {
   left: -20px;
 }
 .helper .helper-content:after {
-  content: "Клик для скрытия подсказки";
+  content: "";
   display: block;
   font-size: 12px;
   padding-top: 5px;
@@ -1401,7 +1401,7 @@ footer .inner {
 .map-form-output {
   display: none;
   width: 320px;
-  height: 460px;
+  height: 486px;
   position: absolute;
   top: 0;
   left: 0;
@@ -1550,26 +1550,35 @@ div.has-error {
 }
 .orange-block {
   width: 212px;
-  height: 176px;
+  height: 212px;
   border: 1px solid #e16f0e;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
   margin: 25px auto;
+  background-color: #e16f0e;
 }
 .orange-block .evth-row {
   width: inherit;
 }
+.orange-block h1 {
+  font-family: "HelveticaBold", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fff;
+  padding-top: 10px;
+  text-align: center;
+}
 .orange-block h2 {
   font-family: "HelveticaBold", sans-serif;
   font-size: 12px;
-  color: #e16f0e;
+  color: #fff;
   text-align: center;
-  padding: 15px;
+  padding: 5px;
   line-height: 1.3em;
 }
 .orange-block .child-on-center > div {
-  margin-top: 0;
+  margin-top: 5px;
 }
 .orange-block .bottom-form-group {
   width: 180px;
@@ -1577,7 +1586,9 @@ div.has-error {
 .orange-block .bottom-form-group input {
   font-family: "HelveticaLight", sans-serif;
   font-size: 14px;
-  width: 154px;
+  width: 146px;
+  display: block;
+  float: right;
 }
 .orange-block .top-form-buttons {
   margin-top: 12px;
@@ -1586,6 +1597,16 @@ div.has-error {
 .orange-block .top-form-buttons .button {
   padding-left: 0;
   padding-right: 0;
+  background-color: #553074;
+  width: 154px;
+}
+.orange-block .fa {
+  color: #553074;
+  font-size: 17px;
+}
+.orange-block .fa-check-square-o {
+  color: #fff;
+  font-size: 92px;
 }
 .success-order {
   text-align: center;

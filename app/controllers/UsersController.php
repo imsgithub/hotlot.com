@@ -80,18 +80,18 @@ class UsersController extends \BaseController {
         $user = $this->user->whereEmail(Session::get('email'))->first();
         if (!isset($user->person->name)) {
             $person = $this->person;
-            $person->name = Input::get('name');
-            $person->surname = Input::get('surname');
-            $person->patronymic = Input::get('patronymic');
-            $person->phone = Input::get('phone');
+            $person->name = HTML::entities(Input::get('name'));
+            $person->surname = HTML::entities(Input::get('surname'));
+            $person->patronymic = HTML::entities(Input::get('patronymic'));
+            $person->phone = HTML::entities(Input::get('phone'));
             $user->person()->save($person);
             return Redirect::back()->withUser($user);
         } else {
             $person = $this->person->where('user_id', '=', $user->id)->first();
-            $person->name = Input::get('name');
-            $person->surname = Input::get('surname');
-            $person->patronymic = Input::get('patronymic');
-            $person->phone = Input::get('phone');
+            $person->name = HTML::entities(Input::get('name'));
+            $person->surname = HTML::entities(Input::get('surname'));
+            $person->patronymic = HTML::entities(Input::get('patronymic'));
+            $person->phone = HTML::entities(Input::get('phone'));
             $person->save();
             return Redirect::back()->withUser($user)->withErrors(['success-msg'=>['Персональные данные сохранены!']]);
         }

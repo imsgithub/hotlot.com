@@ -86,7 +86,7 @@
             return false;
         };
         var name = this.getAttribute('name');                
-        if ((name==='code')&&(this.value.length!==2)) {
+        if ((name==='code')&&(this.value.length<1)) {
             mes.innerHTML = 'Недопустимое значение';
             par.appendChild(mes);
             par.classList.add('has-error');

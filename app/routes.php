@@ -133,3 +133,6 @@ Route::group(['before'=>'adminauth'], function(){
 //    ]);
 //    return $admin->username;
 //});
+//Route::get('/lol',function(){
+//   return HTML::entities('2015-10-13 10:58:00');
+//});

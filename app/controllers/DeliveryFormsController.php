@@ -52,16 +52,16 @@ class DeliveryFormsController extends \BaseController {
             $data = Input::only('kind_of_transport', 'cargo_name', 'number_of_seats', 'volume', 'weight', 'load_address', 'unloading_address', 'load_datetime', 'delivery_datetime', 'method_of_payment');
             if ($form->is_valid($data)) {
                 $user = $this->user->find($this->user_id);
-                $form->kind_of_transport = Input::get('kind_of_transport');
-                $form->cargo_name = Input::get('cargo_name');
-                $form->number_of_seats = Input::get('number_of_seats');
-                $form->volume = Input::get('volume');
-                $form->weight = Input::get('weight');
-                $form->load_address = Input::get('load_address');
-                $form->unloading_address = Input::get('unloading_address');
-                $form->load_datetime = Input::get('load_datetime');
-                $form->delivery_datetime = Input::get('delivery_datetime');
-                $form->method_of_payment = Input::get('method_of_payment');
+                $form->kind_of_transport = HTML::entities(Input::get('kind_of_transport'));
+                $form->cargo_name = HTML::entities(Input::get('cargo_name'));
+                $form->number_of_seats = HTML::entities(Input::get('number_of_seats'));
+                $form->volume = HTML::entities(Input::get('volume'));
+                $form->weight = HTML::entities(Input::get('weight'));
+                $form->load_address = HTML::entities(Input::get('load_address'));
+                $form->unloading_address = HTML::entities(Input::get('unloading_address'));
+                $form->load_datetime = HTML::entities(Input::get('load_datetime'));
+                $form->delivery_datetime = HTML::entities(Input::get('delivery_datetime'));
+                $form->method_of_payment = HTML::entities(Input::get('method_of_payment'));
                 $user->form()->save($form);
                 return Redirect::route('forms');
             }
@@ -111,16 +111,16 @@ class DeliveryFormsController extends \BaseController {
             if ((isset($form->user_id))&&($this->user_id==$form->user_id)) {
                 $data = Input::only('kind_of_transport', 'cargo_name', 'number_of_seats', 'volume', 'weight', 'load_address', 'unloading_address', 'load_datetime', 'delivery_datetime', 'method_of_payment');
                 if ($form->is_valid($data)) {                    
-                    $form->kind_of_transport = Input::get('kind_of_transport');
-                    $form->cargo_name = Input::get('cargo_name');
-                    $form->number_of_seats = Input::get('number_of_seats');
-                    $form->volume = Input::get('volume');
-                    $form->weight = Input::get('weight');
-                    $form->load_address = Input::get('load_address');
-                    $form->unloading_address = Input::get('unloading_address');
-                    $form->load_datetime = Input::get('load_datetime');
-                    $form->delivery_datetime = Input::get('delivery_datetime');
-                    $form->method_of_payment = Input::get('method_of_payment');
+                    $form->kind_of_transport = HTML::entities(Input::get('kind_of_transport'));
+                    $form->cargo_name = HTML::entities(Input::get('cargo_name'));
+                    $form->number_of_seats = HTML::entities(Input::get('number_of_seats'));
+                    $form->volume = HTML::entities(Input::get('volume'));
+                    $form->weight = HTML::entities(Input::get('weight'));
+                    $form->load_address = HTML::entities(Input::get('load_address'));
+                    $form->unloading_address = HTML::entities(Input::get('unloading_address'));
+                    $form->load_datetime = HTML::entities(Input::get('load_datetime'));
+                    $form->delivery_datetime = HTML::entities(Input::get('delivery_datetime'));
+                    $form->method_of_payment = HTML::entities(Input::get('method_of_payment'));
                     $form->save();
                     return Redirect::back()->withErrors(['msg'=>[ 'Сохранено!']]);
                 }
