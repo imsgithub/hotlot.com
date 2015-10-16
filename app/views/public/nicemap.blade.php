@@ -14,12 +14,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-        <script src="evth/public/bootstrap-switch/js/bootstrap-switch.js"></script>        
+        <script src="evth/public/bootstrap-switch/js/bootstrap-switch.js"></script>
         <style>
             #map {
                 width: inherit;
                 height: inherit;
-            }            
+            }
         </style>
     </head>
     <body>
@@ -35,21 +35,21 @@
                         </div>
                         <h1 class="title">Форма заявки</h1>
                     </div>
-                    <h2 class="subtitle">Введите города</h2>                    
+                    <h2 class="subtitle">Введите города</h2>
                     <div class="input-wrapper">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
                             <span class="helper-content">Введите начало маршрута. Поле не должно быть пустым.</span>
-                        </div>                            
+                        </div>
                         <input type="text" class="required" id="start" value="{{$inputs['start']}}" placeholder="откуда">
                     </div>
                     <div class="input-wrapper">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
                             <span class="helper-content">Введите конец маршрута. Поле не должно быть пустым.</span>
-                        </div>  
+                        </div>
                         <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="куда">
-                    </div>                    
+                    </div>
                     <h2 class="subtitle">Добавить транзитный город</h2>
                     <div class="transit">
                         <span class="glyphicon glyphicon-plus-sign" id="add_transit" data-id="0"></span>
@@ -60,10 +60,10 @@
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
                             <span class="helper-content">Тип перевозки может повлиять не её цену.</span>
-                        </div>  
+                        </div>
                         <select name="cargotype" id="cargotype">
                             @foreach ($cargotypes as $cargotype)
-                                <option value="{{$cargotype->value}}">{{$cargotype->name}}</option>                                
+                                <option value="{{$cargotype->value}}">{{$cargotype->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -107,9 +107,9 @@
                     </div>
                 </div>
                 <div class="map-form-output">
-                    <h1 class="title">Результат</h1>                    
+                    <h1 class="title">Результат</h1>
                     <h2 class="subtitle">Длина маршрута</h2>
-                    <span class="output" id="output-length"></span>                    
+                    <span class="output" id="output-length"></span>
                     <div class="currency">
                         <h2 class="subtitle">Стоимость</h2>
                         <select name="currency" id="currency">
@@ -123,7 +123,7 @@
                         </select>
                     </div>
                     <span class="output" id="output-price"></span>
-                    <div class="orange-block">                        
+                    <div class="orange-block">
                         <div id="ajax-inputs">
                             <h1>Оставьте заявку</h1>
                             <h2>Для уточнения условий доставки и цены</h2>
@@ -131,60 +131,60 @@
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-envelope-square"></i>
                                     <input type="text" class="email" id="email_inp" placeholder="email">
-                                </div> 
+                                </div>
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-phone-square"></i>
                                     <input type="text" class="phone" id="phone_inp" placeholder="тел">
-                                </div>                           
+                                </div>
                             </div>
                             <div class="top-form-buttons">
-                                <button class="button" id="phone_but">Оставить заявку</button>                            
+                                <button class="button" id="phone_but">Оставить заявку</button>
                             </div>
                         </div>
                     </div>
                     <div class="back">
                         <a href="#" id="back-to-form"><i class="fa fa-arrow-circle-left"></i> Назад к форме расчета</a>
                     </div>
-                </div>                    
+                </div>
             </div>
             <!--Composer view for unsigned users-->
-                @include('composers.sign')             
+                @include('composers.sign')
                 <!--End of composer view for unsigned users-->
         </div>
     </div>
 <!--        <div class="col-md-4">
             <div class="form">
                 <h4>Данные маршрута</h4>
-                
+
                 <div class="form-group">
                     <label class="control-label" for="end">Куда</label>
-                    
+
                 </div>
-                <div class="form-group">                    
+                <div class="form-group">
                     <input id="transit-city-checkbox" type="checkbox" class="inline">
                 </div>
-                <div class="form-group">                    
+                <div class="form-group">
                     <input type="text" class="form-control" id="transit" disabled="disabled">
                 </div>
                 <h4>Данные груза</h4>
                 <div class="form-group">
                     <label class="control-label" for="w">Ширина (метры): 0,1 &ndash; 2</label>
-                    
+
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="l">Длина (метры): 0,1 &ndash; 13,6</label>
-                    
+
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="h">Высота (метры): 0,1 &ndash; 3,3</label>
-                    
+
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="m">Масса (тонны): 0,1 &ndash; 22</label>
-                    
+
                 </div>
-            </div>  
-            
+            </div>
+
             <button id="calc" class="btn btn-primary">Длина маршрута</button>
             <button id="addr" class="btn btn-success">Коды стран</button>
             <div id="output">
@@ -193,9 +193,9 @@
             </div>
         </div>-->
 <div class="col-md-8" style="display: none">
-            
+
             <div class="form-group pull-right">
-                <h4>Вывод</h4>                
+                <h4>Вывод</h4>
                 <textarea name="" id="textarea" cols="45" rows="20" class="form-control"></textarea>
             </div>
         </div>
@@ -204,7 +204,7 @@
             foreach ($codes as $code) {
                 if (count($code->countries)>0) {
                     foreach ($code->countries as $country) {
-                        echo $code->code.$country->end.':'.$country->value.',<br>';                        
+                        echo $code->code.$country->end.':'.$country->value.',<br>';
                     }
                 }
 //                echo $code->code.$code->countries->end.':'.$code->countries->value;
@@ -237,7 +237,7 @@
                                     <td><p>Получаете предварительную оценку доставки.</p></td>
                                     <td><p>Мы связываемся с Вами для подтверждения заказа.</p></td>
                                     <td><p>Доставляем Ваш груз в назначенное место.</p></td>
-                                </tr>                        
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -264,7 +264,7 @@
                 </div>
 <script>
     $('.helper').on('click', function(){
-        $('.helper-content.active').removeClass('active');        
+        $('.helper-content.active').removeClass('active');
         $(this).find('.helper-content').addClass('active');
     });
     $('.helper-content').on('click', function(e){
@@ -273,10 +273,10 @@
     });
 </script>
         <script>
-            var lol = {
-            
+            var uarules = {
+              "Харьковская область:Запорожская область": 100
             };
-            var rules = {                
+            var rules = {
                 countries: {
                     <?php
                     foreach ($codes as $code) {
@@ -295,12 +295,12 @@
                         {{$rule->letter}}:{{$rule->value}},
                         @endforeach
                     },
-                @endforeach                        
+                @endforeach
             };
         </script>
         <script>
             var textarea = document.getElementById('textarea');
-            function validate() {		
+            function validate() {
 		var par = this.parentNode;
 		var mes;
 		if (par.querySelector('.message')) {
@@ -321,7 +321,7 @@
                 var match = this.value.match(regexp);
                 if ((id==='w')||(id==='h')||(id==='l')||(id==='m')) {
                     replace.call(this);
-                    if ((this.value<rules[id].min)||(this.value>rules[id].max)||(this.value.length!==match.length)) {                        
+                    if ((this.value<rules[id].min)||(this.value>rules[id].max)||(this.value.length!==match.length)) {
                         mes.innerHTML = 'Недопустимое значение';
                         par.appendChild(mes);
                         par.classList.add('has-error');
@@ -337,38 +337,42 @@
                         par.classList.add('has-error');
                         return false;
                     };
-                    var x = match[0];                     
-                    if (x.length < this.value.length) { 
-                        mes.innerHTML = 'Недопустимое значение';
-                        par.appendChild(mes);
-                        par.classList.add('has-error');                       
-                        return false;
-                    };
-                    if (x.length < 7) {      
+                    var x = match[0];
+                    if (x.length < this.value.length) {
                         mes.innerHTML = 'Недопустимое значение';
                         par.appendChild(mes);
                         par.classList.add('has-error');
                         return false;
                     };
-                };                
+                    if (x.length < 7) {
+                        mes.innerHTML = 'Недопустимое значение';
+                        par.appendChild(mes);
+                        par.classList.add('has-error');
+                        return false;
+                    };
+                };
 		return true;
             };
             function replace() {
-		this.value = this.value.replace( ',' , '.' );                
-            };            
+		this.value = this.value.replace( ',' , '.' );
+            };
             var data = {
                 checkbox: $("[type='checkbox']"),
                 cities: {
                     start: document.getElementById('start'),
                     end: document.getElementById('end'),
                     transit: []
-                },                
+                },
                 tr_en: false,
                 tr_check: document.getElementById('add_transit'),
                 mapCanvas: document.getElementById('map'),
                 output: {
                     dist: 1,
                     countries: {
+                        start: '',
+                        end: ''
+                    },
+                    ua: {
                         start: '',
                         end: ''
                     },
@@ -380,8 +384,9 @@
                 coeffs: {
                     distance: 1,
                     load: 1,
-                    country: 1
-                }, 
+                    country: 1,
+                    uacoeff: 1
+                },
                 cargo: {
                     w: document.getElementById('w'),
                     l: document.getElementById('l'),
@@ -421,10 +426,16 @@
                     };
                     temp = this.output.countries.start + this.output.countries.end;
                     reverse_temp = this.output.countries.end + this.output.countries.start;
-//                    var key;
-//                    for (key in rules.countries) {
-//                        if (key === temp) this.coeffs.country = rules.countries[key];
-//                    };
+                    if (temp==='UAUA') {
+                      uacoeff = data.output.ua.start+':'+data.output.ua.end;
+                      if (uarules[uacoeff]!==undefined) {
+                        data.coeffs.uacoeff = uarules[uacoeff];
+                      } else {
+                        data.coeffs.uacoeff = 1;
+                      }
+                    } else {
+                      data.coeffs.uacoeff = 1;
+                    }
                     if (rules.countries[temp]!==undefined) {
                         this.coeffs.country = rules.countries[temp];
                     } else if (rules.countries[reverse_temp]!==undefined) {
@@ -442,7 +453,7 @@
                                 this.coeffs.load = rules.load.f;
                             } else if ((this.cargo.l.value<=rules.l.e)&&(this.cargo.l.value>rules.l.d)) {
                                 this.coeffs.load = rules.load.e;
-                            } 
+                            }
                         } else {
                             if ((this.cargo.l.value<=rules.l.d)&&(this.cargo.l.value>rules.l.c)) {
                                 this.coeffs.load = rules.load.d;
@@ -455,7 +466,7 @@
                             }
                         }
                     };
-                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist*this.currency.value*this.cargo.type.value;                     
+                    this.price = this.coeffs.load*this.coeffs.distance*this.coeffs.country*this.output.dist*this.currency.value*this.cargo.type.value*this.coeffs.uacoeff;
                 },
                 showAll: function() {
                     this.render();
@@ -465,7 +476,7 @@
 //                    textarea.innerHTML += 'Длина маршрута, м: ' + this.output.dist + '\n' +
 //                            'Страны: ' + this.output.countries.start + '-' + this.output.countries.end + '\n' +
 //                            'Коэффициент расстояния: ' + this.coeffs.distance + '\n' +
-//                            'Коэффициент страны: ' + this.coeffs.country + '\n' + 
+//                            'Коэффициент страны: ' + this.coeffs.country + '\n' +
 //                            'Коэффициент груза: ' + this.coeffs.load + '\n' +
 //                            'Цена: ' + this.price*0.001 + '\n';
                     this.output.content = 'Маршрут<br>Откуда: ' + this.cities.start.value + '<br>' +
@@ -473,19 +484,19 @@
                     if (this.tr_en) {
                         for (i = 0; i < this.cities.transit.length; i++) {
                             this.output.content += 'Транзит ' + i + ': ' + this.cities.transit[i].value + '<br>';
-                        };                        
+                        };
                     };
                     this.output.content += 'Длина маршрута, км: ' + this.output.dist*0.001 + '<br>' +
                             'Страны: ' + this.output.countries.start + '-' + this.output.countries.end + '<br>' +
                             'Коэффициент расстояния: ' + this.coeffs.distance + '<br>' +
-                            'Коэффициент страны: ' + this.coeffs.country + '<br>' + 
+                            'Коэффициент страны: ' + this.coeffs.country + '<br>' +
                             'Коэффициент груза: ' + this.coeffs.load + '<br>' +
                             'Параметры груза: длина - '+this.cargo.l.value+', ширина - '+this.cargo.w.value+', высота - '+this.cargo.h.value+', вес - '+this.cargo.m.value + '.<br>';
-                    
+
                     for( var i = 0; i< data.cargo.type.options.length; i++) {
                         if(this.cargo.type.value===this.cargo.type.options[i].value) this.output.content += 'Тип перевозки: ' + this.cargo.type.options[i].textContent + '<br>';
                     };
-                    this.output.content += 'Цена: ' + this.price*0.001 + ' ' + this.currency.name;    
+                    this.output.content += 'Цена: ' + this.price*0.001 + ' ' + this.currency.name;
                     var outs = {
                         price: document.getElementById('output-price'),
                         length: document.getElementById('output-length')
@@ -533,7 +544,7 @@
                     calcRoute(function(dist){
                         data.output.dist.innerHTML = dist;
                     });
-                };        
+                };
             });
             $(data.currency.dom).selectmenu({
                 change: function(e, ui){
@@ -550,7 +561,7 @@
             };
 //            $(data.currency.dom).on('change', function(){
 //                data.currency.value = $(this).val();
-//                data.currency.name = $(this).find(':selected').text();                
+//                data.currency.name = $(this).find(':selected').text();
 //                data.showAll();
 //            });
             function initialize(data) {
@@ -618,46 +629,46 @@
                 var mapOptions = {
                     center: new google.maps.LatLng(53.423956, 20.338401),
                     zoom: 4,
-                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']                                       
-                };               
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                };
                 var map = new google.maps.Map(data.mapCanvas, mapOptions);
                 map.mapTypes.set('map_style', styledMap);
                 map.setMapTypeId('map_style');
                 var acOptions = {
                     types: ['(cities)']
-                };                
+                };
                 data.directionsDisplay.setMap(map);
                 data.autocomplete.start = new google.maps.places.Autocomplete(data.cities.start/*,acOptions*/);
-                data.autocomplete.end = new google.maps.places.Autocomplete(data.cities.end/*,acOptions*/);                
+                data.autocomplete.end = new google.maps.places.Autocomplete(data.cities.end/*,acOptions*/);
 //                var tr_count = parseInt(data.tr_check.getAttribute('data-id'));
 //                if (tr_count > 0) {
 //                    var inputs = document.querySelectorAll('.transit input');
 //                    for (var i = 0; i <inputs.length; i++ ) {
 //                        inputs[i] = new google.maps.places.Autocomplete(data.cities.transit,acOptions);
 //                    }
-//                }                
+//                }
 //                first_autocomplete.bindTo('bounds',map);
-//                second_autocomplete.bindTo('bounds',map);               
+//                second_autocomplete.bindTo('bounds',map);
             }
             initialize(data);
 //            var directionsDisplay;
 //            var directionsService = new google.maps.DirectionsService();
 //            var directionsDisplay = new google.maps.DirectionsRenderer();
-            
+
 //            var chicago = new google.maps.LatLng(41.850033, -87.6500523);
 //            var mapOptions = {
 //            zoom:7,
 //            center: chicago
 //            }
 //            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            
+
             function calcRoute(callback) {//calcRoute(function(dist){console.log(dist)});
                 var start = data.cities.start.value;
                 var end = data.cities.end.value;
                 var request = {
                     origin:start,
                     destination:end,
-                    travelMode: google.maps.TravelMode.DRIVING                   
+                    travelMode: google.maps.TravelMode.DRIVING
                 };
                 if (data.tr_en) {
                     var wpts = [];
@@ -690,8 +701,8 @@
                     }
                 });
             }
-            
-            
+
+
             var geocoder = new google.maps.Geocoder();
             function codeAddress(city, callback) {
                 geocoder.geocode( { 'address': city.value}, function(results, status) {
@@ -700,14 +711,32 @@
                       var code = results[0].address_components[l-1].short_name;
                       if (code.length>2) code = results[0].address_components[l-2].short_name;
                       if (results[0].address_components[0].short_name === 'Москва') code = 'MOSCOW';
-                      callback.call(this, code);
-                      console.log(results[0].address_components);
+                      if(code==='UA') {
+                        uacode = results[0].address_components[l-2].short_name;
+                      } else {
+                        uacode = undefined;
+                      }
+                      callback.call(this, code, uacode);
+                      // console.log(results[0].address_components);
                   } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                     callback.call(this);
                   }
-                });                
+                });
               };
+              // function codeAddressUa(city, callback) {
+              //     geocoder.geocode( { 'address': city.value}, function(results, status) {
+              //       if (status == google.maps.GeocoderStatus.OK) {
+              //           var l = results[0].address_components.length;
+              //           var code = results[0].address_components[l-2].short_name;
+              //           callback.call(this, code);
+              //           // console.log(code);
+              //       } else {
+              //         alert('Невозможно определить область: ' + status);
+              //         callback.call(this);
+              //       }
+              //     });
+              //   };
               function ajaxOrder() {
                   var xhr, body, box, ajax_inputs;
                   if (email_inp.value!=='') data.output.content = 'Email отправителя: <strong>' + email_inp.value +'</strong><br>' + data.output.content;
@@ -721,23 +750,23 @@
                   xhr.onreadystatechange = function (){
                       if (xhr.readyState != 4) return;
                       var output = document.createElement('div');
-                      output.setAttribute('id', 'ajax-output');                      
-                      if (xhr.responseText==='saved') {                          
-                          output.innerHTML = '<h2>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</h2><div class="success-order"><i class="fa fa-check-square-o"></i></div>';                          
+                      output.setAttribute('id', 'ajax-output');
+                      if (xhr.responseText==='saved') {
+                          output.innerHTML = '<h2>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</h2><div class="success-order"><i class="fa fa-check-square-o"></i></div>';
                       } else {
                           output.innerHTML = '<h2>Что-то пошло не так... Просто позвоните нам по телефону на главной странице!</h2>'
                       }
-                      box.appendChild(output);                      
+                      box.appendChild(output);
                   };
                   ajax_inputs.style.display = 'none';
               }
-//            function codeAddress(data) {                
+//            function codeAddress(data) {
 //                geocoder.geocode( { 'address': data.cities.start.value}, function(results, status) {
 //                  if (status == google.maps.GeocoderStatus.OK) {
 //                      var l = results[0].address_components.length;
 //                      var code = results[0].address_components[l-1].short_name;
 //                      data.output.country = code;
-//                  } else {                    
+//                  } else {
 //                    data.output.country = 'Geocode was not successful for the following reason: ' + status;
 //                  }
 //                });
@@ -746,7 +775,7 @@
 //                      var l = results[0].address_components.length;
 //                      var code = results[0].address_components[l-1].short_name;
 //                      data.output.country += '-'+code;
-//                  } else {                    
+//                  } else {
 //                    data.output.country = 'Geocode was not successful for the following reason: ' + status;
 //                  }
 //                });
@@ -759,10 +788,10 @@
             add_transit.addEventListener('click', function(){
                 data.tr_en = true;
                 var data_id = parseInt($(this).attr('data-id'));
-                if (data_id>4) return;                
+                if (data_id>4) return;
                 var tr = document.querySelector('.transit');
                 var inp = document.createElement('input');
-                var div = document.createElement('div');                                
+                var div = document.createElement('div');
                 $(inp).attr({
                     type: 'text',
                     class: 'required',
@@ -774,7 +803,7 @@
                 tr.appendChild(div);
                 data.cities.transit.push(inp);
                 temp = new google.maps.places.Autocomplete(inp,{types: ['(cities)']});
-                $(this).attr('data-id', data_id+1);    
+                $(this).attr('data-id', data_id+1);
                 $('.map-forms-wrapper').css('height', ($('.map-forms-wrapper').height() + 34) + 'px' )
                 if (data_id>-1) {
                     $(del_transit).css('display', 'inline-block');
@@ -803,7 +832,7 @@
             for (var i = 0; i < inputs.length; i++) {
                 inputs[i].addEventListener('focus',function(){
                     var par = this.parentNode;
-                    var mes = par.querySelector('.message');                    
+                    var mes = par.querySelector('.message');
                     if (mes!==null) par.removeChild(mes);
                     par.classList.remove('has-error');
                     openHelper.call(this);
@@ -818,36 +847,38 @@
 //                   data.output.dist = dist;
 //                   document.getElementById('dist').innerHTML = dist;
 //                   data.render();
-//               }); 
+//               });
 //            });
 //            addr.addEventListener('click', function(){
 //               codeAddress(data);
 //               document.getElementById('country').innerHTML = data.output.country;
 //            });
 //            addr.addEventListener('click', function(){
-//               
+//
 //            });
-            rend.addEventListener('click', function(){                
+            rend.addEventListener('click', function(){
                 var arr = [];
                 for (var i = 0; i< inputs.length; i++) {
                     if(!(validate.call(inputs[i]))) arr.push(false);
                 };
                 if (arr.length>0) return false;
-                codeAddress(data.cities.start, function(code){
+                codeAddress(data.cities.start, function(code, uacode){
                     data.output.countries.start = code;
-                });  
-                codeAddress(data.cities.end, function(code){
+                    data.output.ua.start = uacode;
+                });
+                codeAddress(data.cities.end, function(code, uacode){
                     data.output.countries.end = code;
+                    data.output.ua.end = uacode;
                 });
                 calcRoute(function(dist){
                     data.output.dist = dist;
                     data.showAll();
                 });
-                $('.map-form-input').fadeOut(200, function(){                    
+                $('.map-form-input').fadeOut(200, function(){
                     $('.map-form-output').fadeIn();
-                });                
+                });
             });
-            
+
             var phone_but, phone_inp, email_inp;
             phone_but = document.getElementById('phone_but');
             phone_inp = document.getElementById('phone_inp');
@@ -857,7 +888,7 @@
             });
             phone_inp.addEventListener('focus',function(){
                 var par = this.parentNode;
-                var mes = par.querySelector('.message');                    
+                var mes = par.querySelector('.message');
                 if (mes!==null) par.removeChild(mes);
                 par.classList.remove('has-error');
             });
@@ -867,7 +898,7 @@
             });
             $('#back-to-form').on('click', function(e){
                 e.preventDefault();
-                $('.map-form-output').fadeOut(200, function(){                    
+                $('.map-form-output').fadeOut(200, function(){
                     $('.map-form-input').fadeIn();
                     $('#ajax-output').remove();
                     $('#ajax-inputs').css('display', 'block');
