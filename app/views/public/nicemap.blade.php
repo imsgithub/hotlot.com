@@ -34,6 +34,7 @@
                             <span class="helper-content">Заполните эту форму и нажмите "Рассчитать".</span>
                         </div>
                         <h1 class="title">Форма заявки</h1>
+                        <div class="show-form"><i class="fa fa-eye-slash"></i></div>
                     </div>
                     <h2 class="subtitle">Введите города</h2>
                     <div class="input-wrapper">
@@ -838,6 +839,7 @@
                 data_id = parseInt($(add_transit).attr('data-id'));
                 $(add_transit).attr('data-id', data_id-1);
                 $('.map-forms-wrapper').css('height', ($('.map-forms-wrapper').height() - 34) + 'px' )
+                $('.map-forms-wrapper').attr('data-height',$('.map-forms-wrapper').height()+'px');
                 if(data_id < 2) {
                     $(this).css('display', 'none');
                     data.tr_en = false;
@@ -923,11 +925,23 @@
                     $('#ajax-output').remove();
                     $('#ajax-inputs').css('display', 'block');
                 });
-            })
+            });
+            $('.show-form').on('click', function(){
+                var i = $(this).find('i');
+                if (i.hasClass('fa-eye-slash')) {
+                    i.removeClass('fa-eye-slash');
+                    i.addClass('fa-eye');
+                    $('.map-forms-wrapper').attr('data-height',$('.map-forms-wrapper').height()+'px');
+                    $('.map-forms-wrapper').css('height', '40px');
+                } else {
+                    i.removeClass('fa-eye');
+                    i.addClass('fa-eye-slash');                    
+                    $('.map-forms-wrapper').css('height',  $('.map-forms-wrapper').attr('data-height'));
+                }
+            });
         </script>
 <script src="evth/public/js/ready.js"></script>
 <script src="evth/public/js/dragonmap.js"></script>
-<script src="evth/public/js/enter.js"></script>
 @include('counters.metrika')
     </body>
 </html>

@@ -598,6 +598,13 @@ a.evth-btn {
     top: 50%;
     left: 50%;*/
 }
+.mobile-video-poster {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  background: url('../img/video-preloader.png') top right no-repeat;
+  height: 100vh;
+}
 .top {
   overflow: hidden;
   height: 100vh;
@@ -1276,6 +1283,11 @@ footer .inner {
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 .map-form-input .title {
   font-size: 20px;
@@ -1284,7 +1296,7 @@ footer .inner {
   position: relative;
 }
 .map-form-input .form-header .helper {
-  right: 57px;
+  right: 22px;
   top: 13px;
 }
 .map-form-input .helper-content {
@@ -1308,6 +1320,22 @@ footer .inner {
   margin: 0 4px;
   font-family: "HelveticaRegular", sans-serif;
   font-size: 15px;
+}
+.show-form {
+  display: none;
+  position: absolute;
+  left: 33px;
+  top: 6px;
+  font-size: 26px;
+  color: #e16f0e;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.show-form:hover {
+  color: #f5a460;
 }
 .back {
   font-family: "HelveticaBold", sans-serif;
@@ -1625,7 +1653,8 @@ div.has-error {
 }
 #map {
   width: 100vw;
-  height: 100vh;
+  min-height: inherit;
+  height: inherit;
 }
 .register-wrapper {
   font-family: "HelveticaRegular", sans-serif;
@@ -1954,8 +1983,9 @@ div.has-error {
     left: 0;
   }
   .map-wrapper {
-    height: 712px;
+    min-height: 712px;
     background-color: #e16f0e;
+    max-height: 100vh;
   }
   #map-page .sing-in {
     top: 2px;
@@ -1964,11 +1994,23 @@ div.has-error {
     padding: 0;
     margin: 0;
   }
+  #map-page .button-more {
+    display: none;
+  }
+  #map-page .buttons button {
+    width: 252px;
+  }
   .helper .helper-content {
     left: -289px;
     top: auto;
     bottom: 21px;
     padding: 5px 10px 5px 35px;
+  }
+  .register-form {
+    width: 320px;
+  }
+  .show-form {
+    display: block;
   }
 }
 @media all and (max-width: 520px) {

@@ -8,8 +8,15 @@ if (document.querySelector('.top-form')) {
    from = new google.maps.places.Autocomplete(from);
    where = new google.maps.places.Autocomplete(where);       
 };
+function isMobile(){
+    return $('#mobile-check').css('display')==='none';
+}
 $(document).ready(function(){
     $('#steps-owl').owlCarousel({
         singleItem: true,        
     });
+    if (isMobile()) {
+        $('#video').after('<div class="mobile-video-poster"></div>');
+        $('#video').remove();
+    }
 });

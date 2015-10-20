@@ -71,6 +71,13 @@
     top: 50%;
     left: 50%;*/
 }
+.mobile-video-poster {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    background: url('../img/video-preloader.png') top right no-repeat;
+    height: 100vh;
+}
 .top {
     overflow: hidden;
     height: 100vh;
@@ -739,6 +746,8 @@ footer {
     left: 0;
     background: rgba(0,0,0,.73);
     .rounded(9px);
+    overflow: hidden;
+    .transition(.3s);
     .title {
         font-size: 20px;
         cursor: move;
@@ -747,7 +756,7 @@ footer {
     }
     .form-header {
         .helper {            
-            right: 57px;
+            right: 22px;
             top: 13px;            
         }
     }
@@ -769,6 +778,19 @@ footer {
             margin: 0 4px;
             .hr(15px);
         }
+    }
+}
+.show-form {
+    display: none;
+    position: absolute;
+    left: 33px;
+    top: 6px;
+    font-size: 26px;
+    .orange-c(1);
+    cursor: pointer;
+    .transition(.3s);
+    &:hover {
+        color: lighten(@orange, 20%);
     }
 }
 .back {
@@ -1074,7 +1096,8 @@ div.has-error {
 }
 #map {
     width: 100vw;
-    height: 100vh;
+    min-height: inherit;
+    height: inherit;
 }
 
 .register-wrapper {    
@@ -1388,8 +1411,9 @@ iframe {
     left: 0;
 }
 .map-wrapper {
-    height: 712px;
+    min-height: 712px;
     .orange-bg(1);
+    max-height: 100vh;
 }
 #map-page {
     .sing-in {
@@ -1399,6 +1423,14 @@ iframe {
         padding: 0; 
         margin: 0;
     }    
+    .button-more {
+        display: none;
+    }
+    .buttons {
+        button {
+            width: 252px;
+        }
+    }
 }
 .helper {
     .helper-content {
@@ -1407,6 +1439,12 @@ iframe {
         bottom: 21px;    
         padding: 5px 10px 5px 35px;
     }
+}
+.register-form {
+    width: 320px;
+}
+.show-form {
+    display: block;
 }
 }
 

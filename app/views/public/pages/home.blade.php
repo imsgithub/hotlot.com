@@ -394,6 +394,7 @@
                     </div>
                 </div>-->
 </div>
+<div id="mobile-check"></div>
 <script src="evth/public/js/ready.js"></script>
 <!--<script src="evth/public/js/enter.js"></script>-->
 <script src="evth/public/js/home.js"></script>
