@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Rate&Go калькулятор расчета</title>
-        <meta name="viewport" content="width=960">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="evth/public/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="evth/public/bootstrap-switch/css/bootstrap-switch.css">
@@ -15,14 +15,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
         <script src="evth/public/bootstrap-switch/js/bootstrap-switch.js"></script>
-        <style>
+<!--        <style>
             #map {
                 width: inherit;
                 height: inherit;
             }
-        </style>
+        </style>-->
     </head>
-    <body>
+    <body id="map-page">
     <div class="overlay">
         <div class="map-wrapper">
             <div class="map" id="map"></div>
@@ -245,23 +245,7 @@
             </div>
         </div>
     </div>
-    <div id="modal-enter" class="modal">
-                    <div class="modal-wrapper">
-                        <div class="modal-inner">
-                            <span class="close">&times;</span>
-                            <div>
-                                <h2>Войти на сайт</h2>
-                                <div class="input-wrapper">
-                                    <i class="fa fa-user pre-input"></i><input name="email" id="sing-in-email" type="text" placeholder="Email">
-                                </div>
-                                <div class="input-wrapper">
-                                    <i class="fa fa-key pre-input"></i><input type="password" name="password" id="sing-in-password" placeholder="Пароль">
-                                </div>
-                                <div class="input-wrapper evth-right-text"><button type="submit" id="sing-in-submit" class="evth-btn violet-c"><i class="fa fa-arrow-circle-right"></i> Войти</button></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div id="mobile-check"></div>
 <script>
     $('.helper').on('click', function(){
         $('.helper-content.active').removeClass('active');
