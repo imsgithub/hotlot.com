@@ -122,6 +122,14 @@ Route::group(['before'=>'adminauth'], function(){
    Route::post('/admin/cargotypes', 'CargoTypesController@store');
    Route::post('/admin/cargotypes/{id}', 'CargoTypesController@edit');
    Route::post('/admin/cargotypes/destroy/{id}', 'CargoTypesController@destroy');
+   
+   Route::get('/admin/uaareas','UaCoeffsController@index');
+   Route::post('/admin/uaareas', 'UaCoeffsController@addArea');
+   Route::delete('/admin/uaareas','UaCoeffsController@destroyArea');
+   
+   Route::get('/admin/uacoeffs','UaCoeffsController@indexCoeffs');
+   Route::get('/admin/uacoeffs/{id}','UaCoeffsController@editCoeffs');
+   Route::post('/admin/uacoeffs/{id}','UaCoeffsController@storeCoeffs');   
 });
 //Route::post($uri, $action);
 

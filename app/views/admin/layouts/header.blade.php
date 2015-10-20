@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/evth/public/css/jquery.datetimepicker.css">
         <link href="/evth/admin/css/style.css" rel="stylesheet">        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
         <script src="/evth/admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="/evth/public/js/jquery.datetimepicker.js"></script>
     </head>

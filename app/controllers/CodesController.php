@@ -3,11 +3,13 @@
 class CodesController extends \BaseController {
 
     protected $code, $coeff, $currency, $cargotype;
-    public function __construct(Code $code, Coeff $coeff, Currency $currency, CargoType $cargotype) {
+    public function __construct(Code $code, Coeff $coeff, Currency $currency, CargoType $cargotype, UaCoeff $uacoeffs, UaArea $uaareas) {
         $this->code = $code;
         $this->coeff = $coeff;
         $this->currency = $currency;
         $this->cargotype = $cargotype;
+        $this->uacoeffs = $uacoeffs;
+        $this->uaareas = $uaareas;
     }
     
     //Функции для пользователей
@@ -21,11 +23,12 @@ class CodesController extends \BaseController {
         $coeff = $this->coeff->all();
         $currency = $this->currency->all();
         $cargotype = $this->cargotype->all();
+        $ua = ['coeffs'=>$this->uacoeffs->all(), 'areas'=>$this->uaareas->all()];
         $inputs = array(
             'start'=>Input::get('start'),
             'end'=>Input::get('end')
         );
-        return View::make('public.nicemap')->withCodes($code)->withCoeffs($coeff)->withInputs($inputs)->withCurrencies($currency)->withCargotypes($cargotype);
+        return View::make('public.nicemap')->withCodes($code)->withCoeffs($coeff)->withInputs($inputs)->withCurrencies($currency)->withCargotypes($cargotype)->withUa($ua);
     }
     /**
 	 * Display a listing of the resource.

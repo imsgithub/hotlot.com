@@ -276,6 +276,16 @@
             var uarules = {
               "Харьковская область:Запорожская область": 100
             };
+            var uaAreas = {
+                @foreach ($ua['areas'] as $area)
+                    "{{$area->id}}":"{{$area->name}}",
+                @endforeach
+            }
+            var uaCoeffs = {
+                @foreach ($ua['coeffs'] as $coeff)
+                    "{{$coeff->start_id}}:{{$coeff->end_id}}":"{{$coeff->value}}",
+                @endforeach
+            }
             var rules = {
                 countries: {
                     <?php
@@ -427,12 +437,17 @@
                     temp = this.output.countries.start + this.output.countries.end;
                     reverse_temp = this.output.countries.end + this.output.countries.start;
                     if (temp==='UAUA') {
-                      uacoeff = data.output.ua.start+':'+data.output.ua.end;
-                      if (uarules[uacoeff]!==undefined) {
-                        data.coeffs.uacoeff = uarules[uacoeff];
-                      } else {
-                        data.coeffs.uacoeff = 1;
-                      }
+                        var uacoeff = data.output.ua.start+':'+data.output.ua.end;
+                        var reverse_uacoeff = data.output.ua.end+':'+data.output.ua.start;                        
+                        if (uaCoeffs[uacoeff]===undefined) {
+                            if (uaCoeffs[reverse_uacoeff]===undefined) {
+                                data.coeffs.uacoeff = 1;
+                            } else {
+                                data.coeffs.uacoeff = uaCoeffs[reverse_uacoeff];
+                            }                        
+                        } else {
+                            data.coeffs.uacoeff = uaCoeffs[uacoeff];
+                        }
                     } else {
                       data.coeffs.uacoeff = 1;
                     }
@@ -516,6 +531,23 @@
                         outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00004)+ ' до ' +Math.round(this.price*0.001+this.price*0.00004) + ' ' + this.currency.name;
                     }else {
                         outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00003)+ ' до ' +Math.round(this.price*0.001+this.price*0.00003) + ' ' + this.currency.name;
+                    }
+                    if ((this.currency.name === 'UAH')&&(this.output.countries.start==="UA")&&(this.output.countries.end==="UA")) {
+                        if (this.price*0.001<=1000) {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0002)+ ' до ' +Math.round(this.price*0.001+this.price*0.0002) + ' ' + this.currency.name;
+                        } else if ((this.price*0.001>1000)&&(this.price*0.001<=2500)) {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00012)+ ' до ' +Math.round(this.price*0.001+this.price*0.00012) + ' ' + this.currency.name;
+                        } else if ((this.price*0.001>2500)&&(this.price*0.001<=4000)) {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
+                        } else if ((this.price*0.001>4000)&&(this.price*0.001<=6500)) {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00007)+ ' до ' +Math.round(this.price*0.001+this.price*0.00007) + ' ' + this.currency.name;
+                        } else if ((this.price*0.001>6500)&&(this.price*0.001<=8500)) {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00004)+ ' до ' +Math.round(this.price*0.001+this.price*0.00004) + ' ' + this.currency.name;
+                        } else if ((this*0.001.price>8500)&&(this.price*0.001<=12000)) {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00003)+ ' до ' +Math.round(this.price*0.001+this.price*0.00003) + ' ' + this.currency.name;
+                        } else {
+                            outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00002)+ ' до ' +Math.round(this.price*0.001+this.price*0.00002) + ' ' + this.currency.name;
+                        }
                     }
 //                    outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
                 },
@@ -864,11 +896,15 @@
                 if (arr.length>0) return false;
                 codeAddress(data.cities.start, function(code, uacode){
                     data.output.countries.start = code;
-                    data.output.ua.start = uacode;
+                    for (key in uaAreas) {
+                        if (uaAreas[key] === uacode) data.output.ua.start = key;
+                    }
                 });
                 codeAddress(data.cities.end, function(code, uacode){
-                    data.output.countries.end = code;
-                    data.output.ua.end = uacode;
+                    data.output.countries.end = code;                    
+                    for (key in uaAreas) {
+                        if (uaAreas[key] === uacode) data.output.ua.end = key;
+                    }
                 });
                 calcRoute(function(dist){
                     data.output.dist = dist;

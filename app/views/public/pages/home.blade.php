@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Rate&GO!</title>
-    <meta name="viewport" content="width=960">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="evth/public/css/style.css">
+    <link rel="stylesheet" href="evth/public/css/owl.carousel.css">
+    <link rel="stylesheet" href="evth/public/css/owl.theme.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script src="evth/public/js/owl.carousel.min.js"></script>
 </head>
 <body>
 <div class="overlay">
     <div class="wrapper top">
-<!--        <img id="video-preloader" class="video-preloader" src="evth/public/img/video-preloader.png" alt="preloader">-->
         <video poster="evth/public/img/video-preloader.png" class="background-video" id="video" autoplay="autoplay" loop="loop" muted>
             <source src="evth/public/video/screen.mp4" type='video/mp4'>
              <source src="evth/public/video/screen.webm" type='video/webm;'>
@@ -27,13 +29,13 @@
                         <option value="ru">RU</option>
                         <option value="en">EN</option>                    
                     </select>
+                </div>                
+                <div class="logo">
+                    <img src="evth/public/img/logo.png">
                 </div>
                 <!--Composer view for unsigned users-->
                 @include('composers.sign')             
                 <!--End of composer view for unsigned users-->
-                <div class="logo">
-                    <img src="evth/public/img/logo.png">
-                </div>                
             </header>
             <h1 class="top-title">Узнайте оптимальную стоимость транспортировки Вашего груза<br>в любую точку мира за 30 секунд</h1>
         </div>  
@@ -61,7 +63,7 @@
             <h2 class="title">посмотрите видео о нас</h2>
             <div class="designer-decision">
                 <div class="col-2">
-                    <iframe src="//player.vimeo.com/video/69793626" width="420px" height="186px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/69793626" width="420px" height="186px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
                 <div class="col-2">
                     <p><span class="orange-c">Rate&Go</span> - это безопасная и надежная площадка, на которой можно за 30 секунд рассчитать стоимости перевозки грузов от 100 кг до 100+ тонн и перевести груз вместе с нашей командой оформив заказ через личный кабинет на сайте.</p>
@@ -73,7 +75,10 @@
     <div class="wrapper grey-bg">
         <div class="inner section">
             <h2 class="title">кто с нами работает</h2>
-            <div class="center"><img src="evth/public/img/partners.png" alt="кто с нами работает"></div>
+            <div class="center">
+                <img src="evth/public/img/partners.png" class="partners" alt="кто с нами работает">
+                <img src="evth/public/img/partners-mobile.png" class="partners-mobile" alt="кто с нами работает">
+            </div>
         </div>
     </div>
     <div class="wrapper">
@@ -156,6 +161,71 @@
                                 </div>
                             </li>
 			</ul>
+                    </div>
+                </div>
+                <div class="steps-owl" id="steps-owl">
+                    <div class="step-item">
+                        <div class="step-img-wrapper">
+                            <img src="evth/public/img/tab-img-1.png" class="step-img" alt="">
+                        </div>
+                        <div class="step-title">Расчет стоимости</div>
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>РАСЧЕТ СТОИМОСТИ</h3>
+                            <p>С помощью программного калькулятора Rate&Go, Вы получаете расчет стоимости перевозки. Это сделать очень просто и быстро.<br>
+Предложенная цена соответствует реальному положению рынка грузоперевозок и валидна на момент подписания с нами заявки в течении 14 суток. По истечению этого времени, цена может измениться в меньшую или в большую сторону, в зависимости от ситуации на рынке.<br>
+Чтобы зафиксировать цену, Вам нужно оформить заказ через наш сайт. </p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-img-wrapper">
+                            <img src="evth/public/img/tab-img-2.jpg" class="step-img" alt="">
+                        </div>
+                        <div class="step-title">Оформление заказа</div>
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Оформление заказа</h3>
+                            <p>Оформление заказа это просто.<br>
+Отправьте результаты, которые Вы получили через калькулятор Rate&amp;Go, это можно сделать в один клик, нажав кнопку «Отправить», которая появится на экране после расчета цены. Вы также можете позвонить нам по телефону и компетентный менеджер все сделает за Вас.<br>
+Подпись Контракта и Заявки на перевозку займет тоже немного времени и сил. Наш типовой Контракт и Заявку Вы можете получить на e-mail.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-img-wrapper">
+                            <img src="evth/public/img/tab-img-3.jpg" class="step-img" alt="">
+                        </div>
+                        <div class="step-title">Предоплата</div>
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Предоплата</h3>
+                            <p>Для подтверждения Заказа понадобиться сделать предоплату в размере 50% от суммы фрахта после таможенного оформления груза (импорт/экспорт)<br>
+Предоплата производиться на счет Компании Rate&amp;Go в любой валюте мира согласно выставленного счета.<br>
+Конечная оплата производиться по факту доставки груза в гибкие сроки.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-img-wrapper">
+                            <img src="evth/public/img/tab-img-4.jpg" class="step-img" alt="">
+                        </div>
+                        <div class="step-title">Доставка</div>
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>ДОСТАВКА</h3>
+                            <p>Rate&amp;Go гарантирует качественный сервис по доставке любых грузов по всему миру. Мы берем на себя обязательства доставить Ваш груз точно в срок. На каждую перевозку предоставляется страховой сертификат от наших партнеров-страховых компаний с высоким мировым рейтингом.<br>
+Доставка грузов выполняется в соответствии с Международной конвенцией и отвечает всем мировым стандартам и требованиям.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-img-wrapper">
+                            <img src="evth/public/img/tab-img-5.jpg" class="step-img" alt="">
+                        </div>
+                        <div class="step-title">Довольный клиент</div>
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Довольный клиент</h3>
+                            <p>Мы делаем все возможное, чтобы предложить нашим клиентам максимально удобный сервис по перевозкам грузов.<br>
+Для нас важен результат нашей работы и поэтому мы делаем нашу работу с ювелирной точностью. Мы ценим доверие наших клиентов, партнеров и знаем, что наши клиенты всегда могут рекомендовать нас только с лучшей стороны.</p>
+                        </div>
                     </div>
                 </div>
             </div>

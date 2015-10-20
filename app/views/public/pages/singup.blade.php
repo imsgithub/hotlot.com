@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="register-wrapper">
-        <div class="logo"><a href="/"><img src="/evth/public/img/logo.png" alt="rate and go logo"></a></div>
+        <div class="logo login-logo"><a href="/"><img src="/evth/public/img/logo.png" alt="rate and go logo"></a></div>
         <div class="register-form">
             <h2 class="title">Регистрация</h2>
             {{Form::open(['url'=>'/user/register', 'method'=>'POST'])}}

@@ -8,7 +8,8 @@ if (document.querySelector('.top-form')) {
    from = new google.maps.places.Autocomplete(from);
    where = new google.maps.places.Autocomplete(where);       
 };
-//$(window).load(function(){
-//    video.style.display = 'block';
-//    video_preloader.style.display = 'none';
-//});
+$(document).ready(function(){
+    $('#steps-owl').owlCarousel({
+        singleItem: true,        
+    });
+});
