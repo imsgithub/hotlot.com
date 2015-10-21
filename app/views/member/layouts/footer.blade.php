@@ -1,0 +1,1 @@
+<script src="/evth/public/js/member.js"></script>

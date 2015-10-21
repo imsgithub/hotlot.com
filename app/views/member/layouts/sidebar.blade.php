@@ -1,3 +1,8 @@
+<div class="burger-button" data-sidebar=".sidebar">
+    <div class="burger-layer-1"></div>
+    <div class="burger-layer-2"></div>
+    <div class="burger-layer-3"></div>
+</div>
 <aside class="sidebar">
     <div class="logo">
         <a title="На главную" href="/"><img src="/evth/public/img/logo.png" alt="Rate&Go!"></a>
@@ -10,7 +15,6 @@
     <div class="sidebar-footer">
         <a href="http://imsmedia.net.ua/" target="_blanc">&COPY; IMS MEDIA <?php date('Y')?></a>
     </div>
-
 </aside>
 <script>
     var sidebar = document.querySelector('aside');

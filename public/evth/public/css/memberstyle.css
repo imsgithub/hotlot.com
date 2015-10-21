@@ -360,6 +360,11 @@ a.evth-btn {
   display: table;
   clear: both;
 }
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .overlay {
   width: 100%;
   min-width: 1000px;
@@ -421,6 +426,7 @@ a:hover {
 h2 {
   font-size: 18px;
   padding: 5px;
+  line-height: 1.2em;
 }
 .input-wrapper {
   padding: 5px;
@@ -618,4 +624,117 @@ strong {
   cursor: not-allowed;
   background-color: #fff;
   border-color: rgba(0, 0, 0, 0.8);
+}
+.burger-button {
+  display: none;
+}
+@media all and (max-width: 959px) {
+  .input-wrapper input {
+    width: 100%;
+  }
+  .overlay {
+    min-width: 100%;
+    min-height: auto;
+  }
+  .sidebar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    min-height: 100vh;
+    height: 300px;
+    z-index: 1;
+    padding-top: 50px;
+    /*        .transition(.3s, cubic-bezier(0.8, -1.1, 0.5, 1.9));*/
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .sidebar.active {
+    left: 0;
+  }
+  .burger-button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #333;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .burger-button > div {
+    height: 3px;
+    width: 80%;
+    margin: 8px auto;
+    background-color: #fff;
+    -webkit-transition: all 0.3s cubic-bezier(0.8, -1.1, 0.5, 1.9);
+    -moz-transition: all 0.3s cubic-bezier(0.8, -1.1, 0.5, 1.9);
+    -o-transition: all 0.3s cubic-bezier(0.8, -1.1, 0.5, 1.9);
+    transition: all 0.3s cubic-bezier(0.8, -1.1, 0.5, 1.9);
+  }
+  .burger-button .burger-layer-1 {
+    -webkit-transform-origin: 47px 4px 0;
+    -moz-transform-origin: 47px 4px 0;
+    -o-transform-origin: 47px 4px 0;
+    -ms-transform-origin: 47px 4px 0;
+    transform-origin: 47px 4px 0;
+  }
+  .burger-button .burger-layer-3 {
+    -webkit-transform-origin: 0 0 0;
+    -moz-transform-origin: 0 0 0;
+    -o-transform-origin: 0 0 0;
+    -ms-transform-origin: 0 0 0;
+    transform-origin: 0 0 0;
+  }
+  .burger-button.active .burger-layer-2 {
+    opacity: 0;
+    width: 0;
+  }
+  .burger-button.active .burger-layer-1 {
+    -webkit-transform: translateX(-6px) translateY(-12px) rotate(-45deg);
+    -moz-transform: translateX(-6px) translateY(-12px) rotate(-45deg);
+    -o-transform: translateX(-6px) translateY(-12px) rotate(-45deg);
+    -ms-transform: translateX(-6px) translateY(-12px) rotate(-45deg);
+    transform: translateX(-6px) translateY(-12px) rotate(-45deg);
+  }
+  .burger-button.active .burger-layer-3 {
+    -webkit-transform: translateX(7px) translateY(-22px) rotate(45deg);
+    -moz-transform: translateX(7px) translateY(-22px) rotate(45deg);
+    -o-transform: translateX(7px) translateY(-22px) rotate(45deg);
+    -ms-transform: translateX(7px) translateY(-22px) rotate(45deg);
+    transform: translateX(7px) translateY(-22px) rotate(45deg);
+  }
+  .content {
+    width: 100%;
+    min-width: 100%;
+    border-top: 50px solid #333;
+  }
+  .square-inner .left,
+  .square-inner .right {
+    width: 100%;
+    float: none;
+    border-right: none;
+  }
+  .square-inner .left {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  }
+  .text-wrapper p {
+    padding-bottom: 5px;
+  }
+  .evth-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .col-2 {
+    width: 100%;
+    float: none;
+  }
 }
