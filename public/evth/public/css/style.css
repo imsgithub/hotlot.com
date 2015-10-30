@@ -779,7 +779,7 @@ p {
 .violet-map {
   background-image: url('../img/map.png');
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: center center;
   height: 732px;
 }
 .works-list {
@@ -1283,7 +1283,6 @@ footer .inner {
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
-  overflow: hidden;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -1824,6 +1823,9 @@ div.has-error {
   #steps-owl {
     display: block !important;
   }
+  #steps-owl .owl-wrapper {
+    background-color: #553074;
+  }
   #steps-owl .owl-controls {
     position: absolute;
     top: 10px;
@@ -1833,12 +1835,13 @@ div.has-error {
   #steps-owl .owl-controls .owl-pagination {
     width: 100px;
     position: absolute;
-    right: 10px;
+    right: -10px;
   }
   #steps-owl .owl-controls .owl-page span {
-    width: 4px;
-    height: 4px;
+    width: 10px;
+    height: 10px;
     background-color: #e16f0e;
+    margin: 3px;
     /*opacity: 1;*/
   }
   #steps-owl .owl-controls .owl-page.active span {
@@ -1926,13 +1929,13 @@ div.has-error {
     padding-bottom: 0;
   }
   .violet-map {
-    background-image: none;
+    /*background-image: none;*/
     background-color: #e5e5e5;
     height: auto;
   }
   .works-list {
     margin: 10px 10px 20px;
-    background-color: rgba(85, 48, 116, 0.9);
+    background-color: #553074;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -1966,7 +1969,7 @@ div.has-error {
     padding-bottom: 15px;
   }
   .contacts {
-    padding: 10px;
+    padding: 30px 10px 10px;
   }
   .contacts > p {
     width: 280px;
@@ -1974,6 +1977,7 @@ div.has-error {
   .copyright {
     width: 100%;
     text-align: center;
+    right: 0;
   }
   #mobile-check {
     display: none;
@@ -1981,6 +1985,9 @@ div.has-error {
   .map-forms-wrapper {
     top: 41px;
     left: 0;
+  }
+  .map-form-input {
+    overflow: hidden;
   }
   .map-wrapper {
     min-height: 712px;
@@ -2015,6 +2022,7 @@ div.has-error {
 }
 @media all and (max-width: 520px) {
   .logo {
+    text-align: center;
     float: none;
   }
   .sing-in {
