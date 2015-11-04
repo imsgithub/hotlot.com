@@ -9,7 +9,7 @@ $i = 1;
 @if ($coeff->name == 'dl')
 <div class="col-md-3 dl">
     <h5>{{$coeff->ru_name}}</h5>        
-        @foreach ($coeff->rule as $rule)
+        @foreach ($rules[$coeff->name] as $rule)
         <div class="input-group input-group-sm" style="padding-bottom: 10px">
             <span class="input-group-addon" style="width: 60px;">{{$rule->letter}}</span>            
             {{Form::text($rule->id,$rule->value,array('class'=>'form-control'))}}            
@@ -19,7 +19,7 @@ $i = 1;
 @else
 <div class="col-md-3">
     <h5>{{$coeff->ru_name}}</h5>        
-        @foreach ($coeff->rule as $rule)
+        @foreach ($rules[$coeff->name] as $rule)
         <div class="input-group input-group-sm" style="padding-bottom: 10px">
             <span class="input-group-addon" style="width: 60px;">{{$rule->letter}}</span>            
             {{Form::text($rule->id,$rule->value,array('class'=>'form-control'))}}            

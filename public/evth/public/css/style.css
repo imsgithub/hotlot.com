@@ -627,6 +627,22 @@ header:after {
   margin-left: auto;
   margin-right: auto;
 }
+.logo-svg {
+  width: 147px;
+}
+.logo-svg .orange-path,
+.logo-svg .violet-path {
+  -webkit-transition: all 0.3s ease-out ease-out;
+  -moz-transition: all 0.3s ease-out ease-out;
+  -o-transition: all 0.3s ease-out ease-out;
+  transition: all 0.3s ease-out ease-out;
+}
+.logo-svg:hover .orange-path {
+  fill: #DF6F04;
+}
+.logo-svg:hover .violet-path {
+  fill: #56277E;
+}
 .language {
   float: left;
   display: none;

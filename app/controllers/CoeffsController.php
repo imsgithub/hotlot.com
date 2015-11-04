@@ -16,7 +16,13 @@ class CoeffsController extends \BaseController {
 	public function index()
 	{
             $coeffs = $this->coeff->all();
-            return View::make('admin.coeffs.index')->withCoeffs($coeffs);
+            $rules = [];
+            foreach ($coeffs as $coeff) {
+                $rules[$coeff->name] = $coeff->rule()->orderBy('value','ASC')->get();                
+            }            
+//            echo '<pre>';
+//            print_r($rules['w']);
+            return View::make('admin.coeffs.index')->withCoeffs($coeffs)->withRules($rules);
 	}
 
 
