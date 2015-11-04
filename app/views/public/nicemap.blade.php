@@ -74,33 +74,38 @@
                     </div>
                     <h2 class="subtitle">Введите параметры груза</h2>
                     <div class="bottom-form-inputs">
-                        <div class="input-wrapper">
+                        <div class="load-params__input-wrapper">
+                            <label for="l">Длина, м (от 0,1 до 16)</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Длина от 0.1 м до 13.6 м (метры).</span>
                             </div>
-                            <input type="text" class="required" id="l" placeholder="длина, м">
+                            
+                            <input type="text" class="required" id="l" >
                         </div>
-                        <div class="input-wrapper">
+                        <div class="load-params__input-wrapper">
+                            <label for="w">Ширина, м (от 0,1 до 2,5)</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Ширина от 0.1 м до 2.5 м (метры).</span>
-                            </div>
-                            <input type="text" class="required" id="w" placeholder="ширина, м">
+                            </div>                            
+                            <input type="text" class="required" id="w" >
                         </div>
-                        <div class="input-wrapper">
+                        <div class="load-params__input-wrapper">
+                            <label for="h">Высота, м (от 0,1 до 3,3)</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Высота от 0.1 м до 3.3 м (метры).</span>
-                            </div>
-                            <input type="text" class="required" id="h" placeholder="высота, м">
+                            </div>                            
+                            <input type="text" class="required" id="h">
                         </div>
-                        <div class="input-wrapper">
+                        <div class="load-params__input-wrapper">
+                            <label for="m">Вес, т (от 0,1 до 22)</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Вес от 0.1 т до 22 т (тонны).</span>
-                            </div>
-                            <input type="text" class="required" id="m"  placeholder="вес, т">
+                            </div>                            
+                            <input type="text" class="required" id="m" >
                         </div>
                         <div class="buttons">
                             <button id="rend" class="button">Рассчитать</button>
@@ -130,8 +135,8 @@
                     <span class="output" id="output-price"></span>
                     <div class="orange-block">
                         <div id="ajax-inputs">
-                            <h1>Оставьте заявку</h1>
-                            <h2>Для уточнения условий доставки и цены</h2>
+                            <h1>ПОЛУЧИТЕ СТРАХОВКУ В ПОДАРОК</h1>
+                            <h2>с возможностью использовать в течение 1 года</h2>
                             <div class="evth-row child-on-center">
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-envelope-square"></i>
@@ -143,7 +148,7 @@
                                 </div>
                             </div>
                             <div class="top-form-buttons">
-                                <button class="button" id="phone_but">Оставить заявку</button>
+                                <button class="button" id="phone_but">ПОЛУЧИТЬ СТРАХОВКУ</button>
                             </div>
                         </div>
                     </div>
@@ -823,7 +828,7 @@
                 div.appendChild(inp);
                 tr.appendChild(div);
                 data.cities.transit.push(inp);
-                temp = new google.maps.places.Autocomplete(inp,{types: ['(cities)']});
+                temp = new google.maps.places.Autocomplete(inp,{});
                 $(this).attr('data-id', data_id+1);
                 $('.map-forms-wrapper').css('height', ($('.map-forms-wrapper').height() + 34) + 'px' )
                 if (data_id>-1) {
