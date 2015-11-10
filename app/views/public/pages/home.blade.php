@@ -165,7 +165,7 @@
     </div>-->
     <div class="wrapper grey-bg">
         <div class="inner section">
-            <h2 class="title">кто с нами работает</h2>
+            <h2 class="title">кто нам доверяет</h2>
             <div class="center">
                 <img src="evth/public/img/partners.png" class="partners" alt="кто с нами работает">
                 <img src="evth/public/img/partners-mobile.png" class="partners-mobile" alt="кто с нами работает">
@@ -180,9 +180,9 @@
                     <div class="tabs-nav">
 			<ul>
                             <li><span class="tab-nav-digit">1</span><span class="tab-nav-descr">Расчет стоимости</span></li>
-                            <li><span class="tab-nav-digit">2</span><span class="tab-nav-descr">Оформление заказа</span></li>
-                            <li><span class="tab-nav-digit">3</span><span class="tab-nav-descr">Предоплата</span></li>
-                            <li><span class="tab-nav-digit">4</span><span class="tab-nav-descr">Доставка</span></li>
+                            <li><span class="tab-nav-digit">2</span><span class="tab-nav-descr">Оформление заказа</span></li>                            
+                            <li><span class="tab-nav-digit">3</span><span class="tab-nav-descr">Доставка</span></li>
+                            <li><span class="tab-nav-digit">4</span><span class="tab-nav-descr">Оплата</span></li>
                             <li><span class="tab-nav-digit">5</span><span class="tab-nav-descr">Довольный клиент</span></li>                            
 			</ul>
                     </div>
@@ -213,20 +213,7 @@
                                         <img src="evth/public/img/tab-img-2.jpg" alt="Расчет стоимости">                                        
                                     </div>                                    
                                 </div>
-                            </li>
-                            <li>
-                                <div class="tab-content-wrapper">
-                                    <div class="tab-content-text">
-                                        <h3>Предоплата</h3>
-                                        <p>Для подтверждения Заказа понадобиться сделать предоплату в размере 50% от суммы фрахта после таможенного оформления груза (импорт/экспорт)<br>
-Предоплата производиться на счет Компании Rate&Go в любой валюте мира согласно выставленного счета.<br>
-Конечная оплата производиться по факту доставки груза в гибкие сроки.</p>
-                                    </div>
-                                    <div class="img">
-                                        <img src="evth/public/img/tab-img-3.jpg" alt="Расчет стоимости">                                        
-                                    </div>                                    
-                                </div>
-                            </li>
+                            </li>                            
                             <li>
                                 <div class="tab-content-wrapper">
                                     <div class="tab-content-text">
@@ -236,6 +223,17 @@
                                     </div>
                                     <div class="img">
                                         <img src="evth/public/img/tab-img-4.jpg" alt="Расчет стоимости">                                        
+                                    </div>                                    
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tab-content-wrapper">
+                                    <div class="tab-content-text">
+                                        <h3>Оплата</h3>
+                                        <p>Оплата принимается в любой валюте мира согласно выставленного счета-фактуры (инвойс) в срок, который был оговорен при подписании Заявки на перевозку. Приоритетная валюта расчета - Доллар США.</p>
+                                    </div>
+                                    <div class="img">
+                                        <img src="evth/public/img/tab-img-3.jpg" alt="Расчет стоимости">                                        
                                     </div>                                    
                                 </div>
                             </li>
@@ -323,19 +321,23 @@
         </div>
     </div>
     <div class="wrapper grey-bg violet-map">
-        <div class="inner">
-            <h2 class="title">Где мы работаем</h2>
-            <div class="works-list">
-                <ul>
-                    <li>МЫ ПЕРЕВОЗИМ<br>155,000 тонн ежегодно</li>
-                    <li>РАБОТАЕМ В<br>190 странах</li>
-                    <li>постоянных<br>КЛИЕНТОВ<br>более 120</li>
-                    <li>ОХВАТЫВАЕМ<br>более 34000 городов</li>
-                </ul>
+        <canvas id="canvas" class="canvas"></canvas>
+        <div class="where-we-works">
+            <img src="evth/public/img/test-map.png" class="map-img" alt="">
+            <div class="inner">
+                <h2 class="title">Где мы работаем</h2>
+                <div class="works-list">
+                    <ul>
+                        <li>МЫ ПЕРЕВОЗИМ<br>155,000 тонн ежегодно</li>
+                        <li>РАБОТАЕМ В<br>190 странах</li>
+                        <li>постоянных<br>КЛИЕНТОВ<br>более 120</li>
+                        <li>ОХВАТЫВАЕМ<br>более 34000 городов</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper white-bg">
         <div class="inner">
             <h2 class="title">Услуги</h2>
             <div class="clearfix">
@@ -489,6 +491,10 @@
 <script src="evth/public/js/ready.js"></script>
 <!--<script src="evth/public/js/enter.js"></script>-->
 <script src="evth/public/js/home.js"></script>
+<script src="evth/public/js/TweenLite.min.js"></script>
+<script src="evth/public/js/EasePack.min.js"></script>
+<script src="evth/public/js/rAF.js"></script>
+<script src="evth/public/js/demo-1.js"></script>
 @include('counters.metrika')
 </body>
 </html>

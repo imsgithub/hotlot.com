@@ -72,15 +72,22 @@
                             @endforeach
                         </select>
                     </div>
+                    <h2 class="subtitle">Выберете тип транспорта</h2>
+                    <div class="radio-group">
+                        <input type="radio" name="road_type" value="ROADS" data-title="Авто" data-label="<span><i class='fa fa-car'></i></span>Авто">
+                        <input type="radio" name="road_type" value="TRANSIT" data-title="Ж/Д" data-label="<span><i class='fa fa-train'></i></span>Ж/д">
+                        <input type="radio" name="road_type" value="AVIA" data-title="Авиа" data-label="<span><i class='fa fa-plane'></i></span>Авиа">
+                        <input type="radio" name="road_type" value="MARINE" data-title="Морской" data-label="<span><i class='fa fa-ship'></i></span>Морской">
+                    </div>
+                    <div class="cargo-params">
                     <h2 class="subtitle">Введите параметры груза</h2>
                     <div class="bottom-form-inputs">
                         <div class="load-params__input-wrapper">
                             <label for="l">Длина, м (от 0,1 до 16)</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Длина от 0.1 м до 13.6 м (метры).</span>
+                                <span class="helper-content">Длина от 0.1 м до 16 м (метры).</span>
                             </div>
-                            
                             <input type="text" class="required" id="l" >
                         </div>
                         <div class="load-params__input-wrapper">
@@ -88,7 +95,7 @@
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Ширина от 0.1 м до 2.5 м (метры).</span>
-                            </div>                            
+                            </div>
                             <input type="text" class="required" id="w" >
                         </div>
                         <div class="load-params__input-wrapper">
@@ -96,7 +103,7 @@
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Высота от 0.1 м до 3.3 м (метры).</span>
-                            </div>                            
+                            </div>
                             <input type="text" class="required" id="h">
                         </div>
                         <div class="load-params__input-wrapper">
@@ -104,13 +111,19 @@
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
                                 <span class="helper-content">Вес от 0.1 т до 22 т (тонны).</span>
-                            </div>                            
+                            </div>
                             <input type="text" class="required" id="m" >
                         </div>
                         <div class="buttons">
                             <button id="rend" class="button">Рассчитать</button>
                             <button class="button-more modal-toggle" data-modal="modal-how">Узнать подробнее</button>
                         </div>
+                    </div>
+                    </div>
+                    <div class="please-register">
+                      <h2></h2>
+                      <p>Калькулятор для этого вида транспорта находится в разработке.</p><p>Он будет доступен только зарегистрированным пользователям за 9$ в месяц.</p><p><strong>До 1.01.2016 регистрация бесплатно</strong></p>
+                      <a href="sing-up">Зарегистрироваться</a>
                     </div>
                     <div class="back">
                         <a href="/"><i class="fa fa-arrow-circle-left"></i> На главную</a>
@@ -265,6 +278,52 @@
         e.stopPropagation();
         $(this).removeClass('active');
     });
+    var radios = $('[type="radio"]'),
+          form = radios.parent(),
+          length = radios.length,
+          newRadios = [];
+      $.each(radios, function(i){
+        $(this).css({
+          display: 'none'
+        });
+        var el = document.createElement('div');
+        $(el).addClass('evth-radio');
+        $(el).attr('data-value', $(this).attr('value'));
+        $(el).html($(this).attr('data-label'));
+        $(el).attr('data-title',$(this).attr('data-title'));
+        if (i===0) {
+          $(el).addClass('checked');
+          this.checked = true;
+        }
+        this.el = el;
+        var elParent = this;
+        $(this.el).on('click', function(){
+          elParent.click();
+          form.find('.checked').removeClass('checked');
+          $(this).addClass('checked');
+          if($(elParent).attr('value')!=='ROADS') {
+              $('.cargo-params').css({
+                  display: 'none'
+              });
+              $('.please-register').css({
+                  display: 'block'
+              });
+              $('.please-register h2').html($(this).attr('data-title'));
+              $('.map-form-input').css('height', '368px');
+          } else {
+              $('.cargo-params').css({
+                  display: 'block'
+              });
+              $('.please-register').css({
+                  display: 'none'
+              });
+              $('.map-form-input').css('height', 'inherit');
+          }
+        });
+      });
+      for (var i = 0; i < length; i++) {
+        $(radios[length-1]).after(radios[length-1-i].el)
+      };
 </script>
         <script>
             var uarules = {
@@ -383,7 +442,7 @@
                     content: ''
                 },
                 directionsService: new google.maps.DirectionsService(),
-                directionsDisplay: new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "#553074", strokeWeight: 5}}),
+                directionsDisplay: new google.maps.DirectionsRenderer({polylineOptions: {strokeColor: "#7d2879", strokeWeight: 5}}),
                 autocomplete: {},
                 coeffs: {
                     distance: 1,
@@ -432,13 +491,13 @@
                     reverse_temp = this.output.countries.end + this.output.countries.start;
                     if (temp==='UAUA') {
                         var uacoeff = data.output.ua.start+':'+data.output.ua.end;
-                        var reverse_uacoeff = data.output.ua.end+':'+data.output.ua.start;                        
+                        var reverse_uacoeff = data.output.ua.end+':'+data.output.ua.start;
                         if (uaCoeffs[uacoeff]===undefined) {
                             if (uaCoeffs[reverse_uacoeff]===undefined) {
                                 data.coeffs.uacoeff = 1;
                             } else {
                                 data.coeffs.uacoeff = uaCoeffs[reverse_uacoeff];
-                            }                        
+                            }
                         } else {
                             data.coeffs.uacoeff = uaCoeffs[uacoeff];
                         }
@@ -896,7 +955,7 @@
                     }
                 });
                 codeAddress(data.cities.end, function(code, uacode){
-                    data.output.countries.end = code;                    
+                    data.output.countries.end = code;
                     for (key in uaAreas) {
                         if (uaAreas[key] === uacode) data.output.ua.end = key;
                     }
@@ -944,7 +1003,7 @@
                     $('.map-forms-wrapper').css('height', '40px');
                 } else {
                     i.removeClass('fa-eye');
-                    i.addClass('fa-eye-slash');                    
+                    i.addClass('fa-eye-slash');
                     $('.map-forms-wrapper').css('height',  $('.map-forms-wrapper').attr('data-height'));
                 }
             });

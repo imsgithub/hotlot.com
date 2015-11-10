@@ -22,8 +22,8 @@ c.onmousedown = function(e) {
             moveAt(e);
         };  
         c.onmouseup = function() {
-        w.onmousemove = null;
-        c.onmouseup = null;
+            w.onmousemove = null;
+            c.onmouseup = null;
         };
 };
 f.onmousedown = function(e) { 
