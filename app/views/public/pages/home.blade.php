@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="evth/public/img/fav-02.jpg">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="evth/public/img/fav-03.jpg">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="evth/public/img/fav-04.jpg">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script src="evth/public/js/owl.carousel.min.js"></script>
@@ -26,14 +26,14 @@
             <source src="evth/public/video/screen.mp4" type='video/mp4'>
              <source src="evth/public/video/screen.webm" type='video/webm;'>
         </video>
-        <div class="inner">             
+        <div class="inner">
             <header>
                 <div class="language">
                     <select name="language" id="language">
                         <option value="ru">RU</option>
-                        <option value="en">EN</option>                    
+                        <option value="en">EN</option>
                     </select>
-                </div>                
+                </div>
                 <div class="logo">
                     <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 147 29" enable-background="new 0 0 147 29" xml:space="preserve">
@@ -82,11 +82,11 @@
 				c0-0.8-0.7-1.5-1.5-1.5H2.1z"/>
 		</g>
 		<g>
-			<polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6 
+			<polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6
 				6.6,17.6 			"/>
 		</g>
 		<g>
-			<polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5 
+			<polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5
 				9.4,10.5 			"/>
 		</g>
 		<g>
@@ -125,23 +125,24 @@
 
                 </div>
                 <!--Composer view for unsigned users-->
-                @include('composers.sign')             
+                @include('composers.sign')
                 <!--End of composer view for unsigned users-->
             </header>
-            <h1 class="top-title">Узнайте оптимальную стоимость транспортировки Вашего груза<br>в любую точку мира за 30 секунд</h1>
-        </div>  
+            <h1 class="top-title">Рассчитайте стоимость транспортировки<br>за 30 секунд</h1>
+            <h2 class="top-subtitle">и получите страховку в подарок</h2>
+        </div>
         <div class="wrapper violet-bg">
             <div class="inner">
                 <div class="top-form">
                     <form action="/map" method="GET">
-                    <h2 class="top-form-title">Выберете город</h2>
+                    <h2 class="top-form-title">Выберите город</h2>
                     <div class="top-form-inputs">
                         <div class="from"><i class="fa fa-map-marker violet-c"></i><input name="start" type="text" placeholder="откуда"></div>
                         <div class="arrows"><i class="evth-arrows"></i></div>
                         <div class="where"><i class="fa fa-map-marker violet-c"></i><input name="end" type="text" placeholder="куда"></div>
                     </div>
                     <div class="top-form-buttons">
-                        <button type="submit" class="button">Поехали</button>
+                        <button type="submit" class="button">Рассчитать</button>
                     </form>
                         <span class="link modal-toggle" data-modal="modal-how">Как это работает?</span>
                     </div>
@@ -180,10 +181,10 @@
                     <div class="tabs-nav">
 			<ul>
                             <li><span class="tab-nav-digit">1</span><span class="tab-nav-descr">Расчет стоимости</span></li>
-                            <li><span class="tab-nav-digit">2</span><span class="tab-nav-descr">Оформление заказа</span></li>                            
+                            <li><span class="tab-nav-digit">2</span><span class="tab-nav-descr">Оформление заказа</span></li>
                             <li><span class="tab-nav-digit">3</span><span class="tab-nav-descr">Доставка</span></li>
                             <li><span class="tab-nav-digit">4</span><span class="tab-nav-descr">Оплата</span></li>
-                            <li><span class="tab-nav-digit">5</span><span class="tab-nav-descr">Довольный клиент</span></li>                            
+                            <li><span class="tab-nav-digit">5</span><span class="tab-nav-descr">Довольный клиент</span></li>
 			</ul>
                     </div>
                     <div class="tabs-content">
@@ -197,8 +198,8 @@
 Чтобы зафиксировать цену, Вам нужно оформить заказ через наш сайт. </p>
                                     </div>
                                     <div class="img">
-                                        <img src="evth/public/img/tab-img-1.png" alt="Расчет стоимости">                                        
-                                    </div>                                    
+                                        <img src="evth/public/img/tab-img-1.png" alt="Расчет стоимости">
+                                    </div>
                                 </div>
                             </li>
                             <li>
@@ -210,10 +211,10 @@
 Подпись Контракта и Заявки на перевозку займет тоже немного времени и сил. Наш типовой Контракт и Заявку Вы можете получить на e-mail.</p>
                                     </div>
                                     <div class="img">
-                                        <img src="evth/public/img/tab-img-2.jpg" alt="Расчет стоимости">                                        
-                                    </div>                                    
+                                        <img src="evth/public/img/tab-img-2.jpg" alt="Расчет стоимости">
+                                    </div>
                                 </div>
-                            </li>                            
+                            </li>
                             <li>
                                 <div class="tab-content-wrapper">
                                     <div class="tab-content-text">
@@ -222,8 +223,8 @@
 Доставка грузов выполняется в соответствии с Международной конвенцией и отвечает всем мировым стандартам и требованиям.</p>
                                     </div>
                                     <div class="img">
-                                        <img src="evth/public/img/tab-img-4.jpg" alt="Расчет стоимости">                                        
-                                    </div>                                    
+                                        <img src="evth/public/img/tab-img-4.jpg" alt="Расчет стоимости">
+                                    </div>
                                 </div>
                             </li>
                             <li>
@@ -233,8 +234,8 @@
                                         <p>Оплата принимается в любой валюте мира согласно выставленного счета-фактуры (инвойс) в срок, который был оговорен при подписании Заявки на перевозку. Приоритетная валюта расчета - Доллар США.</p>
                                     </div>
                                     <div class="img">
-                                        <img src="evth/public/img/tab-img-3.jpg" alt="Расчет стоимости">                                        
-                                    </div>                                    
+                                        <img src="evth/public/img/tab-img-3.jpg" alt="Расчет стоимости">
+                                    </div>
                                 </div>
                             </li>
                             <li>
@@ -245,8 +246,8 @@
 Для нас важен результат нашей работы и поэтому мы делаем нашу работу с ювелирной точностью. Мы ценим доверие наших клиентов, партнеров и знаем, что наши клиенты всегда могут рекомендовать нас только с лучшей стороны.</p>
                                     </div>
                                     <div class="img">
-                                        <img src="evth/public/img/tab-img-5.jpg" alt="Расчет стоимости">                                        
-                                    </div>                                    
+                                        <img src="evth/public/img/tab-img-5.jpg" alt="Расчет стоимости">
+                                    </div>
                                 </div>
                             </li>
 			</ul>
@@ -330,10 +331,363 @@
                     <ul>
                         <li>МЫ ПЕРЕВОЗИМ<br>155,000 тонн ежегодно</li>
                         <li>РАБОТАЕМ В<br>190 странах</li>
-                        <li>постоянных<br>КЛИЕНТОВ<br>более 120</li>
+                        <li>постоянных<br>КЛИЕНТОВ более 120</li>
                         <li>ОХВАТЫВАЕМ<br>более 34000 городов</li>
                     </ul>
                 </div>
+            </div>
+            <div class="works-form-wrapper">
+              <div class="works-form-inner">
+                <div class="works-form">
+                  <h2 class="works-form__title">Рассчитайте стоимость<br>перевозки за 1 минуту</h2>
+                  <img src="evth/public/img/dummy-arrow.png" alt="duumy arrow" class="works-form__dummy-arrow">
+                  <div class="works-form__inputs-wrapper">
+                    <div class="works-form__input-wrapper">
+                      <i class="fa fa-map-marker violet-c"></i>
+                      <input class="works-form__input works-start-city" type="text" name="from" value="" placeholder="Откуда">
+                    </div>
+                    <div class="works-form__input-wrapper">
+                      <i class="fa fa-map-marker violet-c"></i>
+                      <input class="works-form__input works-end-city" type="text" name="where" value="" placeholder="Куда">
+                    </div>
+                    <div class="works-form__input-wrapper">
+                      <i class="fa fa-phone violet-c"></i>
+                      <input class="works-form__input" type="text" name="phone" value="" placeholder="Телефон">
+                    </div>
+                    <div class="works-form__button-wrapper">
+                      <button type="button" class="works-form__button">рассчитать</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cities-gallery-wrapper">
+                <div class="cities-gallery">
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/gamburg.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/lvov.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Гамбург</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Львов</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,150.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/milan.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/kiev.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Милан</span>
+                    <span class="flag flag-it flag-start"></span>
+                    <span class="cities-gallery__city--end">Киев</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,950.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/varshava.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/odessa.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Варшава</span>
+                    <span class="flag flag-pl flag-start"></span>
+                    <span class="cities-gallery__city--end">Одесса</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,150.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/moscow.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/berlin.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Москва</span>
+                    <span class="flag flag-ru flag-start"></span>
+                    <span class="cities-gallery__city--end">Берлин</span>
+                    <span class="flag flag-de flag-end"></span>
+                    <span class="cities-gallery__price">€1,400.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/prague.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/kharkov.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Прага</span>
+                    <span class="flag flag-cz flag-start"></span>
+                    <span class="cities-gallery__city--end">Харьков</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,550.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/gamburg.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/saint-petersburg.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Гамбург</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Санкт-Петербург</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€1,700.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/turin.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/novosibirsk.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Турин</span>
+                    <span class="flag flag-it flag-start"></span>
+                    <span class="cities-gallery__city--end">Новосибирск</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€2,900.00</span>
+                  </div>     
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/frankfurt.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/kiev.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Франкфурт</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Киев</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,500.00</span>
+                  </div>    
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/stambul.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/moscow.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Стамбул</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Москва</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€3,750.00</span>
+                  </div>  
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/duselrdorf.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/ashgabat.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Дюссельдорф</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Ашхабад</span>
+                    <span class="flag flag-tm flag-end"></span>
+                    <span class="cities-gallery__price">€8,000.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/neapol.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/irkutsk.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Неаполь</span>
+                    <span class="flag flag-it flag-start"></span>
+                    <span class="cities-gallery__city--end">Иркутск</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€6,100.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/konstanz.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/kharkov.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Констанца</span>
+                    <span class="flag flag-ro flag-start"></span>
+                    <span class="cities-gallery__city--end">Харьков</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,650.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/milan.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/almaty.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Милан</span>
+                    <span class="flag flag-it flag-start"></span>
+                    <span class="cities-gallery__city--end">Алматы</span>
+                    <span class="flag flag-kz flag-end"></span>
+                    <span class="cities-gallery__price">€8,800.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/orhus.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/debrecen.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Орхус</span>
+                    <span class="flag flag-dk flag-start"></span>
+                    <span class="cities-gallery__city--end">Дебрецен</span>
+                    <span class="flag flag-hu flag-end"></span>
+                    <span class="cities-gallery__price">€1,900.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/zeebrugge.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/munich.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Зебрюгге</span>
+                    <span class="flag flag-be flag-start"></span>
+                    <span class="cities-gallery__city--end">Мюнхен</span>
+                    <span class="flag flag-de flag-end"></span>
+                    <span class="cities-gallery__price">€1,200.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/paris.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/kiev.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Париж</span>
+                    <span class="flag flag-fr flag-start"></span>
+                    <span class="cities-gallery__city--end">Киев</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,950.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/budapest.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/samara.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Будапешт</span>
+                    <span class="flag flag-hu flag-start"></span>
+                    <span class="cities-gallery__city--end">Самара</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€2,150.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/oslo.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/krasnodar.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Осло</span>
+                    <span class="flag flag-no flag-start"></span>
+                    <span class="cities-gallery__city--end">Краснодар</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€2,950.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/brno.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/riga.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Брно</span>
+                    <span class="flag flag-cz flag-start"></span>
+                    <span class="cities-gallery__city--end">Рига</span>
+                    <span class="flag flag-lv flag-end"></span>
+                    <span class="cities-gallery__price">€1,450.00</span>
+                  </div> 
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/minsk.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/astana.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Минск</span>
+                    <span class="flag flag-by flag-start"></span>
+                    <span class="cities-gallery__city--end">Астана</span>
+                    <span class="flag flag-kz flag-end"></span>
+                    <span class="cities-gallery__price">€5,350.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/kiev.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/dortmund.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Киев</span>
+                    <span class="flag flag-ua flag-start"></span>
+                    <span class="cities-gallery__city--end">Дортмунд</span>
+                    <span class="flag flag-de flag-end"></span>
+                    <span class="cities-gallery__price">€1,600.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/roterdam.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/kazan.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Роттердам</span>
+                    <span class="flag flag-nl flag-start"></span>
+                    <span class="cities-gallery__city--end">Казань</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€2,550.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/moscow.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/bolonja.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Москва</span>
+                    <span class="flag flag-ru flag-start"></span>
+                    <span class="cities-gallery__city--end">Болонья</span>
+                    <span class="flag flag-it flag-end"></span>
+                    <span class="cities-gallery__price">€2,050.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/saint-petersburg.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/moscow.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Санкт-Петербург</span>
+                    <span class="flag flag-ru flag-start"></span>
+                    <span class="cities-gallery__city--end">Москва</span>
+                    <span class="flag flag-ru flag-end"></span>
+                    <span class="cities-gallery__price">€1,100.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/varshava.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/astana.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Варшава</span>
+                    <span class="flag flag-pl flag-start"></span>
+                    <span class="cities-gallery__city--end">Астана</span>
+                    <span class="flag flag-kz flag-end"></span>
+                    <span class="cities-gallery__price">€1,100.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/parma.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/tashkent.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Парма</span>
+                    <span class="flag flag-it flag-start"></span>
+                    <span class="cities-gallery__city--end">Ташкент</span>
+                    <span class="flag flag-uz flag-end"></span>
+                    <span class="cities-gallery__price">€8,550.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/koper.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/odessa.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Копер</span>
+                    <span class="flag flag-si flag-start"></span>
+                    <span class="cities-gallery__city--end">Одесса</span>
+                    <span class="flag flag-ua flag-end"></span>
+                    <span class="cities-gallery__price">€1,600.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/roterdam.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/stuttgart.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Роттердам</span>
+                    <span class="flag flag-nl flag-start"></span>
+                    <span class="cities-gallery__city--end">Штутгарт</span>
+                    <span class="flag flag-de flag-end"></span>
+                    <span class="cities-gallery__price">€850.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/vroclav.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/gomel.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Вроцлав</span>
+                    <span class="flag flag-pl flag-start"></span>
+                    <span class="cities-gallery__city--end">Гомель</span>
+                    <span class="flag flag-by flag-end"></span>
+                    <span class="cities-gallery__price">€900.00</span>
+                  </div>  
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/zutomir.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/poznan.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Житомир</span>
+                    <span class="flag flag-ua flag-start"></span>
+                    <span class="cities-gallery__city--end">Познань</span>
+                    <span class="flag flag-pl flag-end"></span>
+                    <span class="cities-gallery__price">€1,000.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/stambul.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/tashkent.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Стамбул</span>
+                    <span class="flag flag-ua flag-start"></span>
+                    <span class="cities-gallery__city--end">Ташкент</span>
+                    <span class="flag flag-pl flag-end"></span>
+                    <span class="cities-gallery__price">€7,000.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/dnepropetrovsk.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/tegeran.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Днепропетровск</span>
+                    <span class="flag flag-ua flag-start"></span>
+                    <span class="cities-gallery__city--end">Тегеран</span>
+                    <span class="flag flag-ir flag-end"></span>
+                    <span class="cities-gallery__price">€4,650.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/ganover.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/baku.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Ганновер</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Азербайджан, Баку</span>
+                    <span class="flag flag-az flag-end"></span>
+                    <span class="cities-gallery__price">€4,600.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/kotka.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/rostov-na-dony.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Котка</span>
+                    <span class="flag flag-de flag-start"></span>
+                    <span class="cities-gallery__city--end">Ростов-на-Дону</span>
+                    <span class="flag flag-az flag-end"></span>
+                    <span class="cities-gallery__price">€1,750.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/tallin.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/koshica.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Таллин</span>
+                    <span class="flag flag-ee flag-start"></span>
+                    <span class="cities-gallery__city--end">Кошице</span>
+                    <span class="flag flag-sk flag-end"></span>
+                    <span class="cities-gallery__price">€1,750.00</span>
+                  </div>
+                  <div class="cities-gallery__item">
+                    <div class="triangle-left"><img src="evth/public/img/cities/london.png" alt=""></div>
+                    <div class="triangle-right"><img src="evth/public/img/cities/sumkent.png" alt=""></div>
+                    <span class="cities-gallery__city--start">Лондон</span>
+                    <span class="flag flag-gb flag-start"></span>
+                    <span class="cities-gallery__city--end">Шымкент</span>
+                    <span class="flag flag-kz flag-end"></span>
+                    <span class="cities-gallery__price">€8,200.00</span>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
     </div>
@@ -345,33 +699,33 @@
                     <div class="service">
                         <div class="service-icon">
                             <span class="icon-car"></span>
-                        </div>                    
+                        </div>
                         <div class="service-description">
                             <h3>Автомобильные международные перевозки</h3>
                             <p>Перевозки импортных, экспортных и транзитных грузов. Все страны СНГ, ср. Азии, внутри Евросоюза.</p>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="service">
                         <div class="service-icon">
                             <span class="icon-ship"></span>
-                        </div>                    
+                        </div>
                         <div class="service-description">
                             <h3>Морские контейнерные перевозки</h3>
                             <p>Морские контейнерные перевозки и экспедирование грузов по всему миру. Оформление всей морской документации.</p>
-                        </div>                    
+                        </div>
                     </div>
-                </div>             
+                </div>
                 <div class="col-3">
                     <div class="service">
                         <div class="service-icon">
                             <span class="icon-boxes"></span>
-                        </div>                    
+                        </div>
                         <div class="service-description">
                             <h3>Перевозка<br>сборных<br>грузов</h3>
                             <p>Группажные перевозки весом от 100 кг с консолидацией на любом из наших лицензионных складов в Европе, СНГ.</p>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -379,44 +733,44 @@
                 <div class="service">
                     <div class="service-icon">
                         <span class="icon-money-bag"></span>
-                    </div>                    
+                    </div>
                     <div class="service-description">
                         <h3>Брокерские услуги</h3>
                         <p>Таможенное оформление экспортных, импортных и транзитных грузов. Прохождение сертификации товара и получение необходимых разрешений.</p>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="service">
                     <div class="service-icon">
                         <span class="icon-umbrella"></span>
-                    </div>                    
+                    </div>
                     <div class="service-description">
                         <h3>Страхование</h3>
                         <p>Страхование груза от повреждений и форс-мажорных обстоятельств при транспортировке. Ответственность перевозчика за аварию.</p>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="service">
                     <div class="service-icon">
                         <span class="icon-rulers"></span>
-                    </div>                    
+                    </div>
                     <div class="service-description">
                         <h3>Негабаритные перевозки</h3>
                         <p>Перевозка автопарком негабаритных, крупногабаритных, длинномерных и тяжеловесных грузов.</p>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="service">
                     <div class="service-icon">
                         <span class="icon-storehouse"></span>
-                    </div>                    
+                    </div>
                     <div class="service-description">
                         <h3>Хранение</h3>
                         <p>Хранение в складском помещении с гарантией сохранности Вашего груза. Возможность оставить груз как на временное хранение, так и на длительный период.</p>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -429,7 +783,7 @@
                 <p>Главный офис:<br>ул. Верхний Вал 4А Киев 04071 Украина</p>
                 <p>+380-44-492-4020 - Ukraine</p>
                 <p>+7 (495) 133-8777 - RUS</p>
-                <p>+420-234-261-739 - Czech Republic</p> 
+                <p>+420-234-261-739 - Czech Republic</p>
                 <p><a href="mailto:info@rate-and-go.com">info@rate-and-go.com</a></p>
                 <div class="copyright"><a href="http://imsmedia.net.ua/" target="_blank">IMS MEDIA 2015</a></div>
             </div>
@@ -461,7 +815,7 @@
                                     <td><p>Получаете предварительную оценку доставки.</p></td>
                                     <td><p>Мы связываемся с Вами для подтверждения заказа.</p></td>
                                     <td><p>Доставляем Ваш груз в назначенное место.</p></td>
-                                </tr>                        
+                                </tr>
                             </tbody>
                         </table>
                     </div>

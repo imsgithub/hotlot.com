@@ -79,6 +79,7 @@ function enterHandler() {
     };
     enter({email: email, password: password});
 }
+
 $(document).ready(function(){
     if (document.getElementById('language')) {
         $( "#language" ).selectmenu({
@@ -112,5 +113,5 @@ $(document).ready(function(){
         modal_enter.addEventListener('keydown', function(e){            
             if (e.which===13) enterHandler();            
         });
-    };    
+    }; 
 });

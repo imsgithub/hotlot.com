@@ -40,6 +40,7 @@ Route::get('/logout', function(){
     Session::forget('role');
     return Redirect::back();
 });
+Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
 Route::group(['before'=>'userauth'], function(){
     
     Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']);
