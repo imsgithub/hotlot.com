@@ -2,7 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        @if (($inputs['start']!='')&&($inputs['end']!=''))
+        <title>Доставить груз из {{$inputs['start']}} в {{$inputs['end']}} стоимость, цена перевозки, цены доставки</title>
+        <meta name="description" content="Привозка груза из {{$inputs['start']}} в {{$inputs['end']}} узнай стоимость за 30 секунд">
+        @else
         <title>Rate&Go калькулятор расчета</title>
+        <meta name="description" content="">
+        @endif
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon-precomposed" href="evth/public/img/fav-01.jpg">
@@ -134,7 +140,7 @@
                         </h1>
                         
                     </div>
-                    <h2 class="subtitle">Введите города</h2>
+                    <span class="subtitle">Введите города</span>
                     <div class="input-wrapper">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
@@ -149,12 +155,12 @@
                         </div>
                         <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="куда">
                     </div>
-                    <h2 class="subtitle">Добавить транзитный город</h2>
+                    <span class="subtitle">Добавить транзитный город</span>
                     <div class="transit">
                         <span class="glyphicon glyphicon-plus-sign" id="add_transit" data-id="0"></span>
                         <span class="glyphicon glyphicon-minus-sign" id="del_transit" data-id="0"></span>
                     </div>
-                    <h2 class="subtitle">Выберете тип перевозки</h2>
+                    <span class="subtitle">Выберете тип перевозки</span>
                     <div class="cargotype">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
@@ -166,7 +172,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <h2 class="subtitle">Выберете тип транспорта</h2>
+                    <span class="subtitle">Выберете тип транспорта</span>
                     <div class="radio-group">
                         <input type="radio" name="road_type" value="ROADS" data-title="Авто" data-label="<span><i class='fa fa-truck'></i></span>Авто">
                         <input type="radio" name="road_type" value="TRANSIT" data-title="Ж/Д" data-label="<span><i class='fa fa-train'></i></span>Ж/д">
@@ -174,7 +180,7 @@
                         <input type="radio" name="road_type" value="MARINE" data-title="Морской" data-label="<span><i class='fa fa-ship'></i></span>Морской">
                     </div>
                     <div class="cargo-params">
-                    <h2 class="subtitle">Введите параметры груза</h2>
+                    <span class="subtitle">Введите параметры груза</span>
                     <div class="bottom-form-inputs">
                         <div class="load-params__input-wrapper">
                             <label for="l">Длина, м (от 0,1 до 16)</label>
@@ -209,18 +215,18 @@
                             <input type="text" class="required" id="m" >
                         </div>
                         <div class="buttons">
-                            <button id="rend" class="button">Рассчитать</button>
+                            <button id="rend" class="button" onclick="ga('send','pageview', '/virtual/raschet');">Рассчитать</button>
                             <button class="button-more modal-toggle" data-modal="modal-how">Узнать подробнее</button>
                         </div>
                     </div>
                     </div>
                     <div class="please-register">
                         <div class="violet-rhombus"></div>
-                        <h2>Калькулятор для этого вида транспорта находится в<br>разработке.</h2>
+                        <span>Калькулятор для этого вида транспорта находится в<br>разработке.</span>
                         <div class="please-register__content">
                             <p class="please-register__text">Он будет доступен только зарегистрированным пользователям</p>
                             <div class="please-register__table">
-                                <div class="please-register__left">за <span class="big">9$</span></div>
+                                <div class="please-register__left">за <strong class="big">$9,0</strong></div>
                                 <div class="please-register__right">в месяц или<br>сейчас бесплатно*</div>                            
                             </div>
                             <a href="sing-up">Зарегистрироваться</a>
@@ -323,7 +329,7 @@
                     </a>
                 </div>
                     <h1 class="title">Результат</h1>
-                    <h2 class="subtitle">Длина маршрута</h2>
+                    <span class="subtitle">Длина маршрута</span>
                     <span class="output" id="output-length"></span>
                     <div class="currency">
                         <h2 class="subtitle">Стоимость</h2>
@@ -341,7 +347,7 @@
                     <div class="orange-block">
                         <div id="ajax-inputs">
                             <h1>Оставьте заявку сейчас</h1>
-                            <h2>и получите годовую страховку в Подарок!</h2>
+                            <span>и получите годовую страховку в Подарок!</span>
                             <div class="evth-row child-on-center">
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-envelope-square"></i>
@@ -353,7 +359,7 @@
                                 </div>
                             </div>
                             <div class="top-form-buttons">
-                                <button class="button" id="phone_but">Оставить заявку</button>
+                                <button class="button" id="phone_but" onclick="ga('send','pageview', '/virtual/otpravili');">Оставить заявку</button>
                             </div>
                         </div>
                     </div>
@@ -521,7 +527,7 @@
             <div class="modal-inner">
                 <span class="close">&times;</span>
                 <div>
-                    <h2>Как это работает?</h2>
+                    <span>Как это работает?</span>
                     <div class="row">
                         <table>
                             <tbody>
@@ -1207,8 +1213,7 @@
                 inputs[i].addEventListener('focus',function(){
                     var par = this.parentNode;
                     var mes = par.querySelector('.message');
-                    if (mes!==null) par.removeChild(mes);
-                    par.classList.remove('has-error');
+                    if (mes!==null) par.removeChild(mes);                    
                     openHelper.call(this);
                 });
                 inputs[i].addEventListener('blur',function(){

@@ -37,6 +37,7 @@
             </div>
             {{Form::close()}}
         </div>
-    </div>    
+    </div>   
+    @include('counters.metrika')
 </body>
 </html>

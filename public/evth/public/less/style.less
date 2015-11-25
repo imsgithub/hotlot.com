@@ -6,16 +6,16 @@
 @import 'icomoon.less';
 @import 'flags.less'; 
 @import 'modals.less';
-@violet: rgba(85,48,116,1);
+@violet: rgba(106,67,133,1);
 @orange: rgba(225,111,14,1);
 .violet-c (@opacity:1){
-    color: rgba(85,48,116,@opacity);
+    color: rgba(106,67,133,@opacity);
 }
 .orange-c (@opacity:1){
     color: rgba(225,111,14,@opacity);
 }
 .violet-bg (@opacity:1){
-    background-color: rgba(85,48,116,@opacity);
+    background-color: rgba(106,67,133,@opacity);
 }
 .orange-bg (@opacity:1){
     background-color: rgba(225,111,14,@opacity);
@@ -150,22 +150,26 @@ header {
 .top-title {
     margin: 39px auto 0;
     display: block;
-    .hblack(28px);
+    /*.hblack(28px);*/
+    .bb(53px);
     color: #fff;
     width: 760px;
     text-align: center;
-    line-height: 45px;
+    line-height: 57px;
     text-transform: uppercase;
+    text-shadow: 2px 2px 1px rgba(0,0,0,.4);
 }
 .top-subtitle {
     margin: 15px auto 56px;
     display: block;
-    .hblack(22px);
-    color: #fff;
-    width: 760px;
+    .bb(30px);
+    /*.hblack(22px);*/
+    color: #fff;    
     text-align: center;
     line-height: 45px;
     text-transform: uppercase;
+    width: 100%;
+    text-shadow: 2px 2px 1px rgba(0,0,0,.4);
 }
 .top-form {
     padding: 25px 0;
@@ -248,6 +252,27 @@ header {
         }
     }
 }
+.scroll-arrow {
+    position: absolute;
+    font-size: 25px;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    .rounded(20px);
+    text-align: center;
+    color: #fff;
+    .translate(-50%, 0);
+    line-height: 40px;
+    bottom: 20px;
+    .transition(.2s);
+    &:hover {
+        .violet-bg(1);
+        .orange-c(1);
+        border-color: @orange;
+        cursor: pointer;
+    }
+}
 .designer-decision {
     width: 883px;
 }
@@ -257,6 +282,17 @@ header {
     padding: 40px 0;
     text-align: center;
     text-transform: uppercase;
+    display: block;
+}
+.about-us__left {
+    width: 66.66%;
+    float: left;
+    padding: 0 25px;
+}
+.about-us__right {
+    width: 33.33%;
+    float: left;
+    padding: 0 25px; 
 }
 p {
     .hl(16px);
@@ -267,7 +303,7 @@ p {
     /*background-image: url('../img/map.png');*/
     background-repeat: no-repeat;
     background-position: center center;
-    height: 920px;
+    height: 967px;
     position: relative;
     background: @orange;
 }
@@ -292,6 +328,8 @@ p {
     left: 50%;
     .transform(translateX(-50%));
     pointer-events: none;
+    border-right: 2000px solid @violet;
+    border-left: 2000px solid @violet;
 }
 .white-bg {
     background: #fff;
@@ -429,11 +467,12 @@ footer {
     height: 100%;
     background: rgba(255,255,255, .86);
     padding: 30px 0 0 35px;
-    > h2 {
+    > span {
         .hb(25px);
         .violet-c;
         padding-bottom: 37px;
         text-transform: uppercase;
+        display: block;
     }
     > p {
         .hl(16px);
@@ -488,12 +527,13 @@ footer {
         background-color: #e5e5e5;
         .rounded(5px);
     }
-    h2 {
+    span {
         .hb(25px);
         text-transform: uppercase;
         padding-top: 23px;
         .orange-c;
         text-align: center;
+        display: block;
     }
     .row {
         margin: 0;
@@ -971,6 +1011,7 @@ footer {
     .hb(14px);
     color: #e5e5e5;
     padding: 10px 10px 10px 33px;
+    display: block;
     &.grey {
         opacity: .6;
         padding-top: 19px;
@@ -1083,6 +1124,12 @@ footer {
 
 .has-error {
     background: #ff4343;
+    .helper-content {
+        background: #ff4343;
+        &:before {
+            border-right-color: #ff4343;
+        }
+    }
 }
 div.has-error {
     background: #ff4343;
@@ -1115,7 +1162,8 @@ div.has-error {
         text-align: center;
         line-height: 1.2em;
     }
-    h2 {
+    span {
+        display: block;
         width: 73%;
         .hr(14px);
         color: #fff;
@@ -1335,7 +1383,8 @@ div.has-error {
     .rounded(9px);
     height: 368px;
     overflow: hidden;
-    h2 {
+    span {
+        display: block;
       .hb(14px);
       color: #fff;
       display: block;
@@ -1381,10 +1430,10 @@ div.has-error {
         margin-top: 12px;
     }
     &__left {
-        width: 60px;
+        width: 90px;
         float: left;
         padding-top: 8px;
-        margin-left: 38px;
+        margin-left: 29px;
         .big {
             font-size: 32px;
         }
@@ -1446,6 +1495,7 @@ div.has-error {
     text-align: center;
     line-height: 1.3em;
     .transition(.35s);
+    display: block;
   }
   &__dummy-arrow {
     position: absolute;
@@ -1530,21 +1580,33 @@ div.has-error {
   }
 }
 .cities-gallery-wrapper {
-  height: 220px;
+  height: 300px;
   .violet-bg(1);
-  margin-top: 40px;
+  /*margin-top: 40px;*/
 }
 .cities-gallery__item {
   width: 196px;
   height: 196px;
   border: 2px solid @orange;
+  background: @orange;
   .rounded(1px);
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+  cursor: pointer;
+}
+.cities-gallery__title {
+    .title;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+[class^="triangle"] {
+    img {
+        opacity: .7;
+    }
 }
 .triangle-left {
-
+  
 }
 .triangle-right {
   width: 277px;
@@ -1591,12 +1653,17 @@ div.has-error {
     .orange-c(1);
     .hh(27px);
     position: absolute;
-    top: 84px;
+    top: 70px;
     left: 0;
     width: 192px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 2px 0 2px #fff, 2px -2px 2px #fff, -2px 2px 2px #fff, -2px -2px 2px #fff, 0 0 13px rgba(0,0,0, .65);
+}
+.cities-gallery__cargo-params {
+    .cities-gallery__price;
+    font-size: 14px;
+    top: 105px;
 }
 @media all and (max-width: 959px) {  
     
@@ -1609,6 +1676,9 @@ div.has-error {
             top: 0;
             background: none;
         }  
+    }
+    .scroll-arrow {
+        display: none;
     }
     .form-header {
         padding-top: 44px;
@@ -1640,7 +1710,7 @@ div.has-error {
     .top-title {
         width: 100%;
         margin-top: 0;
-        font-size: 17px;
+        font-size: 25px;
         line-height: 1.3em;
         /*margin-bottom: 50px;*/
         padding: 0 10%;
@@ -1648,7 +1718,7 @@ div.has-error {
     .top-subtitle {
         width: 100%;
         margin-top: 0;
-        font-size: 17px;
+        font-size: 20px;
         line-height: 1.3em;
         margin-bottom: 50px;
         padding: 0 10%;
@@ -1934,6 +2004,16 @@ div.has-error {
     .works-form__response {
         margin: 0 auto;
         width: 50%;
+    }
+    .about-us__left {
+        width: 66.66%;
+        float: left;
+        padding: 0 25px;
+    }
+    .about-us__right {
+        width: 33.33%;
+        float: left;
+        padding: 0 25px;
     }
 }
 

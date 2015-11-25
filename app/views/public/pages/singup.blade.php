@@ -41,5 +41,6 @@
         </div>
     </div>
     <script src="evth/public/js/register.js"> </script>
+    @include('counters.metrika')
 </body>
 </html>

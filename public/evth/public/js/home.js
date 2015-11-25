@@ -14,13 +14,26 @@ function isMobile(){
     return $('#mobile-check').css('display')==='none';
 }
 $(document).ready(function(){
+    $('.scroll-arrow').on('click', function(){
+       $('html,body').animate({
+            scrollTop: $(this).offset().top+$(this).height()+25
+        }, 1000);
+    });
     $('#steps-owl').owlCarousel({
         singleItem: true,        
     });
     $('.cities-gallery').owlCarousel({
-        autoPlay: 1500,
+        autoPlay: 2500,
           pagination: false,
           items: 6,
+          stopOnHover: true
+    });
+    $('.cities-gallery__price').after('<span class="cities-gallery__cargo-params">вес 20 т, объем 86 м<sup>3</sup>.</span>');
+    $('.cities-gallery__item').on('click', function(){
+        var start = $(this).find('.cities-gallery__city--start').html(),
+            end = $(this).find('.cities-gallery__city--end').html(),
+            url = document.location.href;
+        document.location.href = url + 'map?start=' + start +'&end='+ end;
     });
     if (isMobile()) {
         $('#video').after('<div class="mobile-video-poster"></div>');
@@ -34,8 +47,7 @@ $(document).ready(function(){
             where = $('[name="where"].works-form__input'),
             input = $('[name="phone"].works-form__input');        
         if(input.val()==='') {
-            input.parent().addClass('has-error');
-            console.log('input.val()===""');
+            input.parent().addClass('has-error');            
             return;
         }
         var regexp = /\+*\d+[\d-( ).^+]*/g;

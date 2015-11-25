@@ -129,44 +129,45 @@
                 <!--End of composer view for unsigned users-->
             </header>
             <h1 class="top-title">Рассчитайте стоимость транспортировки<br>за 30 секунд</h1>
-            <h2 class="top-subtitle">и получите страховку в подарок</h2>
+            <span class="top-subtitle">и получите страховку на груз в подарок</span>
         </div>
         <div class="wrapper violet-bg">
             <div class="inner">
                 <div class="top-form">
                     <form action="/map" method="GET">
-                    <h2 class="top-form-title">Выберите город</h2>
+                    <span class="top-form-title">Выберите маршрут</span>
                     <div class="top-form-inputs">
                         <div class="from"><i class="fa fa-map-marker violet-c"></i><input name="start" type="text" placeholder="откуда"></div>
                         <div class="arrows"><i class="evth-arrows"></i></div>
                         <div class="where"><i class="fa fa-map-marker violet-c"></i><input name="end" type="text" placeholder="куда"></div>
                     </div>
                     <div class="top-form-buttons">
-                        <button type="submit" class="button">Рассчитать</button>
+                        <button type="submit" class="button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№1');">Рассчитать</button>
                     </form>
                         <span class="link modal-toggle" data-modal="modal-how">Как это работает?</span>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="scroll-arrow"><i class="fa fa-angle-down"></i></div>
     </div>
-<!--    <div class="wrapper">
+    <div class="wrapper">
         <div class="inner section">
             <h2 class="title">посмотрите видео о нас</h2>
             <div class="designer-decision">
-                <div class="col-2">
-                    <iframe src="http://player.vimeo.com/video/69793626" width="420px" height="186px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <div class="about-us__left">
+                    <iframe src="https://www.youtube.com/embed/eyx6hLcof5c?showinfo=0" width="100%" height="303" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
-                <div class="col-2">
+                <div class="about-us__right">
                     <p><span class="orange-c">Rate&Go</span> - это безопасная и надежная площадка, на которой можно за 30 секунд рассчитать стоимости перевозки грузов от 100 кг до 100+ тонн и перевести груз вместе с нашей командой оформив заказ через личный кабинет на сайте.</p>
                     <p><span class="orange-c">Rate&Go</span> - самый легкий путь быстро узнать лучшую цену и качественно перевезти Ваш груз.</p>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <div class="wrapper grey-bg">
         <div class="inner section">
-            <h2 class="title">кто нам доверяет</h2>
+            <span class="title">кто нам доверяет</span>
             <div class="center">
                 <img src="evth/public/img/partners.png" class="partners" alt="кто с нами работает">
                 <img src="evth/public/img/partners-mobile.png" class="partners-mobile" alt="кто с нами работает">
@@ -175,7 +176,7 @@
     </div>
     <div class="wrapper">
         <div class="inner section">
-            <h2 class="title">Этапы работы</h2>
+            <span class="title">Как мы работаем</span>
             <div class="steps">
                 <div id="tabs" class="tabs">
                     <div class="tabs-nav">
@@ -326,7 +327,7 @@
         <div class="where-we-works">
             <img src="evth/public/img/test-map.png" class="map-img" alt="">
             <div class="inner">
-                <h2 class="title">Где мы работаем</h2>
+                <h2 class="title">Выполняем перевозки по всему миру</h2>
                 <div class="works-list">
                     <ul>
                         <li>МЫ ПЕРЕВОЗИМ<br>155,000 тонн ежегодно</li>
@@ -339,7 +340,7 @@
             <div class="works-form-wrapper">
               <div class="works-form-inner">
                 <div class="works-form">
-                  <h2 class="works-form__title">Рассчитайте стоимость<br>перевозки за 1 минуту</h2>
+                  <span class="works-form__title">Рассчитайте стоимость<br>перевозки за 30 секунд</span>
                   <img src="evth/public/img/dummy-arrow.png" alt="duumy arrow" class="works-form__dummy-arrow">
                   <div class="works-form__inputs-wrapper">
                     <div class="works-form__input-wrapper">
@@ -355,12 +356,13 @@
                       <input class="works-form__input" type="text" name="phone" value="" placeholder="Телефон">
                     </div>
                     <div class="works-form__button-wrapper">
-                      <button type="button" class="works-form__button">рассчитать</button>
+                      <button type="button" class="works-form__button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№4');">рассчитать</button>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="cities-gallery-wrapper">
+                  <span class="cities-gallery__title">Популярные маршруты</span>
                 <div class="cities-gallery">
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/gamburg.png" alt=""></div>
@@ -440,7 +442,7 @@
                     <span class="cities-gallery__city--start">Стамбул</span>
                     <span class="flag flag-de flag-start"></span>
                     <span class="cities-gallery__city--end">Москва</span>
-                    <span class="flag flag-ua flag-end"></span>
+                    <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€3,750.00</span>
                   </div>  
                   <div class="cities-gallery__item">
@@ -636,9 +638,9 @@
                     <div class="triangle-left"><img src="evth/public/img/cities/stambul.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/tashkent.png" alt=""></div>
                     <span class="cities-gallery__city--start">Стамбул</span>
-                    <span class="flag flag-ua flag-start"></span>
+                    <span class="flag flag-tr flag-start"></span>
                     <span class="cities-gallery__city--end">Ташкент</span>
-                    <span class="flag flag-pl flag-end"></span>
+                    <span class="flag flag-uz flag-end"></span>
                     <span class="cities-gallery__price">€7,000.00</span>
                   </div>
                   <div class="cities-gallery__item">
@@ -665,7 +667,7 @@
                     <span class="cities-gallery__city--start">Котка</span>
                     <span class="flag flag-de flag-start"></span>
                     <span class="cities-gallery__city--end">Ростов-на-Дону</span>
-                    <span class="flag flag-az flag-end"></span>
+                    <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€1,750.00</span>
                   </div>
                   <div class="cities-gallery__item">
@@ -693,7 +695,7 @@
     </div>
     <div class="wrapper white-bg">
         <div class="inner">
-            <h2 class="title">Услуги</h2>
+            <span class="title">Услуги</span>
             <div class="clearfix">
                 <div class="col-3">
                     <div class="service">
@@ -779,7 +781,7 @@
         <img src="evth/public/img/contacts-bg-new.png">
         <div class="inner">
             <div class="contacts">
-                <h2>Контакты</h2>
+                <span>Контакты</span>
                 <p>Главный офис:<br>ул. Верхний Вал 4А Киев 04071 Украина</p>
                 <p>+380-44-492-4020 - Ukraine</p>
                 <p>+7 (495) 133-8777 - RUS</p>
@@ -794,7 +796,7 @@
             <div class="modal-inner">
                 <span class="close">&times;</span>
                 <div>
-                    <h2>Как это работает?</h2>
+                    <span>Как это работает?</span>
                     <div class="row">
                         <table>
                             <tbody>

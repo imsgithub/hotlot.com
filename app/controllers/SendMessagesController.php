@@ -2,11 +2,10 @@
 
 class SendMessagesController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    public function __construct(Order $order, Condition $condition) {
+        $this->order = $order;
+        $this->condition = $condition;
+    }
         public function messageFromHomePage() {
             $from = Input::get('from');
             $where = Input::get('where');
@@ -15,10 +14,15 @@ class SendMessagesController extends \BaseController {
             {
                 $message->to('info@rate-and-go.com')->subject('Новая заявка на сайте rate-and-go.com');                
             });
+            $order = $this->order;
+            $order->content = 'Заявка с главной страницы:<br>Откуда: '.Input::get('from').'<br>Куда: '.Input::get('where');
+            $order->phone = Input::get('phone');
+            $order->condition_id = 1;
+            $order->save();
         }
 	public function index()
 	{
-		//
+		
 	}
 
 
