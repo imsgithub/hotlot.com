@@ -1,0 +1,8 @@
+@import "compass/reset";
+
+* {    
+    outline-width: 0;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}

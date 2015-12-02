@@ -332,7 +332,7 @@
                     <span class="subtitle">Длина маршрута</span>
                     <span class="output" id="output-length"></span>
                     <div class="currency">
-                        <h2 class="subtitle">Стоимость</h2>
+                        <span class="subtitle">Стоимость</span>
                         <select name="currency" id="currency">
                             @foreach ($currencies as $currency)
                                 @if (($currency->name == 'EUR')&&($currency->id == '1'))
@@ -1131,9 +1131,9 @@
                       var output = document.createElement('div');
                       output.setAttribute('id', 'ajax-output');
                       if (xhr.responseText==='saved') {
-                          output.innerHTML = '<h2>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</h2><div class="success-order"><i class="fa fa-check-square-o"></i></div>';
+                          output.innerHTML = '<span>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</span><div class="success-order"><i class="fa fa-check-square-o"></i></div>';
                       } else {
-                          output.innerHTML = '<h2>Что-то пошло не так... Просто позвоните нам по телефону на главной странице!</h2>'
+                          output.innerHTML = '<span>Что-то пошло не так... Просто позвоните нам по телефону на главной странице!</span>'
                       }
                       box.appendChild(output);
                   };

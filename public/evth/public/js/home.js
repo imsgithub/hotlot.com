@@ -81,4 +81,48 @@ $(document).ready(function(){
         $('.works-form__title').css('opacity', '0');
         $('.works-form__dummy-arrow').css('opacity', '0');
     });
+    var services = document.querySelectorAll('.service-row .display');
+    for (var i = 0; i< services.length; i++) {
+        var str = services[i].innerHTML;
+        services[i].innerHTML = services[i].innerHTML.substring(0, 75) + '&#8230;<br><a href="#">Подробнее</a>';
+        $(services[i]).after('<p class="hide">'+str+'</p>');
+        var a = services[i].querySelector('a');
+        var icon = services[i].parentNode.parentNode.querySelector('[class^="icon"]');
+        var titles = services[i].parentNode.parentNode.querySelector('h3');
+        var target = services[i].parentNode.parentNode.parentNode;
+        a.addEventListener('click', showService.bind(target));
+        icon.addEventListener('click', showService.bind(target));
+        titles.addEventListener('click', showService.bind(target));
+    };
 });
+function showService(e){
+    e.preventDefault();
+    $(this).parent().parent().find('.hidden').removeClass('hidden');
+    $(this).parent().parent().find('.down').removeClass('down');
+    console.log(this);
+    this.classList.add('hidden');
+    var row = this.parentNode;
+    $(row).find('.col-4:not(.hidden)').addClass('down');
+    $('#serviceTarget').addClass('active');
+    $('#serviceTarget').html($(this).html());
+//    e.preventDefault();
+//    $('.inner-extended .extended')
+//        .removeClass('extended')
+//        .find('.down').removeClass('down')
+//        .parent().find('.deployed').removeClass('deployed')
+//        .find('.hide').css('display','none')
+//        .parent().find('.display').css('display','inline');
+//    var par = this.parentNode.parentNode.parentNode;//col-4
+//    var superPar = par.parentNode;//service-row
+//    par.classList.add('deployed');
+//    par.classList.remove('down');    
+//    superPar.classList.add('extended');    
+//    $(this).next('.hide').css('display','inline');
+//    $(this).css('display', 'none');
+//    console.log(par);
+//    console.log($(par).height());
+//    var others = superPar.querySelectorAll('.col-4:not(.deployed)');
+//    for (var i=0; i < others.length; i++ ) {
+//        others[i].classList.add('down');
+//    }
+}

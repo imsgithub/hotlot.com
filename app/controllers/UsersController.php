@@ -3,27 +3,27 @@
 class UsersController extends \BaseController {
     protected $user, $person;
     public function __construct(User $user, Person $person) {
-        $this->user = $user;        
-        $this->person = $person;                
+        $this->user = $user;
+        $this->person = $person;
     }
 
         public function show_login_page() {//показать страницу входа админа
-        if(Session::get('role')=='admin'){// Если пользователь уже залогинен, то его редиректит на /admin           
-            return Redirect::to('/admin');
+        if(Session::get('role')=='admin'){// Если пользователь уже залогинен, то его редиректит на /admin
+            return Redirect::to('/admin/orders');
         }
         return View::make('admin.login');
     }
 
-    public function login() {        
+    public function login() {
         $user = User::whereEmail(Input::get('email'))->first();//Ищется пользователь с таким именем
         if (!isset($user->email)) {//проверяется его существование, если такого имени нет, то в топку
             return Redirect::back()->withInput();
         }
-        $role = $user->roles->first();//имя есть, определяем роль    
+        $role = $user->roles->first();//имя есть, определяем роль
         if ($role->name=='admin') {//Это админ, значит записываем его роль в сессию и редиректим на /admin
             if(Auth::attempt(Input::only('email','password'))) {
                 Session::put('role', 'admin');
-                return Redirect::to('/admin');
+                return Redirect::to('/admin/orders');
             } else {
                 return Redirect::back()->withInput();
             }
@@ -34,12 +34,12 @@ class UsersController extends \BaseController {
             } else {
                 return Redirect::back()->withInput();
             }
-        }  
+        }
     }
-    public function admin_index() {        
+    public function admin_index() {
         return View::make('admin.index');
     }
-    
+
     public function user_login() {
         $user = User::whereEmail(Input::get('email'))->first();//Ищется пользователь с таким именем
         if (!isset($user->email)) {//проверяется его существование, если такого имени нет, то в топку
@@ -52,9 +52,9 @@ class UsersController extends \BaseController {
                 Session::put('role', 'member');
                 Session::put('email',$user->email);
                 Session::put('id',$user->id);
-                $response = ['valid'=>true];                
+                $response = ['valid'=>true];
             } else {
-                $response = ['valid'=>false];                
+                $response = ['valid'=>false];
             }
             return $response;
         }
@@ -126,14 +126,14 @@ class UsersController extends \BaseController {
             if (Auth::attempt(Input::only('email','password'))) {
                 Session::put('role', 'member');
                 Session::put('email',$user->email);
-                Session::put('id',$user->id);                
+                Session::put('id',$user->id);
             } else {
-                return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);                
+                return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);
             }
             return Redirect::to('/');
         }
     }
-//	public function index() 
+//	public function index()
 //	{
 //		$user = Auth::user();
 //		return View::make('users.index')->withUser($user);

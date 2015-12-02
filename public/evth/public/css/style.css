@@ -555,6 +555,9 @@ a.evth-btn {
 .icon-umbrella:before {
   content: "\e606";
 }
+.icon-cross:before {
+  content: "\e900";
+}
 .flag {
   width: 32px;
   height: 32px;
@@ -1292,6 +1295,24 @@ a.evth-btn {
   display: table;
   clear: both;
 }
+.inner-extended {
+  width: 960px;
+  margin: 0 auto;
+  z-index: 1;
+  opacity: .99;
+  width: 1150px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.inner-extended:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.inner-extended > div.col-3:last-child .service-icon span {
+  font-size: 41px;
+  padding: 20px;
+}
 .center {
   text-align: center;
 }
@@ -1667,14 +1688,121 @@ p {
   left: 19px;
   top: 4px;
 }
+.service-row {
+  position: relative;
+  height: auto;
+  /*    .col-4:nth-child(2) {
+        left: 25%;
+    }
+    .col-4:nth-child(3) {
+        left: 50%;
+    }
+    .col-4:nth-child(4) {
+        left: 75%;
+    };    */
+}
+.service-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.service-row.extended {
+  height: 500px;
+}
+.service-row .col-4 {
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  float: left;
+  width: 25%;
+  height: inherit;
+  /*.transition(.25s);*/
+}
+.service-row .col-4.hidden {
+  display: none;
+}
+.service-row .col-4.deployed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: auto;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.service-row .col-4.deployed .service {
+  width: 100%;
+  margin: 0;
+  height: auto;
+}
+.service-row .col-4.deployed .service-description {
+  width: 85%;
+  padding-left: 20px;
+  padding-bottom: 0;
+}
+.service-row .col-4.deployed .service-description > h3 {
+  font-family: "HelveticaBold", sans-serif;
+  font-size: 17px;
+  color: #6a4385;
+  padding-bottom: 9px;
+  text-transform: uppercase;
+}
+.service-row .col-4.deployed .service-description > p {
+  font-family: "HelveticaLight", sans-serif;
+  font-size: 13px;
+  line-height: 1.3em;
+  color: #e16f0e;
+}
+.service-row > .down {
+  width: 33.33%;
+}
+#serviceTarget {
+  display: none;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+#serviceTarget.active {
+  display: block;
+}
+#serviceTarget .service {
+  width: 100%;
+}
+#serviceTarget .service-description {
+  width: 80%;
+  min-width: 100px;
+  padding-bottom: 44px;
+}
+#serviceTarget .hide {
+  display: inline;
+}
+#serviceTarget .display {
+  display: none;
+}
 .service {
   width: 340px;
   margin: 0 auto;
+  height: inherit;
+  /*.transition(.25s);*/
+}
+.service:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .service-icon {
+  cursor: pointer;
   float: left;
   width: 80px;
   padding-top: 20px;
+  margin-bottom: 10px;
 }
 .service-icon > span {
   color: #e16f0e;
@@ -1690,8 +1818,10 @@ p {
   float: left;
   padding-left: 20px;
   padding-bottom: 70px;
+  /*.transition(.25s);*/
 }
 .service-description > h3 {
+  cursor: pointer;
   font-family: "HelveticaBold", sans-serif;
   font-size: 17px;
   color: #6a4385;
@@ -1704,11 +1834,24 @@ p {
   line-height: 1.3em;
   color: #e16f0e;
 }
+.service-description .hide {
+  display: none;
+}
+.service-description .display {
+  display: inline;
+}
+.service-description a {
+  color: #6a4385;
+  text-decoration: none;
+}
+.service-description a:hover {
+  text-decoration: underline;
+}
 .col-3 .service-description {
   width: 220px;
 }
 .col-4 .service-description {
-  width: 136px;
+  width: 190px;
 }
 .inner > div.col-3:last-child .service-icon span {
   font-size: 41px;
@@ -2284,7 +2427,7 @@ footer .inner {
 .map-form-output {
   display: none;
   width: 320px;
-  height: 486px;
+  height: 503px;
   position: absolute;
   top: 0;
   left: 0;
@@ -3320,6 +3463,15 @@ div.has-error {
     color: #fff;
     padding-right: 10px;
   }
+  .inner-extended {
+    width: 100%;
+  }
+  .service-row {
+    width: 100%;
+  }
+  .service-row .col-4 {
+    width: 100%;
+  }
   .service {
     width: 320px;
     padding: 0 10px;
@@ -3436,14 +3588,14 @@ div.has-error {
     width: 50%;
   }
   .about-us__left {
-    width: 66.66%;
+    width: 100%;
     float: left;
-    padding: 0 25px;
+    padding: 25px;
   }
   .about-us__right {
-    width: 33.33%;
+    width: 100%;
     float: left;
-    padding: 0 25px;
+    padding: 25px;
   }
 }
 @media all and (max-width: 520px) {
@@ -3455,5 +3607,13 @@ div.has-error {
     float: none;
     margin: 10px auto;
     width: 281px;
+  }
+  #serviceTarget .service-description {
+    width: 100%;
+    text-align: center;
+  }
+  #serviceTarget .service-icon {
+    float: none;
+    margin: 5px auto 28px;
   }
 }

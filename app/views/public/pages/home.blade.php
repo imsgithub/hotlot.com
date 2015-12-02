@@ -128,8 +128,8 @@
                 @include('composers.sign')
                 <!--End of composer view for unsigned users-->
             </header>
-            <h1 class="top-title">Рассчитайте стоимость транспортировки<br>за 30 секунд</h1>
-            <span class="top-subtitle">и получите страховку на груз в подарок</span>
+            <h1 class="top-title">расчет стоимости и заказ перевозки<br>за 30 секунд</h1>
+            <span class="top-subtitle">страховка на груз в подарок</span>
         </div>
         <div class="wrapper violet-bg">
             <div class="inner">
@@ -153,7 +153,7 @@
     </div>
     <div class="wrapper">
         <div class="inner section">
-            <h2 class="title">посмотрите видео о нас</h2>
+            <h2 class="title">Выполняем перевозки по всему миру</h2>
             <div class="designer-decision">
                 <div class="about-us__left">
                     <iframe src="https://www.youtube.com/embed/eyx6hLcof5c?showinfo=0" width="100%" height="303" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -426,7 +426,7 @@
                     <span class="cities-gallery__city--end">Новосибирск</span>
                     <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€2,900.00</span>
-                  </div>     
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/frankfurt.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/kiev.png" alt=""></div>
@@ -435,7 +435,7 @@
                     <span class="cities-gallery__city--end">Киев</span>
                     <span class="flag flag-ua flag-end"></span>
                     <span class="cities-gallery__price">€1,500.00</span>
-                  </div>    
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/stambul.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/moscow.png" alt=""></div>
@@ -444,7 +444,7 @@
                     <span class="cities-gallery__city--end">Москва</span>
                     <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€3,750.00</span>
-                  </div>  
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/duselrdorf.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/ashgabat.png" alt=""></div>
@@ -453,7 +453,7 @@
                     <span class="cities-gallery__city--end">Ашхабад</span>
                     <span class="flag flag-tm flag-end"></span>
                     <span class="cities-gallery__price">€8,000.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/neapol.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/irkutsk.png" alt=""></div>
@@ -462,7 +462,7 @@
                     <span class="cities-gallery__city--end">Иркутск</span>
                     <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€6,100.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/konstanz.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/kharkov.png" alt=""></div>
@@ -471,7 +471,7 @@
                     <span class="cities-gallery__city--end">Харьков</span>
                     <span class="flag flag-ua flag-end"></span>
                     <span class="cities-gallery__price">€1,650.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/milan.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/almaty.png" alt=""></div>
@@ -480,7 +480,7 @@
                     <span class="cities-gallery__city--end">Алматы</span>
                     <span class="flag flag-kz flag-end"></span>
                     <span class="cities-gallery__price">€8,800.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/orhus.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/debrecen.png" alt=""></div>
@@ -489,7 +489,7 @@
                     <span class="cities-gallery__city--end">Дебрецен</span>
                     <span class="flag flag-hu flag-end"></span>
                     <span class="cities-gallery__price">€1,900.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/zeebrugge.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/munich.png" alt=""></div>
@@ -498,7 +498,7 @@
                     <span class="cities-gallery__city--end">Мюнхен</span>
                     <span class="flag flag-de flag-end"></span>
                     <span class="cities-gallery__price">€1,200.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/paris.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/kiev.png" alt=""></div>
@@ -507,7 +507,7 @@
                     <span class="cities-gallery__city--end">Киев</span>
                     <span class="flag flag-ua flag-end"></span>
                     <span class="cities-gallery__price">€1,950.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/budapest.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/samara.png" alt=""></div>
@@ -516,7 +516,7 @@
                     <span class="cities-gallery__city--end">Самара</span>
                     <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€2,150.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/oslo.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/krasnodar.png" alt=""></div>
@@ -525,7 +525,7 @@
                     <span class="cities-gallery__city--end">Краснодар</span>
                     <span class="flag flag-ru flag-end"></span>
                     <span class="cities-gallery__price">€2,950.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/brno.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/riga.png" alt=""></div>
@@ -534,7 +534,7 @@
                     <span class="cities-gallery__city--end">Рига</span>
                     <span class="flag flag-lv flag-end"></span>
                     <span class="cities-gallery__price">€1,450.00</span>
-                  </div> 
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/minsk.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/astana.png" alt=""></div>
@@ -624,7 +624,7 @@
                     <span class="cities-gallery__city--end">Гомель</span>
                     <span class="flag flag-by flag-end"></span>
                     <span class="cities-gallery__price">€900.00</span>
-                  </div>  
+                  </div>
                   <div class="cities-gallery__item">
                     <div class="triangle-left"><img src="evth/public/img/cities/zutomir.png" alt=""></div>
                     <div class="triangle-right"><img src="evth/public/img/cities/poznan.png" alt=""></div>
@@ -694,88 +694,102 @@
         </div>
     </div>
     <div class="wrapper white-bg">
-        <div class="inner">
-            <span class="title">Услуги</span>
-            <div class="clearfix">
-                <div class="col-3">
+        <span class="title">Услуги</span>
+            <div class="inner-extended">
+                <div id="serviceTarget"></div>
+            <div class="service-row">
+                <div class="col-4">
                     <div class="service">
                         <div class="service-icon">
                             <span class="icon-car"></span>
                         </div>
                         <div class="service-description">
                             <h3>Автомобильные международные перевозки</h3>
-                            <p>Перевозки импортных, экспортных и транзитных грузов. Все страны СНГ, ср. Азии, внутри Евросоюза.</p>
+                            <p class="display">Перевозки импортных, экспортных и транзитных грузов. Все страны СНГ, ср. Азии, внутри Евросоюза.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <div class="service">
                         <div class="service-icon">
                             <span class="icon-ship"></span>
                         </div>
                         <div class="service-description">
                             <h3>Морские контейнерные перевозки</h3>
-                            <p>Морские контейнерные перевозки и экспедирование грузов по всему миру. Оформление всей морской документации.</p>
+                            <p class="display">Морские контейнерные перевозки и экспедирование грузов по всему миру. Оформление всей морской документации.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <div class="service">
                         <div class="service-icon">
                             <span class="icon-boxes"></span>
                         </div>
                         <div class="service-description">
-                            <h3>Перевозка<br>сборных<br>грузов</h3>
-                            <p>Группажные перевозки весом от 100 кг с консолидацией на любом из наших лицензионных складов в Европе, СНГ.</p>
+                            <h3>Перевозка сборных грузов</h3>
+                            <p class="display">Группажные перевозки весом от 100 кг с консолидацией на любом из наших лицензионных складов в Европе, СНГ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-cross"></span>
+                        </div>
+                        <div class="service-description">
+                            <h3>Мультимодальные перевозки</h3>
+                            <p class="display">Группажные перевозки весом от 100 т с консолидацией на любом из наших лицензионных складов в Европе, СНГ.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-money-bag"></span>
+            <div class="service-row">
+                <div class="col-4">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-money-bag"></span>
+                        </div>
+                        <div class="service-description">
+                            <h3>Брокерские услуги</h3>
+                            <p class="display">Таможенное оформление экспортных, импортных и транзитных грузов. Прохождение сертификации товара и получение необходимых разрешений.</p>
+                        </div>
                     </div>
-                    <div class="service-description">
-                        <h3>Брокерские услуги</h3>
-                        <p>Таможенное оформление экспортных, импортных и транзитных грузов. Прохождение сертификации товара и получение необходимых разрешений.</p>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-umbrella"></span>
+                        </div>
+                        <div class="service-description">
+                            <h3>Страхование</h3>
+                            <p class="display">Страхование груза от повреждений и форс-мажорных обстоятельств при транспортировке. Ответственность перевозчика за аварию.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-rulers"></span>
+                        </div>
+                        <div class="service-description">
+                            <h3>Негабаритные перевозки</h3>
+                            <p class="display">Перевозка автопарком негабаритных, крупногабаритных, длинномерных и тяжеловесных грузов.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <div class="service-icon">
+                            <span class="icon-storehouse"></span>
+                        </div>
+                        <div class="service-description">
+                            <h3>Хранение</h3>
+                            <p class="display">Хранение в складском помещении с гарантией сохранности Вашего груза. Возможность оставить груз как на временное хранение, так и на длительный период.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-umbrella"></span>
-                    </div>
-                    <div class="service-description">
-                        <h3>Страхование</h3>
-                        <p>Страхование груза от повреждений и форс-мажорных обстоятельств при транспортировке. Ответственность перевозчика за аварию.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-rulers"></span>
-                    </div>
-                    <div class="service-description">
-                        <h3>Негабаритные перевозки</h3>
-                        <p>Перевозка автопарком негабаритных, крупногабаритных, длинномерных и тяжеловесных грузов.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="service">
-                    <div class="service-icon">
-                        <span class="icon-storehouse"></span>
-                    </div>
-                    <div class="service-description">
-                        <h3>Хранение</h3>
-                        <p>Хранение в складском помещении с гарантией сохранности Вашего груза. Возможность оставить груз как на временное хранение, так и на длительный период.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
     <footer class="wrapper">
         <img src="evth/public/img/contacts-bg-new.png">

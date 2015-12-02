@@ -41,6 +41,9 @@ Route::get('/logout', function(){
     return Redirect::back();
 });
 Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
+
+
+Route::get('test_user_profile', 'HomeController@showTestProfile');
 Route::group(['before'=>'userauth'], function(){
     
     Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']);
