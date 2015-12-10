@@ -34,6 +34,7 @@
     </head>
     <body id="map-page">
     <div class="overlay">
+
         <div class="map-wrapper">
             <div class="map" id="map"></div>
             <div class="map-forms-wrapper">
@@ -86,11 +87,11 @@
                                                     c0-0.8-0.7-1.5-1.5-1.5H2.1z"/>
                                     </g>
                                     <g>
-                                            <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6 
+                                            <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6
                                                     6.6,17.6 			"/>
                                     </g>
                                     <g>
-                                            <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5 
+                                            <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5
                                                     9.4,10.5 			"/>
                                     </g>
                                     <g>
@@ -129,7 +130,7 @@
                     </a>
                 </div>
                     <div class="form-header">
-                        
+
                         <h1 class="title">
                             <div class="show-form"><i class="fa fa-eye-slash"></i></div>
                             Форма заявки
@@ -138,7 +139,7 @@
                                 <span class="helper-content">Заполните эту форму и нажмите "Рассчитать".</span>
                             </div>
                         </h1>
-                        
+
                     </div>
                     <span class="subtitle">Введите города</span>
                     <div class="input-wrapper">
@@ -227,7 +228,7 @@
                             <p class="please-register__text">Он будет доступен только зарегистрированным пользователям</p>
                             <div class="please-register__table">
                                 <div class="please-register__left">за <strong class="big">$9,0</strong></div>
-                                <div class="please-register__right">в месяц или<br>сейчас бесплатно*</div>                            
+                                <div class="please-register__right">в месяц или<br>сейчас бесплатно*</div>
                             </div>
                             <a href="sing-up">Зарегистрироваться</a>
                             <p class="please-register__bull-shit">*До 1.01.2016 регистрация БЕСПЛАТНО</p>
@@ -286,11 +287,11 @@
                                                     c0-0.8-0.7-1.5-1.5-1.5H2.1z"/>
                                     </g>
                                     <g>
-                                            <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6 
+                                            <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6
                                                     6.6,17.6 			"/>
                                     </g>
                                     <g>
-                                            <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5 
+                                            <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5
                                                     9.4,10.5 			"/>
                                     </g>
                                     <g>
@@ -419,11 +420,11 @@
                                                     c0-0.8-0.7-1.5-1.5-1.5H2.1z"/>
                                     </g>
                                     <g>
-                                            <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6 
+                                            <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6
                                                     6.6,17.6 			"/>
                                     </g>
                                     <g>
-                                            <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5 
+                                            <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5
                                                     9.4,10.5 			"/>
                                     </g>
                                     <g>
@@ -461,48 +462,14 @@
                     </svg>
                     </a>
                 </div>
+            @if (Session::get('role')=='admin')
+            <div id="admin-log">
+              <span>Лог админа</span>
+              <div></div>
+            </div>
+            @endif
         </div>
     </div>
-<!--        <div class="col-md-4">
-            <div class="form">
-                <h4>Данные маршрута</h4>
-
-                <div class="form-group">
-                    <label class="control-label" for="end">Куда</label>
-
-                </div>
-                <div class="form-group">
-                    <input id="transit-city-checkbox" type="checkbox" class="inline">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="transit" disabled="disabled">
-                </div>
-                <h4>Данные груза</h4>
-                <div class="form-group">
-                    <label class="control-label" for="w">Ширина (метры): 0,1 &ndash; 2</label>
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="l">Длина (метры): 0,1 &ndash; 13,6</label>
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="h">Высота (метры): 0,1 &ndash; 3,3</label>
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="m">Масса (тонны): 0,1 &ndash; 22</label>
-
-                </div>
-            </div>
-
-            <button id="calc" class="btn btn-primary">Длина маршрута</button>
-            <button id="addr" class="btn btn-success">Коды стран</button>
-            <div id="output">
-                <div id="dist"></div>
-                <div id="country"></div>
-            </div>
-        </div>-->
 <div class="col-md-8" style="display: none">
 
             <div class="form-group pull-right">
@@ -510,18 +477,6 @@
                 <textarea name="" id="textarea" cols="45" rows="20" class="form-control"></textarea>
             </div>
         </div>
-<pre style="display: none">
-            <?php
-            foreach ($codes as $code) {
-                if (count($code->countries)>0) {
-                    foreach ($code->countries as $country) {
-                        echo $code->code.$country->end.':'.$country->value.',<br>';
-                    }
-                }
-//                echo $code->code.$code->countries->end.':'.$code->countries->value;
-            }
-            ?>
-        </pre>
         <div id="modal-how" class="modal">
         <div class="modal-wrapper">
             <div class="modal-inner">
@@ -581,7 +536,7 @@
         var el = document.createElement('div');
         $(el).addClass('evth-radio');
         $(el).attr('data-value', $(this).attr('value'));
-        $(el).html($(this).attr('data-label'));        
+        $(el).html($(this).attr('data-label'));
         if (i===0) {
           $(el).addClass('checked');
           this.checked = true;
@@ -598,7 +553,7 @@
               });
               $('.please-register').css({
                   display: 'block'
-              });        
+              });
               if(!isMobile()) {
                   $('.map-form-input').css('height', '368px');
               } else {
@@ -658,60 +613,71 @@
         <script>
             var textarea = document.getElementById('textarea');
             function validate() {
-		var par = this.parentNode;
-		var mes;
-		if (par.querySelector('.message')) {
-                    mes = par.querySelector('.message');
-                    par.removeChild(mes);
-                    par.classList.remove('has-error');
-		};
-		mes = document.createElement('span');
-		mes.classList.add('message');
-		if (this.value==='') {
-                    mes.innerHTML = 'Это поле обязательно для заполнения';
-                    par.appendChild(mes);
-                    par.classList.add('has-error');
-                    return false;
-		};
-                var id = this.getAttribute('id');
-                var regexp = /[\d\.,]/g;
-                var match = this.value.match(regexp);
-                if ((id==='w')||(id==='h')||(id==='l')||(id==='m')) {
-                    replace.call(this);
-                    if ((this.value<rules[id].min)||(this.value>rules[id].max)||(this.value.length!==match.length)) {
-                        mes.innerHTML = 'Недопустимое значение';
-                        par.appendChild(mes);
-                        par.classList.add('has-error');
-                        return false;
-                    }
+          		var par = this.parentNode;
+          		var mes;
+          		if (par.querySelector('.message')) {
+                mes = par.querySelector('.message');
+                par.removeChild(mes);
+                par.classList.remove('has-error');
+          		};
+          		mes = document.createElement('span');
+          		mes.classList.add('message');
+          		if (this.value==='') {
+                mes.innerHTML = 'Это поле обязательно для заполнения';
+                par.appendChild(mes);
+                par.classList.add('has-error');
+                return false;
+  		        };
+              var id = this.getAttribute('id');
+              var regexp = /[\d\.,]/g;
+              var match = this.value.match(regexp);
+              if ((id==='w')||(id==='h')||(id==='l')||(id==='m')) {
+                replace.call(this);
+                if ((this.value<rules[id].min)||(this.value>rules[id].max)||(this.value.length!==match.length)) {
+                  mes.innerHTML = 'Недопустимое значение';
+                  par.appendChild(mes);
+                  par.classList.add('has-error');
+                  return false;
                 };
-                regexp = /\+*\d+[\d-( ).^+]*/g;
-                match = this.value.match(regexp);
-                if (id==='phone_inp') {
-                    if (!match || match.length === 0) {
-                        mes.innerHTML = 'Недопустимое значение';
-                        par.appendChild(mes);
-                        par.classList.add('has-error');
-                        return false;
-                    };
-                    var x = match[0];
-                    if (x.length < this.value.length) {
-                        mes.innerHTML = 'Недопустимое значение';
-                        par.appendChild(mes);
-                        par.classList.add('has-error');
-                        return false;
-                    };
-                    if (x.length < 7) {
-                        mes.innerHTML = 'Недопустимое значение';
-                        par.appendChild(mes);
-                        par.classList.add('has-error');
-                        return false;
-                    };
+              };
+              regexp = /\+*\d+[\d-( ).^+]*/g;
+              match = this.value.match(regexp);
+              if (id==='phone_inp') {
+                if (!match || match.length === 0) {
+                  mes.innerHTML = 'Недопустимое значение';
+                  par.appendChild(mes);
+                  par.classList.add('has-error');
+                  return false;
                 };
-		return true;
+                var x = match[0];
+                if (x.length < this.value.length) {
+                  mes.innerHTML = 'Недопустимое значение';
+                  par.appendChild(mes);
+                  par.classList.add('has-error');
+                  return false;
+                };
+                if (x.length < 7) {
+                  mes.innerHTML = 'Недопустимое значение';
+                  par.appendChild(mes);
+                  par.classList.add('has-error');
+                  return false;
+                };
+              };
+              par.classList.remove('has-error');
+  	          return true;
             };
+            function validateCargo(){
+              var m = data.cargo.m.value;
+              var l = data.cargo.l.value;
+              if ( m <= rules.m.max && m > rules.m.b ) { // if ( m <= 22 && m > 7)
+                if ( l <= rules.l.c ) return false; //if ( l <= 3)
+              } else if ( m <= rules.m.b && m > rules.m.a ) { //if ( m <= 7 && m > 2 )
+                if ( l <=  rules.l.b ) return false; //if ( l <= 2 );
+              };
+              return true;
+            }
             function replace() {
-		this.value = this.value.replace( ',' , '.' );
+		            this.value = this.value.replace( ',' , '.' );
             };
             var data = {
                 checkbox: $("[type='checkbox']"),
@@ -803,28 +769,60 @@
                     } else if (rules.countries[reverse_temp]!==undefined) {
                         this.coeffs.country = rules.countries[reverse_temp];
                     };
-                    if ((this.cargo.h.value>rules.h.middle)&&(this.cargo.h.value<=rules.h.max)) {
-                        this.coeffs.load = rules.load.g;
+                    var h = this.cargo.h.value;
+                    var m = this.cargo.m.value;
+                    var l = this.cargo.l.value;
+                    var w = this.cargo.w.value;
+                    if ( h<=rules.h.max && h>rules.h.middle) { //if ( h<=3.3 && h>2.8)
+                        this.coeffs.load = rules.load.g; //log('Коэффициент - 1,2');
                     } else {
-                        if ((this.cargo.l.value<=rules.l.max)&&(this.cargo.l.value>rules.l.e)) {
-                            this.coeffs.load = rules.load.f;
-                        } else if ((this.cargo.m.value>=rules.m.b)&&(this.cargo.m.value<=rules.m.max)) {
-                            this.coeffs.load = rules.load.f;
-                        } else if ((this.cargo.m.value<rules.m.b)&&(this.cargo.m.value>=rules.m.a)) {
-                            if ((this.cargo.l.value<=rules.l.max)&&(this.cargo.l.value>rules.l.e)) {
-                                this.coeffs.load = rules.load.f;
-                            } else if ((this.cargo.l.value<=rules.l.e)&&(this.cargo.l.value>rules.l.d)) {
-                                this.coeffs.load = rules.load.e;
-                            }
-                        } else {
-                            if ((this.cargo.l.value<=rules.l.d)&&(this.cargo.l.value>rules.l.c)) {
-                                this.coeffs.load = rules.load.d;
-                            } else if ((this.cargo.l.value<=rules.l.c)&&(this.cargo.l.value>rules.l.b)) {
-                                this.coeffs.load = rules.load.c;
-                            } else if ((this.cargo.l.value<=rules.l.b)&&(this.cargo.l.value>rules.l.a)) {
-                                this.coeffs.load = rules.load.b;
+                        if ( m<=rules.m.max && m > rules.m.b ) { //if ( m<=22 && m>7 )
+                            if ( l<=rules.l.max && l>rules.l.g ) { //if ( l<=16 && l>13.6 )
+                                this.coeffs.load = rules.load.g; //log('Коэффициент - 1,2')
+                            } else if ( l<=rules.l.g && l>rules.l.f ) { //if ( l<=13.6 && l>10 )
+                                this.coeffs.load = rules.load.f; //log('Коэффициент - 1')
+                            } else if ( l<=rules.l.f && l>rules.l.e ) { //if ( l<=10 && l>7 )
+                                this.coeffs.load = rules.load.e;//log('Коэффициент - 0.8')
+                            } else if ( l<=rules.l.e && l>rules.l.d ) {
+                                this.coeffs.load = rules.load.d; //log('Коэффициент - 0.7')
+                            } else if ( l<=rules.l.d && l>rules.l.e ) { // if ( l<=5 && l>3 )
+                                this.coeffs.load = rules.load.c; //log('Коэффициент - 0.5')
                             } else {
-                                this.coeffs.load = rules.load.a;
+                                //это исключение обрабатывает валидация
+                            }
+                        } else if ( m<=rules.m.b && m>rules.m.a ) { //if ( m<=7 && m>2 )
+                            if ( l<=rules.l.max && l>rules.l.g ) { //if ( l<=16 && l>13.6 )
+                                this.coeffs.load = rules.load.g; //log('Коэффициент - 1,2')
+                            } else if ( l<=rules.l.g && l>rules.l.f ) { //if ( l<=13.6 && l>10 )
+                                this.coeffs.load = rules.load.f; //log('Коэффициент - 1')
+                            } else if ( l<=rules.l.f && l>rules.l.e ) { //if ( l<=10 && l>7 )
+                                this.coeffs.load = rules.load.e;//log('Коэффициент - 0.8')
+                            } else if ( l<=rules.l.e && l>rules.l.d ) {
+                                this.coeffs.load = rules.load.d; //log('Коэффициент - 0.7')
+                            } else if ( l<=rules.l.d && l>rules.l.e ) { // if ( l<=5 && l>3 )
+                                this.coeffs.load = rules.load.c; //log('Коэффициент - 0.5')
+                            } else if ( l<=rules.l.e && l>rules.l.b ) { //if ( l<=3 && l>2 )
+                                this.coeffs.load = rules.load.b; //log('Коэффициент - 0.3')
+                            } else {
+                                //это исключение обрабатывает валидация
+                            }
+                        } else if( m<=rules.m.a ) { //if( m<=2 )
+                            if ( l<=rules.l.max && l>rules.l.g ) { //if ( l<=16 && l>13.6 )
+                                this.coeffs.load = rules.load.g; //log('Коэффициент - 1,2')
+                            } else if ( l<=rules.l.g && l>rules.l.f ) { //if ( l<=13.6 && l>10 )
+                                this.coeffs.load = rules.load.f; //log('Коэффициент - 1')
+                            } else if ( l<=rules.l.f && l>rules.l.e ) { //if ( l<=10 && l>7 )
+                                this.coeffs.load = rules.load.e;//log('Коэффициент - 0.8')
+                            } else if ( l<=rules.l.e && l>rules.l.d ) {
+                                this.coeffs.load = rules.load.d; //log('Коэффициент - 0.7')
+                            } else if ( l<=rules.l.d && l>rules.l.e ) { // if ( l<=5 && l>3 )
+                                this.coeffs.load = rules.load.c; //log('Коэффициент - 0.5')
+                            } else if ( l<=rules.l.e && l>rules.l.b ) { //if ( l<=3 && l>2 )
+                                this.coeffs.load = rules.load.b; //log('Коэффициент - 0.3')
+                            } else if ( l<=rules.l.b && l>rules.l.a ) { //if ( l<=2 && l>1.2 )
+                                this.coeffs.load = rules.load.a; //log('Коэффициент - 0.2')
+                            } else if ( l<=rules.l.a ){ //if ( l<=1.2 )
+                                this.coeffs.load = rules.load.min; //log('Коэффициент - 0.1')
                             }
                         }
                     };
@@ -895,6 +893,9 @@
                         } else {
                             outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.00002)+ ' до ' +Math.round(this.price*0.001+this.price*0.00002) + ' ' + this.currency.name;
                         }
+                    }
+                    if ($('#admin-log').length>0) {
+                      $('#admin-log div').html(this.output.content);
                     }
 //                    outs.price.innerHTML = 'от ' + Math.round(this.price*0.001-this.price*0.0001)+ ' до ' +Math.round(this.price*0.001+this.price*0.0001) + ' ' + this.currency.name;
                 },
@@ -1213,7 +1214,7 @@
                 inputs[i].addEventListener('focus',function(){
                     var par = this.parentNode;
                     var mes = par.querySelector('.message');
-                    if (mes!==null) par.removeChild(mes);                    
+                    if (mes!==null) par.removeChild(mes);
                     openHelper.call(this);
                 });
                 inputs[i].addEventListener('blur',function(){
@@ -1221,26 +1222,18 @@
                     closeHelper.call(this);
                 });
             };
-//            calc.addEventListener('click', function(){
-//               calcRoute(function(dist){
-//                   data.output.dist = dist;
-//                   document.getElementById('dist').innerHTML = dist;
-//                   data.render();
-//               });
-//            });
-//            addr.addEventListener('click', function(){
-//               codeAddress(data);
-//               document.getElementById('country').innerHTML = data.output.country;
-//            });
-//            addr.addEventListener('click', function(){
-//
-//            });
+
             rend.addEventListener('click', function(){
                 var arr = [];
                 for (var i = 0; i< inputs.length; i++) {
                     if(!(validate.call(inputs[i]))) arr.push(false);
                 };
                 if (arr.length>0) return false;
+                if (!validateCargo()) {
+                  console.log('Слишком маленькая длина для такого тяжелого груза');
+                  if($('#admin-log').length>0) $('#admin-log div').html('Слишком маленькая длина для такого тяжелого груза')
+                  return false;
+                }
                 codeAddress(data.cities.start, function(code, uacode){
                     data.output.countries.start = code;
                     for (key in uaAreas) {
@@ -1304,6 +1297,6 @@
         </script>
 <script src="evth/public/js/ready.js"></script>
 <script src="evth/public/js/dragonmap.js"></script>
-@include('counters.metrika')
+include('counters.metrika')
     </body>
 </html>

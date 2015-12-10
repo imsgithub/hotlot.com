@@ -21,9 +21,7 @@ Route::get('/', function(){
 });
 Route::get('/map', ['as'=>'map','uses'=>'CodesController@showNiceMap'] );
 Route::post('/order', 'OrdersController@store');
-Route::get('/sing-up', function(){
-    return View::make('public.pages.singup');
-});
+Route::get('/sing-up', 'UsersController@newUserRegister');
 Route::get('/login', function() {
     $role = Session::get('role');
     if ($role != '') {
@@ -32,12 +30,14 @@ Route::get('/login', function() {
     return View::make('public.pages.login');
 });
 Route::post('/login', 'UsersController@notAjaxLogin');
-//User Routes 
+//User Routes
 
 Route::post('/user/login', 'UsersController@user_login');
 Route::post('/user/register', 'UsersController@user_register');
+Route::post('/user/ajaxregister', 'UsersController@userAjaxRegister');
+Route::post('/user/ajaxregister/work', 'UsersController@userWorkAjaxRegister');
 Route::get('/logout', function(){
-    Session::forget('role');
+    Session::flush();
     return Redirect::back();
 });
 Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
@@ -45,11 +45,11 @@ Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
 
 Route::get('test_user_profile', 'HomeController@showTestProfile');
 Route::group(['before'=>'userauth'], function(){
-    
+
     Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']);
     Route::get('/profile/person', ['as'=>'person', 'uses'=>'UsersController@person_edit']);
-    Route::post('/profile/person', 'UsersController@person_save');    
-    
+    Route::post('/profile/person', 'UsersController@person_save');
+
     Route::get('/profile/forms', ['as'=>'forms', 'uses'=>'DeliveryFormsController@index']);
     Route::get('/profile/forms/create', ['as'=>'create_form', 'uses'=>'DeliveryFormsController@create']);
     Route::post('/profile/forms/create', 'DeliveryFormsController@store');
@@ -66,23 +66,59 @@ Route::post('/password/reset/{token}', 'RemindersController@postReset');
 
 
 //Testing routes
-//Route::get('/lol', function(){
-//    $foo = file_get_contents('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
-//    $bar = json_decode($foo);
-//});
+Route::get('/bla', function(){
+  // $user = User::all();
+  // foreach ($user as $u) {
+  //   $u->work()->detach();
+  // }
+  // $user->work()->attach('5');
+  // var_dump($user->work()->first()->workgroup->id);
+});
+Route::post('/for_testing_result', function(){
+  return '{"success":"Это тестовый марштур, так что на многое не расчитывай"}';
+});
+Route::get('/lol', function(){
+  // $user = User::find(8);
+  // var_dump($user->email);
+  // var_dump($user->work()->first()->toArray());
+  // $user->work()->detach(2);
+  // $user->work()->attach(2);
+  // var_dump($user->work->first()->toArray());
+  // var_dump($user->work->first()->workgroup->toArray());
+  $works = Work::all();
+  $workgroups = Workgroup::all();
+  echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>';
+  echo "<pre>";
+  $json = [];
+  foreach ($workgroups as $workgroup) {
+    $workgroup->work = $workgroup->work->toArray();
+    $json[] = $workgroup->toArray();
+  }
+  print_r(json_encode($json));
+  // echo "</select>";
+  // foreach ($workgroups as $workgroup) {
+  //   $works = $workgroup->work;
+  //   echo "<select name='work'>";
+  //   foreach ($works as $work) {
+  //     echo '<option value="'.$work->id.'">'.$work->name.'</option>';
+  //   }
+  //   echo "</select>";
+  // }
+  // echo "</form>";
+});
 //Route::get('/lol', function(){
 //    Mail::send('emails.lol', ['lol'=>'lol'], function($message){
 //       $message->to('umer.hurramov@gmail.com')->subject('Тест mail.isogram.org');
 //    });
 //});
-//Route::get('/{lang}/page/{content}', function($lang, $content){    
+//Route::get('/{lang}/page/{content}', function($lang, $content){
 //    Session::put('lang', $lang);
 //    App::setLocale($lang);
 //    return Session::get('lang');
 //    return Lang::get('lol.'.$content);
 //});
 //Route::get('/{lang}/lol', function($lang){
-//    App::setLocale($lang);    
+//    App::setLocale($lang);
 //    $block = Block::find(1);
 //    return $block->content()->firstOrFail()->content;
 //});
@@ -116,24 +152,24 @@ Route::post('/admin/currencies/{id}', 'CurrenciesController@edit')->before('admi
 Route::post('/admin/currencies/destroy/{id}', 'CurrenciesController@destroy')->before('adminauth');
 
 Route::group(['before'=>'adminauth'], function(){
-   Route::get('/admin/users', 'UsersController@show_users'); 
+   Route::get('/admin/users', 'UsersController@show_users');
    Route::get('/admin/users/{id}/forms', 'DeliveryFormsController@show_user_forms');
    Route::get('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@show_user_form');
    Route::post('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@update_user_form');
    Route::get('/admin/users/{user_id}/forms/{form_id}/print', 'DeliveryFormsController@printForm');
-   
+
    Route::get('/admin/cargotypes', 'CargoTypesController@index');
    Route::post('/admin/cargotypes', 'CargoTypesController@store');
    Route::post('/admin/cargotypes/{id}', 'CargoTypesController@edit');
    Route::post('/admin/cargotypes/destroy/{id}', 'CargoTypesController@destroy');
-   
+
    Route::get('/admin/uaareas','UaCoeffsController@index');
    Route::post('/admin/uaareas', 'UaCoeffsController@addArea');
    Route::delete('/admin/uaareas','UaCoeffsController@destroyArea');
-   
+
    Route::get('/admin/uacoeffs','UaCoeffsController@indexCoeffs');
    Route::get('/admin/uacoeffs/{id}','UaCoeffsController@editCoeffs');
-   Route::post('/admin/uacoeffs/{id}','UaCoeffsController@storeCoeffs');   
+   Route::post('/admin/uacoeffs/{id}','UaCoeffsController@storeCoeffs');
 });
 //Route::post($uri, $action);
 

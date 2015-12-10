@@ -24,7 +24,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 //	protected $hidden = array('password', 'remember_token');
         public $timestamps = false;
         protected $fillable = ['email', 'password'];
-//        protected $fillable = 
+//        protected $fillable =
 //        public function __construct(Session $session) {
 //            $this->session = $session;
 //        }
@@ -42,6 +42,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         public function form() {
             return $this->hasMany('DeliveryForm');
         }
+				public function work() {
+					return $this->belongsToMany('Work', 'work_user');
+				}
         public function is_valid($data){
             $validator = Validator::make($data, static::$rules);
             if ($validator->passes()) {
