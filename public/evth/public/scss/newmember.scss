@@ -2,6 +2,7 @@
 @import "reset.scss";
 @import "fonts.scss";
 @import "mixins.scss";
+@import "siteheart.scss";
 a {
   text-decoration: none;
 }
@@ -258,16 +259,16 @@ a {
   float: left;
   margin-left: 9px;
   padding-left: 90px;
-  &:before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: rgba(#000,.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: not-allowed;
-  }
+  // &:before {
+  //   content: '';
+  //   width: 100%;
+  //   height: 100%;
+  //   background: rgba(#000,.3);
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   cursor: not-allowed;
+  // }
   &:after {
     position: absolute;
     z-index: 1;
@@ -296,6 +297,7 @@ a {
       text-transform: uppercase;
       background: $orange;
       border: 1px solid transparent;
+      cursor: pointer;
       &:hover {
         background: darken($orange,10%);
       }
@@ -305,9 +307,11 @@ a {
       @include hl(14px);
       border: 1px solid #fff;
       background: $violet;
-      &:hover {
-        background: darken($violet, 10%);
-      }
+      cursor: not-allowed;
+      // pointer-events: none;
+      // &:hover {
+      //   background: darken($violet, 10%);
+      // }
     }
   }
   &__title {

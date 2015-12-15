@@ -25,8 +25,8 @@
   </div>
   <div class="manager">
     <span class="manager__title">Есть вопрос?</span>
-    <a href="#" class="manager__link--chat">Открыть чат с менеджером</a>
-    <a href="#" class="manager__link--callback" id="callback">Получить обратный звонок</a>
+    <span class="manager__link--chat siteheart-init">Открыть чат с менеджером</span>
+    <span class="manager__link--callback" id="callback">Получить обратный звонок</span>
   </div>
 </div>
 <div class="content-row">

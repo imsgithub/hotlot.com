@@ -19,6 +19,9 @@
 Route::get('/', function(){
     return View::make('public.pages.home');
 });
+Route::get('/abtest', function(){
+  return View::make('public.pages.homeABTest');
+});
 Route::get('/map', ['as'=>'map','uses'=>'CodesController@showNiceMap'] );
 Route::post('/order', 'OrdersController@store');
 Route::get('/sing-up', 'UsersController@newUserRegister');

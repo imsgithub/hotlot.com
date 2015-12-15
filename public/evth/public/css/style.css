@@ -1554,6 +1554,7 @@ header:after {
 .top-form-inputs {
   width: 464px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .top-form-inputs input {
   padding-left: 7px;
@@ -1580,7 +1581,8 @@ header:after {
   display: none;
 }
 .from,
-.where {
+.where,
+.phone {
   background: #e5e5e5;
   float: left;
   padding: 7px 6px;
@@ -1588,6 +1590,15 @@ header:after {
   -moz-border-radius: 5px;
   border-radius: 5px;
   width: 214px;
+}
+.phone {
+  float: none;
+  clear: both;
+  margin-left: 123px;
+  margin-top: 43px;
+}
+.abtest-violet-bg-wrapper {
+  height: 242px;
 }
 .arrows {
   float: left;

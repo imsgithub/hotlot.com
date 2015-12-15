@@ -10,10 +10,23 @@ class SendMessagesController extends \BaseController {
             $from = Input::get('from');
             $where = Input::get('where');
             $phone = Input::get('phone');
-            Mail::send('emails.message', ['from'=>$from, 'where'=>$where, 'phone'=>$phone], function($message)
-            {
-                $message->to('info@rate-and-go.com')->subject('Новая заявка на сайте rate-and-go.com');                
-            });
+            if (Input::get('abtest')=='abtest') {
+              Mail::send('emails.messageABTest', ['from'=>$from, 'where'=>$where, 'phone'=>$phone], function($message)
+              {
+                  $message->to('info@rate-and-go.com')->subject('Новая заявка на сайте AB тест rate-and-go.com');
+                  // $message->to('umer.hurramov@gmail.com')->subject('Новая заявка на сайте AB тест rate-and-go.com');
+                  $message->to('rate-and-go@yandex.ru')->subject('Новая заявка на сайте AB тест rate-and-go.com');
+                  $message->to('rateandgoes@gmail.com')->subject('Новая заявка на сайте AB тест rate-and-go.com');
+              });
+            } else {
+              Mail::send('emails.message', ['from'=>$from, 'where'=>$where, 'phone'=>$phone], function($message)
+              {
+                  $message->to('info@rate-and-go.com')->subject('Новая заявка на сайте rate-and-go.com');
+                  // $message->to('umer.hurramov@gmail.com')->subject('Новая заявка на сайте rate-and-go.com');
+                  $message->to('rate-and-go@yandex.ru')->subject('Новая заявка на сайте rate-and-go.com');
+                  $message->to('rateandgoes@gmail.com')->subject('Новая заявка на сайте rate-and-go.com'); 	
+              });
+            }
             $order = $this->order;
             $order->content = 'Заявка с главной страницы:<br>Откуда: '.Input::get('from').'<br>Куда: '.Input::get('where');
             $order->phone = Input::get('phone');
@@ -22,7 +35,7 @@ class SendMessagesController extends \BaseController {
         }
 	public function index()
 	{
-		
+
 	}
 
 

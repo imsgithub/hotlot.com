@@ -190,6 +190,7 @@ header {
 .top-form-inputs {
     width: 464px;
     margin:0 auto;
+    overflow: hidden;
     input {
         padding-left: 7px;
         border: none;
@@ -212,12 +213,21 @@ header {
         display: none;
     }
 }
-.from, .where {
+.from, .where, .phone {
     background: #e5e5e5;
     float: left;
     padding: 7px 6px;
     .rounded(5px);
     width: 214px;
+}
+.phone {
+  float: none;
+  clear: both;
+  margin-left: 123px;
+  margin-top: 43px;
+}
+.abtest-violet-bg-wrapper {
+  height: 242px;
 }
 .arrows {
     float: left;

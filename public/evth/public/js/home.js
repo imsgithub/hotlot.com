@@ -6,7 +6,7 @@ if (document.querySelector('.top-form')) {
    from = top_form.querySelector('.from input');
    where = top_form.querySelector('.where input');
    from = new google.maps.places.Autocomplete(from);
-   where = new google.maps.places.Autocomplete(where);   
+   where = new google.maps.places.Autocomplete(where);
    new google.maps.places.Autocomplete(document.querySelector('.works-start-city'));
    new google.maps.places.Autocomplete(document.querySelector('.works-end-city'));
 };
@@ -20,7 +20,7 @@ $(document).ready(function(){
         }, 1000);
     });
     $('#steps-owl').owlCarousel({
-        singleItem: true,        
+        singleItem: true,
     });
     $('.cities-gallery').owlCarousel({
         autoPlay: 2500,
@@ -39,15 +39,15 @@ $(document).ready(function(){
         $('#video').after('<div class="mobile-video-poster"></div>');
         $('#video').remove();
     }
-    $('[name="phone"].works-form__input').on('click', function(){
+    $('input[name="phone"]').on('click', function(){
         $(this).parent().removeClass('has-error');
     });
     $('.works-form__button').on('click', function(){
         var from = $('[name="from"].works-form__input'),
             where = $('[name="where"].works-form__input'),
-            input = $('[name="phone"].works-form__input');        
+            input = $('[name="phone"].works-form__input');
         if(input.val()==='') {
-            input.parent().addClass('has-error');            
+            input.parent().addClass('has-error');
             return;
         }
         var regexp = /\+*\d+[\d-( ).^+]*/g;
@@ -73,14 +73,55 @@ $(document).ready(function(){
         xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhr.send('from='+from.val()+'&where='+where.val()+'&phone='+input.val());
         xhr.onreadystatechange = function(){
-            if (xhr.readyState !== 4) return;            
-            var par = $('.works-form__inputs-wrapper');            
+            if (xhr.readyState !== 4) return;
+            var par = $('.works-form__inputs-wrapper');
             par.html('<span class="works-form__response">Заявка отправлена! Наш менеджер Вам перезвонит в ближайшее время.</span>')
         };
         $(this).html('Отправляем...');
         $('.works-form__title').css('opacity', '0');
         $('.works-form__dummy-arrow').css('opacity', '0');
     });
+
+    if ($('#abform').length !== 0) {
+      $('#abform').on('submit', function(e){
+        e.preventDefault();
+        var from = $(this).find('input[name="start"]'),
+            where = $(this).find('input[name="end"]'),
+            phone = $(this).find('input[name="phone"]');
+        if (phone.val()==='') {
+            phone.parent().addClass('has-error');
+            return;
+        };
+        var regexp = /\+*\d+[\d-( ).^+]*/g;
+        match = phone.val().match(regexp);
+        if (!match || match.length === 0) {
+            phone.parent().addClass('has-error');
+            console.log('!match || match.length === 0');
+            return;
+        };
+        var x = match[0];
+        if (x.length < phone.val().length) {
+            phone.parent().addClass('has-error');
+            console.log('x.length < input.val()');
+            return;
+        };
+        if (x.length < 7) {
+            phone.parent().addClass('has-error');
+            console.log('x.length < 7');
+            return;
+        };
+        var xhr = new XMLHttpRequest();
+        var par = $(this);
+        xhr.open('POST', '/sendmessage', true);
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.send('abtest=abtest&from='+from.val()+'&where='+where.val()+'&phone='+phone.val());
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState !== 4) return;
+            par.html('<span class="works-form__response">Заявка отправлена! Наш менеджер перезвонит Вам в ближайшее время.</span>')
+        };
+        $(this).html('<span class="works-form__response">Отправляем...</span>');
+      })
+    }
     var services = document.querySelectorAll('.service-row .display');
     for (var i = 0; i< services.length; i++) {
         var str = services[i].innerHTML;
@@ -115,8 +156,8 @@ function showService(e){
 //    var par = this.parentNode.parentNode.parentNode;//col-4
 //    var superPar = par.parentNode;//service-row
 //    par.classList.add('deployed');
-//    par.classList.remove('down');    
-//    superPar.classList.add('extended');    
+//    par.classList.remove('down');
+//    superPar.classList.add('extended');
 //    $(this).next('.hide').css('display','inline');
 //    $(this).css('display', 'none');
 //    console.log(par);
