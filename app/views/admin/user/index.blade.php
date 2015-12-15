@@ -7,8 +7,9 @@
             <th>ID</th>
             <th>Email</th>
             <th>Имя, Фамилия</th>
+            <th>Группа - Работа</th>
             <th>Формы</th>
-        </tr>    
+        </tr>
     </thead>
     <tbody>
         @foreach($users as $user)
@@ -25,6 +26,13 @@
                 @endif
             </td>
             <td>
+              @if ($user->work()->first()!=null)
+              {{$user->work()->first()->workgroup->name}} - {{$user->work()->first()->name}}
+              @else
+              Не указано
+              @endif
+            </td>
+            <td>
                 @if (count($user->form)==0)
                 Нет форм
                 @else
@@ -36,4 +44,5 @@
         @endforeach
     </tbody>
 </table>
+{{$users->links()}}
 @stop

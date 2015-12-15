@@ -121,7 +121,7 @@ class UsersController extends \BaseController {
         }
     }
     public function show_users(){
-        $users = $this->user->all();
+        $users = $this->user->orderBy('id', 'DESC')->paginate(20);
         return View::make('admin.user.index')->withUsers($users);
     }
     public function user_register() {

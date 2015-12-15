@@ -185,6 +185,13 @@ Route::group(['before'=>'adminauth'], function(){
 //    ]);
 //    return $admin->username;
 //});
-//Route::get('/lol',function(){
-//   return HTML::entities('2015-10-13 10:58:00');
-//});
+// Route::get('/lol',function(){
+//   $users = User::all();
+//   foreach ($users as $user) {
+//     if ($user->work()->first()!=null) {
+//         var_dump($user->work()->first()->name);
+//         var_dump($user->work()->first()->workgroup->name);
+//     }
+//
+//   }
+// });
