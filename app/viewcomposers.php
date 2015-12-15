@@ -13,3 +13,7 @@ View::composer('member.layouts.sidebar', function($view){
     ];
     $view->withUrls($urls);
 });
+View::composer('newmember.layouts.header', function($view){
+    $user = User::find(Session::get('id'));
+    $view->withUser($user);
+});

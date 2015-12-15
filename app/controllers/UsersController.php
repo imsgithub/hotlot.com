@@ -61,7 +61,12 @@ class UsersController extends \BaseController {
     }
     public function show_profile() {
         $user = $this->user->whereId(Session::get('id'))->first();
-        return View::make('member.index')->withUser($user);
+        $forms = $user->form()->orderBy('updated_at')->limit(4)->get();
+        // var_dump($forms->isEmpty());
+        // return View::make('member.index')->withUser($user);
+        $meta = [];
+        $meta['title'] = Lang::get('member.profile_title', ['email'=>$user->email]);
+        return View::make('newmember.index')->withMeta($meta)->withForms($forms);
     }
     public function person_edit(){
         $user = $this->user->whereId(Session::get('id'))->first();

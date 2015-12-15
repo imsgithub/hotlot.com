@@ -66,18 +66,18 @@ Route::post('/password/reset/{token}', 'RemindersController@postReset');
 
 
 //Testing routes
-Route::get('/bla', function(){
+// Route::get('/bla', function(){
   // $user = User::all();
   // foreach ($user as $u) {
   //   $u->work()->detach();
   // }
   // $user->work()->attach('5');
   // var_dump($user->work()->first()->workgroup->id);
-});
-Route::post('/for_testing_result', function(){
-  return '{"success":"Это тестовый марштур, так что на многое не расчитывай"}';
-});
-Route::get('/lol', function(){
+// });
+// Route::post('/for_testing_result', function(){
+//   return '{"success":"Это тестовый марштур, так что на многое не расчитывай"}';
+// });
+// Route::get('/lol', function(){
   // $user = User::find(8);
   // var_dump($user->email);
   // var_dump($user->work()->first()->toArray());
@@ -85,16 +85,16 @@ Route::get('/lol', function(){
   // $user->work()->attach(2);
   // var_dump($user->work->first()->toArray());
   // var_dump($user->work->first()->workgroup->toArray());
-  $works = Work::all();
-  $workgroups = Workgroup::all();
-  echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>';
-  echo "<pre>";
-  $json = [];
-  foreach ($workgroups as $workgroup) {
-    $workgroup->work = $workgroup->work->toArray();
-    $json[] = $workgroup->toArray();
-  }
-  print_r(json_encode($json));
+  // $works = Work::all();
+  // $workgroups = Workgroup::all();
+  // echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>';
+  // echo "<pre>";
+  // $json = [];
+  // foreach ($workgroups as $workgroup) {
+  //   $workgroup->work = $workgroup->work->toArray();
+  //   $json[] = $workgroup->toArray();
+  // }
+  // print_r(json_encode($json));
   // echo "</select>";
   // foreach ($workgroups as $workgroup) {
   //   $works = $workgroup->work;
@@ -105,7 +105,7 @@ Route::get('/lol', function(){
   //   echo "</select>";
   // }
   // echo "</form>";
-});
+// });
 //Route::get('/lol', function(){
 //    Mail::send('emails.lol', ['lol'=>'lol'], function($message){
 //       $message->to('umer.hurramov@gmail.com')->subject('Тест mail.isogram.org');
@@ -157,6 +157,7 @@ Route::group(['before'=>'adminauth'], function(){
    Route::get('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@show_user_form');
    Route::post('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@update_user_form');
    Route::get('/admin/users/{user_id}/forms/{form_id}/print', 'DeliveryFormsController@printForm');
+   Route::get('/admin/forms', 'DeliveryFormsController@adminIndex');
 
    Route::get('/admin/cargotypes', 'CargoTypesController@index');
    Route::post('/admin/cargotypes', 'CargoTypesController@store');

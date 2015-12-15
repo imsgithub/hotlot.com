@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Rate&GO!</title>
+    <title>Международные грузовые перевозки по Европе, Украине, Азия, СНГ, США | грузоперевозки от компании Rate and Go </title>
+    <meta name="description" content="Description Международные грузоперевозки от компании Rate and Go &#10004;Быстрая доставка &#10004;Гарантия качества &#10004;Бесплатная страховка!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="evth/public/css/style.css">

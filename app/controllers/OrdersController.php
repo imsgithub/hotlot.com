@@ -18,14 +18,14 @@ class OrdersController extends \BaseController {
             $orders = $this->order->orderBy('created_at','desc')->paginate($this->perPage);
             return View::make('admin.orders.index')->withOrders($orders)->withTitle('Все');
 	}
-        
+
         public function indexByCondition($condition)
 	{
             $conditions = $this->condition->whereName($condition)->first();
-            $orders = $conditions->order()->orderBy('created_at','desc')->paginate($this->perPage);            
+            $orders = $conditions->order()->orderBy('created_at','desc')->paginate($this->perPage);
             return View::make('admin.orders.index')->withOrders($orders)->withTitle($conditions->ru_name);
 	}
-        
+
         public function indexUnreviewed() {
             $orders = $this->order->whereViewed('0')->orderBy('created_at', 'desc')->paginate($this->perPage);
             return View::make('admin.orders.index')->withOrders($orders)->withTitle('Непросмотренные');
@@ -57,7 +57,7 @@ class OrdersController extends \BaseController {
                 return 'saved';
             } else {
                 return 'not saved';
-            }            
+            }
 	}
 
 
@@ -75,7 +75,7 @@ class OrdersController extends \BaseController {
             $conditions = $this->condition->all();
             return View::make('admin.orders.show')->withOrder($order)->withConditions($conditions);
 	}
-       
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -83,7 +83,7 @@ class OrdersController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id)
-	{            
+	{
             $order = $this->order->find($id);
             $order->condition_id = Input::get('condition_id');
             $order->save();
@@ -115,8 +115,9 @@ class OrdersController extends \BaseController {
 		//
 	}
         public function unreviewed() {
+            $forms = DeliveryForm::where('admin_confirmed','=','0')->get();
             $order = $this->order->where('viewed','=','0')->get();
-            return count($order);
+            return '{"orders":"'.count($order).'", "forms":"'.count($forms).'"}';
         }
 
 }

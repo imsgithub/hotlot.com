@@ -1,4 +1,5 @@
 var badge = document.getElementById('order-badge');
+var formsBadge = document.getElementById('form-orders-badge');
 function getOrdersByAjax(){
   var xhr = new XMLHttpRequest();
   xhr.open('GET', '/admin/orders/unreviewed/ajax', true);
@@ -6,7 +7,9 @@ function getOrdersByAjax(){
   xhr.send();
   xhr.onreadystatechange = function () {
     if (xhr.readyState !== 4) return;
-    badge.innerHTML = xhr.responseText;
+    var resp = JSON.parse(xhr.responseText);
+    badge.innerHTML = resp.orders;
+    formsBadge.innerHTML = resp.forms;
   };
 };
 $(document).ready(function() {

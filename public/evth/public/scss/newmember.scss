@@ -2,13 +2,17 @@
 @import "reset.scss";
 @import "fonts.scss";
 @import "mixins.scss";
+a {
+  text-decoration: none;
+}
 .overlay {
   @include clearfix;
   width: 100%;
-  min-height: 100%;
   overflow: hidden;
   background: #262829;
   padding-bottom: 20px;
+  min-height: 100vh;
+  height: 100%;
 }
 .header-wrapper {
   width: 100%;
@@ -35,7 +39,6 @@
   }
 }
 .user-block {
-  width: 293px;
   float: right;
   padding-top: 12px;
   &__settings {
@@ -52,7 +55,10 @@
     display: inline-block;
     @include hl(14px);
     color: #fff;
-    padding-left: 10px;
+    padding: 0 10px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__logout {
     display: block;
@@ -112,6 +118,20 @@
       color: $orange;
       &:after {
         width: 100%;
+      }
+    }
+    &--disabled {
+      @extend .nav__link;
+      color: darken(#fff,50%);
+      cursor: not-allowed;
+      &:after {
+        width: 0;
+      }
+      &:hover {
+        color: darken(#fff,50%);
+        &:after {
+          width: 0;
+        }
       }
     }
   }
@@ -238,6 +258,16 @@
   float: left;
   margin-left: 9px;
   padding-left: 90px;
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(#000,.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: not-allowed;
+  }
   &:after {
     position: absolute;
     z-index: 1;
@@ -347,16 +377,70 @@
 .grid {
   margin-top: 10px;
   width: 876px;
+  height: 458px;
   float: right;
   background: #fff;
+  overflow: hidden;
   @extend %grey-border-bottom;
   &__title {
     @extend %title;
-    padding: 25px 0 25px 33px;
+    padding: 25px 0 24px 33px;
+    float: left;
+    width: 803px;
+    border-bottom: 1px solid #dce0e2;
+  }
+  &.full-width {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    .grid__title {
+      width: 1097px;
+    }
+  }
+  &__empty-title {
+    float: none;
+    display: block;
+    @extend .grid__title;
+    font-size: 23px;
+    border-bottom: none;
+    margin-top: 75px;
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+        opacity: .9;
+      }
+    }
+  }
+  &__link {
+    color: rgba(#000, .8);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__buttons {
     float: right;
-    margin-top: 25px;
+    // margin-top: 25px;
+  }
+  &__add-button {
+    float: right;
+    display: block;
+    width: 73px;
+    height: 75px;
+    line-height: 80px;
+    text-align: center;
+    color: $orange;
+    font-size: 32px;
+    border-left: 1px solid #dce0e2;
+    border-bottom: 1px solid #dce0e2;
+    cursor: pointer;
+    @include transition(all .2s ease-out);
+    &:hover {
+      color: $violet;
+      border-color: $violet;
+    }
   }
   &__button {
     display: inline-block;
@@ -383,10 +467,86 @@
       padding-top: 0;
     }
   }
+  .table {
+    width: 100%;
+    // height: 384px;
+    thead {
+      tr {
+        background: rgba($violet, .05);
+        th {
+          @include hblack(15px);
+          text-transform: uppercase;
+          padding: 30px 7px;
+          color: $violet;
+          &:first-child {
+            padding-left: 30px;
+            width: 5%;
+          }
+          &:nth-child(2) {
+            width: 25%;
+          }
+          &:nth-child(3) {
+            width: 20%;
+          }
+          &:nth-child(4) {
+            width: 30%;
+          }
+          &:last-child {
+            width: 20%;
+          }
+        }
+      }
+    }
+    tbody {
+      td {
+        @include hr(15.33px);
+        padding: 30px 7px;
+      }
+      tr:nth-child(2n) {
+        background: rgba($violet, .05);
+      }
+      tr {
+        td {
+          &:first-child {
+            padding-left: 30px;
+            width: 5%;
+          }
+          &:nth-child(2) {
+            width: 25%;
+          }
+          &:nth-child(3) {
+            width: 20%;
+          }
+          &:nth-child(4) {
+            width: 30%;
+          }
+          &:last-child {
+            width: 20%;
+            padding-top: 25px;
+            padding-bottom: 25px;
+          }
+        }
+        &.finished {
+          td:first-child:before {
+            background: #5ab847;
+          }
+        }
+      }
+    }
+  }
+  &__edit, &__delete {
+    color: rgba($violet, .4);
+    cursor: pointer;
+    padding-right: 10px;
+    font-size: 20px;
+    &:hover {
+      color: $violet;
+    }
+  }
 }
 .table {
   width: 100%;
-  height: 384px;
+  // height: 384px;
   thead {
     tr {
       background: rgba($violet, .05);
@@ -410,17 +570,17 @@
       td:first-child {
         padding-left: 60px;
         position: relative;
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: 15px;
-          height: 15px;
-          @include border-radius(8px);
-          background: #ee4e65;
-          top: 30px;
-          left: 30px;
-        }
+        // &:before {
+        //   content: "";
+        //   display: block;
+        //   position: absolute;
+        //   width: 15px;
+        //   height: 15px;
+        //   @include border-radius(8px);
+        //   background: #ee4e65;
+        //   top: 30px;
+        //   left: 30px;
+        // }
       }
       &.finished {
         td:first-child:before {
@@ -493,3 +653,112 @@
     }
   }
 }
+.form {
+  @extend .grid;
+  &__title {
+    @extend %title;
+    width: 100%;
+    padding: 25px 0 24px 15px;
+    border-bottom: 1px solid #dce0e2;
+  }
+  &__subtitle {
+    @extend .form__title;
+    padding: 10px 15px 10px;
+    font-size: 20px;
+    border-bottom: none;
+  }
+  &__input-wrapper {
+    width: 100%;
+    padding: 10px 33px;
+    label {
+      display: block;
+      width: 100%;
+      padding: 0 0 5px;
+      @include hr(16px);
+    }
+    input, textarea {
+      width: 100%;
+      display: block;
+      border: 1px solid $violet;
+      @include hr(16px);
+      padding: 5px 3px;
+      @include border-radius(3px);
+      @include transition(all .15s ease-out);
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      }
+      &[type="checkbox"] {
+        display: inline-block;
+        width: auto;
+        &:focus {
+          @include box-shadow(none);
+        }
+      }
+      &[type="submit"] {
+        display: inline-block;
+        width: auto;
+        cursor: pointer;
+        background: $violet;
+        color: #fff;
+        padding-right: 10px;
+        padding-left: 10px;
+        @include transition(all .2s ease-out);
+        &:hover {
+          color: $violet;
+          background: #fff;
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+      display: block;
+      @include hr(16px);
+      padding: 5px 3px;
+      border: 1px solid $violet;
+      @include border-radius(3px);
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      }
+    }
+    .text-danger {
+      display: block;
+      width: 100%;
+      @include hr(12px);
+      color: $orange;
+      padding: 3px 0;
+    }
+
+  }
+}
+hr {
+  display: block;
+  float: none;
+  width: 100%;
+  clear: both;
+  border: 0;
+  margin: 0;
+  &.bordered {
+    border-bottom: 1px solid #dce0e2;
+  }
+}
+.text-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $violet;
+  padding: 10px;
+  text-align: center;
+  @include hr(16px);
+  color: #fff;
+  margin-top: 0;
+  @include transition(all .4s ease-out);
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+}
+@import "bootstrap.scss";

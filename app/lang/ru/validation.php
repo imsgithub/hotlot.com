@@ -53,7 +53,7 @@ return array(
 		"array"   => "The :attribute must have at least :min items.",
 	),
 	"not_in"               => "The selected :attribute is invalid.",
-	"numeric"              => "The :attribute must be a number.",
+	"numeric"              => "Должно быть числом.",
 	"regex"                => "Неверный формат.",
 	"required"             => "Это поле обязательно для заполнения",
 	"required_if"          => "The :attribute field is required when :other is :value.",

@@ -769,10 +769,11 @@
                     } else if (rules.countries[reverse_temp]!==undefined) {
                         this.coeffs.country = rules.countries[reverse_temp];
                     };
-                    var h = this.cargo.h.value;
-                    var m = this.cargo.m.value;
-                    var l = this.cargo.l.value;
-                    var w = this.cargo.w.value;
+                    var h = parseFloat(this.cargo.h.value);
+                    var m = parseFloat(this.cargo.m.value);
+                    var l = parseFloat(this.cargo.l.value);
+                    var w = parseFloat(this.cargo.w.value);
+                    debugger;
                     if ( h<=rules.h.max && h>rules.h.middle) { //if ( h<=3.3 && h>2.8)
                         this.coeffs.load = rules.load.g; //log('Коэффициент - 1,2');
                     } else {
@@ -1297,6 +1298,6 @@
         </script>
 <script src="evth/public/js/ready.js"></script>
 <script src="evth/public/js/dragonmap.js"></script>
-include('counters.metrika')
+@include('counters.metrika')
     </body>
 </html>

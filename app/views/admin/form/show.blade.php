@@ -2,174 +2,178 @@
 @section('content')
 {{$errors->first('msg', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="text-success"><strong>:message</strong></span></div>')}}
 <h4>Форма пользователя {{$user->email}}, создана {{$form->created_at}}</h4>
-<p class="admin-color"><strong>Поля администратора</strong></p>
-<p class="member-color"><strong>Поля пользователя</strong></p>
-{{Form::open()}}
-<div class="form-inline" style="padding: 5px 0;">
-    <div class="form-group admin-form-group">
-        <label class="control-label" for="cargo_number">Договор-заявка на первозку груза № </label>
-        {{Form::text('cargo_number',$form->cargo_number,['id'=>'cargo_number','class'=>'form-control', 'placeholder'=>''])}}
-        {{$errors->first('cargo_number', '<span class="text-danger">:message</span>')}}
-    </div>
-    <div class="form-group admin-form-group">
-        <label class="control-label" for="cargo_date"> от </label>
-        {{Form::text('cargo_date',$form->cargo_date,['id'=>'cargo_date','class'=>'form-control', 'placeholder'=>''])}}
-        {{$errors->first('cargo_date', '<span class="text-danger">:message</span>')}}
-    </div>
+{{Form::open(['method'=>'POST'])}}
+<span class="form__subtitle">Параметры груза</span>
+<div class="form__input-wrapper col-md-12">
+  <label for="cargo_name">Наименование груза</label>
+  {{Form::text('cargo_name',$form->cargo_name,['id'=>'cargo_name','placeholder'=>''])}}
+  {{$errors->first('cargo_name', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-inline">
-    <div class="form-group admin-form-group">
-        <label class="control-label" for="agreement_number">к договору № </label>
-        {{Form::text('agreement_number',$form->agreement_number,['id'=>'agreement_number','class'=>'form-control', 'placeholder'=>''])}}
-        {{$errors->first('agreement_number', '<span class="text-danger">:message</span>')}}
-    </div>
-    <div class="form-group admin-form-group">
-        <label class="control-label" for="agreement_date"> от </label>
-        {{Form::text('agreement_date',$form->agreement_date,['id'=>'agreement_date','class'=>'form-control', 'placeholder'=>''])}}
-        {{$errors->first('agreement_date', '<span class="text-danger">:message</span>')}}
-    </div>
+<div class="form__input-wrapper col-md-6">
+  <label for="cargo_price">Стоимость груза</label>
+  {{Form::text('cargo_price',$form->cargo_price,['id'=>'cargo_price','placeholder'=>''])}}
+  {{$errors->first('cargo_price', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="kind_of_transport">Перевозчик</label>
-    {{Form::text('transporter',$form->transporter,['id'=>'transporter','class'=>'form-control', 'placeholder'=>'Например: ТОВ "ОСТВIНД-ТРАНСПОРТ"'])}}
-    {{$errors->first('transporter', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-6">
+  <label for="currency_id">Валюта</label>
+  <select id="currency_id" name="currency_id">
+    @foreach ($currencies as $currency)
+      @if ($form->currency_id == $currency->id)
+      <option value="{{$currency->id}}" selected="selected">{{$currency->name}}</option>
+      @else
+      <option value="{{$currency->id}}">{{$currency->name}}</option>
+      @endif
+    @endforeach
+  </select>
+  {{$errors->first('currency_id', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="contact_face">Контактное лицо</label>
-    {{Form::text('contact_face',$form->contact_face,['id'=>'contact_face','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('contact_face', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-6">
+  <label for="price">Стоимость перевозки</label>
+  {{Form::text('price',$form->price,['id'=>'price','placeholder'=>''])}}
+  {{$errors->first('price', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="kind_of_transport">Вид транспорта</label>
-    {{Form::text('kind_of_transport',$form->kind_of_transport,['id'=>'kind_of_transport','class'=>'form-control', 'placeholder'=>'Тент, рефрежетарот и т.п.'])}}
-    {{$errors->first('kind_of_transport', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-6">
+  <label for="insurance">Оформить страховку?</label>
+  @if ($form->insurance == 1)
+  <input type="checkbox" name="insurance" id="insurance" checked="checked">
+  @else
+  <input type="checkbox" name="insurance" id="insurance">
+  @endif
+  {{$errors->first('insurance', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="cargo_name">Наименование груза</label>
-    {{Form::text('cargo_name',$form->cargo_name,['id'=>'cargo_name','class'=>'form-control', 'placeholder'=>'Что везти? Например, металлургическая смесь'])}}
-    {{$errors->first('cargo_name', '<span class="text-danger">:message</span>')}}
+<hr>
+<div class="form__input-wrapper col-md-4">
+  <label for="weight">Масса (т)</label>
+  {{Form::text('weight',$form->weight,['id'=>'weight','placeholder'=>''])}}
+  {{$errors->first('weight', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="number_of_seats">Количество мест</label>
-    {{Form::text('number_of_seats',$form->number_of_seats,['id'=>'number_of_seats','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('number_of_seats', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-4">
+  <label for="volume">Объем (м<sup>3</sup>)</label>
+  {{Form::text('volume',$form->volume,['id'=>'volume','placeholder'=>''])}}
+  {{$errors->first('volume', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="volume">Объем груза в м<sup>3</sup></label>
-    {{Form::text('volume',$form->volume,['id'=>'volume','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('volume', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-4">
+  <label for="number_of_seats">Количество мест</label>
+  {{Form::text('number_of_seats',$form->number_of_seats,['id'=>'number_of_seats','placeholder'=>''])}}
+  {{$errors->first('number_of_seats', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="weight">Вес груза в тоннах</label>
-    {{Form::text('weight',$form->weight,['id'=>'weight','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('weight', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-12">
+  <label for="requirements">Требования к креплению грузов</label>
+  {{Form::text('requirements',$form->requirements,['id'=>'requirements','placeholder'=>''])}}
+  {{$errors->first('requirements', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="load_address">Адрес загрузки</label>
-    {{Form::text('load_address',$form->load_address,['id'=>'load_address','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('load_address', '<span class="text-danger">:message</span>')}}
+<span class="form__subtitle">Маршрут</span>
+<div class="form__input-wrapper col-md-6">
+  <label for="route_from">Откуда</label>
+  {{Form::text('route_from',$form->route_from,['id'=>'route_from','placeholder'=>''])}}
+  {{$errors->first('route_from', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="cc_load_address">Адрес таможенного оформления загрузки</label>
-    {{Form::text('cc_load_address',$form->cc_load_address,['id'=>'cc_load_address','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('cc_load_address', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-6">
+  <label for="route_where">Куда</label>
+  {{Form::text('route_where',$form->route_where,['id'=>'route_where','placeholder'=>''])}}
+  {{$errors->first('route_where', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="unloading_address">Адрес разгрузки</label>
-    {{Form::text('unloading_address',$form->unloading_address,['id'=>'unloading_address','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('unloading_address', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-6">
+  <label for="cargo_type_id">Тип перевозки</label>
+  <select id="cargo_type_id" name="cargo_type_id">
+    @foreach ($cargotypes as $cargo_type)
+      @if ($form->cargo_type_id == $cargo_type->id)
+      <option value="{{$cargo_type->id}}" selected="selected">{{$cargo_type->name}}</option>
+      @else
+      <option value="{{$cargo_type->id}}">{{$cargo_type->name}}</option>
+      @endif
+    @endforeach
+  </select>
+  {{$errors->first('cargo_type_id', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="cc_unloading_address">Адрес таможенного оформления разгрузки</label>
-    {{Form::text('cc_unloading_address',$form->cc_unloading_address,['id'=>'cc_unloading_address','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('cc_unloading_address', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-6">
+  <label for="transport_type">Тип транспорта</label>
+  <select id="transport_type" name="transport_type">
+    <option value="Авто">Авто</option>
+    <option value="Морской" disabled="disabled">Морской</option>
+    <option value="Ж/Д" disabled="disabled">Ж/Д</option>
+    <option value="Авиа" disabled="disabled">Авиа</option>
+  </select>
+  {{$errors->first('transport_type', '<span class="text-danger">:message</span>')}}
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="load_datetime">Дата и время загрузки</label>
-    {{Form::text('load_datetime',$form->load_datetime,['id'=>'load_datetime','class'=>'form-control', 'placeholder'=>''])}}
+<div class="col-md-6">
+  <span class="form__subtitle">Загрузка</span>
+  <div class="form__input-wrapper col-md-12">
+    <label for="load_datetime">Дата и время</label>
+    {{Form::text('load_datetime',$form->load_datetime,['id'=>'load_datetime','placeholder'=>''])}}
     {{$errors->first('load_datetime', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="load_transporter">Грузоотправитель</label>
+    {{Form::text('load_transporter',$form->load_transporter,['id'=>'load_transporter','placeholder'=>''])}}
+    {{$errors->first('load_transporter', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="load_address">Адрес</label>
+    {{Form::text('load_address',$form->load_address,['id'=>'load_address','placeholder'=>''])}}
+    {{$errors->first('load_address', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="load_face">Контактное лицо</label>
+    {{Form::text('load_face',$form->load_face,['id'=>'load_face','placeholder'=>''])}}
+    {{$errors->first('load_face', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="load_phone">Контактный телефон</label>
+    {{Form::text('load_phone',$form->load_phone,['id'=>'load_phone','placeholder'=>''])}}
+    {{$errors->first('load_phone', '<span class="text-danger">:message</span>')}}
+  </div>
 </div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="delivery_datetime">Предпочитаемые дата и время доставки</label>
-    {{Form::text('delivery_datetime',$form->delivery_datetime,['id'=>'delivery_datetime','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('delivery_datetime', '<span class="text-danger">:message</span>')}}
+<div class="col-md-6">
+  <span class="form__subtitle">Разгрузка</span>
+  <div class="form__input-wrapper col-md-12">
+    <label for="unload_datetime">Дата и время</label>
+    {{Form::text('unload_datetime',$form->unload_datetime,['id'=>'unload_datetime','placeholder'=>''])}}
+    {{$errors->first('unload_datetime', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="unload_transporter">Грузоотправитель</label>
+    {{Form::text('unload_transporter',$form->unload_transporter,['id'=>'unload_transporter','placeholder'=>''])}}
+    {{$errors->first('unload_transporter', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="unload_address">Адрес</label>
+    {{Form::text('unload_address',$form->unload_address,['id'=>'unload_address','placeholder'=>''])}}
+    {{$errors->first('unload_address', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="unload_face">Контактное лицо</label>
+    {{Form::text('unload_face',$form->unload_face,['id'=>'unload_face','placeholder'=>''])}}
+    {{$errors->first('unload_face', '<span class="text-danger">:message</span>')}}
+  </div>
+  <div class="form__input-wrapper col-md-12">
+    <label for="unload_phone">Контактный телефон</label>
+    {{Form::text('unload_phone',$form->unload_phone,['id'=>'unload_phone','placeholder'=>''])}}
+    {{$errors->first('unload_phone', '<span class="text-danger">:message</span>')}}
+  </div>
 </div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="payment_term">Условия оплаты</label>
-    {{Form::text('payment_term',$form->payment_term,['id'=>'payment_term','class'=>'form-control', 'placeholder'=>'Например: Оплата по факту доставки в срок 7 банковских дней'])}}
-    {{$errors->first('payment_term', '<span class="text-danger">:message</span>')}}
+<div class="form__input-wrapper col-md-12">
+  <label for="comment">Комментарий</label>
+  <textarea id="comment" name="comment" rows="3">{{$form->comment}}</textarea>
 </div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="additional_conditions">Дополнительные условия</label>
-    {{Form::text('additional_conditions',$form->additional_conditions,['id'=>'additional_conditions','class'=>'form-control', 'placeholder'=>'Например: Загрузка верхняя. Необходимая документация: CMR'])}}
-    {{$errors->first('additional_conditions', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group member-form-group">
-    <label class="control-label" for="method_of_payment">Форма оплаты</label>
-    {{Form::text('method_of_payment',$form->method_of_payment,['id'=>'method_of_payment','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('method_of_payment', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="price">Цена. Обязательно указать валюту!</label>
-    {{Form::text('price',$form->price,['id'=>'price','class'=>'form-control', 'placeholder'=>'Например: 2100,00 Евро по кросс курсу USD в день оплаты'])}}
-    {{$errors->first('price', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="car_brand">Марка авто</label>
-    {{Form::text('car_brand',$form->car_brand,['id'=>'car_brand','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('car_brand', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="number_am">№ а/м</label>
-    {{Form::text('number_am',$form->number_am,['id'=>'number_am','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('number_am', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="number_pp">№ п/п</label>
-    {{Form::text('number_pp',$form->number_pp,['id'=>'number_pp','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('number_pp', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="driver_name">Имя водителя</label>
-    {{Form::text('driver_name',$form->driver_name,['id'=>'driver_name','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('driver_name', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="driver_passport">Паспортные данные водителя</label>
-    {{Form::text('driver_passport',$form->driver_passport,['id'=>'driver_passport','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('driver_passport', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="form-group admin-form-group">
-    <label class="control-label" for="driver_phone">Способ связи с водителем</label>
-    {{Form::text('driver_phone',$form->driver_phone,['id'=>'driver_phone','class'=>'form-control', 'placeholder'=>''])}}
-    {{$errors->first('driver_phone', '<span class="text-danger">:message</span>')}}
-</div>
-<div class="radio admin-form-group">
-     <?php 
-    if ($form->confirmed == 1) {
-        $checked = true;
-    } else {
-        $checked = false;
-    }
-    ?>
-    <label>{{Form::radio('confirmed', '1', $checked);}}Подтверждено</label>
-    <label>{{Form::radio('confirmed', '0', !$checked);}}Не подтверждено</label>
-</div>
-<div class="form-group admin-form-group">
-    <p class="bg-danger" style="padding: 15px"><strong>Если внесены изменения, то перед печатью обязательно сохранить!</strong></p>
-    <a href="/admin/users/{{$user->id}}/forms" class="btn btn-primary"><i class="fa fa-arrow-circle-o-left"></i> Вернуться к формам пользователя</a>
-    <a href="/admin/users/{{$user->id}}/forms/{{$form->id}}/print" class="btn btn-info"><i class="fa fa-print"></i> Печать</a>
-    {{Form::button('<i class="fa fa-cloud"></i> Сохранить',['type'=>'submit', 'class'=>'btn btn-success'])}}    
+
+
+
+<div class="form__input-wrapper col-md-12">
+  {{Form::submit('Сохранить')}}
 </div>
 {{Form::close()}}
 <script>
-    $('#load_datetime, #delivery_datetime').datetimepicker({
-        format: 'Y-m-d H:i:s',
-        lang:'ru'
-    });
-    $('#cargo_date, #agreement_date').datetimepicker({
-        format: 'Y-m-d',
-        lang:'ru'
-    });
+if ($('#route_from').length!==0) {
+  new google.maps.places.Autocomplete(document.getElementById('route_from'));
+  new google.maps.places.Autocomplete(document.getElementById('route_where'));
+  new google.maps.places.Autocomplete(document.getElementById('load_address'));
+  new google.maps.places.Autocomplete(document.getElementById('unload_address'));
+  $('#load_datetime, #unload_datetime').datetimepicker({
+      format: 'Y-m-d H:i:s',
+      minDate:new Date(),
+      lang:'ru'
+  });
+}
 </script>
 @stop

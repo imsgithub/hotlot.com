@@ -167,6 +167,18 @@
     }
   }
 }
+.form-orders {
+  display: block;
+  float: left;
+  padding-top: 12px;
+  padding-left: 40px;
+  @include hl(14px);
+  color: #fff;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
 h4 {
   @include hb(25px);
   color: rgba(#000, .8);
@@ -236,4 +248,102 @@ input {
 }
 .pagination > li > a, .pagination > li > span {
   color: $violet;
+}
+.grid {
+  margin-top: 10px;
+  width: 876px;
+  height: 458px;
+  float: right;
+  background: #fff;
+  overflow: hidden;
+}
+
+.form {
+  @extend .grid;
+  &__title {
+    @extend %title;
+    width: 100%;
+    padding: 25px 0 24px 15px;
+    border-bottom: 1px solid #dce0e2;
+  }
+  &__subtitle {
+    @extend .form__title;
+    padding: 10px 15px 10px;
+    font-size: 20px;
+    border-bottom: none;
+  }
+  &__input-wrapper {
+    // width: 100%;
+    padding: 10px 33px;
+    label {
+      display: block;
+      width: 100%;
+      padding: 0 0 5px;
+      @include hr(16px);
+    }
+    input, textarea {
+      width: 100%;
+      display: block;
+      border: 1px solid $violet;
+      @include hr(16px);
+      padding: 5px 3px;
+      @include border-radius(3px);
+      @include transition(all .15s ease-out);
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      }
+      &[type="checkbox"] {
+        display: inline-block;
+        width: auto;
+        &:focus {
+          @include box-shadow(none);
+        }
+      }
+      &[type="submit"] {
+        display: inline-block;
+        width: auto;
+        cursor: pointer;
+        background: $violet;
+        color: #fff;
+        padding-right: 10px;
+        padding-left: 10px;
+        @include transition(all .2s ease-out);
+        &:hover {
+          color: $violet;
+          background: #fff;
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+      display: block;
+      @include hr(16px);
+      padding: 5px 3px;
+      border: 1px solid $violet;
+      @include border-radius(3px);
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      }
+    }
+    .text-danger {
+      display: block;
+      width: 100%;
+      @include hr(12px);
+      color: $orange;
+      padding: 3px 0;
+    }
+
+  }
+}
+hr {
+  display: block;
+  float: none;
+  width: 100%;
+  clear: both;
+  border: 0;
+  margin: 0;
+  &.bordered {
+    border-bottom: 1px solid #dce0e2;
+  }
 }
