@@ -3,6 +3,68 @@
 {{$errors->first('msg', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="text-success"><strong>:message</strong></span></div>')}}
 <h4>Форма пользователя {{$user->email}}, создана {{$form->created_at}}</h4>
 {{Form::open(['method'=>'POST'])}}
+@if ($form->user_confirmed == 1)
+<span class="form__subtitle">Данные контракта</span>
+<div class="form__input-wrapper col-md-12">
+  <label for="user_email">Email</label>
+  {{Form::text('user_email',$form->user_email,['id'=>'user_email','placeholder'=>''])}}
+  {{$errors->first('user_email', '<span class="text-danger">:message</span>')}}
+</div>
+<div class="form__input-wrapper col-md-6">
+  <label for="company_name">Название компании (RU)</label>
+  {{Form::text('company_name',$form->company_name,['id'=>'company_name','placeholder'=>''])}}
+  {{$errors->first('company_name', '<span class="text-danger">:message</span>')}}
+</div>
+<div class="form__input-wrapper col-md-6">
+  <label for="en_company_name">Название компании (EN)</label>
+  {{Form::text('en_company_name',$form->en_company_name,['id'=>'en_company_name','placeholder'=>''])}}
+  {{$errors->first('en_company_name', '<span class="text-danger">:message</span>')}}
+</div>
+<hr>
+<div class="form__input-wrapper col-md-6">
+  <label for="user_name">Имя (RU)</label>
+  {{Form::text('user_name',$form->user_name,['id'=>'user_name','placeholder'=>''])}}
+  {{$errors->first('user_name', '<span class="text-danger">:message</span>')}}
+</div>
+<div class="form__input-wrapper col-md-6">
+  <label for="en_user_name">Имя (EN)</label>
+  {{Form::text('en_user_name',$form->en_user_name,['id'=>'en_user_name','placeholder'=>''])}}
+  {{$errors->first('en_user_name', '<span class="text-danger">:message</span>')}}
+</div>
+<hr>
+<div class="form__input-wrapper col-md-6">
+  <label for="user_surname">Фамилия (RU)</label>
+  {{Form::text('user_surname',$form->user_surname,['id'=>'user_surname','placeholder'=>''])}}
+  {{$errors->first('user_surname', '<span class="text-danger">:message</span>')}}
+</div>
+<div class="form__input-wrapper col-md-6">
+  <label for="en_user_surname">Фамилия (EN)</label>
+  {{Form::text('en_user_surname',$form->en_user_surname,['id'=>'en_user_surname','placeholder'=>''])}}
+  {{$errors->first('en_user_surname', '<span class="text-danger">:message</span>')}}
+</div>
+<hr>
+<div class="form__input-wrapper col-md-6">
+  <label for="user_patronymic">Отчество (RU)</label>
+  {{Form::text('user_patronymic',$form->user_patronymic,['id'=>'user_patronymic','placeholder'=>''])}}
+  {{$errors->first('user_patronymic', '<span class="text-danger">:message</span>')}}
+</div>
+<div class="form__input-wrapper col-md-6">
+  <label for="en_user_patronymic">Отчество (EN)</label>
+  {{Form::text('en_user_patronymic',$form->en_user_patronymic,['id'=>'en_user_patronymic','placeholder'=>''])}}
+  {{$errors->first('en_user_patronymic', '<span class="text-danger">:message</span>')}}
+</div>
+<hr>
+<div class="form__input-wrapper col-md-6">
+  <label for="requisites">Реквизиты</label>
+  <textarea id="requisites" name="requisites" rows="8">{{$form->requisites}}</textarea>
+  {{$errors->first('requisites', '<span class="text-danger">:message</span>')}}
+</div>
+<div class="form__input-wrapper col-md-6">
+  <label for="en_requisites">Реквизиты</label>
+  <textarea id="en_requisites" name="en_requisites" rows="8">{{$form->en_requisites}}</textarea>
+  {{$errors->first('en_requisites', '<span class="text-danger">:message</span>')}}
+</div>
+@endif
 <span class="form__subtitle">Параметры груза</span>
 <div class="form__input-wrapper col-md-12">
   <label for="cargo_name">Наименование груза</label>
@@ -156,7 +218,14 @@
   <label for="comment">Комментарий</label>
   <textarea id="comment" name="comment" rows="3">{{$form->comment}}</textarea>
 </div>
-
+<div class="form__input-wrapper col-md-12">
+  <label for="admin_confirmed">Подтвердить?</label>
+  @if ($form->admin_confirmed)
+  <input type="checkbox" checked="checked" id="admin_confirmed" name="admin_confirmed">
+  @else
+  <input type="checkbox" id="admin_confirmed" name="admin_confirmed">
+  @endif
+</div>
 
 
 <div class="form__input-wrapper col-md-12">

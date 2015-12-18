@@ -15,5 +15,13 @@ View::composer('member.layouts.sidebar', function($view){
 });
 View::composer('newmember.layouts.header', function($view){
     $user = User::find(Session::get('id'));
-    $view->withUser($user);
+    $works = Work::all();
+    $workgroups = Workgroup::all();
+    $json = [];
+    foreach ($workgroups as $workgroup) {
+      $workgroup->work = $workgroup->work->toArray();
+      $json[] = $workgroup->toArray();
+    };
+    $work = $user->work()->first();
+    $view->withUser($user)->withJson($json)->withWork($work);
 });

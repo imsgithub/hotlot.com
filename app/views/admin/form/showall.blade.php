@@ -23,6 +23,11 @@
           @else
             Не подтверждена
           @endif
+          @if ($form->user_confirmed == 1)
+          &nbsp;-&nbsp;Контракт
+          @else
+          &nbsp;-&nbsp;Заявка
+          @endif
         </td>
         <td><a href="/admin/users/{{$form->user_id}}/forms/{{$form->id}}" class="btn btn-primary btn-xs">Посмотреть</a></td>
       </tr>

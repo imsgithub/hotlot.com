@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-row">
   <div class="form full-width">
-    <span class="form__title">{{Lang::get('member.create_form_title')}}</span>
+    <span class="form__title">Редактировать неподтвержденную заявку</span>
     {{Form::open(['method'=>'POST'])}}
     <span class="form__subtitle">Параметры груза</span>
     <div class="form__input-wrapper col-md-12">

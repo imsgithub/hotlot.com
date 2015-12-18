@@ -56,7 +56,8 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'public/evth/public/css/newmember.css': 'public/evth/public/scss/newmember.scss',
-                    'public/evth/admin/css/newadmin.css': 'public/evth/admin/scss/newadmin.scss'
+                    'public/evth/admin/css/newadmin.css': 'public/evth/admin/scss/newadmin.scss',
+                    'public/evth/public/css/printContract.css': 'public/evth/public/scss/printContract.scss',
                 }
             }
         },

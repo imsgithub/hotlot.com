@@ -24,6 +24,7 @@
       </select>
       {{$errors->first('currency_id', '<span class="text-danger">:message</span>')}}
     </div>
+    <hr>
     <div class="form__input-wrapper col-md-6">
       <label for="price">Стоимость перевозки</label>
       {{Form::text('price','',['id'=>'price','placeholder'=>''])}}

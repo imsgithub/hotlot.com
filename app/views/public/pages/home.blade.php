@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru">
-<head>
+<head>    
     <meta charset="UTF-8">
     <title>Международные грузовые перевозки по Европе, Украине, Азия, СНГ, США | грузоперевозки от компании Rate and Go </title>
     <meta name="description" content="Description Международные грузоперевозки от компании Rate and Go &#10004;Быстрая доставка &#10004;Гарантия качества &#10004;Бесплатная страховка!">

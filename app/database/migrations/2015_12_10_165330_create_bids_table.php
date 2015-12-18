@@ -41,7 +41,7 @@ class CreateBidsTable extends Migration {
 			$table->string('user_name');
 			$table->string('user_surname');
 			$table->string('user_patronymic');
-			$table->text('requisiites');
+			$table->text('requisites');
 			$table->string('transport_type');
 			$table->integer('cargo_type_id')->unsigned();
 			$table->integer('user_id')->unsigned();

@@ -7,6 +7,17 @@ $violet: #6a4385;
         content: "";
     }
 }
+@mixin media($device) {
+  @if $device == 'print' {
+    @media print {
+      @content;
+    }
+  } @else if $device == 'screen' {
+    @media screen {
+      @content;
+    }
+  }
+}
 %inner {
     width: 1200px;
     padding-right: 15px;

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <script type='text/javascript' src='http://tools.yaroshenko.by/ab.js.php?r=http%3A%2F%2Frate-and-go.com%2Fabtest'></script>
     <meta charset="UTF-8">
     <title>Международные грузовые перевозки по Европе, Украине, Азия, СНГ, США | грузоперевозки от компании Rate and Go </title>
     <meta name="description" content="Description Международные грузоперевозки от компании Rate and Go &#10004;Быстрая доставка &#10004;Гарантия качества &#10004;Бесплатная страховка!">
@@ -141,7 +142,7 @@
                         <div class="from"><i class="fa fa-map-marker violet-c"></i><input name="start" type="text" placeholder="откуда"></div>
                         <div class="arrows"><i class="evth-arrows"></i></div>
                         <div class="where"><i class="fa fa-map-marker violet-c"></i><input name="end" type="text" placeholder="куда"></div>
-                        <div class="phone"><i class="fa fa-phone violet-c"></i><input name="phone" type="text" placeholder="ваш телефон"></div>
+                        <div class="abphone"><i class="fa fa-phone violet-c"></i><input name="phone" type="text" placeholder="ваш телефон"></div>
                     </div>
                     <div class="top-form-buttons">
                         <button type="submit" class="button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№1');">Рассчитать</button>

@@ -152,7 +152,18 @@ class DeliveryFormsController extends \BaseController {
     $cargo_types = CargoType::all();
     $form = $this->user->find($this->user_id)->form()->find($id);
     if ((isset($form->user_id))&&($this->user_id==$form->user_id)) {
+      if ($form->admin_confirmed == 1) {
+        $person = $this->user->find(Session::get('id'))->person;
+        if (!$person) {
+          return View::make('newmember.forms.editContract')->withForm($form)->withCurrencies($currencies)->withCargotypes($cargo_types)->withMeta($meta);
+        } else {
+          return View::make('newmember.forms.editContract')->withForm($form)->withCurrencies($currencies)->withCargotypes($cargo_types)->withMeta($meta)->withPerson($person);
+        }
+      } else {
         return View::make('newmember.forms.edit')->withForm($form)->withCurrencies($currencies)->withCargotypes($cargo_types)->withMeta($meta);
+      }
+
+
     }
 	}
 
@@ -223,6 +234,57 @@ class DeliveryFormsController extends \BaseController {
                 return Redirect::back()->withInput()->withErrors(DeliveryForm::$errors);
             }
 	}
+  public function saveContract($id)
+  {
+    $rules = [
+      'user_email'=>'required',
+      'company_name'=>'required',
+      'user_name'=>'required',
+      'user_surname'=>'required',
+      'user_patronymic'=>'required',
+      'requisites'=>'required',
+      'en_company_name'=>'required',
+      'en_user_name'=>'required',
+      'en_user_surname'=>'required',
+      'en_user_patronymic'=>'required',
+      'en_requisites'=>'required',
+    ];
+    $data = Input::except('_token');
+    $validator = Validator::make($data, $rules);
+    if ($validator->fails()) {
+      return Redirect::back()->withInput()->withErrors($validator->messages());
+    }
+    $form = $this->user->find($this->user_id)->form()->find($id);
+    if ((isset($form->user_id))&&($this->user_id==$form->user_id)) {
+      $form->user_email = HTML::entities(Input::get('user_email'));
+      $form->company_name = HTML::entities(Input::get('company_name'));
+      $form->user_name = HTML::entities(Input::get('user_name'));
+      $form->user_surname = HTML::entities(Input::get('user_surname'));
+      $form->user_patronymic = HTML::entities(Input::get('user_patronymic'));
+      $form->requisites = HTML::entities(Input::get('requisites'));
+      $form->en_company_name = HTML::entities(Input::get('en_company_name'));
+      $form->en_user_name = HTML::entities(Input::get('en_user_name'));
+      $form->en_user_surname = HTML::entities(Input::get('en_user_surname'));
+      $form->en_user_patronymic = HTML::entities(Input::get('en_user_patronymic'));
+      $form->en_requisites = HTML::entities(Input::get('en_requisites'));
+      $form->user_confirmed = 1;
+      $form->save();
+      return Redirect::to('/profile/forms/edit/'.$id);
+    } else {
+      return Redirect::to('/login');
+    };
+  }
+  public function showContract($id){
+    $form = $this->form->find($id);
+    if (($form->user_confirmed == 1)&& ($form->user_id = Session::get('id'))) {
+      $meta = [
+        'title'=>'Договор №'.$id
+      ];
+      return View::make('newmember.forms.print')->withForm($form)->withMeta($meta);
+    } else {
+      return Redirect::to('/profile/forms/edit/'.$id);
+    };
+  }
 
 
 	/**
@@ -233,7 +295,7 @@ class DeliveryFormsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//методы администратора
 	}
         public function show_user_forms($id) {
             $user = $this->user->find($id);
@@ -259,6 +321,11 @@ class DeliveryFormsController extends \BaseController {
                   $form->insurance = 1;
                 } else {
                   $form->insurance = 0;
+                }
+                if (Input::get('admin_confirmed') == 'on') {
+                  $form->admin_confirmed = 1;
+                } else {
+                  $form->admin_confirmed = 0;
                 }
                 $form->save();
                 return View::make('admin.form.show')->withForm($form)->withUser($user)->withErrors(['msg'=>[ 'Сохранено!']])->withCurrencies($currencies)->withCargotypes($cargo_types);
