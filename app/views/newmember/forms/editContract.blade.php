@@ -119,7 +119,7 @@
     <div class="form__input-wrapper col-md-6">
       <label for="user_patronymic">Отчество (RU)</label>
       @if (isset($person))
-      {{Form::text('user_patronymic',$person->surname,['id'=>'user_patronymic','placeholder'=>''])}}
+      {{Form::text('user_patronymic',$person->patronymic,['id'=>'user_patronymic','placeholder'=>''])}}
       @else
       {{Form::text('user_patronymic',$form->user_patronymic,['id'=>'user_patronymic','placeholder'=>''])}}
       @endif
