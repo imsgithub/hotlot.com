@@ -444,13 +444,13 @@ p {
                 width: 85%;
                 padding-left: 20px;
                 padding-bottom: 0;
-                > h3 {
+                > h3, h3 {
                     .hb(17px);
                     .violet-c;
                     padding-bottom: 9px;
                     text-transform: uppercase;
                 }
-                > p {
+                > p, p, .display {
                     .hl(13px);
                     line-height: 1.3em;
                     .orange-c;
@@ -513,17 +513,21 @@ p {
     padding-left: 20px;
     padding-bottom: 70px;
     /*.transition(.25s);*/
-    > h3 {
+    > h3, h3 {
         cursor: pointer;
         .hb(17px);
         .violet-c;
         padding-bottom: 9px;
         text-transform: uppercase;
     }
-    > p {
+    > p, p, .display, ul>li {
         .hl(13px);
         line-height: 1.3em;
         .orange-c;
+    }
+    ul, li {
+      list-style-type: disc;
+      list-style-position: inside;
     }
     .hide {
         display: none;

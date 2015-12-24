@@ -1854,14 +1854,17 @@ p {
   padding-left: 20px;
   padding-bottom: 0;
 }
-.service-row .col-4.deployed .service-description > h3 {
+.service-row .col-4.deployed .service-description > h3,
+.service-row .col-4.deployed .service-description h3 {
   font-family: "HelveticaBold", sans-serif;
   font-size: 17px;
   color: #6a4385;
   padding-bottom: 9px;
   text-transform: uppercase;
 }
-.service-row .col-4.deployed .service-description > p {
+.service-row .col-4.deployed .service-description > p,
+.service-row .col-4.deployed .service-description p,
+.service-row .col-4.deployed .service-description .display {
   font-family: "HelveticaLight", sans-serif;
   font-size: 13px;
   line-height: 1.3em;
@@ -1930,7 +1933,8 @@ p {
   padding-bottom: 70px;
   /*.transition(.25s);*/
 }
-.service-description > h3 {
+.service-description > h3,
+.service-description h3 {
   cursor: pointer;
   font-family: "HelveticaBold", sans-serif;
   font-size: 17px;
@@ -1938,11 +1942,19 @@ p {
   padding-bottom: 9px;
   text-transform: uppercase;
 }
-.service-description > p {
+.service-description > p,
+.service-description p,
+.service-description .display,
+.service-description ul > li {
   font-family: "HelveticaLight", sans-serif;
   font-size: 13px;
   line-height: 1.3em;
   color: #e16f0e;
+}
+.service-description ul,
+.service-description li {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 .service-description .hide {
   display: none;

@@ -125,8 +125,8 @@ $(document).ready(function(){
     var services = document.querySelectorAll('.service-row .display');
     for (var i = 0; i< services.length; i++) {
         var str = services[i].innerHTML;
-        services[i].innerHTML = services[i].innerHTML.substring(0, 75) + '&#8230;<br><a href="#">Подробнее</a>';
-        $(services[i]).after('<p class="hide">'+str+'</p>');
+        services[i].innerHTML = services[i].textContent.substring(0, 75) + '&#8230;<br><a href="#">Подробнее</a>';
+        $(services[i]).after('<div class="hide">'+str+'</div>');
         var a = services[i].querySelector('a');
         var icon = services[i].parentNode.parentNode.querySelector('[class^="icon"]');
         var titles = services[i].parentNode.parentNode.querySelector('h3');
