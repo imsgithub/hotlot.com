@@ -13,7 +13,13 @@
 
 App::before(function($request)
 {
-	//
+	$site_url = url();
+	if (array_key_exists('HTTP_REFERER', $_SERVER)) {
+		$referer = $_SERVER['HTTP_REFERER'];
+		if (strrpos($referer, $site_url) === false) {
+			Session::put('referer', $_SERVER['HTTP_REFERER']);
+		}
+	}	
 });
 
 

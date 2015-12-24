@@ -3412,7 +3412,8 @@ div.has-error {
     display: none;
   }
   .from,
-  .where {
+  .where,
+  .abphone {
     margin: 10px auto;
     float: none;
   }
@@ -3505,7 +3506,7 @@ div.has-error {
     z-index: -1;
     opacity: 0.99;
   }
-  .step-title {
+  .step-title-owl {
     font-family: "HelveticaLight", sans-serif;
     font-size: 16px;
     color: #fff;

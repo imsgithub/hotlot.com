@@ -32,6 +32,9 @@ class SendMessagesController extends \BaseController {
             }
             $order->phone = Input::get('phone');
             $order->condition_id = 1;
+            if (Session::get('referer')) {
+              $order->content .= '<br>Реферал: '.Session::get('referer');
+            }
             $order->save();
         }
 	public function index()

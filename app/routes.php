@@ -28,7 +28,7 @@ Route::get('/sing-up', 'UsersController@newUserRegister');
 Route::get('/login', function() {
     $role = Session::get('role');
     if ($role != '') {
-        return Redirect::to('/');
+        return Redirect::to('/profile');
     }
     return View::make('public.pages.login');
 });
@@ -41,7 +41,7 @@ Route::post('/user/ajaxregister', 'UsersController@userAjaxRegister');
 Route::post('/user/ajaxregister/work', 'UsersController@userWorkAjaxRegister');
 Route::get('/logout', function(){
     Session::flush();
-    return Redirect::back();
+    return Redirect::to('/');
 });
 Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
 
@@ -69,8 +69,26 @@ Route::get('/password/reset/{token}', 'RemindersController@getReset');
 Route::post('/password/reset/{token}', 'RemindersController@postReset');
 
 // Route::get('/bla', function(){
-//   $user = User::find(Session::get('id'));
-//   var_dump($user->person);
+//   $form = DeliveryFormWithTax::find(2);
+//   if (!$form->tax) {
+//     $tax = new Tax([
+//       'content'=>'penis'
+//     ]);
+//     $tax = $form->tax()->save($tax);
+//   } else {
+//     $form->tax->content = 'pussy';
+//     $form->tax->save();
+//   }
+//   var_dump($form->tax);
+// });
+// Route::get('/bla', function(){
+  // $form = DeliveryForm::find(2);
+  // var_dump($form->contract_type);
+  // $c = ContractType::find(3);
+  // foreach ($c->form as $form) {
+  //   var_dump($form);
+  // }
+//   App::abort(404);
 // });
 //Testing routes
 // Route::get('/bla', function(){

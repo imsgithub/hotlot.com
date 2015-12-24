@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru">
-<head>    
+<head>
     <meta charset="UTF-8">
     <title>Международные грузовые перевозки по Европе, Украине, Азия, СНГ, США | грузоперевозки от компании Rate and Go </title>
     <meta name="description" content="Description Международные грузоперевозки от компании Rate and Go &#10004;Быстрая доставка &#10004;Гарантия качества &#10004;Бесплатная страховка!">
@@ -260,7 +260,7 @@
                         <div class="step-img-wrapper">
                             <img src="evth/public/img/tab-img-1.png" class="step-img" alt="">
                         </div>
-                        <div class="step-title">Расчет стоимости</div>
+                        <div class="step-title-owl">Расчет стоимости</div>
                         <div class="step-number">1</div>
                         <div class="step-content">
                             <h3>РАСЧЕТ СТОИМОСТИ</h3>
@@ -273,7 +273,7 @@
                         <div class="step-img-wrapper">
                             <img src="evth/public/img/tab-img-2.jpg" class="step-img" alt="">
                         </div>
-                        <div class="step-title">Оформление заказа</div>
+                        <div class="step-title-owl">Оформление заказа</div>
                         <div class="step-number">2</div>
                         <div class="step-content">
                             <h3>Оформление заказа</h3>
@@ -286,7 +286,7 @@
                         <div class="step-img-wrapper">
                             <img src="evth/public/img/tab-img-3.jpg" class="step-img" alt="">
                         </div>
-                        <div class="step-title">Предоплата</div>
+                        <div class="step-title-owl">Предоплата</div>
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h3>Предоплата</h3>
@@ -299,7 +299,7 @@
                         <div class="step-img-wrapper">
                             <img src="evth/public/img/tab-img-4.jpg" class="step-img" alt="">
                         </div>
-                        <div class="step-title">Доставка</div>
+                        <div class="step-title-owl">Доставка</div>
                         <div class="step-number">4</div>
                         <div class="step-content">
                             <h3>ДОСТАВКА</h3>
@@ -311,7 +311,7 @@
                         <div class="step-img-wrapper">
                             <img src="evth/public/img/tab-img-5.jpg" class="step-img" alt="">
                         </div>
-                        <div class="step-title">Довольный клиент</div>
+                        <div class="step-title-owl">Довольный клиент</div>
                         <div class="step-number">5</div>
                         <div class="step-content">
                             <h3>Довольный клиент</h3>

@@ -133,7 +133,7 @@
         {{$errors->first('unload_datetime', '<span class="text-danger">:message</span>')}}
       </div>
       <div class="form__input-wrapper col-md-12">
-        <label for="unload_transporter">Грузоотправитель</label>
+        <label for="unload_transporter">Грузополучатель</label>
         {{Form::text('unload_transporter',$form->unload_transporter,['id'=>'unload_transporter','placeholder'=>''])}}
         {{$errors->first('unload_transporter', '<span class="text-danger">:message</span>')}}
       </div>

@@ -17,8 +17,8 @@
 					<td class="center"><strong class="left"><em>Mequon, USA</em></strong><strong class="right"><em>{{date('d M Y',strtotime($form->updated_at))}}</em></strong></td>
 				</tr>
 				<tr>
-					<td>{{$form->company}} в лице директора {{$form->user_surname.' '.$form->user_name.' '.$form->user_patronymic}} действующая на основании Устава, в дальнейшем <strong>"Заказчик"</strong>, который является  плательщиком налога на прибыль на общих основаниях, с одной стороны, и</td>
-					<td>{{$form->en_company}} in person of Director  {{$form->en_user_surname.' '.$form->en_user_name.' '.$form->en_user_patronymic}} acting on the basis of the Articles, hereinafter referred to as the <strong>Contractee</strong>, payer of the profit tax under the standard procedure, on one part, and</td>
+					<td>{{$form->company_name}} в лице директора {{$form->user_surname.' '.$form->user_name.' '.$form->user_patronymic}} действующая на основании Устава, в дальнейшем <strong>"Заказчик"</strong>, который является  плательщиком налога на прибыль на общих основаниях, с одной стороны, и</td>
+					<td>{{$form->en_company_name}} in person of Director  {{$form->en_user_surname.' '.$form->en_user_name.' '.$form->en_user_patronymic}} acting on the basis of the Articles, hereinafter referred to as the <strong>Contractee</strong>, payer of the profit tax under the standard procedure, on one part, and</td>
 				</tr>
 				<tr>
 					<td><strong>BEST FREIGHT LLC</strong>, в лице директора Ушакова Евгения Евгеньевича, действующего  на основании Устава, в дальнейшем <strong>"Экспедитор"</strong>, который является  плательщиком налога на прибыль на общих основаниях, согласно Законодательства, с другой стороны,</td>

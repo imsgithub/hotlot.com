@@ -61,24 +61,6 @@ class DeliveryFormsController extends \BaseController {
 	 */
 	public function store()
 	{
-            // $form = $this->form;
-            // $data = Input::only('kind_of_transport', 'cargo_name', 'number_of_seats', 'volume', 'weight', 'load_address', 'unloading_address', 'load_datetime', 'delivery_datetime', 'method_of_payment');
-            // if ($form->is_valid($data)) {
-            //     $user = $this->user->find($this->user_id);
-            //     $form->kind_of_transport = HTML::entities(Input::get('kind_of_transport'));
-            //     $form->cargo_name = HTML::entities(Input::get('cargo_name'));
-            //     $form->number_of_seats = HTML::entities(Input::get('number_of_seats'));
-            //     $form->volume = HTML::entities(Input::get('volume'));
-            //     $form->weight = HTML::entities(Input::get('weight'));
-            //     $form->load_address = HTML::entities(Input::get('load_address'));
-            //     $form->unloading_address = HTML::entities(Input::get('unloading_address'));
-            //     $form->load_datetime = HTML::entities(Input::get('load_datetime'));
-            //     $form->delivery_datetime = HTML::entities(Input::get('delivery_datetime'));
-            //     $form->method_of_payment = HTML::entities(Input::get('method_of_payment'));
-            //     $user->form()->save($form);
-            //     return Redirect::route('forms');
-            // }
-            // return Redirect::back()->withInput()->withErrors(DeliveryForm::$errors);
             $form = $this->form;
             $data = Input::except('_token');
             if ($form->is_valid($data)) {
@@ -178,24 +160,6 @@ class DeliveryFormsController extends \BaseController {
 	{
             $form = $this->user->find($this->user_id)->form()->find($id);
             $data = Input::except('_token');
-            // if ((isset($form->user_id))&&($this->user_id==$form->user_id)) {
-            //     $data = Input::only('kind_of_transport', 'cargo_name', 'number_of_seats', 'volume', 'weight', 'load_address', 'unloading_address', 'load_datetime', 'delivery_datetime', 'method_of_payment');
-            //     if ($form->is_valid($data)) {
-            //         $form->kind_of_transport = HTML::entities(Input::get('kind_of_transport'));
-            //         $form->cargo_name = HTML::entities(Input::get('cargo_name'));
-            //         $form->number_of_seats = HTML::entities(Input::get('number_of_seats'));
-            //         $form->volume = HTML::entities(Input::get('volume'));
-            //         $form->weight = HTML::entities(Input::get('weight'));
-            //         $form->load_address = HTML::entities(Input::get('load_address'));
-            //         $form->unloading_address = HTML::entities(Input::get('unloading_address'));
-            //         $form->load_datetime = HTML::entities(Input::get('load_datetime'));
-            //         $form->delivery_datetime = HTML::entities(Input::get('delivery_datetime'));
-            //         $form->method_of_payment = HTML::entities(Input::get('method_of_payment'));
-            //         $form->save();
-            //         return Redirect::back()->withErrors(['msg'=>[ 'Сохранено!']]);
-            //     }
-            //     return Redirect::back()->withInput()->withErrors(DeliveryForm::$errors);
-            // }
             if ((isset($form->user_id))&&($this->user_id==$form->user_id)) {
                 if ($form->is_valid($data)) {
                   $form->price = HTML::entities(Input::get('price'));
@@ -236,25 +200,39 @@ class DeliveryFormsController extends \BaseController {
 	}
   public function saveContract($id)
   {
-    $rules = [
-      'user_email'=>'required',
-      'company_name'=>'required',
-      'user_name'=>'required',
-      'user_surname'=>'required',
-      'user_patronymic'=>'required',
-      'requisites'=>'required',
-      'en_company_name'=>'required',
-      'en_user_name'=>'required',
-      'en_user_surname'=>'required',
-      'en_user_patronymic'=>'required',
-      'en_requisites'=>'required',
-    ];
+    $form = DeliveryForm::find($id);
+    if ($form->contract_type->secondary_lang) {
+      $rules = [
+        'user_email'=>'required',
+        'company_name'=>'required',
+        'user_name'=>'required',
+        'user_surname'=>'required',
+        'user_patronymic'=>'required',
+        'requisites'=>'required',
+        'en_company_name'=>'required',
+        'en_user_name'=>'required',
+        'en_user_surname'=>'required',
+        'en_user_patronymic'=>'required',
+        'en_requisites'=>'required',
+      ];
+    } else {
+      $rules = [
+        'user_email'=>'required',
+        'company_name'=>'required',
+        'user_name'=>'required',
+        'user_surname'=>'required',
+        'user_patronymic'=>'required',
+        'requisites'=>'required',
+      ];
+    };
+    if ($form->contract_type->id == 6) {
+      $rules['tax_content']='required';
+    }
     $data = Input::except('_token');
     $validator = Validator::make($data, $rules);
     if ($validator->fails()) {
       return Redirect::back()->withInput()->withErrors($validator->messages());
     }
-    $form = $this->user->find($this->user_id)->form()->find($id);
     if ((isset($form->user_id))&&($this->user_id==$form->user_id)) {
       $form->user_email = HTML::entities(Input::get('user_email'));
       $form->company_name = HTML::entities(Input::get('company_name'));
@@ -262,11 +240,24 @@ class DeliveryFormsController extends \BaseController {
       $form->user_surname = HTML::entities(Input::get('user_surname'));
       $form->user_patronymic = HTML::entities(Input::get('user_patronymic'));
       $form->requisites = HTML::entities(Input::get('requisites'));
-      $form->en_company_name = HTML::entities(Input::get('en_company_name'));
-      $form->en_user_name = HTML::entities(Input::get('en_user_name'));
-      $form->en_user_surname = HTML::entities(Input::get('en_user_surname'));
-      $form->en_user_patronymic = HTML::entities(Input::get('en_user_patronymic'));
-      $form->en_requisites = HTML::entities(Input::get('en_requisites'));
+      if ($form->contract_type->secondary_lang) {
+        $form->en_company_name = HTML::entities(Input::get('en_company_name'));
+        $form->en_user_name = HTML::entities(Input::get('en_user_name'));
+        $form->en_user_surname = HTML::entities(Input::get('en_user_surname'));
+        $form->en_user_patronymic = HTML::entities(Input::get('en_user_patronymic'));
+        $form->en_requisites = HTML::entities(Input::get('en_requisites'));
+      }
+      if ($form->contract_type->id == 6) {
+        if (!$form->tax) {
+          $tax = new Tax([
+            'content'=>HTML::entities(Input::get('tax_content'))
+          ]);
+          $tax = $form->tax()->save($tax);
+        } else {
+          $form->tax->content = HTML::entities(Input::get('tax_content'));;
+          $form->tax->save();
+        }
+      }
       $form->user_confirmed = 1;
       $form->save();
       return Redirect::to('/profile/forms/edit/'.$id);
@@ -280,7 +271,7 @@ class DeliveryFormsController extends \BaseController {
       $meta = [
         'title'=>'Договор №'.$id
       ];
-      return View::make('newmember.forms.print')->withForm($form)->withMeta($meta);
+      return View::make('newmember.forms.'.$form->contractType->en_name.'-print')->withForm($form)->withMeta($meta);
     } else {
       return Redirect::to('/profile/forms/edit/'.$id);
     };
@@ -300,6 +291,7 @@ class DeliveryFormsController extends \BaseController {
         public function show_user_forms($id) {
             $user = $this->user->find($id);
             $forms = $user->form()->orderBy('created_at','DESC')->paginate(20);
+
             return View::make('admin.form.index')->withForms($forms)->withUser($user);
         }
         public function show_user_form($user_id,$form_id) {
@@ -307,14 +299,16 @@ class DeliveryFormsController extends \BaseController {
             $form = $this->form->find($form_id);
             $currencies = Currency::all();
             $cargo_types = CargoType::all();
-            return View::make('admin.form.show')->withForm($form)->withUser($user)->withCurrencies($currencies)->withCargotypes($cargo_types);
+            $contract_types = ContractType::all();
+            return View::make('admin.form.show')->withForm($form)->withUser($user)->withCurrencies($currencies)->withCargotypes($cargo_types)->with('contract_types', $contract_types);
         }
         public function update_user_form($user_id,$form_id) {
             $user = $this->user->find($user_id);
             $form = $this->form->find($form_id);
             $currencies = Currency::all();
             $cargo_types = CargoType::all();
-            $data = Input::except('_token');
+            $contract_types = ContractType::all();
+            $data = Input::except('_token', 'tax_content');
             if ($form->is_valid($data)) {
                 $form->fill($data);
                 if (Input::get('insurance') == 'on') {
@@ -327,8 +321,19 @@ class DeliveryFormsController extends \BaseController {
                 } else {
                   $form->admin_confirmed = 0;
                 }
+                if (null!==Input::get('tax_content')) {
+                  if (!$form->tax) {
+                    $tax = new Tax([
+                      'content'=>Input::get('tax_content')
+                    ]);
+                    $tax = $form->tax()->save($tax);
+                  } else {
+                    $form->tax->content = Input::get('tax_content');
+                    $form->tax->save();
+                  }
+                }
                 $form->save();
-                return View::make('admin.form.show')->withForm($form)->withUser($user)->withErrors(['msg'=>[ 'Сохранено!']])->withCurrencies($currencies)->withCargotypes($cargo_types);
+                return View::make('admin.form.show')->withForm($form)->withUser($user)->withErrors(['msg'=>[ 'Сохранено!']])->withCurrencies($currencies)->withCargotypes($cargo_types)->with('contract_types', $contract_types);
             }
             return Redirect::back()->withInput()->withErrors(DeliveryForm::$errors);
         }

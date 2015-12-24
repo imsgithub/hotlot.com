@@ -51,6 +51,9 @@ class OrdersController extends \BaseController {
 	{
             $order = $this->order;
             $order->content = Input::get('content');
+            if (Session::get('referer')) {
+              $order->content .= '<br>Реферал: '.Session::get('referer');
+            }
             $order->phone = Input::get('phone');
             $order->condition_id = 1;
             if ($order->save()) {

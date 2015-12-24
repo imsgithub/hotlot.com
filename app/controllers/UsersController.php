@@ -222,7 +222,7 @@ class UsersController extends \BaseController {
             } else {
                 return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);
             }
-            return Redirect::to('/');
+            return Redirect::to('/profile');
         }
     }
     public function userWorkAjaxRegister() {

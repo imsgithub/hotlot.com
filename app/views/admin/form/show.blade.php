@@ -11,59 +11,72 @@
   {{$errors->first('user_email', '<span class="text-danger">:message</span>')}}
 </div>
 <div class="form__input-wrapper col-md-6">
-  <label for="company_name">Название компании (RU)</label>
+  <label for="company_name">Название компании ({{$form->contract_type->primary_lang}})</label>
   {{Form::text('company_name',$form->company_name,['id'=>'company_name','placeholder'=>''])}}
   {{$errors->first('company_name', '<span class="text-danger">:message</span>')}}
 </div>
+@if($form->contract_type->secondary_lang)
 <div class="form__input-wrapper col-md-6">
-  <label for="en_company_name">Название компании (EN)</label>
+  <label for="en_company_name">Название компании ({{$form->contract_type->secondary_lang}})</label>
   {{Form::text('en_company_name',$form->en_company_name,['id'=>'en_company_name','placeholder'=>''])}}
   {{$errors->first('en_company_name', '<span class="text-danger">:message</span>')}}
 </div>
-<hr>
+@endif
 <div class="form__input-wrapper col-md-6">
-  <label for="user_name">Имя (RU)</label>
+  <label for="user_name">Имя ({{$form->contract_type->primary_lang}})</label>
   {{Form::text('user_name',$form->user_name,['id'=>'user_name','placeholder'=>''])}}
   {{$errors->first('user_name', '<span class="text-danger">:message</span>')}}
 </div>
+@if($form->contract_type->secondary_lang)
 <div class="form__input-wrapper col-md-6">
-  <label for="en_user_name">Имя (EN)</label>
+  <label for="en_user_name">Имя ({{$form->contract_type->secondary_lang}})</label>
   {{Form::text('en_user_name',$form->en_user_name,['id'=>'en_user_name','placeholder'=>''])}}
   {{$errors->first('en_user_name', '<span class="text-danger">:message</span>')}}
 </div>
-<hr>
+@endif
 <div class="form__input-wrapper col-md-6">
-  <label for="user_surname">Фамилия (RU)</label>
+  <label for="user_surname">Фамилия ({{$form->contract_type->primary_lang}})</label>
   {{Form::text('user_surname',$form->user_surname,['id'=>'user_surname','placeholder'=>''])}}
   {{$errors->first('user_surname', '<span class="text-danger">:message</span>')}}
 </div>
+@if($form->contract_type->secondary_lang)
 <div class="form__input-wrapper col-md-6">
-  <label for="en_user_surname">Фамилия (EN)</label>
+  <label for="en_user_surname">Фамилия ({{$form->contract_type->secondary_lang}})</label>
   {{Form::text('en_user_surname',$form->en_user_surname,['id'=>'en_user_surname','placeholder'=>''])}}
   {{$errors->first('en_user_surname', '<span class="text-danger">:message</span>')}}
 </div>
-<hr>
+@endif
 <div class="form__input-wrapper col-md-6">
-  <label for="user_patronymic">Отчество (RU)</label>
+  <label for="user_patronymic">Отчество ({{$form->contract_type->primary_lang}})</label>
   {{Form::text('user_patronymic',$form->user_patronymic,['id'=>'user_patronymic','placeholder'=>''])}}
   {{$errors->first('user_patronymic', '<span class="text-danger">:message</span>')}}
 </div>
+@if($form->contract_type->secondary_lang)
 <div class="form__input-wrapper col-md-6">
-  <label for="en_user_patronymic">Отчество (EN)</label>
+  <label for="en_user_patronymic">Отчество ({{$form->contract_type->secondary_lang}})</label>
   {{Form::text('en_user_patronymic',$form->en_user_patronymic,['id'=>'en_user_patronymic','placeholder'=>''])}}
   {{$errors->first('en_user_patronymic', '<span class="text-danger">:message</span>')}}
 </div>
-<hr>
+@endif
+@if($form->contract_type->id == 6)
 <div class="form__input-wrapper col-md-6">
-  <label for="requisites">Реквизиты</label>
+  <label for="tax_content">Плательщик налогов ({{$form->contract_type->primary_lang}})</label>
+  <input type="text" id="tax_content" name="tax_content" rows="8" value="{{$form->tax ? $form->tax->content: ''}}">
+  {{$errors->first('tax_content', '<span class="text-danger">:message</span>')}}
+</div>
+@endif
+<div class="form__input-wrapper col-md-6">
+  <label for="requisites">Реквизиты ({{$form->contract_type->primary_lang}})</label>
   <textarea id="requisites" name="requisites" rows="8">{{$form->requisites}}</textarea>
   {{$errors->first('requisites', '<span class="text-danger">:message</span>')}}
 </div>
+@if($form->contract_type->secondary_lang)
 <div class="form__input-wrapper col-md-6">
-  <label for="en_requisites">Реквизиты</label>
+  <label for="en_requisites">Реквизиты ({{$form->contract_type->secondary_lang}})</label>
   <textarea id="en_requisites" name="en_requisites" rows="8">{{$form->en_requisites}}</textarea>
   {{$errors->first('en_requisites', '<span class="text-danger">:message</span>')}}
 </div>
+@endif
 @endif
 <span class="form__subtitle">Параметры груза</span>
 <div class="form__input-wrapper col-md-12">
@@ -194,7 +207,7 @@
     {{$errors->first('unload_datetime', '<span class="text-danger">:message</span>')}}
   </div>
   <div class="form__input-wrapper col-md-12">
-    <label for="unload_transporter">Грузоотправитель</label>
+    <label for="unload_transporter">Грузополучатель</label>
     {{Form::text('unload_transporter',$form->unload_transporter,['id'=>'unload_transporter','placeholder'=>''])}}
     {{$errors->first('unload_transporter', '<span class="text-danger">:message</span>')}}
   </div>
@@ -218,7 +231,15 @@
   <label for="comment">Комментарий</label>
   <textarea id="comment" name="comment" rows="3">{{$form->comment}}</textarea>
 </div>
-<div class="form__input-wrapper col-md-12">
+<div class="form__input-wrapper col-md-6">
+  <label for="contract_type">Выберете тип контракта</label>
+  <select id="contract_type" name="contract_type_id">
+    @foreach($contract_types as $contract_type)
+    <option value="{{$contract_type->id}}" {{($form->contractType)&&($contract_type->id==$form->contractType->id) ? 'selected="selected"' : ''}}>{{$contract_type->ru_name}}</option>
+    @endforeach
+  </select>
+</div>
+<div class="form__input-wrapper col-md-6">
   <label for="admin_confirmed">Подтвердить?</label>
   @if ($form->admin_confirmed)
   <input type="checkbox" checked="checked" id="admin_confirmed" name="admin_confirmed">
