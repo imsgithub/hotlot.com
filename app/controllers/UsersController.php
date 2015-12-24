@@ -76,10 +76,6 @@ class UsersController extends \BaseController {
       if (Request::ajax()) {
         $person = $this->person;
         $inputs = Input::except('_token');
-        // $person->name = Input::get('name');
-        // $person->surname = Input::get('surname');
-        // $person->patronymic = Input::get('patronymic');
-        // $person->phone = Input::get('phone');
         if (!$person->is_valid($inputs)) {
             return '{"errors":'.Person::$errors.'}';
         } else {
@@ -139,8 +135,10 @@ class UsersController extends \BaseController {
         }
     }
     public function show_users(){
-        $users = $this->user->orderBy('id', 'DESC')->paginate(20);
-        return View::make('admin.user.index')->withUsers($users);
+      $users = User::whereHas('roles', function($q){ //выборка всех пользователей с ролью member
+        $q->where('name','member');
+      })->orderBy('id', 'DESC')->paginate(5);
+      return View::make('admin.user.index')->withUsers($users);
     }
     public function user_register() {
         $user = $this->user;
@@ -223,6 +221,13 @@ class UsersController extends \BaseController {
                 return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);
             }
             return Redirect::to('/profile');
+        } elseif ($role->name=='miniadmin') {
+          if (Auth::attempt(Input::only('email','password'))) {
+            Session::put('role', 'miniadmin');
+            Session::put('email',$user->email);
+            Session::put('id',$user->id);
+            return Redirect::to('/admin');
+          }
         }
     }
     public function userWorkAjaxRegister() {
@@ -243,27 +248,37 @@ class UsersController extends \BaseController {
       Session::put('work_id', $new_work_id);
       return '{"success":"Настройки пользователя сохранены."}';
     }
-//	public function index()
-//	{
-//		$user = Auth::user();
-//		return View::make('users.index')->withUser($user);
-//	}
-//	public function create()
-//	{
-//		if (Auth::check()) {
-//			return Redirect::to('/admin/index');
-//		}
-//		return View::make('users.login');
-//	}
-//	public function store() {
-//		if (Auth::attempt(Input::only('name', 'password'))) {
-//			return Redirect::to('admin/messages');
-//		};
-//		return Redirect::back()->withInput();
-//	}
-//	public function destroy() {
-//		Auth::logout();
-//		return Redirect::to('/admin');
-//	}
-
+    public function indexMiniAdmin() {
+      $users = User::all();
+      $miniadmins = [];
+      foreach ($users as $user) {
+        $role = $user->roles()->first();
+        if ($role->name === 'miniadmin') {
+          $miniadmins[] = $user;
+        }
+      }
+      return View::make('admin.user.miniadmin.index')->withUsers($miniadmins);
+    }
+    public function createMiniAdmin() {
+      return View::make('admin.user.miniadmin.create');
+    }
+    public function storeMiniAdmin(){
+      $user = $this->user;
+      $data = Input::only('email', 'password');
+      if (!$user->is_valid($data)) {
+          return Redirect::back()->withInput()->withErrors(User::$errors);
+      }
+      $user->email=Input::get('email');
+      $user->password = Hash::make(Input::get('password'));
+      $user->save();
+      $role = Role::whereName('miniadmin')->first();
+      $user->roles()->attach($role->id);
+      return Redirect::to('/admin/miniadmin');
+    }
+    public function deleteMiniAdmin($id) {
+      $user = $this->user->find($id);
+      $user->roles()->detach();
+      $user->delete();
+      return Redirect::to('/admin/miniadmin')->withErrors(['msg'=>['Пользователь удалён!']]);
+    }
 }

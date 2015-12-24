@@ -68,90 +68,12 @@ Route::post('/password/remind', 'RemindersController@postRemind');
 Route::get('/password/reset/{token}', 'RemindersController@getReset');
 Route::post('/password/reset/{token}', 'RemindersController@postReset');
 
-// Route::get('/bla', function(){
-//   $form = DeliveryFormWithTax::find(2);
-//   if (!$form->tax) {
-//     $tax = new Tax([
-//       'content'=>'penis'
-//     ]);
-//     $tax = $form->tax()->save($tax);
-//   } else {
-//     $form->tax->content = 'pussy';
-//     $form->tax->save();
-//   }
-//   var_dump($form->tax);
-// });
-// Route::get('/bla', function(){
-  // $form = DeliveryForm::find(2);
-  // var_dump($form->contract_type);
-  // $c = ContractType::find(3);
-  // foreach ($c->form as $form) {
-  //   var_dump($form);
-  // }
-//   App::abort(404);
-// });
-//Testing routes
-// Route::get('/bla', function(){
-  // $user = User::all();
-  // foreach ($user as $u) {
-  //   $u->work()->detach();
-  // }
-  // $user->work()->attach('5');
-  // var_dump($user->work()->first()->workgroup->id);
-// });
-// Route::post('/for_testing_result', function(){
-//   return '{"success":"Это тестовый марштур, так что на многое не расчитывай"}';
-// });
-// Route::get('/lol', function(){
-  // $user = User::find(8);
-  // var_dump($user->email);
-  // var_dump($user->work()->first()->toArray());
-  // $user->work()->detach(2);
-  // $user->work()->attach(2);
-  // var_dump($user->work->first()->toArray());
-  // var_dump($user->work->first()->workgroup->toArray());
-  // $works = Work::all();
-  // $workgroups = Workgroup::all();
-  // echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>';
-  // echo "<pre>";
-  // $json = [];
-  // foreach ($workgroups as $workgroup) {
-  //   $workgroup->work = $workgroup->work->toArray();
-  //   $json[] = $workgroup->toArray();
-  // }
-  // print_r(json_encode($json));
-  // echo "</select>";
-  // foreach ($workgroups as $workgroup) {
-  //   $works = $workgroup->work;
-  //   echo "<select name='work'>";
-  //   foreach ($works as $work) {
-  //     echo '<option value="'.$work->id.'">'.$work->name.'</option>';
-  //   }
-  //   echo "</select>";
-  // }
-  // echo "</form>";
-// });
-//Route::get('/lol', function(){
-//    Mail::send('emails.lol', ['lol'=>'lol'], function($message){
-//       $message->to('umer.hurramov@gmail.com')->subject('Тест mail.isogram.org');
-//    });
-//});
-//Route::get('/{lang}/page/{content}', function($lang, $content){
-//    Session::put('lang', $lang);
-//    App::setLocale($lang);
-//    return Session::get('lang');
-//    return Lang::get('lol.'.$content);
-//});
-//Route::get('/{lang}/lol', function($lang){
-//    App::setLocale($lang);
-//    $block = Block::find(1);
-//    return $block->content()->firstOrFail()->content;
-//});
+
 
 //Admins routes
 Route::get('/admin/login', 'UsersController@show_login_page');
 Route::post('/admin', 'UsersController@login');
-Route::get('/admin', 'UsersController@admin_index')->before('adminauth');
+Route::get('/admin', 'UsersController@admin_index')->before('adminauth')->after('miniadminauth');
 Route::get('/admin/countries', 'CountriesController@index')->before('adminauth');
 Route::get('/admin/countries/{id}', 'CountriesController@show')->before('adminauth');
 Route::post('/admin/countries', 'CountriesController@store')->before('adminauth');
@@ -161,10 +83,10 @@ Route::get('/admin/codes', 'CodesController@index')->before('adminauth');
 Route::post('/admin/codes', 'CodesController@store')->before('adminauth');
 Route::post('/admin/codes/destroy', 'CodesController@destroy')->before('adminauth');
 
-Route::get('/admin/orders', 'OrdersController@index')->before('adminauth');
+Route::get('/admin/orders', 'OrdersController@index')->before('adminauth')->after('miniadminauth');
 Route::get('/admin/orders/unreviewed', 'OrdersController@indexUnreviewed')->before('adminauth');
 Route::get('/admin/orders/unreviewed/ajax', 'OrdersController@unreviewed')->before('adminauth');
-Route::get('/admin/orders/{id}', 'OrdersController@show')->before('adminauth');
+Route::get('/admin/orders/{id}', 'OrdersController@show')->before('adminauth')->after('miniadminauth');
 Route::post('/admin/orders/{id}', 'OrdersController@edit')->before('adminauth');
 Route::get('/admin/orders/condition/{condition}', 'OrdersController@indexByCondition')->before('adminauth');
 
@@ -196,6 +118,11 @@ Route::group(['before'=>'adminauth'], function(){
    Route::get('/admin/uacoeffs','UaCoeffsController@indexCoeffs');
    Route::get('/admin/uacoeffs/{id}','UaCoeffsController@editCoeffs');
    Route::post('/admin/uacoeffs/{id}','UaCoeffsController@storeCoeffs');
+
+   Route::get('/admin/miniadmin', 'UsersController@indexMiniAdmin');
+   Route::get('/admin/miniadmin/create', 'UsersController@createMiniAdmin');
+   Route::post('/admin/miniadmin', 'UsersController@storeMiniAdmin');
+   Route::delete('/admin/miniadmin/{id}', 'UsersController@deleteMiniAdmin');
 });
 //Route::post($uri, $action);
 

@@ -16,7 +16,7 @@ $(document).ready(function() {
   var activeNavLink = $('.nav__link--active');
   var activeIcon = activeNavLink.find('.nav__icon');
   activeIcon.attr('class', activeIcon.attr('class')+'-hover');
-  $('nav a, nav>span').hover(function(e) {
+  $('nav > a, nav>span').hover(function(e) {
     if ($(this).hasClass('nav__link--active')) return;
     var icon = $(this).find('.nav__icon');
     var clas = icon.attr('class');

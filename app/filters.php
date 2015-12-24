@@ -19,7 +19,7 @@ App::before(function($request)
 		if (strrpos($referer, $site_url) === false) {
 			Session::put('referer', $_SERVER['HTTP_REFERER']);
 		}
-	}	
+	}
 });
 
 
@@ -69,21 +69,42 @@ Route::filter('userauth', function()
 	}
 });
 
-Route::filter('adminauth', function()
+Route::filter('adminauth', function($route)
 {
-	if (Session::get('role')!='admin')
-	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('/admin/login');
+	if ((Session::get('role')!='admin')) {
+		if (Session::get('role')!='miniadmin') {
+			if (Request::ajax()) {
+				return Response::make('Unauthorized', 401);
+			}	else {
+				return Redirect::guest('/admin/login');
+			}
+		} elseif (Session::get('role')=='miniadmin') {
+			$url = $route->getUri();
+			$permitted = [
+				'admin',
+				'admin/orders',
+				'admin/orders/unreviewed',
+				'admin/orders/unreviewed/ajax',
+				'admin/orders/{id}',
+				'admin/orders/{id}',
+				'admin/orders/condition/{condition}',
+				'admin/users',
+				'admin/users/{id}/forms',
+				'admin/users/{user_id}/forms/{form_id}',
+				'admin/users/{user_id}/forms/{form_id}',
+				'admin/users/{user_id}/forms/{form_id}/print',
+				'admin/forms',
+			];
+			if (!in_array($url, $permitted)) {
+				return View::make('admin.denied');
+			}
 		}
 	}
 });
+Route::filter('miniadminauth', function($route, $request, $response){
 
+
+});
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();

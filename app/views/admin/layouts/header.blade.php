@@ -58,6 +58,7 @@
           </svg>
         </a>
         <a href="/admin/forms" class="form-orders">Заявки-формы - <span id="form-orders-badge" class="badge form-orders__count">0</span></a>
+        <a href="/admin/miniadmin" class="form-orders">Суперпользователи</a>
         <div class="user-block">
           <a href="/admin/orders" title="Заявки"><span id="order-badge" class="badge">1</span></a>
           <p class="user-block__name">Администратор</p>
