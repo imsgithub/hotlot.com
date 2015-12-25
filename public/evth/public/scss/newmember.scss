@@ -933,4 +933,33 @@ hr {
     cursor: pointer;
   }
 }
+.not-confirmed-wrapper {
+  width: 100%;
+  background: #fff;
+}
+.not-confirmed {
+  @extend %inner;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  &__string {
+    @include hr(16px);
+    line-height: 1.3em;
+  }
+  &__button {
+    display: block;
+    float: right;
+    @include hl(16px);
+    color: $violet;
+    border: 1px solid $violet;
+    padding: 8px 15px;
+    @include border-radius(5px);
+    cursor: pointer;
+    @include transition(all .15s ease-out);
+    &:hover {
+      border-color: transparent;
+      background: $violet;
+      color: #fff;
+    }
+  }
+}
 @import "bootstrap.scss";

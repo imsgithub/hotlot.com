@@ -1,5 +1,5 @@
 <?php
-
+use \Evth\ConfirmationMailer;
 class UsersController extends \BaseController {
     protected $user, $person;
     public function __construct(User $user, Person $person) {
@@ -204,7 +204,9 @@ class UsersController extends \BaseController {
       Session::put('role', 'member');
       Session::put('email',$user->email);
       Session::put('id',$user->id);
-      return '{"success":"Пользователь успешно создан!"}';
+      Session::put('confirmed', 0);
+      ConfirmationMailer::send($user);
+      return '{"success":"Пользователь успешно создан! Вам на почту отправлено письмо с подтверждением, проверьте &laquo;Спам&raquo; на всякий случай."}';
     }
     public function notAjaxLogin(){
         $user = User::whereEmail(Input::get('email'))->first();//Ищется пользователь с таким именем
@@ -217,6 +219,7 @@ class UsersController extends \BaseController {
                 Session::put('role', 'member');
                 Session::put('email',$user->email);
                 Session::put('id',$user->id);
+                Session::put('confirmed', $user->confirmed);
             } else {
                 return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);
             }
@@ -280,5 +283,31 @@ class UsersController extends \BaseController {
       $user->roles()->detach();
       $user->delete();
       return Redirect::to('/admin/miniadmin')->withErrors(['msg'=>['Пользователь удалён!']]);
+    }
+    public function confirmUser($content){
+      $confirmation = Confirmation::whereContent($content)->first();
+      if (!$confirmation) {
+        App::abort(404);
+      }
+      $user = $confirmation->user()->first();
+      $user->confirmed = 1;
+      $user->save();
+      Session::put('confirmed',1);
+      $confirmation->delete();
+      $meta = [
+        'title'=>Lang::get('member.confirmed_title')
+      ];
+      return View::make('newmember.confirmed')->withUser($user)->withMeta($meta);
+    }
+    public function sendConfirmationMail(){
+      $user = $this->user->find(Session::get('id'));
+      ConfirmationMailer::send($user);
+      return '{"success":"Письмо отправлено"}';
+    }
+    public function testCM() {
+      // $view = new View();
+      // print_r($view);
+      // $user = User::find(79);
+      // return ConfirmationMailer::send($user);
     }
 }

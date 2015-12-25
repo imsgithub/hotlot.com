@@ -24,6 +24,9 @@
   <script src="/evth/public/js/underscore.js"></script>
 </head>
 <body>
+  @if(Session::get('confirmed')==0)
+    @include('newmember.notconfirmed')
+  @endif
   <script type="text/template" id="work-id">
     {{$work ? $work->id : 0}}
   </script>

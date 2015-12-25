@@ -36,6 +36,30 @@ $(document).ready(function() {
   $('.news-gal').owlCarousel({
     singleItem: true,
   });
+  sendConfirmationMail = function(e) {
+    var self = this;
+    $.ajax({
+      url: '/profile/confirmagain',
+      type: 'POST',
+      data: {},
+      beforeSend: function(){
+        $(self).html('Секунду...');
+      }
+    })
+    .done(function() {
+      $(self).html('Письмо отправлено!');
+    })
+    .fail(function() {
+      $(self).html('Что-то пошло не так...');
+    })
+    .always(function() {
+      $(self).off('click', sendConfirmationMail);
+    });
+  };
+  if($('#confirm-user-mail').length!==0) {
+      var confirmUserMail = document.getElementById('confirm-user-mail');
+      $(confirmUserMail).on('click', sendConfirmationMail);
+  }
   if ($('#route_from').length!==0) {
     new google.maps.places.Autocomplete(document.getElementById('route_from'));
     new google.maps.places.Autocomplete(document.getElementById('route_where'));
@@ -197,5 +221,4 @@ $(document).ready(function() {
         marginTop: '-400px'
       },400);
   }, 3000);
-
 });

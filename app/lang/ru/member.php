@@ -25,4 +25,5 @@ return array(
     'empty_forms'=>'У вас пока нет заявок, самое время <a href=":link">создать новую</a>',
     'create_form_title'=>'Создать новую заявку',
     'edit_form_title'=>'Редактировать заявку',
+    'confirmed_title'=>'Email успешно подтвержден'
 );

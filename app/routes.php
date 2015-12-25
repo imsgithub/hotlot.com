@@ -48,7 +48,6 @@ Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
 
 Route::get('test_user_profile', 'HomeController@showTestProfile');
 Route::group(['before'=>'userauth'], function(){
-
     Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']);
     Route::get('/profile/person', ['as'=>'person', 'uses'=>'UsersController@person_edit']);
     Route::post('/profile/person', 'UsersController@person_save');
@@ -60,6 +59,7 @@ Route::group(['before'=>'userauth'], function(){
     Route::post('/profile/forms/edit/{id}', 'DeliveryFormsController@update');
     Route::post('/profile/forms/edit/{id}/contract', 'DeliveryFormsController@saveContract');
     Route::get('/profile/forms/edit/{id}/contract', 'DeliveryFormsController@showContract');
+    Route::post('/profile/confirmagain', 'UsersController@sendConfirmationMail');
 });
 
 //Password reminder
@@ -68,12 +68,14 @@ Route::post('/password/remind', 'RemindersController@postRemind');
 Route::get('/password/reset/{token}', 'RemindersController@getReset');
 Route::post('/password/reset/{token}', 'RemindersController@postReset');
 
+//User confirmation from email Route
+Route::get('confirmate/{content}', 'UsersController@confirmUser');
 
 
 //Admins routes
 Route::get('/admin/login', 'UsersController@show_login_page');
 Route::post('/admin', 'UsersController@login');
-Route::get('/admin', 'UsersController@admin_index')->before('adminauth')->after('miniadminauth');
+Route::get('/admin', 'UsersController@admin_index')->before('adminauth');
 Route::get('/admin/countries', 'CountriesController@index')->before('adminauth');
 Route::get('/admin/countries/{id}', 'CountriesController@show')->before('adminauth');
 Route::post('/admin/countries', 'CountriesController@store')->before('adminauth');
@@ -83,10 +85,10 @@ Route::get('/admin/codes', 'CodesController@index')->before('adminauth');
 Route::post('/admin/codes', 'CodesController@store')->before('adminauth');
 Route::post('/admin/codes/destroy', 'CodesController@destroy')->before('adminauth');
 
-Route::get('/admin/orders', 'OrdersController@index')->before('adminauth')->after('miniadminauth');
+Route::get('/admin/orders', 'OrdersController@index')->before('adminauth');
 Route::get('/admin/orders/unreviewed', 'OrdersController@indexUnreviewed')->before('adminauth');
 Route::get('/admin/orders/unreviewed/ajax', 'OrdersController@unreviewed')->before('adminauth');
-Route::get('/admin/orders/{id}', 'OrdersController@show')->before('adminauth')->after('miniadminauth');
+Route::get('/admin/orders/{id}', 'OrdersController@show')->before('adminauth');
 Route::post('/admin/orders/{id}', 'OrdersController@edit')->before('adminauth');
 Route::get('/admin/orders/condition/{condition}', 'OrdersController@indexByCondition')->before('adminauth');
 
@@ -123,6 +125,22 @@ Route::group(['before'=>'adminauth'], function(){
    Route::get('/admin/miniadmin/create', 'UsersController@createMiniAdmin');
    Route::post('/admin/miniadmin', 'UsersController@storeMiniAdmin');
    Route::delete('/admin/miniadmin/{id}', 'UsersController@deleteMiniAdmin');
+});
+Route::get('/bla', function(){
+  $user=User::find(77);
+  if(!$user->confirmation) {
+    $confirmation = new Confirmation([
+      'content'=>'asdfasdfasdfasdf',
+    ]);
+    $user->confirmation()->save($confirmation);
+  } else {
+    $user->confirmation->content = 'ololololololololo';
+    $user->confirmation->save();
+  }
+});
+Route::get('lol', 'UsersController@testCM');
+Route::get('testemail', function(){
+  return View::make('emails.confirmation');
 });
 //Route::post($uri, $action);
 

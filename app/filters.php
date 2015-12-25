@@ -56,17 +56,13 @@ Route::filter('auth', function()
 
 Route::filter('userauth', function()
 {
-	if (Session::get('role')!='member')
-	{
-		if (Request::ajax())
-		{
+	if (Session::get('role')!='member')	{
+		if (Request::ajax()) {
 			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
+		}	else {
 			return Redirect::guest('/');
 		}
-	}
+	} 
 });
 
 Route::filter('adminauth', function($route)
