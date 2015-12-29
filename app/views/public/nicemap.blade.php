@@ -330,6 +330,7 @@
                     </a>
                 </div>
                     <h1 class="title">Результат</h1>
+                    @if (Session::get('role')=='member')
                     <span class="subtitle">Длина маршрута</span>
                     <span class="output" id="output-length"></span>
                     <div class="currency">
@@ -364,6 +365,52 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                    <span class="subtitle center">
+                      Результат доступен только зарегистрированным пользователям.
+                    </span>
+                    <span class="subtitle center comment">Зарегистрируйтесь, пожалуйста,<br>это бесплатно и займет не более<br>1 минуты</span>
+                    <form action="/sing-up" method="get" id="form-from-map-to-register">
+                      <input type="hidden" name="frommap" value="1">
+                      <button type="submit" class="register-button">Зарегистрироваться</button>
+                    </form>
+                    <div style="display:none">
+                      <span class="subtitle">Длина маршрута</span>
+                      <span class="output" id="output-length"></span>
+                      <div class="currency">
+                          <span class="subtitle">Стоимость</span>
+                          <select name="currency" id="currency">
+                              @foreach ($currencies as $currency)
+                                  @if (($currency->name == 'EUR')&&($currency->id == '1'))
+                                  <option value="{{$currency->value}}" selected="true">{{$currency->name}}</option>
+                                  @else
+                                  <option value="{{$currency->value}}">{{$currency->name}}</option>
+                                  @endif
+                              @endforeach
+                          </select>
+                      </div>
+                      <span class="output" id="output-price"></span>
+                      <div class="orange-block">
+                          <div id="ajax-inputs">
+                              <h1>Оставьте заявку сейчас</h1>
+                              <span>и получите годовую страховку в Подарок!</span>
+                              <div class="evth-row child-on-center">
+                                  <div class="bottom-form-group ">
+                                      <i class="fa fa-envelope-square"></i>
+                                      <input type="text" class="email" id="email_inp" placeholder="email">
+                                  </div>
+                                  <div class="bottom-form-group ">
+                                      <i class="fa fa-phone-square"></i>
+                                      <input type="text" class="phone" id="phone_inp" placeholder="тел">
+                                  </div>
+                              </div>
+                              <div class="top-form-buttons">
+                                  <button class="button" id="phone_but" onclick="ga('send','pageview', '/virtual/otpravili');">Оставить заявку</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    @endif
                     <div class="back">
                         <a href="#" id="back-to-form"><i class="fa fa-arrow-circle-left"></i> Назад к форме расчета</a>
                     </div>
@@ -516,7 +563,45 @@
     function isMobile(){
         if ($(window).width()<960) return true;
         return false;
-    }
+    };
+    function getCookie(name) {
+      var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    };
+    function deleteCookie(name) {
+      setCookie(name, "", {
+        expires: -1
+      })
+    };
+    function setCookie(name, value, options) {
+      options = options || {};
+
+      var expires = options.expires;
+
+      if (typeof expires == "number" && expires) {
+        var d = new Date();
+        d.setTime(d.getTime() + expires * 1000);
+        expires = options.expires = d;
+      }
+      if (expires && expires.toUTCString) {
+        options.expires = expires.toUTCString();
+      }
+
+      value = encodeURIComponent(value);
+
+      var updatedCookie = name + "=" + value;
+
+      for (var propName in options) {
+        updatedCookie += "; " + propName;
+        var propValue = options[propName];
+        if (propValue !== true) {
+          updatedCookie += "=" + propValue;
+        }
+      }
+      document.cookie = updatedCookie;
+    };
     $('.helper').on('click', function(){
         $('.helper-content.active').removeClass('active');
         $(this).find('.helper-content').addClass('active');
@@ -573,6 +658,28 @@
       for (var i = 0; i < length; i++) {
         $(radios[length-1]).after(radios[length-1-i].el)
       };
+      $('#form-from-map-to-register').on('submit', function(e){
+        var body = {
+          start: $('#start').val(),
+          end: $('#end').val(),
+          m: $('#m').val(),
+          w: $('#w').val(),
+          l: $('#l').val(),
+          h: $('#h').val(),
+        };
+        var str = JSON.stringify(body);
+        var date = new Date(new Date().getTime() + 60 * 60 * 1000);
+        document.cookie = 'cargoParams='+str+'; path=/; expires=' + date.toUTCString();
+        console.log(getCookie('cargoParams'));
+        // e.preventDefault();
+      });
+      if (getCookie('cargoParams')) {
+        var params = JSON.parse(getCookie('cargoParams'));
+        for (var key in params) {
+          $('#'+key).val(params[key]);
+        };
+        deleteCookie('cargoParams');
+      }
 </script>
         <script>
             var uarules = {
@@ -773,7 +880,7 @@
                     var m = parseFloat(this.cargo.m.value);
                     var l = parseFloat(this.cargo.l.value);
                     var w = parseFloat(this.cargo.w.value);
-                    debugger;
+                    // debugger;
                     if ( h<=rules.h.max && h>rules.h.middle) { //if ( h<=3.3 && h>2.8)
                         this.coeffs.load = rules.load.g; //log('Коэффициент - 1,2');
                     } else {

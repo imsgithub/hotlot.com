@@ -158,6 +158,9 @@ class UsersController extends \BaseController {
     }
     public function newUserRegister() {
       if (Session::get('id')!='') {
+        if (Input::get('frommap')==1) {
+          return Redirect::to('/map');
+        }
         return Redirect::to('/profile');
       }
       $works = Work::all();

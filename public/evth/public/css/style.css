@@ -2457,6 +2457,9 @@ footer .inner {
   padding-top: 8px;
   text-align: right;
   padding-bottom: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .back a {
   color: #e16f0e;
@@ -2569,6 +2572,32 @@ footer .inner {
 }
 .map-form-output .title:active {
   cursor: url("../img/cursors/grabbing.png"), auto;
+}
+.map-form-output .register-button {
+  display: block;
+  font-family: "HelveticaLight", sans-serif;
+  font-size: 16px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #6a4385;
+  text-align: center;
+  padding: 7px 10px;
+  border: none;
+  margin: 0 auto;
+}
+.map-form-output .subtitle.center {
+  color: #fff;
+  padding: 20px;
+  font-family: "HelveticaRegular", sans-serif;
+  font-size: 20px;
+  line-height: 1.3em;
+}
+.map-form-output .subtitle.center.comment {
+  font-size: 16px;
+  line-height: 1.3em;
 }
 .subtitle {
   font-family: "HelveticaBold", sans-serif;

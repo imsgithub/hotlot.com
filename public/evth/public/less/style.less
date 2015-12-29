@@ -1035,6 +1035,9 @@ footer {
     padding-top: 8px;
     text-align: right;
     padding-bottom: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     a {
         .orange-c;
         &:hover {
@@ -1139,7 +1142,28 @@ footer {
           cursor: url("../img/cursors/grabbing.png"), auto;
         }
     }
-
+    .register-button {
+      display: block;
+      .hl(16px);
+      .rounded(3px);
+      text-transform: uppercase;
+      color: #fff;
+      .violet-bg(1);
+      text-align: center;
+      padding: 7px 10px;
+      border: none;
+      margin: 0 auto;
+    }
+    .subtitle.center {
+      color: #fff;
+      padding: 20px;
+      .hr(20px);
+      line-height: 1.3em;
+      &.comment {
+        font-size: 16px;
+        line-height: 1.3em;
+      }
+    }
 }
 .subtitle {
     .hb(14px);
