@@ -131,7 +131,7 @@
           <!--End of composer view for unsigned users-->
         </header>
         <h1 class="top-title">расчет стоимости и заказ перевозки
-          <br>за 30 секунд</h1>
+          <br>за 3 минуты</h1>
         <span class="top-subtitle">страховка на груз в подарок</span>
       </div>
       <div class="wrapper violet-bg abtest-violet-bg-wrapper">
@@ -378,7 +378,7 @@
           <div class="works-form-inner">
             <div class="works-form">
               <span class="works-form__title">Рассчитайте стоимость
-                <br>перевозки за 30 секунд</span>
+                <br>перевозки за 3 минуты</span>
               <img src="evth/public/img/dummy-arrow.png" alt="duumy arrow" class="works-form__dummy-arrow">
               <div class="works-form__inputs-wrapper">
                 <div class="works-form__input-wrapper">

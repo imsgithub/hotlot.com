@@ -980,9 +980,12 @@ footer {
 
     .title {
         font-size: 20px;
-        cursor: move;
+        cursor: url("../img/cursors/open-hand.png"), auto;
         padding: 10px 0 0;
         position: relative;
+        &:active {
+          cursor: url("../img/cursors/grabbing.png"), auto;
+        }
     }
     .form-header {
         .helper {
@@ -1129,9 +1132,12 @@ footer {
     .rounded(9px);
     .title {
         font-size: 20px;
-        cursor: move;
         padding: 10px 0 0;
         position: relative;
+        cursor: url("../img/cursors/open-hand.png"), auto;
+        &:active {
+          cursor: url("../img/cursors/grabbing.png"), auto;
+        }
     }
 
 }

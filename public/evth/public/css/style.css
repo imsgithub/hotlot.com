@@ -2398,9 +2398,12 @@ footer .inner {
 }
 .map-form-input .title {
   font-size: 20px;
-  cursor: move;
+  cursor: url("../img/cursors/open-hand.png"), auto;
   padding: 10px 0 0;
   position: relative;
+}
+.map-form-input .title:active {
+  cursor: url("../img/cursors/grabbing.png"), auto;
 }
 .map-form-input .form-header .helper {
   right: 22px;
@@ -2560,9 +2563,12 @@ footer .inner {
 }
 .map-form-output .title {
   font-size: 20px;
-  cursor: move;
   padding: 10px 0 0;
   position: relative;
+  cursor: url("../img/cursors/open-hand.png"), auto;
+}
+.map-form-output .title:active {
+  cursor: url("../img/cursors/grabbing.png"), auto;
 }
 .subtitle {
   font-family: "HelveticaBold", sans-serif;
