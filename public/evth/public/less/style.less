@@ -2208,11 +2208,28 @@ div.has-error {
 
 }
 .register-wrapper {
-  background: #eaeaea;
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
   padding-bottom: 50px;
+  &.wrapper-step-1 {
+    background: -webkit-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-1.jpg') center center no-repeat;
+    background: -moz-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-1.jpg') center center no-repeat;
+    background: -o-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-1.jpg') center center no-repeat;
+    background-size: cover;
+  }
+  &.wrapper-step-2 {
+    background: -webkit-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-2.jpg') center center no-repeat;
+    background: -moz-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-2.jpg') center center no-repeat;
+    background: -o-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-2.jpg') center center no-repeat;
+    background-size: cover;
+  }
+  &.wrapper-step-3 {
+    background: -webkit-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-3.jpg') center center no-repeat;
+    background: -moz-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-3.jpg') center center no-repeat;
+    background: -o-linear-gradient(rgba(0,0,0,.63),rgba(0,0,0,.63)), url('../img/register-back-3.jpg') center center no-repeat;
+    background-size: cover;
+  }
 }
 .register-steps {
   width: 520px;
@@ -2234,8 +2251,9 @@ div.has-error {
   line-height: 35px;
   text-align: center;
   .rounded(18px);
-  .violet-bg(1);
+  background: rgba(255,255,255,.3);
   .transition(.25s);
+  color: #000;
 }
 .step-title {
   display: block;
@@ -2244,7 +2262,7 @@ div.has-error {
   width: 130px;
   margin: 10px auto 0;
   line-height: 18px;
-  .violet-c(1);
+  color: rgba(255,255,255,.3);
 }
 .step-subtitle {
   display: block;
@@ -2256,6 +2274,13 @@ div.has-error {
   margin: 20px auto;
   overflow: hidden;
 }
+// .register-step-1 {
+//   &.active {
+//     .step-circle {
+//       color: #fff;
+//     }
+//   }
+// }
 .register-step-2, .register-step-3 {
   .step-circle:before {
     position: absolute;
@@ -2263,7 +2288,7 @@ div.has-error {
     display: block;
     width: 138px;
     height: 3px;
-    .violet-bg(1);
+    background: rgba(255,255,255,.3);
     top: 50%;
     right: 35px;
   }
@@ -2279,8 +2304,11 @@ div.has-error {
     .transition(.4s);
   }
   &.active {
-    .step-circle:after {
-      width: 138px;
+    .step-circle {
+      color: #fff;
+      &:after {
+        width: 138px;
+      }
     }
   }
 }
@@ -2290,6 +2318,7 @@ div.has-error {
       .orange-bg(1);
       .transition(.2s);
       .transition-delay(.4s);
+      color: #fff;
     }
     .step-nav {
       opacity: 1;
@@ -2330,7 +2359,7 @@ div.has-error {
     }
     label {
       .hl(15px);
-      .violet-c(1);
+      color: #FFF;
     }
     .text-danger {
       color: @orange;
@@ -2362,13 +2391,13 @@ div.has-error {
   color: #fff;
   display: inline-block;
   text-align: center;
-  background: #d1d1d1;
+  .violet-bg(1);
   text-decoration: none;
   .rounded(5px);
   .transition(.15s);
   cursor: pointer;
   &:hover {
-    background: darken(#d1d1d1, 10%);
+    background: darken(@violet, 10%);
   }
 }
 .reg-next-button {
@@ -2470,10 +2499,10 @@ div.has-error {
     span {
       display: inline-block;
       padding: 7px 8px;
-      border: 1px solid rgba(0,0,0,.5);
+      border: 1px solid #fff;
       .rounded(2px);
       .hl(14px);
-      color: rgba(0,0,0,.5);
+      color: #fff;
       margin: 3px;
       cursor: pointer;
       .transition(.15s);
@@ -2505,13 +2534,19 @@ div.has-error {
     width: 120px;
     height: 133px;
     background: transparent;
-    border: 2px solid rgba(0,0,0,.5);
+    border: 2px solid #fff;
     .rounded(4px);
     margin-right: 27px;
     margin-left: 27px;
-    color: rgba(0,0,0,.5);
+    color: #fff;
     cursor: pointer;
     .transition(.15s);
+    &:first-child {
+      span[class^="icon"] {
+        font-size: 28px;
+        padding: 28px 0;
+      }
+    }
     &:last-child {
       margin-right: 0;
     }
@@ -2602,7 +2637,7 @@ div.has-error {
     }
     label {
       .hl(15px);
-      .violet-c(1);
+      color: #fff;
     }
     .text-danger {
       color: @orange;

@@ -171,6 +171,7 @@ $(document).ready(function(){
       $('.register-step-2').addClass('active');
       $('.workgroup div:first-child').click();
       $('.curtain').removeClass('active');
+      $('.register-wrapper').removeClass('wrapper-step-1').addClass('wrapper-step-2');
       // $('.step-2-confirm').on('click', secondStepHandler);
       // $('.step-2-confirm').removeClass('disabled');
     };
@@ -216,6 +217,7 @@ $(document).ready(function(){
     function goToStep3(){
       $('.register-step-3').addClass('active');
       $('.register-content-2').removeClass('active');
+      $('.register-wrapper').removeClass('wrapper-step-2').addClass('wrapper-step-3');
       setTimeout(function(){
         $('.register-content-2').css('display', 'none');
       },300);
@@ -227,6 +229,7 @@ $(document).ready(function(){
     function backToStep1(){
       $('.register-step-2').removeClass('active');
       $('.register-content-2').removeClass('active');
+      $('.register-wrapper').removeClass('wrapper-step-2').addClass('wrapper-step-1');
       setTimeout(function(){
         $('.register-content-1').css('display', 'block');
       },200);
@@ -240,6 +243,7 @@ $(document).ready(function(){
     function backToStep2(){
       $('.register-step-3').removeClass('active');
       $('.register-content-3').removeClass('active');
+      $('.register-wrapper').removeClass('wrapper-step-3').addClass('wrapper-step-2');
       setTimeout(function(){
         $('.register-content-2').css('display', 'block');
       },200);

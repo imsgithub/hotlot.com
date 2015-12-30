@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div class="register-wrapper">
+  <div class="register-wrapper wrapper-step-1">
     <div class="logo login-logo">
       <a href="/">
         <img src="/evth/public/img/logo.png" alt="rate and go logo">
