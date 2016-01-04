@@ -126,22 +126,25 @@ Route::group(['before'=>'adminauth'], function(){
    Route::post('/admin/miniadmin', 'UsersController@storeMiniAdmin');
    Route::delete('/admin/miniadmin/{id}', 'UsersController@deleteMiniAdmin');
 });
-Route::get('/bla', function(){
-  $user=User::find(77);
-  if(!$user->confirmation) {
-    $confirmation = new Confirmation([
-      'content'=>'asdfasdfasdfasdf',
-    ]);
-    $user->confirmation()->save($confirmation);
-  } else {
-    $user->confirmation->content = 'ololololololololo';
-    $user->confirmation->save();
-  }
-});
-Route::get('lol', 'UsersController@testCM');
-Route::get('testemail', function(){
-  return View::make('emails.confirmation');
-});
+// Route::get('/bla', function(){
+//   $user=User::find(77);
+//   if(!$user->confirmation) {
+//     $confirmation = new Confirmation([
+//       'content'=>'asdfasdfasdfasdf',''
+//     ]);
+//     $user->confirmation()->save($confirmation);
+//   } else {
+//     $user->confirmation->content = 'ololololololololo';
+//     $user->confirmation->save();
+//   }
+// });
+// Route::get('lol', 'UsersController@testCM');
+// Route::get('testemail', function(){
+//   return View::make('emails.confirmation');
+// });
+// Route::get('newpass', function(){
+//   return Hash::make('mesopotamia321!');
+// });
 //Route::post($uri, $action);
 
 //Add new user route
