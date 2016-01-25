@@ -963,3 +963,42 @@ hr {
   }
 }
 @import "bootstrap.scss";
+.page-404 {
+  background: url(../img/404.jpg) 50% 0 no-repeat #fff;
+  min-width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  padding-top: 695px;
+  @include media(tablet) {
+    padding-top: 40px;
+    background: #fff;
+  }
+  &__info {
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+  }
+  &__title {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    @include hl(29px);
+    color: $violet;
+    padding-bottom: 20px;
+  }
+  &__button {
+    display: inline-block;
+    color: $orange;
+    @include hl(23px);
+    border: 1px solid $orange;
+    width: 180px;
+    text-align: center;
+    padding: 13px;
+    @include border-radius(5px);
+    @include transition(all .25s ease-out);
+    &:hover {
+      background: $orange;
+      color: #fff;
+    }
+  }
+}
