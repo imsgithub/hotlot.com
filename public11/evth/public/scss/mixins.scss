@@ -1,0 +1,55 @@
+$orange: #e16f0e;
+$violet: #6a4385;
+@mixin clearfix {
+    &:after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+@mixin media($device) {
+  @if $device == 'print' {
+    @media print {
+      @content;
+    }
+  } @else if $device == 'screen' {
+    @media screen {
+      @content;
+    }
+  }
+}
+%inner {
+    width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    @include clearfix;
+    margin: 0 auto;
+    overflow: hidden;
+}
+%wrapper {
+    width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    @include clearfix;
+    margin: 0 auto;
+    overflow: hidden;
+}
+%grey-border-bottom {
+  position: relative;
+  &:after {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    background: rgba(#000, .35);
+  }
+}
+%title {
+  display: inline-block;
+  @include hb(25px);
+  color: rgba(#000, .8);
+}

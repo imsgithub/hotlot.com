@@ -1,0 +1,965 @@
+@import "compass/css3";
+@import "reset.scss";
+@import "fonts.scss";
+@import "mixins.scss";
+@import "siteheart.scss";
+a {
+  text-decoration: none;
+}
+.overlay {
+  @include clearfix;
+  width: 100%;
+  overflow: hidden;
+  background: #262829;
+  padding-bottom: 20px;
+  min-height: 100vh;
+  height: 100%;
+}
+.header-wrapper {
+  width: 100%;
+  height: 41px;
+  background: $orange;
+  border-bottom: 3px solid darken($orange, 10%);
+}
+.header {
+  @extend %inner;
+  overflow: visible;
+  &__logo {
+    display: block;
+    float: left;
+    padding: 7px 0 0 9px;
+  }
+}
+#logo_svg {
+  path {
+    @include transition(all .2s ease-out);
+  }
+  &:hover {
+    path {
+      fill: $violet;
+    }
+  }
+}
+.user-block {
+  float: right;
+  padding-top: 12px;
+  position: relative;
+  &__settings {
+    display: inline-block;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    @include transition(color .15s ease-out);
+    cursor: pointer;
+    position: absolute;
+    z-index: 4;
+    left: -15px;
+    &.active {
+      opacity: .7;
+    }
+    &:hover {
+      color: $violet;
+    }
+  }
+  &__settings-title {
+    @include hb(16px);
+    display: block;
+    width: 100%;
+    color: $violet;
+    text-align: center;
+  }
+  &__settings-layout {
+    position: absolute;
+    display: none;
+    width: 300px;
+    height: auto;
+    background: #fff;
+    z-index: 2;
+    // border: 1px solid $violet;
+    @include border-radius(5px);
+    top: 42px;
+    left: -64px;
+    padding: 15px;
+    @include box-shadow(0 0 20px 0 rgba(#000,.7));
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      border: 10px solid transparent;
+      border-bottom: 10px solid #fff;
+      top: -20px;
+      left: 47px;
+    }
+    .input-wrapper {
+      width: 100%;
+      padding: 3px 0;
+      .text-danger {
+        @include hr(10px);
+        padding-top: 3px;
+        padding-left: 5px;
+        color: $orange;
+      }
+      label {
+        display: block;
+        width: 100%;
+        padding: 2px 0;
+        @include hb(10px);
+        color: lighten(#000, 40%);
+        padding-left: 5px;
+      }
+      input, select {
+        display: block;
+        width: 100%;
+        border: 1px solid $violet;
+        @include border-radius(3px);
+        line-height: 1.2em;
+        padding: 4px 5px;
+        @include hr(12px);
+        @include transition(all .15s ease-out);
+        &:disabled {
+          background: lighten(#000, 90%);
+          border-color: lighten($violet, 40%);
+          cursor: not-allowed;
+        }
+        &:focus {
+          @include box-shadow(0 0 10px 0 rgba($violet, .7));
+        }
+      }
+      &.has-error {
+        input {
+          border-color: $orange;
+          &:focus {
+            @include box-shadow(0 0 10px 0 rgba($orange, .7));
+          }
+        }
+      }
+    }
+    .cancel {
+      display: none;
+      margin-right: 5px;
+    }
+  }
+  &__settings-layout-curtain {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include border-radius(5px);
+    opacity: .2;
+    i {
+      color: #fff;
+      font-size: 55px;
+      margin-left: 118px;
+      margin-top: 116px;
+    }
+    &.response-curtain {
+      opacity: 1;
+      background: rgba(#000,.2);
+      .response {
+        display: inline-block;
+        @include hb(14px);
+        margin-top: 129px;
+        text-align: center;
+        color: #fff;
+        background: rgba(0,0,0,1);
+        padding: 10px;
+      }
+    }
+  }
+  &__name {
+    display: inline-block;
+    @include hl(14px);
+    color: #fff;
+    padding: 0 10px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__logout {
+    display: block;
+    float: right;
+    border: 1px solid #fff;
+    @include border-radius(5px);
+    @include hl(14px);
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-top: -5px;
+    @include transition(color .15s ease-out);
+    &:hover {
+      color: $violet;
+      border-color: $violet;
+    }
+  }
+  &__button {
+    margin-top: 5px;
+    float: right;
+    color: #fff;
+    @include hr(14px);
+    padding: 5px 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    background: $violet;
+    @include border-radius(5px);
+    cursor: pointer;
+    letter-spacing: .1ex;
+    &:hover {
+      background: darken($violet,5%);
+    }
+    &:active {
+      background: darken($violet,10%);
+    }
+    &--transparent {
+      @extend .user-block__button;
+      color: $violet;
+      background: transparent;
+      border: 1px solid $violet;
+      &:hover {
+        background: darken(#fff, 5%);
+      }
+      &:active {
+        background: darken(#fff, 10%);
+      }
+    }
+  }
+}
+.nav {
+  @extend %inner;
+  padding: 0;
+  width: 1170px;
+  text-align: justify;
+  font-size: 0;
+  padding-top: 17px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #fff;
+  overflow: visible;
+  display: table;
+  &__link {
+    display: table-cell;
+    color: #fff;
+    @include hl(18px);
+    text-decoration: none;
+    padding-bottom: 12px;
+    position: relative;
+    @include transition(all .2s ease-out);
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      position: absolute;
+      bottom: -2px;
+      height: 3px;
+      background: $orange;
+      @include transition(all .2s ease-out);
+    }
+    &:hover {
+      color: $orange;
+      // @include hm(18px);
+      &:after {
+        width: 100%;
+      }
+    }
+    &--active {
+      @extend .nav__link;
+      color: $orange;
+      &:after {
+        width: 100%;
+      }
+    }
+    &--disabled {
+      @extend .nav__link;
+      color: darken(#fff,50%);
+      cursor: not-allowed;
+      &:after {
+        width: 0;
+      }
+      &:hover {
+        color: darken(#fff,50%);
+        &:after {
+          width: 0;
+        }
+      }
+    }
+  }
+  &__icon {
+    display: block;
+    font-size: 30px;
+    float: left;
+    margin-right: 5px;
+    margin-left: 10px;
+  }
+  &__text {
+    display: block;
+    margin-top: 5px;
+    float: left;
+  }
+}
+.content-row {
+  @extend %inner;
+}
+.news {
+  width: 774px;
+  height: 147px;
+  float: left;
+  position: relative;
+  background: #fff;
+  border-left: 12px solid $orange;
+  // overflow: hidden;
+  &:after {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    height: 4px;
+    bottom: 0;
+    left: -12px;
+    width: inherit;
+    background: rgba(#000, .35);
+  }
+  &__title {
+
+  }
+}
+.news-gal {
+  height: 143px;
+  .owl-controls {
+    position: absolute;
+    top: 0;
+    right: 18px;
+    .owl-page {
+      &.active {
+        span {
+          background: $orange;
+        }
+      }
+      span {
+        width: 62px;
+        height: 10px;
+        @include border-radius(0);
+        opacity: 1;
+        background: #cfcfcf;
+        margin: 0 2px;
+        border-top: 4px solid #fff;
+        border-bottom: 4px solid #fff;
+        &:hover {
+          background: $orange;
+        }
+      }
+    }
+  }
+}
+.news-item {
+  position: relative;
+  height: inherit;
+  height: 143px;
+  &__img {
+    width: 240px;
+    height: auto;
+    max-height: 143px;
+    float: left;
+  }
+  &__title {
+    float: left;
+    width: 490px;
+    @include hb(25px);
+    color: #14132a;
+    padding-top: 25px;
+    padding-left: 15px;
+  }
+  &__description {
+    width: 490px;
+    display: inline-block;
+    // padding-top: 10px;
+    padding-left: 15px;
+    @include hli(14px);
+    line-height: 22px;
+    color: #14132a;
+  }
+  &__link {
+    display: block;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 80px;
+    height: 22px;
+    @include hl(12px);
+    color: $orange;
+    border: 1px solid $orange;
+    @include border-radius(5px);
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none;
+    @include transition(all .2s ease-out);
+    &:hover {
+      border-color: $violet;
+      color: $violet;
+    }
+  }
+}
+.manager {
+  width: 386px;
+  height: 147px;
+  background: url(../img/slut.png) 0 0 no-repeat $violet;
+  position: relative;
+  float: left;
+  margin-left: 9px;
+  padding-left: 90px;
+  // &:before {
+  //   content: '';
+  //   width: 100%;
+  //   height: 100%;
+  //   background: rgba(#000,.3);
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   cursor: not-allowed;
+  // }
+  &:after {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    background: rgba(#000, .35);
+  }
+  &__link {
+    display: block;
+    width: 256px;
+    height: 35px;
+    line-height: 35px;
+    margin: 10px auto 0;
+    @include hr(14px);
+    @include border-radius(4px);
+    text-decoration: none;
+    @include transition(all .2s ease-out);
+    color: #fff;
+    text-align: center;
+    &--chat {
+      @extend .manager__link;
+      text-transform: uppercase;
+      background: $orange;
+      border: 1px solid transparent;
+      cursor: pointer;
+      &:hover {
+        background: darken($orange,10%);
+      }
+    }
+    &--callback {
+      @extend .manager__link;
+      @include hl(14px);
+      border: 1px solid #fff;
+      background: $violet;
+      cursor: not-allowed;
+      // pointer-events: none;
+      // &:hover {
+      //   background: darken($violet, 10%);
+      // }
+    }
+  }
+  &__title {
+    display: block;
+    text-align: center;
+    @include hr(22px);
+    color: #fff;
+    margin-top: 16px;
+  }
+}
+.calc {
+  width: 284px;
+  height: 107px;
+  border-bottom: 2px solid $orange;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer;
+  &--disabled {
+    @extend .calc;
+    cursor: not-allowed;
+    opacity: .5;
+  }
+  &.auto {
+    background: url(../img/auto.png) 0 0 no-repeat;
+  }
+  &.avia {
+    background: url(../img/avia.png) 0 0 no-repeat;
+  }
+  &.rail {
+    background: url(../img/rail.png) 0 0 no-repeat;
+  }
+  &.marine {
+    background: url(../img/marine.png) 0 0 no-repeat;
+  }
+  &__icon-wrpr {
+    position: absolute;
+    width: 65px;
+    height: 91px;
+    background: rgba(#000, .6);
+    top: 0;
+    left: 12px;
+  }
+  &__title {
+    display: block;
+    width: 100%;
+    color: #fff;
+    @include ht(16px);
+    text-align: center;
+    padding: 10px 0;
+  }
+  &__icon {
+    text-align: center;
+  }
+  &__subtitle {
+    @include hl(14px);
+    color: #fff;
+    position: absolute;
+    padding: 3px 10px;
+    background: $orange;
+    bottom: 0;
+    right: 8px;
+  }
+}
+.asdf {
+  float: right;
+}
+.grid {
+  margin-top: 10px;
+  width: 876px;
+  height: 458px;
+  float: right;
+  background: #fff;
+  overflow: hidden;
+  @extend %grey-border-bottom;
+  &__title {
+    @extend %title;
+    padding: 25px 0 24px 33px;
+    float: left;
+    width: 803px;
+    border-bottom: 1px solid #dce0e2;
+  }
+  &.full-width {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    .grid__title {
+      width: 1097px;
+    }
+  }
+  &__empty-title {
+    float: none;
+    display: block;
+    @extend .grid__title;
+    font-size: 23px;
+    border-bottom: none;
+    margin-top: 75px;
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+        opacity: .9;
+      }
+    }
+  }
+  &__link {
+    color: rgba(#000, .8);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__buttons {
+    float: right;
+    // margin-top: 25px;
+  }
+  &__add-button {
+    float: right;
+    display: block;
+    width: 73px;
+    height: 75px;
+    line-height: 80px;
+    text-align: center;
+    color: $orange;
+    font-size: 32px;
+    border-left: 1px solid #dce0e2;
+    border-bottom: 1px solid #dce0e2;
+    cursor: pointer;
+    @include transition(all .2s ease-out);
+    &:hover {
+      color: $violet;
+      border-color: $violet;
+    }
+  }
+  &__button {
+    display: inline-block;
+    @include hr(15px);
+    color: $orange;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    @include border-radius(5px);
+    margin-right: 10px;
+    cursor: pointer;
+    @include transition(all .2s ease-out);
+    &:hover {
+      color: darken($orange, 10%);
+    }
+    &--active {
+      @extend .grid__button;
+      border: 1px solid $orange;
+    }
+    &--calendar {
+      @extend .grid__button;
+      display: block;
+      float: right;
+      margin: 0;
+      padding-top: 0;
+    }
+  }
+  .table {
+    width: 100%;
+    // height: 384px;
+    thead {
+      tr {
+        background: rgba($violet, .05);
+        th {
+          @include hblack(15px);
+          text-transform: uppercase;
+          padding: 30px 7px;
+          color: $violet;
+          &:first-child {
+            padding-left: 30px;
+            width: 5%;
+          }
+          &:nth-child(2) {
+            width: 25%;
+          }
+          &:nth-child(3) {
+            width: 20%;
+          }
+          &:nth-child(4) {
+            width: 30%;
+          }
+          &:last-child {
+            width: 20%;
+          }
+        }
+      }
+    }
+    tbody {
+      td {
+        @include hr(15.33px);
+        padding: 30px 7px;
+      }
+      tr:nth-child(2n) {
+        background: rgba($violet, .05);
+      }
+      tr {
+        td {
+          &:first-child {
+            padding-left: 30px;
+            width: 5%;
+          }
+          &:nth-child(2) {
+            width: 25%;
+          }
+          &:nth-child(3) {
+            width: 20%;
+          }
+          &:nth-child(4) {
+            width: 30%;
+          }
+          &:last-child {
+            width: 20%;
+            padding-top: 25px;
+            padding-bottom: 25px;
+          }
+        }
+        &.finished {
+          td:first-child:before {
+            background: #5ab847;
+          }
+        }
+      }
+    }
+  }
+  &__edit, &__delete {
+    color: rgba($violet, .4);
+    cursor: pointer;
+    padding-right: 10px;
+    font-size: 20px;
+    &:hover {
+      color: $violet;
+    }
+  }
+}
+.table {
+  width: 100%;
+  // height: 384px;
+  thead {
+    tr {
+      background: rgba($violet, .05);
+      th {
+        @include hblack(15px);
+        text-transform: uppercase;
+        padding: 30px;
+        color: $violet;
+      }
+    }
+  }
+  tbody {
+    td {
+      @include hr(15.33px);
+      padding: 30px 30px;
+    }
+    tr:nth-child(2n) {
+      background: rgba($violet, .05);
+    }
+    tr {
+      td:first-child {
+        padding-left: 60px;
+        position: relative;
+        // &:before {
+        //   content: "";
+        //   display: block;
+        //   position: absolute;
+        //   width: 15px;
+        //   height: 15px;
+        //   @include border-radius(8px);
+        //   background: #ee4e65;
+        //   top: 30px;
+        //   left: 30px;
+        // }
+      }
+      &.finished {
+        td:first-child:before {
+          background: #5ab847;
+        }
+      }
+    }
+  }
+}
+.docs {
+  float: left;
+  width: 100%;
+  margin-right: 10px;
+  background: #fff;
+  margin-top: 10px;
+  @extend %grey-border-bottom;
+  &__title {
+    @extend %title;
+    padding: 0 25px;
+    border-bottom: 1px solid #dce0e2;
+    width: 1097px;
+    float: left;
+    height: 65px;
+    line-height: 65px;
+  }
+  &__add-button {
+    float: right;
+    display: block;
+    width: 73px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    color: $orange;
+    font-size: 32px;
+    border-left: 1px solid #dce0e2;
+    border-bottom: 1px solid #dce0e2;
+    cursor: pointer;
+    @include transition(all .2s ease-out);
+    &:hover {
+      color: $violet;
+      border-color: $violet;
+    }
+  }
+  &__table {
+    width: 100%;
+    tr {
+      &:nth-child(2n) {
+        background: rgba($violet, .05);
+      }
+      td {
+        @include hr(14px);
+        padding: 18px 25px;
+        &:first-child {
+          width: 1097px;
+        }
+        &:last-child {
+          padding-left: 0;
+          padding-right: 0;
+          padding-left: 10px;
+          @include transition(all .15s ease-out);
+          span {
+            color: rgba($violet, .4);
+            cursor: pointer;
+            &:hover {
+              color: $violet;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.form {
+  @extend .grid;
+  &__title {
+    @extend %title;
+    width: 100%;
+    padding: 25px 0 24px 15px;
+    border-bottom: 1px solid #dce0e2;
+  }
+  &__button {
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    background: $violet;
+    color: #fff;
+    border: 1px solid $violet;
+    @include hr(16px);
+    padding: 5px 3px;
+    @include border-radius(3px);
+    @include transition(all .2s ease-out);
+    &:hover {
+      color: $violet;
+      background: #fff;
+    }
+  }
+  &__subtitle {
+    @extend .form__title;
+    padding: 10px 15px 10px;
+    font-size: 20px;
+    border-bottom: none;
+  }
+  &__input-wrapper {
+    width: 100%;
+    padding: 10px 33px;
+    label {
+      display: block;
+      width: 100%;
+      padding: 0 0 5px;
+      @include hr(16px);
+    }
+    input, textarea {
+      width: 100%;
+      display: block;
+      border: 1px solid $violet;
+      @include hr(16px);
+      padding: 5px 3px;
+      @include border-radius(3px);
+      @include transition(all .15s ease-out);
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      }
+      &[type="checkbox"] {
+        display: inline-block;
+        width: auto;
+        &:focus {
+          @include box-shadow(none);
+        }
+      }
+      &[type="submit"] {
+        display: inline-block;
+        width: auto;
+        cursor: pointer;
+        background: $violet;
+        color: #fff;
+        padding-right: 10px;
+        padding-left: 10px;
+        @include transition(all .2s ease-out);
+        &:hover {
+          color: $violet;
+          background: #fff;
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+      display: block;
+      @include hr(16px);
+      padding: 5px 3px;
+      border: 1px solid $violet;
+      @include border-radius(3px);
+      &:disabled {
+        background: rgb(235, 235, 228);
+      }
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      }
+    }
+    .text-danger {
+      display: block;
+      width: 100%;
+      @include hr(12px);
+      color: $orange;
+      padding: 3px 0;
+    }
+
+  }
+}
+hr {
+  display: block;
+  float: none;
+  width: 100%;
+  clear: both;
+  border: 0;
+  margin: 0;
+  &.bordered {
+    border-bottom: 1px solid #dce0e2;
+  }
+}
+.text-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $violet;
+  padding: 10px;
+  text-align: center;
+  @include hr(16px);
+  color: #fff;
+  margin-top: 0;
+  @include transition(all .4s ease-out);
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+}
+.not-confirmed-wrapper {
+  width: 100%;
+  background: #fff;
+}
+.not-confirmed {
+  @extend %inner;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  &__string {
+    @include hr(16px);
+    line-height: 1.3em;
+  }
+  &__button {
+    display: block;
+    float: right;
+    @include hl(16px);
+    color: $violet;
+    border: 1px solid $violet;
+    padding: 8px 15px;
+    @include border-radius(5px);
+    cursor: pointer;
+    @include transition(all .15s ease-out);
+    &:hover {
+      border-color: transparent;
+      background: $violet;
+      color: #fff;
+    }
+  }
+}
+@import "bootstrap.scss";
