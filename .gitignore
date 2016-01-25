@@ -11,3 +11,4 @@ Thumbs.db
 /app/views/counters
 /public/evth/public/video
 hotlot42.clpprj
+/app/config/mail.php
