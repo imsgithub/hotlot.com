@@ -11,7 +11,7 @@ class CodesController extends \BaseController {
         $this->uacoeffs = $uacoeffs;
         $this->uaareas = $uaareas;
     }
-    
+
     //Функции для пользователей
     public function showMap(){
         $code = $this->code->all();
@@ -28,6 +28,9 @@ class CodesController extends \BaseController {
             'start'=>Input::get('start'),
             'end'=>Input::get('end')
         );
+        if (Session::get('role')==='admin') {
+          return View::make('public.nicemapAdmin')->withCodes($code)->withCoeffs($coeff)->withInputs($inputs)->withCurrencies($currency)->withCargotypes($cargotype)->withUa($ua);;
+        }
         return View::make('public.nicemap')->withCodes($code)->withCoeffs($coeff)->withInputs($inputs)->withCurrencies($currency)->withCargotypes($cargotype)->withUa($ua);
     }
     /**

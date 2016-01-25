@@ -4351,9 +4351,9 @@ div.has-error {
 #log span.active {
   opacity: 1;
 }
-#admin-log {
+[id^="admin-log"] {
   position: fixed;
-  width: 400px;
+  width: 300px;
   height: 600px;
   background: rgba(0, 0, 0, 0.9);
   bottom: 0;
@@ -4362,15 +4362,18 @@ div.has-error {
   overflow: visible;
   padding: 10px;
 }
-#admin-log span {
+[id^="admin-log"] span {
   display: block;
   font-size: 20px;
   font-family: sans-serif;
   line-height: 1.1em;
 }
-#admin-log div {
+[id^="admin-log"] div {
   font-size: 14px;
   font-family: sans-serif;
   line-height: 1.1em;
   width: 98%;
+}
+#admin-log2 {
+  right: 302px;
 }

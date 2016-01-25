@@ -6,7 +6,7 @@
         <title>Доставить груз из {{$inputs['start']}} в {{$inputs['end']}} стоимость, цена перевозки, цены доставки</title>
         <meta name="description" content="Привозка груза из {{$inputs['start']}} в {{$inputs['end']}} узнай стоимость за 30 секунд">
         @else
-        <title>Rate&Go калькулятор расчета</title>
+        <title>{{Lang::get('nicemappage.title')}}</title>
         <meta name="description" content="">
         @endif
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,16 +15,16 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="evth/public/img/fav-02.jpg">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="evth/public/img/fav-03.jpg">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="evth/public/img/fav-04.jpg">
-        <link rel="stylesheet" href="evth/public/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="evth/public/bootstrap-switch/css/bootstrap-switch.css">
-        <link rel="stylesheet" href="evth/public/css/style.css">
+        <link rel="stylesheet" href="/evth/public/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/evth/public/bootstrap-switch/css/bootstrap-switch.css">
+        <link rel="stylesheet" href="/evth/public/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-        <script src="evth/public/bootstrap-switch/js/bootstrap-switch.js"></script>
+        <script src="/evth/public/bootstrap-switch/js/bootstrap-switch.js"></script>
 <!--        <style>
             #map {
                 width: inherit;
@@ -39,7 +39,7 @@
             <div class="map" id="map"></div>
             <div class="map-forms-wrapper">
                 <div class="map-form-input">
-                    <div class="logo-on-map">
+                 <!--   <div class="logo-on-map">
                     <a href="/">
                         <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 147 29" enable-background="new 0 0 147 29" xml:space="preserve">
                         <g>
@@ -128,44 +128,44 @@
                     </g>
                     </svg>
                     </a>
-                </div>
+                </div>-->
                     <div class="form-header">
 
                         <h1 class="title">
                             <div class="show-form"><i class="fa fa-eye-slash"></i></div>
-                            Форма заявки
+                            {{Lang::get('nicemappage.app_form')}}
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Заполните эту форму и нажмите "Рассчитать".</span>
+                                <span class="helper-content">{{Lang::get('nicemappage.fill_out_form')}}</span>
                             </div>
                         </h1>
 
                     </div>
-                    <span class="subtitle">Введите города</span>
+                    <span class="subtitle">{{Lang::get('nicemappage.enter_city')}}</span>
                     <div class="input-wrapper">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                            <span class="helper-content">Введите начало маршрута. Поле не должно быть пустым.</span>
+                            <span class="helper-content">{{Lang::get('nicemappage.start_rout')}}</span>
                         </div>
-                        <input type="text" class="required" id="start" value="{{$inputs['start']}}" placeholder="откуда">
+                        <input type="text" class="required" id="start" value="{{$inputs['start']}}" placeholder="{{Lang::get('nicemappage.from_whence')}}">
                     </div>
                     <div class="input-wrapper">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                            <span class="helper-content">Введите конец маршрута. Поле не должно быть пустым.</span>
+                            <span class="helper-content">{{Lang::get('nicemappage.end_rout')}}</span>
                         </div>
-                        <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="куда">
+                        <input type="text" class="required" id="end" value="{{$inputs['end']}}" placeholder="{{Lang::get('nicemappage.where')}}">
                     </div>
-                    <span class="subtitle">Добавить транзитный город</span>
+                    <span class="subtitle">{{Lang::get('nicemappage.add_transit_city')}}</span>
                     <div class="transit">
                         <span class="glyphicon glyphicon-plus-sign" id="add_transit" data-id="0"></span>
                         <span class="glyphicon glyphicon-minus-sign" id="del_transit" data-id="0"></span>
                     </div>
-                    <span class="subtitle">Выберете тип перевозки</span>
+                    <span class="subtitle">{{Lang::get('nicemappage.delivery_type')}}</span>
                     <div class="cargotype">
                         <div class="helper">
                             <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                            <span class="helper-content">Тип перевозки может повлиять не её цену.</span>
+                            <span class="helper-content">{{Lang::get('nicemappage.type_helper')}}</span>
                         </div>
                         <select name="cargotype" id="cargotype">
                             @foreach ($cargotypes as $cargotype)
@@ -173,73 +173,73 @@
                             @endforeach
                         </select>
                     </div>
-                    <span class="subtitle">Выберете тип транспорта</span>
+                    <span class="subtitle">{{Lang::get('nicemappage.enter_trans_type')}}</span>
                     <div class="radio-group">
-                        <input type="radio" name="road_type" value="ROADS" data-title="Авто" data-label="<span><i class='fa fa-truck'></i></span>Авто">
-                        <input type="radio" name="road_type" value="TRANSIT" data-title="Ж/Д" data-label="<span><i class='fa fa-train'></i></span>Ж/д">
-                        <input type="radio" name="road_type" value="AVIA" data-title="Авиа" data-label="<span><i class='fa fa-plane'></i></span>Авиа">
-                        <input type="radio" name="road_type" value="MARINE" data-title="Морской" data-label="<span><i class='fa fa-ship'></i></span>Морской">
+                        <input type="radio" name="road_type" value="ROADS" data-title="Авто" data-label="<span><i class='fa fa-truck'></i></span>{{Lang::get('nicemappage.auto')}}">
+                        <input type="radio" name="road_type" value="TRANSIT" data-title="Ж/Д" data-label="<span><i class='fa fa-train'></i></span>{{Lang::get('nicemappage.railway')}}">
+                        <input type="radio" name="road_type" value="AVIA" data-title="Авиа" data-label="<span><i class='fa fa-plane'></i></span>{{Lang::get('nicemappage.avia')}}">
+                        <input type="radio" name="road_type" value="MARINE" data-title="Морской" data-label="<span><i class='fa fa-ship'></i></span>{{Lang::get('nicemappage.sea')}}">
                     </div>
                     <div class="cargo-params">
-                    <span class="subtitle">Введите параметры груза</span>
+                    <span class="subtitle">{{Lang::get('nicemappage.cargo')}}</span>
                     <div class="bottom-form-inputs">
                         <div class="load-params__input-wrapper">
-                            <label for="l">Длина, м (от 0,1 до 16)</label>
+                            <label for="l">{{Lang::get('nicemappage.lenght')}}</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Длина от 0.1 м до 16 м (метры).</span>
+                                <span class="helper-content">{{Lang::get('nicemappage.lenght_help')}}</span>
                             </div>
                             <input type="text" class="required" id="l" >
                         </div>
                         <div class="load-params__input-wrapper">
-                            <label for="w">Ширина, м (от 0,1 до 2,5)</label>
+                            <label for="w">{{Lang::get('nicemappage.width')}}</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Ширина от 0.1 м до 2.5 м (метры).</span>
+                                <span class="helper-content">{{Lang::get('nicemappage.width_help')}}</span>
                             </div>
                             <input type="text" class="required" id="w" >
                         </div>
                         <div class="load-params__input-wrapper">
-                            <label for="h">Высота, м (от 0,1 до 3,3)</label>
+                            <label for="h">{{Lang::get('nicemappage.heigth')}}</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Высота от 0.1 м до 3.3 м (метры).</span>
+                                <span class="helper-content">{{Lang::get('nicemappage.heigth_help')}}</span>
                             </div>
                             <input type="text" class="required" id="h">
                         </div>
                         <div class="load-params__input-wrapper">
-                            <label for="m">Вес, т (от 0,1 до 22)</label>
+                            <label for="m">{{Lang::get('nicemappage.weight')}}</label>
                             <div class="helper">
                                 <span class="glyphicon glyphicon-question-sign helper-question"></span>
-                                <span class="helper-content">Вес от 0.1 т до 22 т (тонны).</span>
+                                <span class="helper-content">{{Lang::get('nicemappage.weight_help')}}</span>
                             </div>
                             <input type="text" class="required" id="m" >
                         </div>
                         <div class="buttons">
-                            <button id="rend" class="button" onclick="ga('send','pageview', '/virtual/raschet');">Рассчитать</button>
-                            <button class="button-more modal-toggle" data-modal="modal-how">Узнать подробнее</button>
+                            <button id="rend" class="button" onclick="ga('send','pageview', '/virtual/raschet');">{{Lang::get('nicemappage.calculate')}}</button>
+                            <button class="button-more modal-toggle" data-modal="modal-how">{{Lang::get('nicemappage.more')}}</button>
                         </div>
                     </div>
                     </div>
                     <div class="please-register">
                         <div class="violet-rhombus"></div>
-                        <span>Калькулятор для этого вида транспорта находится в<br>разработке.</span>
+                        <span>{{Lang::get('nicemappage.calc_under_construct')}}</span>
                         <div class="please-register__content">
-                            <p class="please-register__text">Он будет доступен только зарегистрированным пользователям</p>
+                            <p class="please-register__text">{{Lang::get('nicemappage.only_reg')}}</p>
                             <div class="please-register__table">
-                                <div class="please-register__left">за <strong class="big">$9,0</strong></div>
-                                <div class="please-register__right">в месяц или<br>сейчас бесплатно*</div>
+                                <div class="please-register__left">{{Lang::get('nicemappage.behind')}} <strong class="big">$9,0</strong></div>
+                                <div class="please-register__right">{{Lang::get('nicemappage.free_now')}}</div>
                             </div>
-                            <a href="sing-up">Зарегистрироваться</a>
-                            <p class="please-register__bull-shit">*До 1.01.2016 регистрация БЕСПЛАТНО</p>
+                            <a href="sing-up">{{Lang::get('nicemappage.registration')}}</a>
+                            <p class="please-register__bull-shit">{{Lang::get('nicemappage.reg_free')}}</p>
                         </div>
                     </div>
                     <div class="back">
-                        <a href="/"><i class="fa fa-arrow-circle-left"></i> На главную</a>
+                        <a href="/"><i class="fa fa-arrow-circle-left"></i> {{Lang::get('nicemappage.to_main')}}</a>
                     </div>
                 </div>
                 <div class="map-form-output">
-                    <div class="logo-on-map">
+                 <!--   <div class="logo-on-map">
                     <a href="/">
                         <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 147 29" enable-background="new 0 0 147 29" xml:space="preserve">
                         <g>
@@ -328,13 +328,13 @@
                     </g>
                     </svg>
                     </a>
-                </div>
-                    <h1 class="title">Результат</h1>
-                    @if (Session::get('role')=='member')
-                    <span class="subtitle">Длина маршрута</span>
+                </div>-->
+                    <h1 class="title">{{Lang::get('nicemappage.result')}}</h1>
+
+                    <span class="subtitle">{{Lang::get('nicemappage.route_langht')}}</span>
                     <span class="output" id="output-length"></span>
                     <div class="currency">
-                        <span class="subtitle">Стоимость</span>
+                        <span class="subtitle">{{Lang::get('nicemappage.coast')}}</span>
                         <select name="currency" id="currency">
                             @foreach ($currencies as $currency)
                                 @if (($currency->name == 'EUR')&&($currency->id == '1'))
@@ -348,8 +348,8 @@
                     <span class="output" id="output-price"></span>
                     <div class="orange-block">
                         <div id="ajax-inputs">
-                            <h1>Оставьте заявку сейчас</h1>
-                            <span>и получите годовую страховку в Подарок!</span>
+                            <h1>{{Lang::get('nicemappage.apply_now')}}</h1>
+                            <span>{{Lang::get('nicemappage.get_gift')}}</span>
                             <div class="evth-row child-on-center">
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-envelope-square"></i>
@@ -357,62 +357,17 @@
                                 </div>
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-phone-square"></i>
-                                    <input type="text" class="phone" id="phone_inp" placeholder="тел">
+                                    <input type="text" class="phone" id="phone_inp" placeholder="{{Lang::get('nicemappage.tel')}}">
                                 </div>
                             </div>
                             <div class="top-form-buttons">
-                                <button class="button" id="phone_but" onclick="ga('send','pageview', '/virtual/otpravili');">Оставить заявку</button>
+                                <button class="button" id="phone_but" onclick="ga('send','pageview', '/virtual/otpravili');">{{Lang::get('nicemappage.leave_apply')}}</button>
                             </div>
                         </div>
                     </div>
-                    @else
-                    <span class="subtitle center">
-                      Результат доступен только зарегистрированным пользователям.
-                    </span>
-                    <span class="subtitle center comment">Зарегистрируйтесь, пожалуйста,<br>это бесплатно и займет не более<br>1 минуты</span>
-                    <form action="/sing-up" method="get" id="form-from-map-to-register">
-                      <input type="hidden" name="frommap" value="1">
-                      <button type="submit" class="register-button">Зарегистрироваться</button>
-                    </form>
-                    <div style="display:none">
-                      <span class="subtitle">Длина маршрута</span>
-                      <span class="output" id="output-length"></span>
-                      <div class="currency">
-                          <span class="subtitle">Стоимость</span>
-                          <select name="currency" id="currency">
-                              @foreach ($currencies as $currency)
-                                  @if (($currency->name == 'EUR')&&($currency->id == '1'))
-                                  <option value="{{$currency->value}}" selected="true">{{$currency->name}}</option>
-                                  @else
-                                  <option value="{{$currency->value}}">{{$currency->name}}</option>
-                                  @endif
-                              @endforeach
-                          </select>
-                      </div>
-                      <span class="output" id="output-price"></span>
-                      <div class="orange-block">
-                          <div id="ajax-inputs">
-                              <h1>Оставьте заявку сейчас</h1>
-                              <span>и получите годовую страховку в Подарок!</span>
-                              <div class="evth-row child-on-center">
-                                  <div class="bottom-form-group ">
-                                      <i class="fa fa-envelope-square"></i>
-                                      <input type="text" class="email" id="email_inp" placeholder="email">
-                                  </div>
-                                  <div class="bottom-form-group ">
-                                      <i class="fa fa-phone-square"></i>
-                                      <input type="text" class="phone" id="phone_inp" placeholder="тел">
-                                  </div>
-                              </div>
-                              <div class="top-form-buttons">
-                                  <button class="button" id="phone_but" onclick="ga('send','pageview', '/virtual/otpravili');">Оставить заявку</button>
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-                    @endif
+                    
                     <div class="back">
-                        <a href="#" id="back-to-form"><i class="fa fa-arrow-circle-left"></i> Назад к форме расчета</a>
+                        <a href="#" id="back-to-form"><i class="fa fa-arrow-circle-left"></i> {{Lang::get('nicemappage.back_tocalc_form')}}</a>
                     </div>
                 </div>
             </div>
@@ -511,7 +466,7 @@
                 </div>
             @if (Session::get('role')=='admin')
             <div id="admin-log">
-              <span>Лог админа</span>
+              <span>{{Lang::get('nicemappage.admin_log')}}</span>
               <div></div>
             </div>
             @endif
@@ -520,7 +475,7 @@
 <div class="col-md-8" style="display: none">
 
             <div class="form-group pull-right">
-                <h4>Вывод</h4>
+                <h4>{{Lang::get('nicemappage.output')}}</h4>
                 <textarea name="" id="textarea" cols="45" rows="20" class="form-control"></textarea>
             </div>
         </div>
@@ -529,27 +484,27 @@
             <div class="modal-inner">
                 <span class="close">&times;</span>
                 <div>
-                    <span>Как это работает?</span>
+                    <span>{{Lang::get('nicemappage.how_it_works')}}</span>
                     <div class="row">
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><img src="evth/public/img/modal-how-1.png" alt=""></td>
-                                    <td><img src="evth/public/img/modal-how-2.png" alt=""></td>
-                                    <td><img src="evth/public/img/modal-how-3.png" alt=""></td>
-                                    <td><img src="evth/public/img/modal-how-4.png" alt=""></td>
+                                    <td><img src="/evth/public/img/modal-how-1.png" alt=""></td>
+                                    <td><img src="/evth/public/img/modal-how-2.png" alt=""></td>
+                                    <td><img src="/evth/public/img/modal-how-3.png" alt=""></td>
+                                    <td><img src="/evth/public/img/modal-how-4.png" alt=""></td>
                                 </tr>
                                 <tr>
-                                    <td><h3>Выбираете маршрут</h3></td>
-                                    <td><h3>Расчитываете стоимость</h3></td>
-                                    <td><h3>Подтверждаете заказ</h3></td>
-                                    <td><h3>Получаете груз</h3></td>
+                                    <td><h3>{{Lang::get('nicemappage.choose_route')}}</h3></td>
+                                    <td><h3>{{Lang::get('nicemappage.calc_cost')}}</h3></td>
+                                    <td><h3>{{Lang::get('nicemappage.confirm_order')}}</h3></td>
+                                    <td><h3>{{Lang::get('nicemappage.get_cargo')}}</h3></td>
                                 </tr>
                                 <tr>
-                                    <td><p>Указываете точку отправки и точку назначения и тип перевозки.</p></td>
-                                    <td><p>Получаете предварительную оценку доставки.</p></td>
-                                    <td><p>Мы связываемся с Вами для подтверждения заказа.</p></td>
-                                    <td><p>Доставляем Ваш груз в назначенное место.</p></td>
+                                    <td><p>{{Lang::get('nicemappage.points_dist')}}</p></td>
+                                    <td><p>{{Lang::get('nicemappage.prel_cost_del')}}</p></td>
+                                    <td><p>{{Lang::get('nicemappage.contact_to_you')}}</p></td>
+                                    <td><p>{{Lang::get('nicemappage.delivery_u_cargo')}}</p></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -730,7 +685,7 @@
           		mes = document.createElement('span');
           		mes.classList.add('message');
           		if (this.value==='') {
-                mes.innerHTML = 'Это поле обязательно для заполнения';
+                mes.innerHTML = '{{Lang::get('nicemappage.required_place')}}';
                 par.appendChild(mes);
                 par.classList.add('has-error');
                 return false;
@@ -741,7 +696,7 @@
               if ((id==='w')||(id==='h')||(id==='l')||(id==='m')) {
                 replace.call(this);
                 if ((this.value<rules[id].min)||(this.value>rules[id].max)||(this.value.length!==match.length)) {
-                  mes.innerHTML = 'Недопустимое значение';
+                  mes.innerHTML = '{{Lang::get('nicemappage.invalid_value')}}';
                   par.appendChild(mes);
                   par.classList.add('has-error');
                   return false;
@@ -751,20 +706,20 @@
               match = this.value.match(regexp);
               if (id==='phone_inp') {
                 if (!match || match.length === 0) {
-                  mes.innerHTML = 'Недопустимое значение';
+                  mes.innerHTML = '{{Lang::get('nicemappage.invalid_value')}}';
                   par.appendChild(mes);
                   par.classList.add('has-error');
                   return false;
                 };
                 var x = match[0];
                 if (x.length < this.value.length) {
-                  mes.innerHTML = 'Недопустимое значение';
+                  mes.innerHTML = '{{Lang::get('nicemappage.invalid_value')}}';
                   par.appendChild(mes);
                   par.classList.add('has-error');
                   return false;
                 };
                 if (x.length < 7) {
-                  mes.innerHTML = 'Недопустимое значение';
+                  mes.innerHTML = '{{Lang::get('nicemappage.invalid_value')}}';
                   par.appendChild(mes);
                   par.classList.add('has-error');
                   return false;
@@ -1240,9 +1195,9 @@
                       var output = document.createElement('div');
                       output.setAttribute('id', 'ajax-output');
                       if (xhr.responseText==='saved') {
-                          output.innerHTML = '<span>Заявка принята! Наши менеджеры свяжутся с вами в ближайшее время!</span><div class="success-order"><i class="fa fa-check-square-o"></i></div>';
+                          output.innerHTML = '<span>{{Lang::get('nicemappage.app_add')}}</span><div class="success-order"><i class="fa fa-check-square-o"></i></div>';
                       } else {
-                          output.innerHTML = '<span>Что-то пошло не так... Просто позвоните нам по телефону на главной странице!</span>'
+                          output.innerHTML = '<span>{{Lang::get('nicemappage.ups_call_us')}}</span>'
                       }
                       box.appendChild(output);
                   };
@@ -1284,7 +1239,7 @@
                     type: 'text',
                     class: 'required',
                     id: 'transit_'+data_id,
-                    placeholder: 'Транзитный город '+(data_id+1),
+                    placeholder: '{{Lang::get('nicemappage.transit_city')}} '+(data_id+1),
                 });
                 $(div).attr('class','input-wrapper');
                 div.appendChild(inp);
@@ -1338,8 +1293,8 @@
                 };
                 if (arr.length>0) return false;
                 if (!validateCargo()) {
-                  console.log('Слишком маленькая длина для такого тяжелого груза');
-                  if($('#admin-log').length>0) $('#admin-log div').html('Слишком маленькая длина для такого тяжелого груза')
+                  console.log('{{Lang::get('nicemappage.small_langth')}}');
+                  if($('#admin-log').length>0) $('#admin-log div').html('{{Lang::get('nicemappage.small_langth')}}')
                   return false;
                 }
                 codeAddress(data.cities.start, function(code, uacode){
@@ -1403,8 +1358,8 @@
                 }
             });
         </script>
-<script src="evth/public/js/ready.js"></script>
-<script src="evth/public/js/dragonmap.js"></script>
+<script src="/evth/public/js/ready.js"></script>
+<script src="/evth/public/js/dragonmap.js"></script>
 @include('counters.metrika')
     </body>
 </html>

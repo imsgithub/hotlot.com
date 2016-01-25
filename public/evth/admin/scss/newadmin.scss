@@ -335,6 +335,30 @@ input {
     }
 
   }
+  &__button {
+  	      
+      border: 1px solid $violet;
+      @include hr(16px);
+      padding: 5px 3px;
+      @include border-radius(3px);
+      @include transition(all .15s ease-out);
+      &:focus {
+        @include box-shadow(0 0 10px 0 rgba($violet, .8));
+      } 
+		display: inline-block;
+        width: auto;
+        cursor: pointer;
+        background: $violet;
+        color: #fff;
+        padding-right: 10px;
+        padding-left: 10px;
+        @include transition(all .2s ease-out);
+        &:hover {
+          color: $violet;
+          background: #fff;
+          text-decoration: none;
+        }
+	}
 }
 hr {
   display: block;
@@ -346,4 +370,24 @@ hr {
   &.bordered {
     border-bottom: 1px solid #dce0e2;
   }
+}
+
+.form-inline {
+	@extend %inline;
+}
+.table {
+	strong, b {
+		font-family: 'HelveticaBold';
+	}
+	i, em {
+		font-family: 'HelveticaItalic';
+	}
+	ul, ul li {
+		list-style-type: circle;
+		list-style-position: inside;	
+	}
+	ol, ol li {
+		list-style-type: decimal;
+		list-style-position: inside;
+	}	
 }

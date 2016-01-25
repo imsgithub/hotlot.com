@@ -12,13 +12,13 @@ class SendMessagesController extends \BaseController {
             $phone = Input::get('phone');
             $order = $this->order;
             if (Input::get('abtest')=='abtest') {
-              $order->content = 'Заявка с главной страницы AB тест:<br>Откуда: '.Input::get('from').'<br>Куда: '.Input::get('where');
+              $order->content = 'Заявка с главной страницы первый экран:<br>Откуда: '.Input::get('from').'<br>Куда: '.Input::get('where');
               Mail::send('emails.messageABTest', ['from'=>$from, 'where'=>$where, 'phone'=>$phone], function($message)
               {
-                  $message->to('info@rate-and-go.com')->subject('Новая заявка на сайте AB тест rate-and-go.com');
-                  // $message->to('umer.hurramov@gmail.com')->subject('Новая заявка на сайте AB тест rate-and-go.com');
-                  $message->to('rate-and-go@yandex.ru')->subject('Новая заявка на сайте AB тест rate-and-go.com');
-                  $message->to('rateandgoes@gmail.com')->subject('Новая заявка на сайте AB тест rate-and-go.com');
+                  $message->to('info@rate-and-go.com')->subject('Новая заявка на сайте первый экран rate-and-go.com');
+                  // $message->to('umer.hurramov@gmail.com')->subject('Новая заявка на сайте первый экран rate-and-go.com');
+                  $message->to('rate-and-go@yandex.ru')->subject('Новая заявка на сайте первый экран rate-and-go.com');
+                  $message->to('rateandgoes@gmail.com')->subject('Новая заявка на сайте первый экран rate-and-go.com');
               });
             } else {
               $order->content = 'Заявка с главной страницы:<br>Откуда: '.Input::get('from').'<br>Куда: '.Input::get('where');

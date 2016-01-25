@@ -1,5 +1,5 @@
 <?php
-
+//$lang = LanguageController::setLang();
 return array(
 
 	/*
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'ru',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -148,7 +148,7 @@ return array(
 	|
 	*/
 
-	'aliases' => array(
+	'aliases' => array(//удалить?
 
 		'App'             => 'Illuminate\Support\Facades\App',
 		'Artisan'         => 'Illuminate\Support\Facades\Artisan',

@@ -16,7 +16,7 @@
 </style>
 <table width="600" border="0" cellspacing="0" cellpadding="0">
 	<tr>
-		<td align="left" style="color:#553074; font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding:10px">Новая заявка на сайте AB тест <strong>rate-and-go.com</strong>!</td>
+		<td align="left" style="color:#553074; font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding:10px">Новая заявка на сайте <strong>rate-and-go.com</strong> первый экран!</td>
 	</tr>
 	<tr>
 		<td align="left" style="color:#553074; font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding:10px">Откуда - {{$from}}</td>

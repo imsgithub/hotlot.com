@@ -1,12 +1,13 @@
 @extends('newmember.layouts.default')
 @section('content')
+{{App::setLocale(Session::get('lang'))}}
 <div class="content-row">
   <div class="news">
     <div class="news-gal">
       <div class="news-item">
         <img src="evth/public/img/news/news-1.png" alt="" class="news-item__img">
-        <span class="news-item__title">В скором времени здесь появятся новости</span>
-        <span class="news-item__description">И они будут невероятно полезны</span>
+        <span class="news-item__title">{{Lang::get('profilepage.news_soon')}}</span>
+        <span class="news-item__description">{{Lang::get('profilepage.be_helpful')}}</span>
         <!--a href="#" class="news-item__link">Подробнее</a-->
       </div>
       <!--div class="news-item">
@@ -24,14 +25,14 @@
     </div>
   </div>
   <div class="manager">
-    <span class="manager__title">Есть вопрос?</span>
-    <span class="manager__link--chat siteheart-init">Открыть чат с менеджером</span>
-    <span class="manager__link--callback" id="callback">Получить обратный звонок</span>
+    <span class="manager__title">{{Lang::get('profilepage.be_question')}}</span>
+    <span class="manager__link--chat siteheart-init">{{Lang::get('profilepage.open_chat')}}</span>
+    <span class="manager__link--callback" id="callback">{{Lang::get('profilepage.callback')}}</span>
   </div>
 </div>
 <div class="content-row">
   <div class="grid">
-    <span class="grid__title"><a href="/profile/forms" class="grid__link">Заявки</a></span>
+    <span class="grid__title"><a href="/profile/forms" class="grid__link">{{Lang::get('profilepage.apps')}}</a></span>
     <div class="grid__buttons">
       <!-- <span class="grid__button--active">В пути</span>
       <span class="grid__button">Архив</span>
@@ -46,10 +47,10 @@
       <thead>
         <tr>
           <th>№</th>
-          <th>Cтатус</th>
-          <th>Дата</th>
-          <th>Тип</th>
-          <th>Действия</th>
+          <th>{{Lang::get('profilepage.status')}}</th>
+          <th>{{Lang::get('profilepage.date')}}</th>
+          <th>{{Lang::get('profilepage.type')}}</th>
+          <th>{{Lang::get('profilepage.action')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -58,22 +59,22 @@
             <td>{{$form->id}}</td>
             <td>
               @if ($form->admin_confirmed == 1)
-                Подтверждена
+                {{Lang::get('profilepage.confirmed')}}
               @else
-                Не подтверждена
+                {{Lang::get('profilepage.not_confirmed')}}
               @endif
             </td>
             <td>{{ date('d.m.Y', strtotime($form->updated_at)) }}</td>
             <td>
               @if ($form->admin_confirmed == 1)
-                Контракт
+                {{Lang::get('profilepage.contract')}}
               @else
-                Заявка
+                {{Lang::get('profilepage.app')}}
               @endif
             </td>
             <td>
-              <a href="/profile/forms/edit/{{$form->id}}" title="Редактировать" class="grid__edit icon-edit"></a>
-              <a href="/profile/forms/delete/{{$form->id}}" title="Удалить" class="grid__delete icon-delete"></a>
+              <a href="/profile/forms/edit/{{$form->id}}" title="{{Lang::get('profilepage.edit')}}" class="grid__edit icon-edit"></a>
+              <a href="/profile/forms/delete/{{$form->id}}" title="{{Lang::get('profilepage.delete')}}" class="grid__delete icon-delete"></a>
             </td>
           </tr>
         @endforeach
@@ -83,7 +84,7 @@
   </div>
   <div class="calc auto">
     <div class="calc__icon-wrpr">
-      <span class="calc__title">Авто</span>
+      <span class="calc__title">{{Lang::get('member.auto')}}</span>
       <div class="calc__icon"><svg version="1.1" width="43" height="30" id="calc-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 75 53.3" enable-background="new 0 0 75 53.3" xml:space="preserve"><g><path fill="#ffffff" d="M15.4,40.6c-1.9,0-3.4,1.5-3.4,3.4s1.5,3.4,3.4,3.4s3.4-1.5,3.4-3.4S17.2,40.6,15.4,40.6z M15.4,46c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S16.5,46,15.4,46z"/><path fill="#ffffff" d="M60.7,40.6c-1.9,0-3.4,1.5-3.4,3.4s1.5,3.4,3.4,3.4s3.4-1.5,3.4-3.4S62.6,40.6,60.7,40.6z M60.7,46c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S61.8,46,60.7,46z"/><path fill="#ffffff" d="M72.8,39.8h-1V28.5c0-0.1,0-0.2-0.1-0.3l-9-16.9c-0.1-0.2-0.4-0.4-0.6-0.4H51.5V2.2c0-1.2-1-2.2-2.2-2.2h-47C1,0,0,1,0,2.2V43c0,0.7,0.3,1.4,1,1.8c0.4,0.3,0.8,0.4,1.3,0.4h3.9c0.6,4.6,4.4,8.1,9.1,8.1s8.6-3.5,9.1-8.1h27.1c0.6,4.6,4.4,8.1,9.1,8.1s8.6-3.5,9.1-8.1h2.9c1.3,0,2.3-1,2.3-2.3V42C75,40.8,74,39.8,72.8,39.8z M6.1,43.8H2.2c-0.2,0-0.3,0-0.5-0.2c-0.1-0.1-0.4-0.3-0.3-0.6v-1.8h5.2C6.3,42,6.2,42.9,6.1,43.8z M15.4,51.8c-4.3,0-7.8-3.5-7.8-7.8s3.5-7.8,7.8-7.8s7.8,3.5,7.8,7.8S19.7,51.8,15.4,51.8z M15.4,34.8c-3.5,0-6.6,2-8.2,4.9H1.4V2.2c0-0.4,0.4-0.8,0.8-0.8h47c0.5,0,0.8,0.4,0.8,0.8v9.3v28.2H23.5C22,36.8,18.9,34.8,15.4,34.8z M51.5,43.8H24.6c0-0.9-0.2-1.8-0.5-2.6h25.9h0.2h0.5H52c0,0,0,0,0,0C51.7,42,51.5,42.9,51.5,43.8z M60.7,51.8c-4.3,0-7.8-3.5-7.8-7.8s3.5-7.8,7.8-7.8c4.3,0,7.8,3.5,7.8,7.8S65,51.8,60.7,51.8z M60.7,34.8c-3.5,0-6.6,2-8.2,4.9h-1.1V12.3h10.2l8.7,16.4v11.1h-1.5C67.3,36.8,64.3,34.8,60.7,34.8z M73.6,42.9c0,0.5-0.4,0.9-0.9,0.9h-2.8c0-0.9-0.2-1.8-0.5-2.6h1.6h1.7c0.5,0,0.9,0.4,0.9,0.9V42.9z"/><path fill="#ffffff" d="M60.8,14.8c-0.1-0.3-0.4-0.4-0.6-0.4H55c-0.4,0-0.7,0.3-0.7,0.7v13.6c0,0.4,0.3,0.7,0.7,0.7h11.4c0.2,0,0.5-0.1,0.6-0.3c0.1-0.2,0.1-0.5,0-0.7L60.8,14.8z M55.7,28V15.8h3.9L65.3,28H55.7z"/></g></svg></div>
     </div>
     <span class="calc__subtitle">{{Lang::get('member.calculator')}}</span>

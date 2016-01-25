@@ -337,10 +337,26 @@ class DeliveryFormsController extends \BaseController {
             }
             return Redirect::back()->withInput()->withErrors(DeliveryForm::$errors);
         }
-        public function printForm($user_id,$form_id) {
+        /*public function printForm($user_id,$form_id) {
             $user = $this->user->find($user_id);
             $form = $this->form->find($form_id);
             return View::make('admin.form.print')->withForm($form)->withUser($user);
+        }*/
+         public function printForm($user_id,$form_id) {
+            $user = $this->user->find($user_id);
+            $form = $this->form->find($form_id);
+		    if ($form->user_confirmed == 1) {
+		      $meta = [
+		        'title'=>'Договор №'.$form_id
+		      ];
+		      return View::make('admin.forms.'.$form->contractType->en_name.'-print')->withForm($form)->withMeta($meta);
+		    }
         }
-
+        public function deleteForm($id)
+        {
+	      $form = DeliveryForm::where('id', '=', $id);
+	      $form->delete();
+	      //return Redirect::to('/profile/forms');
+	      return Redirect::back()->withErrors(['msg'=>['Форма удалена!']]);
+	    }
 }

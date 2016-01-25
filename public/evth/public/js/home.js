@@ -28,12 +28,12 @@ $(document).ready(function(){
           items: 6,
           stopOnHover: true
     });
-    $('.cities-gallery__price').after('<span class="cities-gallery__cargo-params">вес 20 т, объем 86 м<sup>3</sup>.</span>');
+    // $('.cities-gallery__price').after('');
     $('.cities-gallery__item').on('click', function(){
         var start = $(this).find('.cities-gallery__city--start').html(),
             end = $(this).find('.cities-gallery__city--end').html(),
             url = document.location.href;
-        document.location.href = url + 'map?start=' + start +'&end='+ end;
+        document.location.href = url + '/map?start=' + start +'&end='+ end;
     });
     if (isMobile()) {
         $('#video').after('<div class="mobile-video-poster"></div>');
@@ -117,7 +117,9 @@ $(document).ready(function(){
         xhr.send('abtest=abtest&from='+from.val()+'&where='+where.val()+'&phone='+phone.val());
         xhr.onreadystatechange = function(){
             if (xhr.readyState !== 4) return;
-            par.html('<span class="works-form__response">Заявка отправлена! Наш менеджер перезвонит Вам в ближайшее время.</span>')
+            var url = document.location.href;
+            document.location.href = url + 'map?start=' + from.val() +'&end='+ where.val();
+            par.html('<span class="works-form__response">Одну секунду, мы перенаправим вас на страницу рассчета...</span>')
         };
         $(this).html('<span class="works-form__response">Отправляем...</span>');
       })
@@ -146,24 +148,4 @@ function showService(e){
     $(row).find('.col-4:not(.hidden)').addClass('down');
     $('#serviceTarget').addClass('active');
     $('#serviceTarget').html($(this).html());
-//    e.preventDefault();
-//    $('.inner-extended .extended')
-//        .removeClass('extended')
-//        .find('.down').removeClass('down')
-//        .parent().find('.deployed').removeClass('deployed')
-//        .find('.hide').css('display','none')
-//        .parent().find('.display').css('display','inline');
-//    var par = this.parentNode.parentNode.parentNode;//col-4
-//    var superPar = par.parentNode;//service-row
-//    par.classList.add('deployed');
-//    par.classList.remove('down');
-//    superPar.classList.add('extended');
-//    $(this).next('.hide').css('display','inline');
-//    $(this).css('display', 'none');
-//    console.log(par);
-//    console.log($(par).height());
-//    var others = superPar.querySelectorAll('.col-4:not(.deployed)');
-//    for (var i=0; i < others.length; i++ ) {
-//        others[i].classList.add('down');
-//    }
 }

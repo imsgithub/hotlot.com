@@ -1,9 +1,9 @@
 @extends('member.layouts.default')
 @section('meta')
-<title>{{$user->email}} - Личный кабинет</title>
+<title>{{$user->email}} - {{Lang::get('profilepage.private_cab')}}</title>
 @stop
 
 @section('content')
-<h2>Добро пожаловать, {{$user->email}}!<br>Воспользуйтесь меню для перехода на нужную страницу.</h2>
+<h2>{{Lang::get('profilepage.welcome')}} {{$user->email}}!<br>{{Lang::get('profilepage.use_menu')}}</h2>
 
 @stop

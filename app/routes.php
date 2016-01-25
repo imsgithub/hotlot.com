@@ -10,15 +10,49 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+/**
 
-//Route::get('/', function()
-//{
-//    return View::make('hello');
-//});
-//Route::get('/', 'CodesController@showMap');
+*/
+
 Route::get('/', function(){
     return View::make('public.pages.home');
 });
+
+//	>>> Языки
+Route::any('/changelanguage/{lang}', function($lang){//для кнопочек переключения
+	Session::put('lang', $lang);
+	if(!empty(Session::get('id'))){
+		$userlang = LanguageController::changeProfileLang($lang);
+	}
+	$myurl = LanguageController::setBestLanguage($lang);
+	return Redirect::to($myurl);
+});
+
+Route::group(array('prefix' => '{lang}'), function($lang){//для безболезненной смены ru/en ручками
+	$myurl = LanguageController::lightLang();
+	return Redirect::to($myurl);
+});
+
+
+Route::group(array('prefix' => Session::get('lang')), function () {//просто префикс
+	Route::get('/', function()
+	{
+	    return View::make('public.pages.home');
+	});
+	Route::get('/sing-up', 'UsersController@newUserRegister');
+	Route::get('/login', function()
+	{
+	    $role = Session::get('role');
+	    if ($role != '') {
+	        return Redirect::to('/profile');
+    }
+    return View::make('public.pages.login');
+	});
+	Route::post('/login', 'UsersController@notAjaxLogin');
+	Route::get('/map', ['as'=>'/map','uses'=>'CodesController@showNiceMap'] );
+});
+
+//	<<<
 Route::get('/abtest', function(){
   return View::make('public.pages.homeABTest');
 });
@@ -48,15 +82,16 @@ Route::post('sendmessage', 'SendMessagesController@messageFromHomePage');
 
 Route::get('test_user_profile', 'HomeController@showTestProfile');
 Route::group(['before'=>'userauth'], function(){
-    Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']);
+    Route::get('/profile', ['as'=>'profile', 'uses'=>'UsersController@show_profile']); //+
     Route::get('/profile/person', ['as'=>'person', 'uses'=>'UsersController@person_edit']);
     Route::post('/profile/person', 'UsersController@person_save');
-    Route::get('/profile/forms', ['as'=>'forms', 'uses'=>'DeliveryFormsController@index']);
-    Route::get('/profile/forms/create', ['as'=>'create_form', 'uses'=>'DeliveryFormsController@create']);
-    Route::post('/profile/forms/create', 'DeliveryFormsController@store');
+    Route::get('/profile/forms', ['as'=>'forms', 'uses'=>'DeliveryFormsController@index']);//+
+    Route::get('/profile/forms/create', ['as'=>'create_form', 'uses'=>'DeliveryFormsController@create']);//+
+    Route::post('/profile/forms/create', 'DeliveryFormsController@store');//+
     Route::get('/profile/forms/view/{id}', 'DeliveryFormsController@show');
-    Route::get('/profile/forms/edit/{id}', 'DeliveryFormsController@edit');
-    Route::post('/profile/forms/edit/{id}', 'DeliveryFormsController@update');
+    Route::get('/profile/forms/edit/{id}', 'DeliveryFormsController@edit');//+
+    Route::post('/profile/forms/edit/{id}', 'DeliveryFormsController@update');//+
+    Route::get('/profile/forms/delete/{id}', 'DeliveryFormsController@deleteForm');
     Route::post('/profile/forms/edit/{id}/contract', 'DeliveryFormsController@saveContract');
     Route::get('/profile/forms/edit/{id}/contract', 'DeliveryFormsController@showContract');
     Route::post('/profile/confirmagain', 'UsersController@sendConfirmationMail');
@@ -75,37 +110,39 @@ Route::get('confirmate/{content}', 'UsersController@confirmUser');
 //Admins routes
 Route::get('/admin/login', 'UsersController@show_login_page');
 Route::post('/admin', 'UsersController@login');
-Route::get('/admin', 'UsersController@admin_index')->before('adminauth');
-Route::get('/admin/countries', 'CountriesController@index')->before('adminauth');
-Route::get('/admin/countries/{id}', 'CountriesController@show')->before('adminauth');
-Route::post('/admin/countries', 'CountriesController@store')->before('adminauth');
-Route::post('/admin/countries/update', 'CountriesController@edit')->before('adminauth');
-
-Route::get('/admin/codes', 'CodesController@index')->before('adminauth');
-Route::post('/admin/codes', 'CodesController@store')->before('adminauth');
-Route::post('/admin/codes/destroy', 'CodesController@destroy')->before('adminauth');
-
-Route::get('/admin/orders', 'OrdersController@index')->before('adminauth');
-Route::get('/admin/orders/unreviewed', 'OrdersController@indexUnreviewed')->before('adminauth');
-Route::get('/admin/orders/unreviewed/ajax', 'OrdersController@unreviewed')->before('adminauth');
-Route::get('/admin/orders/{id}', 'OrdersController@show')->before('adminauth');
-Route::post('/admin/orders/{id}', 'OrdersController@edit')->before('adminauth');
-Route::get('/admin/orders/condition/{condition}', 'OrdersController@indexByCondition')->before('adminauth');
-
-Route::get('/admin/rules', 'CoeffsController@index')->before('adminauth');
-Route::post('admin/rules', 'CoeffsController@store')->before('adminauth');
-
-Route::get('/admin/currencies', 'CurrenciesController@index')->before('adminauth');
-Route::post('/admin/currencies', 'CurrenciesController@store')->before('adminauth');
-Route::post('/admin/currencies/{id}', 'CurrenciesController@edit')->before('adminauth');
-Route::post('/admin/currencies/destroy/{id}', 'CurrenciesController@destroy')->before('adminauth');
 
 Route::group(['before'=>'adminauth'], function(){
+	Route::get('/admin', 'UsersController@admin_index');
+	Route::get('/admin/countries', 'CountriesController@index');
+	Route::get('/admin/countries/{id}', 'CountriesController@show');
+	Route::post('/admin/countries', 'CountriesController@store');
+	Route::post('/admin/countries/update', 'CountriesController@edit');
+
+	Route::get('/admin/codes', 'CodesController@index');
+	Route::post('/admin/codes', 'CodesController@store');
+	Route::post('/admin/codes/destroy', 'CodesController@destroy');
+
+	Route::get('/admin/orders', 'OrdersController@index');
+	Route::get('/admin/orders/unreviewed', 'OrdersController@indexUnreviewed');
+	Route::get('/admin/orders/unreviewed/ajax', 'OrdersController@unreviewed');
+	Route::get('/admin/orders/{id}', 'OrdersController@show');
+	Route::post('/admin/orders/{id}', 'OrdersController@edit');
+	Route::get('/admin/orders/condition/{condition}', 'OrdersController@indexByCondition');
+
+	Route::get('/admin/rules', 'CoeffsController@index');
+	Route::post('admin/rules', 'CoeffsController@store');
+
+	Route::get('/admin/currencies', 'CurrenciesController@index');
+	Route::post('/admin/currencies', 'CurrenciesController@store');
+	Route::post('/admin/currencies/{id}', 'CurrenciesController@edit');
+	Route::post('/admin/currencies/destroy/{id}', 'CurrenciesController@destroy');
+
    Route::get('/admin/users', 'UsersController@show_users');
    Route::get('/admin/users/{id}/forms', 'DeliveryFormsController@show_user_forms');
    Route::get('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@show_user_form');
    Route::post('/admin/users/{user_id}/forms/{form_id}', 'DeliveryFormsController@update_user_form');
    Route::get('/admin/users/{user_id}/forms/{form_id}/print', 'DeliveryFormsController@printForm');
+   Route::get('/admin/users/{user_id}/forms/{form_id}/contract', 'DeliveryFormsController@printForm');
    Route::get('/admin/forms', 'DeliveryFormsController@adminIndex');
 
    Route::get('/admin/cargotypes', 'CargoTypesController@index');
@@ -125,6 +162,34 @@ Route::group(['before'=>'adminauth'], function(){
    Route::get('/admin/miniadmin/create', 'UsersController@createMiniAdmin');
    Route::post('/admin/miniadmin', 'UsersController@storeMiniAdmin');
    Route::delete('/admin/miniadmin/{id}', 'UsersController@deleteMiniAdmin');
+
+   Route::get('/admin/workgroupedit', 'WorkgroupsController@indexWorkGroupEdit');
+   Route::get('/admin/workgroupedit/create', 'WorkgroupsController@createWorkGroupEdit');
+   Route::post('/admin/workgroupedit/edit/{id}', 'WorkgroupsController@editWorkGroupEdit');
+   Route::post('/admin/workgroupedit/editstore/{id}', 'WorkgroupsController@editStoreWorkGroupEdit');
+   Route::post('/admin/workgroupedit', 'WorkgroupsController@storeWorkGroupEdit');
+   Route::delete('/admin/workgroupedit/{id}', 'WorkgroupsController@deleteWorkGroupEdit');
+
+   Route::get('/admin/workedit', 'WorksController@indexWorkEdit');
+   Route::get('/admin/workedit/create', 'WorksController@createWorkEdit');
+   Route::post('/admin/workedit/edit/{id}', 'WorksController@editWorkEdit');
+   Route::post('/admin/workedit/editstore/{id}', 'WorksController@editStoreWorkEdit');
+   Route::post('/admin/workedit', 'WorksController@storeWorkEdit');
+   Route::delete('/admin/workedit/{id}', 'WorksController@deleteWorkEdit');
+
+/*   Route::get('/admin/postedit', 'PostController@indexPostEdit');
+   Route::get('/admin/postedit/create', 'PostController@createPostEdit');
+   Route::post('/admin/postedit/edit/{id}', 'PostController@editPostEdit');
+   Route::post('/admin/postedit/editstore/{id}', 'PostController@editStorePostEdit');
+   Route::post('/admin/postedit', 'PostController@storePostEdit');
+   Route::delete('/admin/postedit/{id}', 'PostController@deletePostEdit');
+*/
+   Route::get('/admin/contentedit', 'ContentController@indexContentEdit');
+   Route::get('/admin/contentedit/create', 'ContentController@createContentEdit');
+   Route::post('/admin/contentedit/edit/{id}', 'ContentController@editContentEdit');
+   Route::post('/admin/contentedit/editstore/{id}', 'ContentController@editStoreContentEdit');
+   Route::post('/admin/contentedit', 'ContentController@storeContentEdit');
+   Route::delete('/admin/contentedit/{id}', 'ContentController@deleteContentEdit');
 });
 // Route::get('/bla', function(){
 //   $user=User::find(77);

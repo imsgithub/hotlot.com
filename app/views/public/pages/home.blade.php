@@ -2,8 +2,10 @@
 <html lang="ru">
 
 <head>
+
   <meta charset="UTF-8">
-  <title>Rate and Go - международные грузовые перевозки Европа, Украина, Азия, СНГ, США грузоперевозки от надежной компании</title>
+  {{App::setLocale(Session::get('lang'))}}
+  <title>{{Lang::get('mainpage.title')}}</title>
   <meta name="description" content="Международные грузоперевозки от компании Rate and Go &#10004;Быстрая доставка &#10004;Гарантия качества &#10004;Бесплатная страховка!">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -23,6 +25,7 @@
 </head>
 
 <body>
+{{App::setLocale(Session::get('lang'))}}
   <div class="overlay">
     <div class="wrapper top">
       <video poster="evth/public/img/video-preloader.png" class="background-video" id="video" autoplay="autoplay" loop="loop" muted>
@@ -36,6 +39,8 @@
               <option value="ru">RU</option>
               <option value="en">EN</option>
             </select>
+            <a href="/changelanguage/en">En</a>
+            <a href="/changelanguage/ru">Ru</a>
           </div>
           <div class="logo">
             <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 147 29" enable-background="new 0 0 147 29" xml:space="preserve">
@@ -129,28 +134,33 @@
           @include('composers.sign')
           <!--End of composer view for unsigned users-->
         </header>
-        <h1 class="top-title">расчет стоимости и заказ перевозки
-          <br>за 30 секунд</h1>
-        <span class="top-subtitle">страховка на груз в подарок</span>
+        <h1 class="top-title">{{Lang::get('mainpage.coast1')}}</h1>
+        <span class="top-subtitle">{{Lang::get('mainpage.belay')}}<br><a href="/changelanguage/en">En</a>
+            <a href="/changelanguage/ru">Ru</a></span>
       </div>
+
       <div class="wrapper violet-bg">
         <div class="inner">
+          
           <div class="top-form">
-            <form action="/map" method="GET">
+            <form action="/map" method="GET" id="abform">
               <span class="top-form-title">Выберите маршрут</span>
               <div class="top-form-inputs">
                 <div class="from"><i class="fa fa-map-marker violet-c"></i>
-                  <input name="start" type="text" placeholder="откуда">
+                  <input name="start" type="text" placeholder="{{Lang::get('mainpage.from_whence')}}">
                 </div>
                 <div class="arrows"><i class="evth-arrows"></i></div>
                 <div class="where"><i class="fa fa-map-marker violet-c"></i>
-                  <input name="end" type="text" placeholder="куда">
+                  <input name="end" type="text" placeholder="{{Lang::get('mainpage.where')}}">
+                </div>
+                <div class="abphone"><i class="fa fa-phone violet-c"></i>
+                  <input name="phone" type="text" placeholder="{{Lang::get('mainpage.your_phone')}}">
                 </div>
               </div>
               <div class="top-form-buttons">
-                <button type="submit" class="button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№1');">Рассчитать</button>
+                <button type="submit" class="button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№1');">{{Lang::get('mainpage.calculate')}}</button>
             </form>
-            <span class="link modal-toggle" data-modal="modal-how">Как это работает?</span>
+            <span class="link modal-toggle" data-modal="modal-how">{{Lang::get('mainpage.how_it_works')}}</span>
             </div>
           </div>
         </div>
@@ -159,23 +169,23 @@
     </div>
     <div class="wrapper">
       <div class="inner section">
-        <h2 class="title">Выполняем перевозки по всему миру</h2>
+        <h2 class="title">{{Lang::get('mainpage.world_delivery')}}</h2>
         <div class="designer-decision">
           <div class="about-us__left">
             <iframe src="https://www.youtube.com/embed/eyx6hLcof5c?showinfo=0" width="100%" height="303" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
           <div class="about-us__right">
             <p>
-              <span class="orange-c">Rate&Go</span> - это безопасная и надежная площадка, на которой можно за 30 секунд рассчитать стоимости перевозки грузов от 100 кг до 100+ тонн и перевести груз вместе с нашей командой оформив заказ через личный кабинет на сайте.</p>
+              <span class="orange-c">Rate&Go</span> - {{Lang::get('mainpage.ww_content')}}</p>
             <p>
-              <span class="orange-c">Rate&Go</span> - самый легкий путь быстро узнать лучшую цену и качественно перевезти Ваш груз.</p>
+              <span class="orange-c">Rate&Go</span> - {{Lang::get('mainpage.ww_content2')}}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="wrapper grey-bg">
       <div class="inner section">
-        <span class="title">кто нам доверяет</span>
+        <span class="title">{{Lang::get('mainpage.trust')}}</span>
         <div class="center">
           <img src="evth/public/img/partners.png" class="partners" alt="кто с нами работает">
           <img src="evth/public/img/partners-mobile.png" class="partners-mobile" alt="кто с нами работает">
@@ -184,30 +194,30 @@
     </div>
     <div class="wrapper">
       <div class="inner section">
-        <span class="title">Как мы работаем</span>
+        <span class="title">{{Lang::get('mainpage.how_we_work')}}</span>
         <div class="steps">
           <div id="tabs" class="tabs">
             <div class="tabs-nav">
               <ul>
                 <li>
                   <span class="tab-nav-digit">1</span>
-                  <span class="tab-nav-descr">Расчет стоимости</span>
+                  <span class="tab-nav-descr">{{Lang::get('mainpage.price_calc')}}</span>
                 </li>
                 <li>
                   <span class="tab-nav-digit">2</span>
-                  <span class="tab-nav-descr">Оформление заказа</span>
+                  <span class="tab-nav-descr">{{Lang::get('mainpage.checkout')}}</span>
                 </li>
                 <li>
                   <span class="tab-nav-digit">3</span>
-                  <span class="tab-nav-descr">Доставка</span>
+                  <span class="tab-nav-descr">{{Lang::get('mainpage.delivery')}}</span>
                 </li>
                 <li>
                   <span class="tab-nav-digit">4</span>
-                  <span class="tab-nav-descr">Оплата</span>
+                  <span class="tab-nav-descr">{{Lang::get('mainpage.payment')}}</span>
                 </li>
                 <li>
                   <span class="tab-nav-digit">5</span>
-                  <span class="tab-nav-descr">Довольный клиент</span>
+                  <span class="tab-nav-descr">{{Lang::get('mainpage.happy_client')}}</span>
                 </li>
               </ul>
             </div>
@@ -216,11 +226,8 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <h3>РАСЧЕТ СТОИМОСТИ</h3>
-                      <p>С помощью программного калькулятора Rate&Go, Вы получаете расчет стоимости перевозки. Это сделать очень просто и быстро.
-                        <br> Предложенная цена соответствует реальному положению рынка грузоперевозок и валидна на момент подписания с нами заявки в течении 14 суток. По истечению этого времени, цена может измениться в меньшую или в большую сторону, в зависимости
-                        от ситуации на рынке.
-                        <br> Чтобы зафиксировать цену, Вам нужно оформить заказ через наш сайт. </p>
+                      <h3>{{Lang::get('mainpage.price_calc')}}</h3>
+                      <p>{{Lang::get('mainpage.price_calc_content')}}</p>
                     </div>
                     <div class="img">
                       <img src="evth/public/img/tab-img-1.png" alt="Расчет стоимости">
@@ -230,11 +237,8 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <h3>Оформление заказа</h3>
-                      <p>Оформление заказа это просто.
-                        <br> Отправьте результаты, которые Вы получили через калькулятор Rate&Go, это можно сделать в один клик, нажав кнопку «Отправить», которая появится на экране после расчета цены. Вы также можете позвонить нам по телефону и компетентный
-                        менеджер все сделает за Вас.
-                        <br> Подпись Контракта и Заявки на перевозку займет тоже немного времени и сил. Наш типовой Контракт и Заявку Вы можете получить на e-mail.</p>
+                      <h3>{{Lang::get('mainpage.checkout')}}</h3>
+                      <p>{{Lang::get('mainpage.checkout_content')}}</p>
                     </div>
                     <div class="img">
                       <img src="evth/public/img/tab-img-2.jpg" alt="Расчет стоимости">
@@ -244,10 +248,8 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <h3>Доставка</h3>
-                      <p>Rate&Go гарантирует качественный сервис по доставке любых грузов по всему миру. Мы берем на себя обязательства доставить Ваш груз точно в срок. На каждую перевозку предоставляется страховой сертификат от наших партнеров-страховых
-                        компаний с высоким мировым рейтингом.
-                        <br> Доставка грузов выполняется в соответствии с Международной конвенцией и отвечает всем мировым стандартам и требованиям.</p>
+                      <h3>{{Lang::get('mainpage.delivery')}}</h3>
+                      <p>{{Lang::get('mainpage.delivery_content')}}</p>
                     </div>
                     <div class="img">
                       <img src="evth/public/img/tab-img-4.jpg" alt="Расчет стоимости">
@@ -257,8 +259,8 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <h3>Оплата</h3>
-                      <p>Оплата принимается в любой валюте мира согласно выставленного счета-фактуры (инвойс) в срок, который был оговорен при подписании Заявки на перевозку. Приоритетная валюта расчета - Доллар США.</p>
+                      <h3>{{Lang::get('mainpage.payment')}}</h3>
+                      <p>{{Lang::get('mainpage.payment_content')}}</p>
                     </div>
                     <div class="img">
                       <img src="evth/public/img/tab-img-3.jpg" alt="Расчет стоимости">
@@ -268,9 +270,8 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <h3>Довольный клиент</h3>
-                      <p>Мы делаем все возможное, чтобы предложить нашим клиентам максимально удобный сервис по перевозкам грузов.
-                        <br> Для нас важен результат нашей работы и поэтому мы делаем нашу работу с ювелирной точностью. Мы ценим доверие наших клиентов, партнеров и знаем, что наши клиенты всегда могут рекомендовать нас только с лучшей стороны.</p>
+                      <h3>{{Lang::get('mainpage.happy_client')}}</h3>
+                      <p>{{Lang::get('mainpage.happy_client_content')}}</p>
                     </div>
                     <div class="img">
                       <img src="evth/public/img/tab-img-5.jpg" alt="Расчет стоимости">
@@ -285,34 +286,28 @@
               <div class="step-img-wrapper">
                 <img src="evth/public/img/tab-img-1.png" class="step-img" alt="">
               </div>
-              <div class="step-title-owl">Расчет стоимости</div>
+              <div class="step-title-owl">{{Lang::get('mainpage.price_calc')}}</div>
               <div class="step-number">1</div>
               <div class="step-content">
-                <h3>РАСЧЕТ СТОИМОСТИ</h3>
-                <p>С помощью программного калькулятора Rate&Go, Вы получаете расчет стоимости перевозки. Это сделать очень просто и быстро.
-                  <br> Предложенная цена соответствует реальному положению рынка грузоперевозок и валидна на момент подписания с нами заявки в течении 14 суток. По истечению этого времени, цена может измениться в меньшую или в большую сторону, в зависимости
-                  от ситуации на рынке.
-                  <br> Чтобы зафиксировать цену, Вам нужно оформить заказ через наш сайт. </p>
+                <h3>{{Lang::get('mainpage.price_calc')}}</h3>
+                <p>{{Lang::get('mainpage.price_calc_content')}}</p>
               </div>
             </div>
             <div class="step-item">
               <div class="step-img-wrapper">
                 <img src="evth/public/img/tab-img-2.jpg" class="step-img" alt="">
               </div>
-              <div class="step-title-owl">Оформление заказа</div>
+              <div class="step-title-owl">{{Lang::get('mainpage.checkout')}}</div>
               <div class="step-number">2</div>
               <div class="step-content">
-                <h3>Оформление заказа</h3>
-                <p>Оформление заказа это просто.
-                  <br> Отправьте результаты, которые Вы получили через калькулятор Rate&amp;Go, это можно сделать в один клик, нажав кнопку «Отправить», которая появится на экране после расчета цены. Вы также можете позвонить нам по телефону и компетентный
-                  менеджер все сделает за Вас.
-                  <br> Подпись Контракта и Заявки на перевозку займет тоже немного времени и сил. Наш типовой Контракт и Заявку Вы можете получить на e-mail.</p>
+                <h3>{{Lang::get('mainpage.checkout')}}</h3>
+                <p>{{Lang::get('mainpage.checkout_content')}}</p>
               </div>
             </div>
             <div class="step-item">
               <div class="step-img-wrapper">
                 <img src="evth/public/img/tab-img-3.jpg" class="step-img" alt="">
-              </div>
+              </div><!--
               <div class="step-title-owl">Предоплата</div>
               <div class="step-number">3</div>
               <div class="step-content">
@@ -320,31 +315,34 @@
                 <p>Для подтверждения Заказа понадобиться сделать предоплату в размере 50% от суммы фрахта после таможенного оформления груза (импорт/экспорт)
                   <br> Предоплата производиться на счет Компании Rate&amp;Go в любой валюте мира согласно выставленного счета.
                   <br> Конечная оплата производиться по факту доставки груза в гибкие сроки.</p>
+              </div>-->
+              <div class="step-title-owl">{{Lang::get('mainpage.delivery')}}</div>
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>{{Lang::get('mainpage.delivery')}}</h3>
+                      <p>{{Lang::get('mainpage.delivery_content')}}</p>
               </div>
             </div>
             <div class="step-item">
               <div class="step-img-wrapper">
                 <img src="evth/public/img/tab-img-4.jpg" class="step-img" alt="">
               </div>
-              <div class="step-title-owl">Доставка</div>
+              <div class="step-title-owl">{{Lang::get('mainpage.payment')}}</div>
               <div class="step-number">4</div>
               <div class="step-content">
-                <h3>ДОСТАВКА</h3>
-                <p>Rate&amp;Go гарантирует качественный сервис по доставке любых грузов по всему миру. Мы берем на себя обязательства доставить Ваш груз точно в срок. На каждую перевозку предоставляется страховой сертификат от наших партнеров-страховых компаний
-                  с высоким мировым рейтингом.
-                  <br> Доставка грузов выполняется в соответствии с Международной конвенцией и отвечает всем мировым стандартам и требованиям.</p>
+                <h3>{{Lang::get('mainpage.payment')}}</h3>
+                <p>{{Lang::get('mainpage.payment_content')}}</p>
               </div>
             </div>
             <div class="step-item">
               <div class="step-img-wrapper">
                 <img src="evth/public/img/tab-img-5.jpg" class="step-img" alt="">
               </div>
-              <div class="step-title-owl">Довольный клиент</div>
+              <div class="step-title-owl">{{Lang::get('mainpage.happy_client')}}</div>
               <div class="step-number">5</div>
               <div class="step-content">
-                <h3>Довольный клиент</h3>
-                <p>Мы делаем все возможное, чтобы предложить нашим клиентам максимально удобный сервис по перевозкам грузов.
-                  <br> Для нас важен результат нашей работы и поэтому мы делаем нашу работу с ювелирной точностью. Мы ценим доверие наших клиентов, партнеров и знаем, что наши клиенты всегда могут рекомендовать нас только с лучшей стороны.</p>
+                <h3>{{Lang::get('mainpage.happy_client')}}</h3>
+                <p>{{Lang::get('mainpage.happy_client_content')}}</p>
               </div>
             </div>
           </div>
@@ -356,47 +354,47 @@
       <div class="where-we-works">
         <img src="evth/public/img/test-map.png" class="map-img" alt="">
         <div class="inner">
-          <h2 class="title">Выполняем перевозки по всему миру</h2>
+          <h2 class="title">{{Lang::get('mainpage.world_delivery')}}</h2>
           <div class="works-list">
             <ul>
-              <li>МЫ ПЕРЕВОЗИМ
-                <br>155,000 тонн ежегодно</li>
-              <li>РАБОТАЕМ В
-                <br>190 странах</li>
-              <li>постоянных
-                <br>КЛИЕНТОВ более 120</li>
-              <li>ОХВАТЫВАЕМ
-                <br>более 34000 городов</li>
+              <li>{{Lang::get('mainpage.we_transport')}}
+                <br>{{Lang::get('mainpage.we_transport2')}}</li>
+              <li>{{Lang::get('mainpage.work_in')}}
+                <br>{{Lang::get('mainpage.work_in2')}}</li>
+              <li>{{Lang::get('mainpage.peranent_clients')}}
+                <br>{{Lang::get('mainpage.peranent_clients2')}}</li>
+              <li>{{Lang::get('mainpage.covers')}}
+                <br>{{Lang::get('mainpage.covers2')}}</li>
             </ul>
           </div>
         </div>
         <div class="works-form-wrapper">
           <div class="works-form-inner">
             <div class="works-form">
-              <span class="works-form__title">Рассчитайте стоимость
-                <br>перевозки за 30 секунд</span>
+              <span class="works-form__title">{{Lang::get('mainpage.calculate_price')}}
+                <br>{{Lang::get('mainpage.per_30_secoonds')}}</span>
               <img src="evth/public/img/dummy-arrow.png" alt="duumy arrow" class="works-form__dummy-arrow">
               <div class="works-form__inputs-wrapper">
                 <div class="works-form__input-wrapper">
                   <i class="fa fa-map-marker violet-c"></i>
-                  <input class="works-form__input works-start-city" type="text" name="from" value="" placeholder="Откуда">
+                  <input class="works-form__input works-start-city" type="text" name="from" value="" placeholder="{{Lang::get('mainpage.from_whence')}}">
                 </div>
                 <div class="works-form__input-wrapper">
                   <i class="fa fa-map-marker violet-c"></i>
-                  <input class="works-form__input works-end-city" type="text" name="where" value="" placeholder="Куда">
+                  <input class="works-form__input works-end-city" type="text" name="where" value="" placeholder="{{Lang::get('mainpage.where')}}">
                 </div>
                 <div class="works-form__input-wrapper">
                   <i class="fa fa-phone violet-c"></i>
-                  <input class="works-form__input" type="text" name="phone" value="" placeholder="Телефон">
+                  <input class="works-form__input" type="text" name="phone" value="" placeholder="{{Lang::get('mainpage.phone')}}">
                 </div>
                 <div class="works-form__button-wrapper">
-                  <button type="button" class="works-form__button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№4');">рассчитать</button>
+                  <button type="button" class="works-form__button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№4');">{{Lang::get('mainpage.calculate')}}</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="cities-gallery-wrapper">
-            <span class="cities-gallery__title">Популярные маршруты</span>
+            <span class="cities-gallery__title">{{Lang::get('mainpage.popular_route')}}</span>
             <div class="cities-gallery">
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -405,11 +403,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/lvov.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Гамбург</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Hamburg')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Львов</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Lviv')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,150.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -418,11 +417,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/kiev.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Милан</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Milan')}}</span>
                 <span class="flag flag-it flag-start"></span>
-                <span class="cities-gallery__city--end">Киев</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Kyiv')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,950.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -431,11 +431,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/odessa.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Варшава</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Warsaw')}}</span>
                 <span class="flag flag-pl flag-start"></span>
-                <span class="cities-gallery__city--end">Одесса</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Odessa')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,150.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -444,11 +445,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/berlin.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Москва</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Moscow')}}</span>
                 <span class="flag flag-ru flag-start"></span>
-                <span class="cities-gallery__city--end">Берлин</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Berlin')}}</span>
                 <span class="flag flag-de flag-end"></span>
                 <span class="cities-gallery__price">€1,400.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -457,11 +459,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/kharkov.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Прага</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Praga')}}</span>
                 <span class="flag flag-cz flag-start"></span>
-                <span class="cities-gallery__city--end">Харьков</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Kharkiv')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,550.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -470,11 +473,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/saint-petersburg.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Гамбург</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Hamburg')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Санкт-Петербург</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.St_Peterburg')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€1,700.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -483,11 +487,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/novosibirsk.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Турин</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Turin')}}</span>
                 <span class="flag flag-it flag-start"></span>
-                <span class="cities-gallery__city--end">Новосибирск</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Novosibirsk')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€2,900.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -496,11 +501,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/kiev.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Франкфурт</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Frankfurt')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Киев</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Kyiv')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,500.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -509,11 +515,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/moscow.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Стамбул</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Stambul')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Москва</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Moscow')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€3,750.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -522,11 +529,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/ashgabat.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Дюссельдорф</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Dusseldorf')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Ашхабад</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Ashhabad')}}</span>
                 <span class="flag flag-tm flag-end"></span>
                 <span class="cities-gallery__price">€8,000.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -535,11 +543,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/irkutsk.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Неаполь</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Neapol')}}</span>
                 <span class="flag flag-it flag-start"></span>
-                <span class="cities-gallery__city--end">Иркутск</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Irkutsk')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€6,100.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -548,11 +557,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/kharkov.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Констанца</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Konstanca')}}</span>
                 <span class="flag flag-ro flag-start"></span>
-                <span class="cities-gallery__city--end">Харьков</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Kharkiv')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,650.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -561,11 +571,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/almaty.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Милан</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Milan')}}</span>
                 <span class="flag flag-it flag-start"></span>
-                <span class="cities-gallery__city--end">Алматы</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Almati')}}</span>
                 <span class="flag flag-kz flag-end"></span>
                 <span class="cities-gallery__price">€8,800.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -574,11 +585,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/debrecen.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Орхус</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Orhus')}}</span>
                 <span class="flag flag-dk flag-start"></span>
-                <span class="cities-gallery__city--end">Дебрецен</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Debrecen')}}</span>
                 <span class="flag flag-hu flag-end"></span>
                 <span class="cities-gallery__price">€1,900.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -587,11 +599,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/munich.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Зебрюгге</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Zebrugge')}}</span>
                 <span class="flag flag-be flag-start"></span>
-                <span class="cities-gallery__city--end">Мюнхен</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Munhen')}}</span>
                 <span class="flag flag-de flag-end"></span>
                 <span class="cities-gallery__price">€1,200.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -600,11 +613,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/kiev.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Париж</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Paris')}}</span>
                 <span class="flag flag-fr flag-start"></span>
-                <span class="cities-gallery__city--end">Киев</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Kyiv')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,950.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -613,11 +627,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/samara.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Будапешт</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Budapest')}}</span>
                 <span class="flag flag-hu flag-start"></span>
-                <span class="cities-gallery__city--end">Самара</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Samara')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€2,150.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -626,11 +641,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/krasnodar.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Осло</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Oslo')}}</span>
                 <span class="flag flag-no flag-start"></span>
-                <span class="cities-gallery__city--end">Краснодар</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Krasnodar')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€2,950.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -639,11 +655,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/riga.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Брно</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Brno')}}</span>
                 <span class="flag flag-cz flag-start"></span>
-                <span class="cities-gallery__city--end">Рига</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Riga')}}</span>
                 <span class="flag flag-lv flag-end"></span>
                 <span class="cities-gallery__price">€1,450.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -652,11 +669,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/astana.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Минск</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Minsk')}}</span>
                 <span class="flag flag-by flag-start"></span>
-                <span class="cities-gallery__city--end">Астана</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Astana')}}</span>
                 <span class="flag flag-kz flag-end"></span>
                 <span class="cities-gallery__price">€5,350.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -665,11 +683,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/dortmund.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Киев</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Kyiv')}}</span>
                 <span class="flag flag-ua flag-start"></span>
-                <span class="cities-gallery__city--end">Дортмунд</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Dortmund')}}</span>
                 <span class="flag flag-de flag-end"></span>
                 <span class="cities-gallery__price">€1,600.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -678,11 +697,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/kazan.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Роттердам</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Rotterdam')}}</span>
                 <span class="flag flag-nl flag-start"></span>
-                <span class="cities-gallery__city--end">Казань</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Kazan')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€2,550.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -691,11 +711,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/bolonja.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Москва</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Moscow')}}</span>
                 <span class="flag flag-ru flag-start"></span>
-                <span class="cities-gallery__city--end">Болонья</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Bologna')}}</span>
                 <span class="flag flag-it flag-end"></span>
                 <span class="cities-gallery__price">€2,050.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -704,11 +725,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/moscow.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Санкт-Петербург</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.St_Peterburg')}}</span>
                 <span class="flag flag-ru flag-start"></span>
-                <span class="cities-gallery__city--end">Москва</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Moscow')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€1,100.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -717,11 +739,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/astana.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Варшава</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Warsaw')}}</span>
                 <span class="flag flag-pl flag-start"></span>
-                <span class="cities-gallery__city--end">Астана</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Astana')}}</span>
                 <span class="flag flag-kz flag-end"></span>
                 <span class="cities-gallery__price">€1,100.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -730,11 +753,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/tashkent.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Парма</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Parma')}}</span>
                 <span class="flag flag-it flag-start"></span>
-                <span class="cities-gallery__city--end">Ташкент</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Tashkent')}}</span>
                 <span class="flag flag-uz flag-end"></span>
                 <span class="cities-gallery__price">€8,550.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -743,11 +767,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/odessa.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Копер</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Koper')}}</span>
                 <span class="flag flag-si flag-start"></span>
-                <span class="cities-gallery__city--end">Одесса</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Odessa')}}</span>
                 <span class="flag flag-ua flag-end"></span>
                 <span class="cities-gallery__price">€1,600.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -756,11 +781,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/stuttgart.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Роттердам</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Rotterdam')}}</span>
                 <span class="flag flag-nl flag-start"></span>
-                <span class="cities-gallery__city--end">Штутгарт</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Stutgart')}}</span>
                 <span class="flag flag-de flag-end"></span>
                 <span class="cities-gallery__price">€850.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -769,11 +795,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/gomel.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Вроцлав</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Vroclav')}}</span>
                 <span class="flag flag-pl flag-start"></span>
-                <span class="cities-gallery__city--end">Гомель</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Gomel')}}</span>
                 <span class="flag flag-by flag-end"></span>
                 <span class="cities-gallery__price">€900.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -782,11 +809,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/poznan.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Житомир</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Zhitomir')}}</span>
                 <span class="flag flag-ua flag-start"></span>
-                <span class="cities-gallery__city--end">Познань</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Poznan')}}</span>
                 <span class="flag flag-pl flag-end"></span>
                 <span class="cities-gallery__price">€1,000.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -795,11 +823,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/tashkent.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Стамбул</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Stambul')}}</span>
                 <span class="flag flag-tr flag-start"></span>
-                <span class="cities-gallery__city--end">Ташкент</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Tashkent')}}</span>
                 <span class="flag flag-uz flag-end"></span>
                 <span class="cities-gallery__price">€7,000.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -808,11 +837,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/tegeran.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Днепропетровск</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Dnepropetrovsk')}}</span>
                 <span class="flag flag-ua flag-start"></span>
-                <span class="cities-gallery__city--end">Тегеран</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Teheran')}}</span>
                 <span class="flag flag-ir flag-end"></span>
                 <span class="cities-gallery__price">€4,650.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -821,11 +851,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/baku.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Ганновер</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Hannover')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Азербайджан, Баку</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Az_Baku')}}</span>
                 <span class="flag flag-az flag-end"></span>
                 <span class="cities-gallery__price">€4,600.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -834,11 +865,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/rostov-na-dony.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Котка</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Kotka')}}</span>
                 <span class="flag flag-de flag-start"></span>
-                <span class="cities-gallery__city--end">Ростов-на-Дону</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Rostov_na_Donu')}}</span>
                 <span class="flag flag-ru flag-end"></span>
                 <span class="cities-gallery__price">€1,750.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -847,11 +879,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/koshica.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Таллин</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.Tallin')}}</span>
                 <span class="flag flag-ee flag-start"></span>
-                <span class="cities-gallery__city--end">Кошице</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Koshice')}}</span>
                 <span class="flag flag-sk flag-end"></span>
                 <span class="cities-gallery__price">€1,750.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
               <div class="cities-gallery__item">
                 <div class="triangle-left">
@@ -860,11 +893,12 @@
                 <div class="triangle-right">
                   <img src="evth/public/img/cities/sumkent.png" alt="">
                 </div>
-                <span class="cities-gallery__city--start">Лондон</span>
+                <span class="cities-gallery__city--start">{{Lang::get('mainpage.London')}}</span>
                 <span class="flag flag-gb flag-start"></span>
-                <span class="cities-gallery__city--end">Шымкент</span>
+                <span class="cities-gallery__city--end">{{Lang::get('mainpage.Shimket')}}</span>
                 <span class="flag flag-kz flag-end"></span>
                 <span class="cities-gallery__price">€8,200.00</span>
+                <span class="cities-gallery__cargo-params">{{Lang::get('mainpage.gallery_cargo_params')}}</span>
               </div>
             </div>
           </div>
@@ -872,7 +906,7 @@
       </div>
     </div>
     <div class="wrapper white-bg">
-      <span class="title">Услуги</span>
+      <span class="title">{{Lang::get('mainpage.services')}}</span>
       <div class="inner-extended">
         <div id="serviceTarget"></div>
         <div class="service-row">
@@ -882,20 +916,9 @@
                 <span class="icon-car"></span>
               </div>
               <div class="service-description">
-                <h3>Автомобильные международные перевозки</h3>
+                <h3>{{Lang::get('mainpage.Automobile_int_trans_title')}}</h3>
                 <div class="display">
-                  <p>Автомобильные международные перевозки – это один из самых популярных видов транспортировки, который отличается оперативностью, безопасностью и качественным сервисом. Данная услуга в особенности востребована в бизнесе, к тому же ежегодно
-                    поток клиентов, которые пользуется данным видом сервиса, стремительно увеличивается. Как свидетельствует статистика, доставка грузов в разные страны мира актуальна не только среди крупных компаний, но и среди начинающих предпринимателей.</p>
-                  <p>Но далеко не все компании способны осуществлять автомобильные грузоперевозки на высоком уровне. Поэтому Вам лучше обращаться к опытным компаниям перевозок, одной из которых являетсяRateandGo. Наша команда профессионалов тщательно относится
-                    к любому этапу международных перевозок, в том числе и автомобильных. </p>
-                  <h3>Для чего нужны автомобильные международные перевозки?</h3>
-                  <p>Данный способ транспортировки лучше всего подойдет для тех случаев, когда необходима грузоперевозка в рамках одного континента, предпочтительно Европы. Уровень и качество европейских дорог заслуживает самых лучших слов. Поэтому Вы можете
-                    не переживать за оперативность и надежность международной перевозки. Транспортировать можно груз практически любого размера и типа. Компания перевозчик берет на себя решение таких вопросов, как поиск транспорта и составление оптимального
-                    маршрута. Заказчику остается лишь указать пункт отправления и пункт назначения, а также оплатить транспортные услуги.</p>
-                  <h3>Почему RateandGo?</h3>
-                  <p>Наша компания – это опытные профессионалы знающие свое дело. Мы смогли наладить хорошие отношения со многими партнерами, поэтому клиенты могут не волноваться о качестве автомобильных грузоперевозок. Заказать услугу можно прямо на сайте
-                    rate-and-go.com. Для этого Вам потребуется ввести маршрут, и система автоматически посчитает расстояние, стоимость, а также ориентировочное время доставки. Клиенту остается лишь подтвердить свой заказ и оформить договор. Мы осуществляем
-                    транспортировку груза автомобилями по Европе, Азии и странах СНГ. В сравнении с конкурентами наши услуги стоят недорого.</p>
+                  {{Lang::get('mainpage.Automobile_int_trans')}}
                 </div>
               </div>
             </div>
@@ -906,25 +929,9 @@
                 <span class="icon-ship"></span>
               </div>
               <div class="service-description">
-                <h3>Морские контейнерные перевозки</h3>
+                <h3>{{Lang::get('mainpage.container_shipping_title')}}</h3>
                 <div class="display">
-                  <p>Если Вам необходимо доставить объемный или тяжелый груз из-за океана или отдаленной страны, то лучший вариант для Вас – это морская контейнерная грузоперевозка. Надежность и безопасность такой транспортировки находится на самом высоком
-                    уровне. Такой доступный и удобный способ перевозки отличается популярностью за счет минимальных издержек, в процессе перевозки груза из одной пункта назначения в другой. В контейнерах перевозят практически любые виды грузов.</p>
-                  <h3>Особенности международных морских перевозок</h3>
-                  <p>Доставка морским путем из Китая, Индии, Соединенных Штатов – это востребованная услуга в логистической отрасли. Украинские компании нередко импортируют товары, оборудование и сырье из столь отдаленных стран. При большом объеме и весе
-                    груза, цена доставки бывает очень высокой. Но есть и относительно экономный способ транспортировки – это международные морские перевозки. Такая комплексная услуга включает:</p>
-                  <ul>
-                    <li>Планирование маршрута и подбор грузового судна;</li>
-                    <li>Обеспечение оптимальных условий для морской грузоперевозки;</li>
-                    <li>Все разгрузочно-погрузочные виды работ в точках маршрута;</li>
-                    <li>Наземная доставка груза по прибытию;</li>
-                    <li>Оформление всех необходимых документов для осуществления международной перевозки;</li>
-                  </ul>
-                  <p>Все вышеперечисленные услуги входят в компетенцию компании-исполнителя. Наша компания предоставляет качественный сервис, благодаря чему процесс перевозки происходит быстро и без заминок.</p>
-                  <h3>RateandGo – лучший партнер для морских грузоперевозок</h3>
-                  <p>На сегодняшний день Украина может предложить не так много качественных логистических компаний. Тем не менее, компания RateandGo– это Ваш надежный партнер в данной области. Мы гарантируем комплексное выполнение всех задач во время морской
-                    транспортировке груза. Международные перевозки от RateandGo – это оперативность, надежность и доступная стоимость. Обширная сеть надежных партнеров и посредников позволяет нам предоставлять транспортные услуги разной сложности. Наша
-                    компания предоставляет Вам возможность заказать морскую перевозку в любое время на сайте rate-and-go.com. Просто введите пункт отправления и пункт назначения, а система автоматически посчитает все важные детали маршрута.</p>
+                  {{Lang::get('mainpage.container_shipping')}}
                 </div>
               </div>
             </div>
@@ -935,14 +942,9 @@
                 <span class="icon-boxes"></span>
               </div>
               <div class="service-description">
-                <h3>Перевозка сборных грузов</h3>
+                <h3>{{Lang::get('mainpage.groupage_cargo_title')}}</h3>
                 <div class="display">
-                  <p>Международная перевозка сборных грузов – одна из наиболее востребованных транспортных услуг на сегодня. К такому виду грузоперевозки прибегают многие компании среднего и малого бизнеса. Она применяется тогда, когда груз занимает меньше одной третьей части контейнера. Потому как Вы не сможете осуществить доставку нужных товаров почтой, в силу больших габаритов. А если заказывать обычную услугу международной или локальной перевозки,значительные финансовые затраты – неизбежны. Наша компания осуществляет объединение нескольких грузов в один сборный, благодаря чему удается сэкономить на расходах экспедирования.</p>
-                  <h3>Преимущества сборных международных перевозок</h3>
-                  <p>Такая грузоперевозка – это, безусловно, экономия Ваших денег, а также финансов фирмы исполнителя. Она гораздо сложнее простой доставки товара в плане организации, но ее стоимость куда ниже. Логистическая компания должна иметь широкую сеть лицензированных складов, уметь грамотно консолидировать деятельность разных функциональных отделов, правильно составлять документы. Время сборной доставки обычно несколько превышает термин обычной грузоперевозки. Хотя это зависит от качества работы компании исполнителя. Кроме того, наша компания позаботиться о том, чтобы максимально сократить сроки формирования разрешительных документов и разрешительных сертификаций.</p>
-                  <h3>Сборные грузовые перевозки от RateandGo</h3>
-                  <p>Наша компания давно осуществляет комплексные международные перевозки. RateandGo – это грамотные профессионалы в сфере логистики и оптимальные механизмы работы. Поэтому сборные грузоперевозки от нашей компании – это оперативно, надежно и качественно. Клиентам остается только оформить заказ и оплатить его. Мы берем на себя оформления всех документов и реализацию самой доставки. География деятельности компании RateandGo включает в себя Азию, США, страны СНГ, Европу. Ваша партия товара будет доставлена из любой точки в самые короткие сроки.</p>
-                  <p>Наша компания готова взяться за работу различной сложности. Сделав выбор в пользу нашей компании, Вы полностью поручаете нам любые дела, связанные с международной перевозкой груза.</p>
+                  {{Lang::get('mainpage.groupage_cargo')}}
                 </div>
               </div>
             </div>
@@ -953,14 +955,9 @@
                 <span class="icon-cross"></span>
               </div>
               <div class="service-description">
-                <h3>Мультимодальные перевозки</h3>
+                <h3>{{Lang::get('mainpage.multimodal_transportation_title')}}</h3>
                 <div class="display">
-                  <p>Мультимодальные перевозки решают проблему доставки груза любого типа в самые отдаленные пункты назначения. Их особенность – это использование сразу нескольких видов транспортных средств. Это востребованная услуга, которой пользуются многие компании. И если Вы ищете надежного партнера, то RateandGo – оптимальный вариант. За нас говорит многолетний опыт и качество наших международных перевозок</p>>
-                  <h3>Как осуществляются мультимодальные международные перевозки?</h3>
-                  <p>Первым делом, клиенту необходимо указать маршрут грузоперевозки. На сайте rate-and-go.com есть специальное поле, в которое можно ввести необходимые данные рейса. Система в автоматическом режиме рассчитает оптимальный маршрут, цену перевозки, виды транспорта, а также ориентировочную дату прибытия груза. Стоит отметить, что мы осуществляем деятельность не только в СНГ, но и также по всей Европе, Азии, США. И если вам необходимо произвести перевозку груза за океан, то мультимодальныегрузоперевозки – оптимальный вариант для Вас. После согласования маршрута, цены и сроков трансфера, между клиентом и компанией оформляется соглашение. Вам остается просто дождаться своего груза, за целостность которого отвечаем мы.</p>
-                  <h3>Почему именно мы?</h3>
-                  <p>Основной принцип работы нашей компании – это забота об интересах клиента. Многолетний опыт работы в сфере грузоперевозок предоставляет нам возможность предлагать клиентам полный комплекс транспортных услуг, используя различные транспортные средства.</p>
-                  <p>За годы своей деятельности компания-перевозчикRateandGo смогла создать целую сеть подрядчиков и надежных партнеров, которые обеспечат качественный сервис на всех этапах. Международные мультимодальные перевозки у нас – это быстро, надежно и доступно. Заказать услугу можно прямо на сайте. Доверьте свою грузоперевозку профессионалам.</p>
+                  {{Lang::get('mainpage.multimodal_transportation')}}
                 </div>
               </div>
             </div>
@@ -973,23 +970,9 @@
                 <span class="icon-money-bag"></span>
               </div>
               <div class="service-description">
-                <h3>Брокерские услуги</h3>
+                <h3>{{Lang::get('mainpage.brokerage_services_title')}}</h3>
                 <div class="display">
-                  <p>Международные перевозки связаны с оформлением целой пачки различных документов и разрешений. В условиях жесткого дефицита времени, оперативность решений «бумажных» вопросов становится одним из ключевых моментов при трансфере международного уровня. Даже опытные компании не всегда способны быстро оформить все документы, которые касаются грузоперевозок. Новички могут потерять на этой процедуре очень много времени. Если Вы цените свое время и деньги, тогда Вам стоит обратиться к компании RateandGo. Мы предоставляем нашим клиентам брокерские услуги на всех ключевых этапах грузопоревозок. Наша компания предоставит Вам профессиональные услуги в вопросе таможенного оформления грузов. Богатый опыт в данном направлении деятельности предоставляет нам возможность защитить своих клиентов от любых сложностей, которые могут возникнуть на таможне.</p>
-                  <h3>Что входит в компетенцию наших брокеров?</h3>
-                  <p>Наша логистическая компания, в лице опытных брокеров, может предоставить клиентам следующие услуги международной перевозки: </p>
-                  <ul>
-                  	<li>Предоставление аккредитационных документов для компании (Украина);</li>
-                  	<li>Таможенное оформление грузов для импорта и экспорта (Азия, Европа, США и другие страны);</li>
-                  	<li>Возможность оформить статус временного ввоза для груза;</li>
-                  	<li>Таможенная очистка при осуществлении международных перевозок;</li>
-                  	<li>Работа с кодами и серийными номерами товаров при грузоперевозке;</li>
-                  	<li>Оформление обязательных сопровождающих разрешений и сертификатов для груза;</li>
-                  	<li>Юридические консультации по отдельным вопросам;</li>
-                  </ul>
-                  <h3>Опыт и качество</h3>
-                  <p>Заказать услугу брокеров можно прямо на сайте rate-and-go.com. Вы обязательно получите качественную консультацию от опытных и квалифицированных специалистов. Наша компания много лет занимается международными грузовыми перевозками, и процесс оформления всех документов доведен практически до автоматизма. Мы учтем любую мелочь и сэкономим Ваше время и деньги. Ведь цена наших услуг одна из самых выгодных на всем рынке компаний, которые предоставляют брокерские и другие транспортные услуги.</p>
-                  <p>Сотрудничая с нами – Вы забудете обо всех проблемах, которые связаны с оформлением, отправкой и получением груза. Мы гарантируем высококвалифицированные услуги, надежность и оперативность.</p>
+                  {{Lang::get('mainpage.brokerage_services')}}
                 </div>
               </div>
             </div>
@@ -1000,20 +983,9 @@
                 <span class="icon-umbrella"></span>
               </div>
               <div class="service-description">
-                <h3>Страхование</h3>
+                <h3>{{Lang::get('mainpage.insurance_title')}}</h3>
                 <div class="display">
-                  <p>Безопасность Вашего груза во время осуществления международной перевозки – это один из ключевых моментов. Но не всегда абсолютно все идет гладко. Ведь грузовые перевозки сопряжены с определенным риском. Лучший способ обезопасить себя и свой груз от непредвиденных ситуаций – это страхование. Страхование грузов поможет владельцам груза избавиться от волнений в отношении сохранности груза, а также предоставит уверенность в том, что в любом случае клиент не потеряет хотя бы его на его стоимости.</p>
-                  <p>Логистическая компанияRateandGo предоставляет клиентам подобную услугу. Страхование в нашей компании предоставляется на период перевозки, включая непосредственно саму перегрузку, а также промежуточное хранение.</p>
-                  <h3>Общая характеристика страхования грузоперевозок.</h3>
-                  <p>Данная услуга распространяется, как на локальные, так и на международные перевозки. Страхование может иметь разовый характер. Это актуально, если компания заказчик редко прибегает к перевозкам. Но существуют также полисы страхования на регулярные грузоперевозки. Услуга оговаривается в условиях генерального договора между компанией-перевозчиком и клиентом.</p>
-                  <p>Один из важных моментов – это расчет суммы страхования. Он зависит от следующих факторов:</p>
-                  <ul>
-                  	<li>Характер и длительность маршрута;</li>
-                  	<li>Виды и состояние используемого транспорта;</li>
-                  	<li>Ценность и вес груза;</li>
-                  	<li>Формат договора (разовый, регулярный);</li>
-                  </ul>
-                  <p>Заказать страхование можно на любой вид трансфера, будь это международные мультимодальные перевозки по Азии или США или локальная доставка груза.</p>
+                  {{Lang::get('mainpage.insurance')}}
                 </div>
               </div>
             </div>
@@ -1024,16 +996,9 @@
                 <span class="icon-rulers"></span>
               </div>
               <div class="service-description">
-                <h3>Негабаритные перевозки</h3>
+                <h3>{{Lang::get('mainpage.oversized_transport_title')}}</h3>
                 <div class="display">
-                  <p>Негабаритные перевозки – это комплексная логистическая операция, которая считается одной из самых непростых в отрасли. При осуществлении такой грузоперевозки учитывается масса факторов и рисков. Наша транспортная компания сможет качественно и быстро выполнить доставку.</p>
-                  <h3>Особенности негабаритных международных перевозок</h3>
-                  <p>Негабаритные международные или локальные перевозки требуются по разным причинам. В основном к такой услуге прибегают в том случае, когда необходимо доставить с одной точки в другую технику, конструкции, оборудование, различный транспорт. В зависимости от характера груза подбирается оптимальный вид транспорта. Нередко негабаритный груз доставляется через железнодорожные перевозки. Но куда чаще прибегают к услугам автопарка. Грузоперевозка данного типа требует специальной техники, вроде низко посаженных тралов, трейлеров. Важно прочно закрепить груз и согласовать оптимальный маршрут.</p>
-                  <h3>Негабаритные грузовые перевозки от RateandGo</h3>
-                  <p>Наша логистическая компания в течение многих лет осуществляет негабаритные международные перевозки. Мы максимально упростили процесс заказа этой транспортной услуги. Клиенту достаточно перейти на вебсайт rate-and-go.com, ввести свой маршрут и указать груз, и система автоматически рассчитает стоимость и термин доставки. Вы можете довериться нашей компании, потому мы что мы имеем огромный опыт в международных перевозках.</p>
-                  <p>Наша компания берет на себя ответственность за соблюдение всех сроков доставки. Выполнение таких сложных задач становится осуществимым благодаря большому практическому опыту транспортировки в самые различные уголки мира.</p>
-                  <p>Большой опыт работы, наличие постоянных клиентов, а также отличная репутация – это то, что выгодно отличает нас от компаний конкурентов.</p>
-                  <p>Мы берем на себя оформление всех необходимых документов и подбор оптимального транспорта. Негабаритная грузоперевозка от RateandGo – это всегда качественно, быстро и надежно.</p>
+                  {{Lang::get('mainpage.oversized_transport')}}
                 </div>
               </div>
             </div>
@@ -1044,21 +1009,9 @@
                 <span class="icon-storehouse"></span>
               </div>
               <div class="service-description">
-                <h3>Хранение</h3>
+                <h3>{{Lang::get('mainpage.storage_title')}}</h3>
                 <div class="display">
-                  <p>Одна из сопровождающих услуг при международных перевозках – это хранение груза. Она особенно актуальна, если доставка носит сборный или мультимодальный характер. Груз проходит через несколько точек, прежде чем добраться до адресата. Иногда у заказчиков также возникает потребность отгрузить часть своего груза или сделать его переучет в контрольной точке. Ведь грузоперевозка – комплексный процесс, который в себя включает не только доставку и отгрузку, но также и хранение.</p>
-                  <h3>Что такое ответственное хранение?</h3>
-                  <p>Под ответственным хранением подразумевает передачу опеки над товаром от одного юридического лица до обслуживающей компании. То есть заказчик перекладывает все задачи и полномочия на логистическую фирму. Последняя, в свою очередь, решает все ключевые вопросы для организации хранения и выполняет установленные поручения от компании-заказчика. Эта сопровождающая грузоперевозки услуга в себя включает:</p>
-                  <ul>
-                  	<li>Разгрузка и погрузка всех товаров и груза;</li>
-                  	<li>Учет количества всех позиций;</li>
-                  	<li>Непосредственное хранение груза в логистических	складах по оговоренным условиям;</li>
-                  	<li>Обеспечение оптимальных условий хранения при международной перевозке;</li>
-                  	<li>Подготовка к будущей транспортировке груза;</li>
-                  	<li>Работа с необходимой документацией;</li>
-                  </ul>
-                  <h3>Ответственное хранение при грузоперевозках от компании RateandGo</h3>
-                  <p>Локальные и международные перевозки – это специализация нашей компании. За нашими плечами многолетний опыт работы в этой сфере и благодарные отзывы довольных клиентов. Одна из основных причин нашего успеха – это предоставление полного пакета услуг при международных перевозках. В этот пакет также входит и страхование. Логистическая компанияRateandGoимеет целую сеть партнеров в Европе, Азии и США, представляющих свои складские помещения для грузов. Мы обеспечим высочайший уровень сервиса и качественно выполним любую задачу по хранению груза. Транспортные услуги в нашей компании – это доступно, качественно и удобно!</p>
+                  {{Lang::get('mainpage.storage')}}
                 </div>
               </div>
             </div>
@@ -1070,12 +1023,8 @@
         <img src="evth/public/img/contacts-bg-new.png">
         <div class="inner">
           <div class="contacts">
-            <span>Контакты</span>
-            <p>Главный офис:
-              <br>ул. Верхний Вал 4А Киев 04071 Украина</p>
-            <p>+380-44-492-4020 - Ukraine</p>
-            <p>+7 (495) 133-8777 - RUS</p>
-            <p>+420-234-261-739 - Czech Republic</p>
+            <span>{{Lang::get('mainpage.contacts_title')}}</span>
+            {{Lang::get('mainpage.contacts')}}
             <p><a href="mailto:info@rate-and-go.com">info@rate-and-go.com</a></p>
             <div class="copyright"><a href="http://imsmedia.net.ua/" target="_blank">IMS MEDIA 2015</a></div>
           </div>
@@ -1086,7 +1035,7 @@
           <div class="modal-inner">
             <span class="close">&times;</span>
             <div>
-              <span>Как это работает?</span>
+              <span>{{Lang::get('mainpage.how_it_worked')}}</span>
               <div class="row">
                 <table>
                   <tbody>
@@ -1106,30 +1055,30 @@
                     </tr>
                     <tr>
                       <td>
-                        <h3>Выбираете маршрут</h3>
+                        <h3>{{Lang::get('mainpage.choose_route')}}</h3>
                       </td>
                       <td>
-                        <h3>Расчитываете стоимость</h3>
+                        <h3>{{Lang::get('mainpage.calc_coast')}}</h3>
                       </td>
                       <td>
-                        <h3>Подтверждаете заказ</h3>
+                        <h3>{{Lang::get('mainpage.order_confirm')}}</h3>
                       </td>
                       <td>
-                        <h3>Получаете груз</h3>
+                        <h3>{{Lang::get('mainpage.get_load')}}</h3>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <p>Указываете точку отправки и точку назначения и тип перевозки.</p>
+                        <p>{{Lang::get('mainpage.choose_point')}}</p>
                       </td>
                       <td>
-                        <p>Получаете предварительную оценку доставки.</p>
+                        <p>{{Lang::get('mainpage.get_order')}}</p>
                       </td>
                       <td>
-                        <p>Мы связываемся с Вами для подтверждения заказа.</p>
+                        <p>{{Lang::get('mainpage.contact_to_you')}}</p>
                       </td>
                       <td>
-                        <p>Доставляем Ваш груз в назначенное место.</p>
+                        <p>{{Lang::get('mainpage.delivery_to_you')}}</p>
                       </td>
                     </tr>
                   </tbody>
@@ -1158,13 +1107,13 @@
                 </div>-->
     </div>
     <div id="mobile-check"></div>
-    <script src="evth/public/js/ready.js"></script>
+    <script src="/evth/public/js/ready.js"></script>
     <!--<script src="evth/public/js/enter.js"></script>-->
-    <script src="evth/public/js/home.js"></script>
-    <script src="evth/public/js/TweenLite.min.js"></script>
-    <script src="evth/public/js/EasePack.min.js"></script>
-    <script src="evth/public/js/rAF.js"></script>
-    <script src="evth/public/js/demo-1.js"></script>
+    <script src="/evth/public/js/home.js"></script>
+    <script src="/evth/public/js/TweenLite.min.js"></script>
+    <script src="/evth/public/js/EasePack.min.js"></script>
+    <script src="/evth/public/js/rAF.js"></script>
+    <script src="/evth/public/js/demo-1.js"></script>
     @include('counters.metrika')
 </body>
 

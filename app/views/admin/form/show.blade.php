@@ -251,6 +251,11 @@
 
 <div class="form__input-wrapper col-md-12">
   {{Form::submit('Сохранить')}}
+  @if (($form->admin_confirmed==1) && ($form->user_confirmed==1))
+  <a href="/admin/users/{{$user->id}}/forms/{{$form->id}}/contract" class="form__button">
+      Распечатать
+ </a>
+ @endif     
 </div>
 {{Form::close()}}
 <script>

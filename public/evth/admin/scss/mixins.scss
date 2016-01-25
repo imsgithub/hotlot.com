@@ -42,3 +42,6 @@ $violet: #6a4385;
   @include hb(25px);
   color: rgba(#000, .8);
 }
+%inline {
+	display:inline;
+}

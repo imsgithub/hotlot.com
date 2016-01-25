@@ -221,4 +221,33 @@ $(document).ready(function() {
         marginTop: '-400px'
       },400);
   }, 3000);
+  
+  // var jivoInterval = setInterval(function(){
+  //   if ( window.jivo_api!==undefined ) {
+  //     var style = $('#jivo-iframe-container').attr('style');
+  //     if( style!==undefined ) {
+  //       $('#jivo-iframe-container').attr('style', style+';display:none!important');
+  //       
+  //       clearInterval(jivoInterval);
+  //     }      
+  //   }
+  // }, 100);
+
+
 });
+// {'display': 'none!important'}
+jivo_onLoadCallback = function(){
+  var style = $('#jivo-iframe-container').attr('style');
+  $('#jivo-iframe-container').attr('style', style+';display:none!important');
+  $('.siteheart-init').on('click', function(){
+    $('#jivo-iframe-container').attr('style', style);
+    window.jivo_api.open();
+  });
+};
+jivo_onClose = function(){
+  var style = $('#jivo-iframe-container').attr('style');
+  var index = style.indexOf(';display');
+  style = style.substr(0, index);
+  console.log(style);
+   $('#jivo-iframe-container').attr('style', style + ';display:none!important');
+}

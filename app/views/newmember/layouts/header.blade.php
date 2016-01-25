@@ -24,6 +24,7 @@
   <script src="/evth/public/js/underscore.js"></script>
 </head>
 <body>
+{{App::setLocale(Session::get('lang'))}}
   @if(Session::get('confirmed')==0)
     @include('newmember.notconfirmed')
   @endif
@@ -101,38 +102,40 @@
             </g>
           </svg>
         </a>
+        <a href="/changelanguage/en">En</a>
+        <a href="/changelanguage/ru">Ru</a>
         <div class="user-block">
-          <span title="Настройки профиля" class="user-block__settings">
+          <span title="{{Lang::get('profilepage.prof_seettings')}}" class="user-block__settings">
             <span class="icon-cog"></span>
           </span>
           <div class="user-block__settings-layout">
-            <span class="user-block__settings-title">Настройки профиля</span>
+            <span class="user-block__settings-title">{{Lang::get('profilepage.prof_seettings')}}</span>
             <div class="input-wrapper">
-              <label for="user-settings-surname">Фамилия</label>
+              <label for="user-settings-surname">{{Lang::get('profilepage.surname')}}</label>
               <input type="text" id="user-settings-surname" name="surname" value="{{$user->person ? $user->person->surname : ''}}" data-old-value="{{$user->person ? $user->person->surname : ''}}">
             </div>
             <div class="input-wrapper">
-              <label for="user-settings-name">Имя</label>
+              <label for="user-settings-name">{{Lang::get('profilepage.name')}}</label>
               <input type="text" id="user-settings-name" name="name" value="{{$user->person ? $user->person->name : ''}}" data-old-value="{{$user->person ? $user->person->name : ''}}">
             </div>
             <div class="input-wrapper">
-              <label for="user-settings-patronymic">Отчество</label>
+              <label for="user-settings-patronymic">{{Lang::get('profilepage.f_name')}}</label>
               <input type="text" id="user-settings-patronymic" name="patronymic" value="{{$user->person ? $user->person->patronymic : ''}}" data-old-value="{{$user->person ? $user->person->patronymic : ''}}">
             </div>
             <div class="input-wrapper">
-              <label for="user-settings-phone">Телефон</label>
+              <label for="user-settings-phone">{{Lang::get('profilepage.phone')}}</label>
               <input type="text" id="user-settings-phone" name="phone" value="{{$user->person ? $user->person->phone : ''}}" data-old-value="{{$user->person ? $user->person->phone : ''}}">
             </div>
             <div id="workgroups-block"></div>
             <div id="works-block"></div>
             <div class="input-wrapper">
-              <a href="#" class="user-block__button edit">Редактировать</a>
-              <a href="#" class="user-block__button--transparent cancel">Отмена</a>
+              <a href="#" class="user-block__button edit">{{Lang::get('profilepage.edit')}}</a>
+              <a href="#" class="user-block__button--transparent cancel">{{Lang::get('profilepage.cancel')}}</a>
             </div>
             <div class="user-block__settings-layout-curtain spin-curtain"><i class="fa fa-spinner fa-pulse"></i></div>
             <div class="user-block__settings-layout-curtain response-curtain"><span class="response"></span></div>
-          </div>
-          <a href="/profile" class="user-block__name">Личный кабинет: {{$user->email}}</a>
+          </div>{{App::setLocale(Session::get('lang'))}}
+          <a href="/profile" class="user-block__name">{{Lang::get('profilepage.private_cab')}} {{$user->email}}</a>
           <a href="/logout" title="{{Lang::get('member.logout.description')}}" class="user-block__logout">{{Lang::get('member.logout.title')}}</a>
         </div>
       </header>

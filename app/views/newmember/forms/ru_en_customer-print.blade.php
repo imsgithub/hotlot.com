@@ -536,6 +536,14 @@ The Parties agreed that the electronic signature - identification of the Parties
 						+12626174339<br>
 					</td>
 				</tr>
+                                <tr>
+                                    <td>
+                                        <strong>______________________ Ушаков Є.Є.</strong>
+                                    </td>
+                                    <td>
+                                        <strong>________________________  Ushakov Yevgen</strong>
+                                    </td>  
+                                </tr>
 			</tbody>
 		</table>
 	</div>

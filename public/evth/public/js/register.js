@@ -75,7 +75,7 @@ $(document).ready(function(){
       $(this).parent().find('.selected').removeClass('selected');
       $(this).addClass('selected');
       var works = {};
-      works.el = _.template($('#works-template').html(), {variable: 'works'})(workgroups[$(this).attr('data-value')-1].work);
+      works.el = _.template($('#works-template').html(), {variable: 'works'})(workgroups[$(this).attr('data-value')].work);
       works.$el = $(works.el);
       if ($(this).attr('data-selected')!=='0') {
         works.$el.find('.selected').removeClass('selected');

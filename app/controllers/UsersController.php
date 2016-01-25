@@ -163,6 +163,7 @@ class UsersController extends \BaseController {
         }
         return Redirect::to('/profile');
       }
+      
       $works = Work::all();
       $workgroups = Workgroup::all();
       $json = [];
@@ -178,6 +179,12 @@ class UsersController extends \BaseController {
         if (Session::get('email')==Input::get('email')) { //Если он не поменял email
           if ((Input::get('password')!='')&&(strlen(Input::get('password'))>=6)) { //Проверяем длину пароля
             $user->password = Hash::make(Input::get('password'));
+            //$user->language = Session::get('lang');
+            if(!empty(Session::get('lang'))){
+			  	$user->language = Session::get('lang');
+			  }else{
+			  	$user->language = App::getLocale();
+			  }
             $user->save();
             return '{"success":"Настройки пользователя успешно обновлены"}';
           } else {
@@ -190,6 +197,12 @@ class UsersController extends \BaseController {
         }
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
+        //$user->language = Session::get('lang');
+        if(!empty(Session::get('lang'))){
+		  	$user->language = Session::get('lang');
+		  }else{
+		  	$user->language = App::getLocale();
+		  }
         Session::put('email',$user->email);
         $user->save();
         return '{"success":"Настройки пользователя успешно обновлены"}';
@@ -201,6 +214,11 @@ class UsersController extends \BaseController {
       }
       $user->email = Input::get('email');
       $user->password = Hash::make(Input::get('password'));
+      if(!empty(Session::get('lang'))){
+	  	$user->language = Session::get('lang');
+	  }else{
+	  	$user->language = App::getLocale();
+	  }
       $user->save();
       $role = Role::whereName('member')->first();
       $user->roles()->attach($role->id);
@@ -226,7 +244,10 @@ class UsersController extends \BaseController {
             } else {
                 return Redirect::back()->withInput()->withErrors(['msg'=>[ 'Неверно указан email или пароль']]);
             }
+            $lang = $user->language;
+            Session::put('lang',$lang);
             return Redirect::to('/profile');
+            
         } elseif ($role->name=='miniadmin') {
           if (Auth::attempt(Input::only('email','password'))) {
             Session::put('role', 'miniadmin');

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <title>Страница администратора</title>
@@ -9,10 +8,19 @@
   <link rel="stylesheet" href="/evth/public/css/jquery.datetimepicker.css">
   <link href="/evth/admin/css/style.css" rel="stylesheet">
   <link href="/evth/admin/css/newadmin.css" rel="stylesheet">
+  <link rel="stylesheet" href="/evth/public/css/printContract.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
   <script src="/evth/admin/bootstrap/js/bootstrap.min.js"></script>
   <script src="/evth/public/js/jquery.datetimepicker.js"></script>
+  <!--<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script src="/evth/admin/tinymce/js/tinymce/tinymce.jquery.min.js"></script>
+  <script>tinymce.init({selector:'#admin_content'});</script>-->
+  <script src="/evth/admin/ckeditor/ckeditor.js"></script>
+  <script>
+  	CKEDITOR.replace( 'content' );
+  </script>
+</head>
 </head>
 
 <body>
@@ -59,6 +67,9 @@
         </a>
         <a href="/admin/forms" class="form-orders">Заявки-формы - <span id="form-orders-badge" class="badge form-orders__count">0</span></a>
         <a href="/admin/miniadmin" class="form-orders">Суперпользователи</a>
+        <a href="/admin/workgroupedit" class="form-orders">Рабочие группы</a>
+        <a href="/admin/workedit" class="form-orders">Работы</a>
+        <a href="/admin/contentedit" class="form-orders">Контент</a>
         <div class="user-block">
           <a href="/admin/orders" title="Заявки"><span id="order-badge" class="badge">1</span></a>
           <p class="user-block__name">Администратор</p>

@@ -1,6 +1,12 @@
 <?php
-
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 class DeliveryForm extends Eloquent {
+	use SoftDeletingTrait;
+	
+    protected $dates = ['deleted_at'];
+    //protected $softDelete = true;
+    
+    
     protected $table= 'bids';
     public static $errors;
     public static $rules = [
@@ -21,6 +27,7 @@ class DeliveryForm extends Eloquent {
         'unload_transporter'=>'required',
         'unload_address'=>'required',
         'unload_phone'=>'required',
+        //'deleted_at'=>'required',
     ];
     public function __construct() {
         if (Session::get('role')=='admin'){

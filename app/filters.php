@@ -1,5 +1,24 @@
 <?php
 
+class LanguageC
+{
+    protected $lang;
+    public static function setLang()
+    {
+		$lang_str = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+		$lang_arr = explode(',',$lang_str);
+		$langf = $lang_arr[0];
+		$rupos = strpos($langf,'ru');
+		$enpos = strpos($langf,'en');
+		if($rupos !== false){
+			return 'ru';
+		}elseif($enpos !== false){
+			return 'en';
+		}else{
+			return 'en';
+		}
+	}
+}
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -10,6 +29,11 @@
 | application. Here you may also register your custom route filters.
 |
 */
+//		>>> 4 0 4 <<<
+App::missing(function($exception)
+{
+    return Response::view('errors.missing', array(), 404);
+});
 
 App::before(function($request)
 {
@@ -20,6 +44,9 @@ App::before(function($request)
 			Session::put('referer', $_SERVER['HTTP_REFERER']);
 		}
 	}
+	
+		//App::setLocale(LanguageController::setLang());
+	//echo url();
 });
 
 

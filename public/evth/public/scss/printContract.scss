@@ -1,5 +1,5 @@
 @import "compass/css3";
-@import "reset.scss";
+/*@import "reset.scss";*/
 @import "fonts.scss";
 @import "mixins.scss";
 .nav, .header-wrapper {
@@ -20,6 +20,14 @@
     padding: 0;
     width: 652px;
   }
+}
+.inner {
+    @include media(print) {
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        width: 652px;
+    }
 }
 .print-contract {
   width: 100%;
@@ -86,6 +94,8 @@
       width: 50%;
       padding: 2px;
       vertical-align: top;
+      font-size: 14px;
+      font-family: "Times New Roman", serif;
     }
     .left {
       display: block;
