@@ -16,6 +16,10 @@ $violet: #6a4385;
     @media screen {
       @content;
     }
+  } @else if $device == 'tablet' {
+    @media only screen and (max-width: 959px) {
+      @content;
+    }
   }
 }
 %inner {

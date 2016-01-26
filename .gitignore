@@ -10,4 +10,5 @@ Thumbs.db
 /.sass-cache
 /app/views/counters
 /public/evth/public/video
-hotlot42.clpprj
+*.clpprj
+app/config/mail.php
