@@ -12,3 +12,4 @@ Thumbs.db
 /public/evth/public/video
 *.clpprj
 app/config/mail.php
+/nbproject/private/

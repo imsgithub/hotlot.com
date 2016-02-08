@@ -135,8 +135,9 @@
           <!--End of composer view for unsigned users-->
         </header>
         <h1 class="top-title">{{Lang::get('mainpage.coast1')}}</h1>
-        <span class="top-subtitle">{{Lang::get('mainpage.belay')}}<br><a href="/changelanguage/en">En</a>
-            <a href="/changelanguage/ru">Ru</a></span>
+        <span class="top-subtitle">{{Lang::get('mainpage.belay')}}<br>
+        <!--<a href="/changelanguage/en">En</a>
+            <a href="/changelanguage/ru">Ru</a></span>-->
       </div>
 
       <div class="wrapper violet-bg">
@@ -144,7 +145,7 @@
           
           <div class="top-form">
             <form action="/map" method="GET" id="abform">
-              <span class="top-form-title">Выберите маршрут</span>
+              <span class="top-form-title">{{Lang::get('mainpage.route')}}</span>
               <div class="top-form-inputs">
                 <div class="from"><i class="fa fa-map-marker violet-c"></i>
                   <input name="start" type="text" placeholder="{{Lang::get('mainpage.from_whence')}}">
@@ -153,9 +154,9 @@
                 <div class="where"><i class="fa fa-map-marker violet-c"></i>
                   <input name="end" type="text" placeholder="{{Lang::get('mainpage.where')}}">
                 </div>
-                <div class="abphone"><i class="fa fa-phone violet-c"></i>
+                <!--div class="abphone"><i class="fa fa-phone violet-c"></i>
                   <input name="phone" type="text" placeholder="{{Lang::get('mainpage.your_phone')}}">
-                </div>
+                </div-->
               </div>
               <div class="top-form-buttons">
                 <button type="submit" class="button" onclick="ga('send', 'event', 'Кнопка рассчитать', 'click', 'Экран№1');">{{Lang::get('mainpage.calculate')}}</button>

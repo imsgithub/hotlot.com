@@ -83,46 +83,46 @@ $(document).ready(function(){
     });
 
     if ($('#abform').length !== 0) {
-      $('#abform').on('submit', function(e){
-        e.preventDefault();
-        var from = $(this).find('input[name="start"]'),
-            where = $(this).find('input[name="end"]'),
-            phone = $(this).find('input[name="phone"]');
-        if (phone.val()==='') {
-            phone.parent().addClass('has-error');
-            return;
-        };
-        var regexp = /\+*\d+[\d-( ).^+]*/g;
-        match = phone.val().match(regexp);
-        if (!match || match.length === 0) {
-            phone.parent().addClass('has-error');
-            console.log('!match || match.length === 0');
-            return;
-        };
-        var x = match[0];
-        if (x.length < phone.val().length) {
-            phone.parent().addClass('has-error');
-            console.log('x.length < input.val()');
-            return;
-        };
-        if (x.length < 7) {
-            phone.parent().addClass('has-error');
-            console.log('x.length < 7');
-            return;
-        };
-        var xhr = new XMLHttpRequest();
-        var par = $(this);
-        xhr.open('POST', '/sendmessage', true);
-        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        xhr.send('abtest=abtest&from='+from.val()+'&where='+where.val()+'&phone='+phone.val());
-        xhr.onreadystatechange = function(){
-            if (xhr.readyState !== 4) return;
-            var url = document.location.href;
-            document.location.href = url + 'map?start=' + from.val() +'&end='+ where.val();
-            par.html('<span class="works-form__response">Одну секунду, мы перенаправим вас на страницу рассчета...</span>')
-        };
-        $(this).html('<span class="works-form__response">Отправляем...</span>');
-      })
+      // $('#abform').on('submit', function(e){
+      //   e.preventDefault();
+      //   var from = $(this).find('input[name="start"]'),
+      //       where = $(this).find('input[name="end"]'),
+      //       phone = $(this).find('input[name="phone"]');
+      //   if (phone.val()==='') {
+      //       phone.parent().addClass('has-error');
+      //       return;
+      //   };
+      //   var regexp = /\+*\d+[\d-( ).^+]*/g;
+      //   match = phone.val().match(regexp);
+      //   if (!match || match.length === 0) {
+      //       phone.parent().addClass('has-error');
+      //       console.log('!match || match.length === 0');
+      //       return;
+      //   };
+      //   var x = match[0];
+      //   if (x.length < phone.val().length) {
+      //       phone.parent().addClass('has-error');
+      //       console.log('x.length < input.val()');
+      //       return;
+      //   };
+      //   if (x.length < 7) {
+      //       phone.parent().addClass('has-error');
+      //       console.log('x.length < 7');
+      //       return;
+      //   };
+      //   var xhr = new XMLHttpRequest();
+      //   var par = $(this);
+      //   xhr.open('POST', '/sendmessage', true);
+      //   xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+      //   xhr.send('abtest=abtest&from='+from.val()+'&where='+where.val()+'&phone='+phone.val());
+      //   xhr.onreadystatechange = function(){
+      //       if (xhr.readyState !== 4) return;
+      //       var url = document.location.href;
+      //       document.location.href = url + 'map?start=' + from.val() +'&end='+ where.val();
+      //       par.html('<span class="works-form__response">Одну секунду, мы перенаправим вас на страницу рассчета...</span>')
+      //   };
+      //   $(this).html('<span class="works-form__response">Отправляем...</span>');
+      // })
     }
     var services = document.querySelectorAll('.service-row .display');
     for (var i = 0; i< services.length; i++) {

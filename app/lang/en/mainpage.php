@@ -6,9 +6,9 @@ foreach ($datas as $data) {
 	$$name = $data;
 }
 return[
-	'coast1' => 'calculation of cost and order transportation <br> in 30 seconds',
-	'coast2' => 'in 30 seconds',
-	'belay' => 'insurance for the goods as a gift',
+	'coast1' => 'CALCULATION OF COST OF GOODS AND DELIVERY <br>  WORLDWIDE!',
+	'coast2' => '',
+	'belay' => 'INSURANCE FREE SHIPPING',
 	'route' => 'Select a route',
 	'select_a_route' => 'Select a route',
 	'from_whence' => 'From whence',
