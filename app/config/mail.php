@@ -55,7 +55,8 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'rateandgo@isogram.org', 'name' => 'Rate-and-go'),
+	//'from' => array('address' => 'rateandgo@isogram.org', 'name' => 'Rate-and-go'),
+	'from' => array('address' => 'lukawov@rambler.ru', 'name' => 'Rate-and-go'),
 
 	/*
 	|--------------------------------------------------------------------------

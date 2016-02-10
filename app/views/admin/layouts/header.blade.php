@@ -70,6 +70,7 @@
         <a href="/admin/workgroupedit" class="form-orders">Рабочие группы</a>
         <a href="/admin/workedit" class="form-orders">Работы</a>
         <a href="/admin/contentedit" class="form-orders">Контент</a>
+        <a href="/admin/contentpage" class="form-orders">Страницы</a>
         <div class="user-block">
           <a href="/admin/orders" title="Заявки"><span id="order-badge" class="badge">1</span></a>
           <p class="user-block__name">Администратор</p>

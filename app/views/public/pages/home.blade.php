@@ -168,6 +168,120 @@
       </div>
       <div class="scroll-arrow"><i class="fa fa-angle-down"></i></div>
     </div>
+<div class="wrapper grey-bg">
+  <span class="title">{{Lang::get('mainpage.services')}}</span>
+  <div class="inner-extended">
+    <div id="serviceTarget"></div>
+    <div class="service-row">
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-car"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.Automobile_int_trans_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.Automobile_int_trans')}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-ship"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.container_shipping_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.container_shipping')}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-boxes"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.groupage_cargo_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.groupage_cargo')}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-cross"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.multimodal_transportation_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.multimodal_transportation')}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-money-bag"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.brokerage_services_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.brokerage_services')}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-umbrella"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.insurance_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.insurance')}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-rulers"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.oversized_transport_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.oversized_transport')}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="service">
+          <div class="service-icon">
+            <span class="icon-storehouse"></span>
+          </div>
+          <div class="service-description">
+            <h3>{{Lang::get('mainpage.storage_title')}}</h3>
+            <div class="display">
+              {{Lang::get('mainpage.storage')}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="wrapper">
       <div class="inner section">
         <h2 class="title">{{Lang::get('mainpage.world_delivery')}}</h2>
@@ -907,118 +1021,7 @@
       </div>
     </div>
     <div class="wrapper white-bg">
-      <span class="title">{{Lang::get('mainpage.services')}}</span>
-      <div class="inner-extended">
-        <div id="serviceTarget"></div>
-        <div class="service-row">
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-car"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.Automobile_int_trans_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.Automobile_int_trans')}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-ship"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.container_shipping_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.container_shipping')}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-boxes"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.groupage_cargo_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.groupage_cargo')}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-cross"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.multimodal_transportation_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.multimodal_transportation')}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="service-row">
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-money-bag"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.brokerage_services_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.brokerage_services')}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-umbrella"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.insurance_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.insurance')}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-rulers"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.oversized_transport_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.oversized_transport')}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="service">
-              <div class="service-icon">
-                <span class="icon-storehouse"></span>
-              </div>
-              <div class="service-description">
-                <h3>{{Lang::get('mainpage.storage_title')}}</h3>
-                <div class="display">
-                  {{Lang::get('mainpage.storage')}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       <footer class="wrapper">
         <img src="evth/public/img/contacts-bg-new.png">

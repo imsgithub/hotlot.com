@@ -50,6 +50,10 @@ Route::group(array('prefix' => Session::get('lang')), function () {//прост�
 	});
 	Route::post('/login', 'UsersController@notAjaxLogin');
 	Route::get('/map', ['as'=>'/map','uses'=>'CodesController@showNiceMap'] );
+
+    Route::group(['prefix' => 'page'], function(){
+        Route::get('/{alias}', 'PageController@index');
+    });
 });
 
 //	<<<
@@ -67,6 +71,12 @@ Route::get('/login', function() {
     return View::make('public.pages.login');
 });
 Route::post('/login', 'UsersController@notAjaxLogin');
+//      >>> Вывод страниц
+Route::group(['prefix' => 'page'], function(){
+    Route::get('/{alias}', 'PageController@index');
+
+});
+//      <<<
 //User Routes
 
 Route::post('/user/login', 'UsersController@user_login');
@@ -190,6 +200,14 @@ Route::group(['before'=>'adminauth'], function(){
    Route::post('/admin/contentedit/editstore/{id}', 'ContentController@editStoreContentEdit');
    Route::post('/admin/contentedit', 'ContentController@storeContentEdit');
    Route::delete('/admin/contentedit/{id}', 'ContentController@deleteContentEdit');
+
+    //      >>> редактор страниц
+   Route::get('/admin/contentpage', 'ContentPageController@indexContentPage');
+   Route::get('/admin/contentpage/create', 'ContentPageController@createContentPage');
+   Route::post('/admin/contentpage/edit/{id}', 'ContentPageController@editContentPage');
+   Route::post('/admin/contentpage/editstore/{id}', 'ContentPageController@editStoreContentPage');
+   Route::post('/admin/contentpage', 'ContentPageController@storeContentPage');
+   Route::post('/admin/contentpage/delete/{id}', 'ContentPageController@deleteContentPage');
 });
 // Route::get('/bla', function(){
 //   $user=User::find(77);

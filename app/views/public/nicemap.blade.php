@@ -353,6 +353,10 @@
                             <div class="evth-row child-on-center">
                                 <div class="bottom-form-group ">
                                     <i class="fa fa-envelope-square"></i>
+                                    <input type="text" class="name" id="name_inp" placeholder="{{Lang::get('nicemappage.name')}}">
+                                </div>
+                                <div class="bottom-form-group ">
+                                    <i class="fa fa-envelope-square"></i>
                                     <input type="text" class="email" id="email_inp" placeholder="email">
                                 </div>
                                 <div class="bottom-form-group ">
@@ -1183,6 +1187,7 @@
               function ajaxOrder() {
                   var xhr, body, box, ajax_inputs;
                   if (email_inp.value!=='') data.output.content = 'Email отправителя: <strong>' + email_inp.value +'</strong><br>' + data.output.content;
+                  if (name_inp.value!=='') data.output.content = 'Имя отправителя: <strong>' + name_inp.value +'</strong><br>' + data.output.content;
                   ajax_inputs = document.getElementById('ajax-inputs');
                   box = document.querySelector('.orange-block');
                   xhr = new XMLHttpRequest();
@@ -1319,10 +1324,11 @@
                 $(window).scrollTop(0);
             });
 
-            var phone_but, phone_inp, email_inp;
+            var phone_but, phone_inp, email_inp, name_inp;
             phone_but = document.getElementById('phone_but');
             phone_inp = document.getElementById('phone_inp');
             email_inp = document.getElementById('email_inp');
+            name_inp = document.getElementById('name_inp');
             phone_inp.addEventListener('blur', function(){
                 validate.call(this);
             });
