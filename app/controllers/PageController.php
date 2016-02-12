@@ -18,4 +18,9 @@ class PageController extends \BaseController
         $pages = ContentPage::where('alias','=',$alias)->get();
         return View::make('public.contentpage.index')->withPages($pages)->withContent($content);
     }
+    public function indexPage(){
+        $content = ContentPage::where('published','=',1)->get();
+        //$pages = ContentPage::where('alias','=',$alias)->get();
+        return View::make('public.contentpage.contentpage')->withContent($content);
+    }
 }

@@ -134,6 +134,7 @@
           @include('composers.sign')
           <!--End of composer view for unsigned users-->
         </header>
+
         <h1 class="top-title">{{Lang::get('mainpage.coast1')}}</h1>
         <span class="top-subtitle">{{Lang::get('mainpage.belay')}}<br>
         <!--<a href="/changelanguage/en">En</a>
@@ -142,7 +143,6 @@
 
       <div class="wrapper violet-bg">
         <div class="inner">
-          
           <div class="top-form">
             <form action="/map" method="GET" id="abform">
               <span class="top-form-title">{{Lang::get('mainpage.route')}}</span>
@@ -168,8 +168,8 @@
       </div>
       <div class="scroll-arrow"><i class="fa fa-angle-down"></i></div>
     </div>
-<div class="wrapper grey-bg">
-  <span class="title">{{Lang::get('mainpage.services')}}</span>
+<div name="services" class="wrapper grey-bg">
+  <span  class="title">{{Lang::get('mainpage.services')}}</span>
   <div class="inner-extended">
     <div id="serviceTarget"></div>
     <div class="service-row">

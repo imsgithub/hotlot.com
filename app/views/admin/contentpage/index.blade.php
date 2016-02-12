@@ -11,12 +11,8 @@
   <thead>
     <tr>
       <th>Заголовок</th>
-      <th>Описание</th>
       <th>Контент</th>
-      <th>Alias</th>
-      <th>Keywords</th>
       <th>Опубликовано</th>
-      <th>Язык</th>
       <th>Действие</th>
     </tr>
   </thead>
@@ -24,19 +20,15 @@
     @foreach($content_pages as $content_page)
     <tr>
       <td>{{$content_page->title}}</td>
-      <td>{{$content_page->discription}}</td>
       <td>{{$content_page->content}}</td>
-      <td>{{$content_page->alias}}</td>
-      <td>{{$content_page->keywords}}</td>
       <td>{{$content_page->published}}</td>
-      <td>{{$content_page->language}}</td>
       <td>
         {{Form::open(['method'=>'POST', 'url'=>'/admin/contentpage/edit/'.$content_page->id, 'class'=>'form-inline'])}}
         <button type="submit" class="btn btn-danger btn-xs">Редактировать</button>
         {{Form::close()}}
           <p>
-        {{Form::open(['method'=>'POST', 'url'=>'/admin/contentpage/delete/'.$content_page->id, 'class'=>'form-inline'])}}
-       <button type="submit" class="btn btn-danger btn-xs">Удалить</button>
+        {{Form::open(['method'=>'POST', 'url'=>'!!!/admin/contentpage/delete/'.$content_page->id, 'class'=>'form-inline'])}}
+       <!--button type="submit" class="btn btn-danger btn-xs">Удалить</button-->
         {{Form::close()}}
           </p>
       </td>

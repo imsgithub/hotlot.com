@@ -14,6 +14,13 @@
 </div>
 <div class="clearfix">
   <div class="form-group col-md-12 ">
+    <h5>Title</h5>
+    {{Form::text('title_page', "", ['class'=>"form-control", 'placeholder'=>""])}}
+    {{$errors->first('title_page', '<span class="text-danger">:message</span>')}}
+  </div>
+</div>
+<div class="clearfix">
+  <div class="form-group col-md-12 ">
     <h5>Описание</h5>
     {{Form::text('discription','', ['class'=>"form-control", 'placeholder'=>"discription"])}}
     {{$errors->first('discription', '<span class="text-danger">:message</span>')}}

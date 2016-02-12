@@ -31,11 +31,12 @@ class ContentPageController extends \BaseController {
         //$data = Input::only('title', 'content','discription','alias','keywords','language','published');
         $title = Input::get('title');
         $content = Input::get('content');
+        $title_page = Input::get('title_page');
         $discription = Input::get('discription');
         $alias = trim(strtolower(Input::get('alias')));
         $keywords = Input::get('keywords');
         $language = Input::get('language');
-        if(Input::get('published')){
+        if(Input::get('published')=='on'){
             $published = 1;
         }else {
             $published = 0;
@@ -43,11 +44,12 @@ class ContentPageController extends \BaseController {
         if(str_word_count($alias) > 1){
             return View::make('admin.contentpage.create')->withContentPages($content_page)->withErrors(['msg'=>['alias должен быть латиницей без пробелов и цифр посередине!!!']]);
         }
-        if(empty($title) or empty($content) or empty($alias) or empty($language)){
+        if(empty($title) or empty($content) or empty($alias) or empty($language) or empty($title_page)){
             return View::make('admin.contentpage.create')->withContentPages($content_page)->withErrors(['msg'=>['Все поля должны быть заполнены!!!']]);
         }
         $content_page->title = $title;
         $content_page->content = $content;
+        $content_page->title_page = $title_page;
         $content_page->discription = $discription;
         $content_page->alias = $alias;
         $content_page->keywords = $keywords;
@@ -79,6 +81,7 @@ class ContentPageController extends \BaseController {
         //$data = Input::only('title', 'content','discription','alias','keywords','language','published');
       $title = Input::get('title');
       $content = Input::get('content');
+      $title_page = Input::get('title_page');
       $discription = Input::get('discription');
       $alias = trim(strtolower(Input::get('alias')));
       $keywords = Input::get('keywords');
@@ -95,11 +98,12 @@ class ContentPageController extends \BaseController {
         if(str_word_count($alias) >= 2){
             return View::make('admin.contentpage.edit')->withContentPages($content_pages)->withErrors(['msg'=>['alias должен быть латиницей без пробелов и цифр в середине']]);
         }
-      if(empty($title) or empty($content) or empty($alias) or empty($language)){
+      if(empty($title) or empty($content) or empty($alias) or empty($language) or empty($title_page)){
 		return View::make('admin.contentpage.edit')->withContentPages($content_pages)->withErrors(['msg'=>['Все поля должны быть заполнены!!!']]);
 	  }
         $content_pages->title = $title;
         $content_pages->content = $content;
+        $content_pages->title_page = $title_page;
         $content_pages->discription = $discription;
         $content_pages->alias = $alias;
         $content_pages->keywords = $keywords;
