@@ -1,7 +1,7 @@
 @include('public.contentpage.header')
 @foreach($pages as $page)
 @endforeach
-<div class="wrapper">
+<div class="wrapper wrapper-cont">
     <div class="inner section">
         <div class="col-md-4">
         <div class="articles-menu">

@@ -49,7 +49,7 @@
 
     <div class="wrapper Qviolet-bg popup-background" >
 
-        <div class="header-wrapper wrapper top">
+        <div class="header-wrapper top">
             <div class="inner">
 
                 <header class="header">

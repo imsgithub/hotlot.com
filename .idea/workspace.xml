@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4d1aa4b-3761-4e4c-9507-a7344ad6bd99" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/public/contentpage/contentpage.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/public/contentpage/header.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/evth/public/css/pagestyle.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ContentPageController.php" afterPath="$PROJECT_DIR$/app/controllers/ContentPageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/PageController.php" afterPath="$PROJECT_DIR$/app/controllers/PageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/contentpage/create.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/contentpage/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/contentpage/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/contentpage/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/contentpage/index.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/contentpage/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php" afterPath="$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/public/contentpage/header.blade.php" afterPath="$PROJECT_DIR$/app/views/public/contentpage/header.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/public/contentpage/index.blade.php" afterPath="$PROJECT_DIR$/app/views/public/contentpage/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/public/pages/home.blade.php" afterPath="$PROJECT_DIR$/app/views/public/pages/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/evth/public/css/pagestyle.css" afterPath="$PROJECT_DIR$/public/evth/public/css/pagestyle.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/evth/public/css/style.css" afterPath="$PROJECT_DIR$/public/evth/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/evth/public/less/style.less" afterPath="$PROJECT_DIR$/public/evth/public/less/style.less" />
     </list>
     <ignored path="hotlot.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +53,6 @@
         <option value="$PROJECT_DIR$/app/config/mail.php" />
         <option value="$PROJECT_DIR$/app/views/public/nicemap.blade.php" />
         <option value="$PROJECT_DIR$/app/lang/ru/nicemappage.php" />
-        <option value="$PROJECT_DIR$/public/evth/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/models/ContentPage.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2016_02_08_153006_create_content_pages_table.php" />
         <option value="$PROJECT_DIR$/app/views/admin/layouts/footer.blade.php" />
@@ -71,17 +61,18 @@
         <option value="$PROJECT_DIR$/public/evth/public/less/style.less" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/public/evth/public/js/home.js" />
-        <option value="$PROJECT_DIR$/app/views/public/contentpage/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/contentpage/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/ContentPageController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/contentpage/create.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/PageController.php" />
         <option value="$PROJECT_DIR$/app/views/public/contentpage/contentpage.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php" />
-        <option value="$PROJECT_DIR$/public/evth/public/css/pagestyle.css" />
-        <option value="$PROJECT_DIR$/app/views/public/contentpage/header.blade.php" />
         <option value="$PROJECT_DIR$/app/views/public/pages/home.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/contentpage/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php" />
+        <option value="$PROJECT_DIR$/public/evth/public/css/style.css" />
+        <option value="$PROJECT_DIR$/app/views/public/contentpage/header.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/public/contentpage/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/evth/public/css/pagestyle.css" />
       </list>
     </option>
   </component>
@@ -159,6 +150,86 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hotlot.com">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="evth">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hotlot.com">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="evth">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="css">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hotlot.com">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="evth">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hotlot.com">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="app">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -200,32 +271,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="public">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="hotlot.com">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="pages">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -318,7 +363,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25244498" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -576,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/evth/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38798702">
-          <caret line="1498" column="14" selection-start-line="1498" selection-start-column="14" selection-end-line="1498" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/evth/public/less/style.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.9146342">
@@ -678,48 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/public/contentpage/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5865031">
-          <caret line="110" column="106" selection-start-line="110" selection-start-column="106" selection-end-line="110" selection-end-column="106" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#div#0;n#header#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ContentPageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.0">
           <caret line="83" column="45" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08343558">
-          <caret line="512" column="79" selection-start-line="512" selection-start-column="79" selection-end-line="512" selection-end-column="79" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/evth/public/css/pagestyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6192358">
-          <caret line="2" column="794" selection-start-line="2" selection-start-column="794" selection-end-line="2" selection-end-column="794" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/public/contentpage/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56319016">
-          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -738,6 +738,50 @@
           <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
           <folding>
             <marker date="1455270377314" expanded="true" signature="71:333" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/public/contentpage/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7818182">
+          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/evth/public/css/pagestyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="32.207317">
+          <caret line="3" column="2159" selection-start-line="3" selection-start-column="2159" selection-end-line="3" selection-end-column="2159" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/evth/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="2720" column="23" selection-start-line="2720" selection-start-column="16" selection-end-line="2720" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/public/contentpage/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/public/contentpage/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12515338">
+          <caret line="511" column="35" selection-start-line="511" selection-start-column="35" selection-end-line="511" selection-end-column="35" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

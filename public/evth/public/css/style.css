@@ -1758,7 +1758,8 @@ p {
   border-left: 2000px solid #6a4385;
 }
 .white-bg {
-  background: #fff;
+  background: url('/evth/public/img/contacts-bg-new.png') top center no-repeat;
+  background-size:cover;
 }
 .works-list {
   color: #fff;

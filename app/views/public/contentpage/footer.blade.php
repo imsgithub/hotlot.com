@@ -509,7 +509,7 @@
     </div>
 </div>
 <div class="wrapper white-bg wrapper-footer">
-    <footer class="wrapper wrapper-footer">
+    <footer class=" wrapper-footer wrapper">
         <!--img class="footer-img" src="/evth/public/img/contacts-bg-new.png"-->
         <div class="inner">
             <div class="contacts">
@@ -579,7 +579,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <script src="/evth/public/js/ready.js"></script>
 <!--<script src="evth/public/js/enter.js"></script>-->
 <script src="/evth/public/js/home.js"></script>
