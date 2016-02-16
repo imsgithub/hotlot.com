@@ -309,6 +309,12 @@ header {
     width: 33.33%;
     float: left;
     padding: 0 25px;
+    p{
+        font-family: "HelveticaLight", sans-serif;
+        font-size: 16px;
+        line-height: 1.3em;
+        padding: 5px;
+    }
 }
 p {
     .hl(16px);
@@ -536,7 +542,7 @@ p {
         display: inline;
     }
     a {
-        color:@violet;
+        color:@orange;
         text-decoration: none;
     }
     a:hover {
@@ -551,6 +557,7 @@ p {
 .col-4 {
     .service-description {
         width: 190px;
+        padding-top: 15px;
     }
 }
 
@@ -655,14 +662,14 @@ footer {
         background-color: #e5e5e5;
         .rounded(5px);
     }
-    span {
-        .hb(25px);
-        text-transform: uppercase;
-        padding-top: 23px;
-        .orange-c;
-        text-align: center;
-        display: block;
-    }
+   // span {
+   //     .hb(25px);
+  //      text-transform: uppercase;
+  //      padding-top: 23px;
+  ////      .orange-c;
+  //      text-align: center;
+  //      display: block;
+   // }
     .row {
         margin: 0;
         padding: 30px 30px 0;
@@ -685,12 +692,12 @@ footer {
                 }
             }
         }
-        h3 {
-            .hb(17px);
-            text-transform: uppercase;
-            .orange-c;
-            line-height: 1.2em;
-        }
+   //     h3 {
+     //       .hb(17px);
+     //       text-transform: uppercase;
+     //       .orange-c;
+     //      line-height: 1.2em;
+      //  }
         p {
             .hl(13px);
             line-height: 17px;
@@ -2016,7 +2023,7 @@ div.has-error {
         color: #fff;
         padding: 25px 10px 20px;
         .violet-bg(1);
-        h3 {
+        span {
             .hb(14px);
             text-transform: uppercase;
         }
@@ -2182,6 +2189,7 @@ div.has-error {
         width: 100%;
         float: left;
         padding: 25px;
+
     }
 }
 
@@ -2697,4 +2705,10 @@ width: 98%;
 }
 #admin-log2 {
 right: 302px;
+}
+.about-us__right {
+
+    p{
+
+    }
 }

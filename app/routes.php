@@ -39,7 +39,7 @@ Route::group(array('prefix' => Session::get('lang')), function () {//прост�
 	{
 	    return View::make('public.pages.home');
 	});
-	Route::get('/sing-up', 'UsersController@newUserRegister');
+	Route::get('/sign-up', 'UsersController@newUserRegister');
 	Route::get('/login', function()
 	{
 	    $role = Session::get('role');
@@ -63,7 +63,7 @@ Route::get('/abtest', function(){
 });
 Route::get('/map', ['as'=>'map','uses'=>'CodesController@showNiceMap'] );
 Route::post('/order', 'OrdersController@store');
-Route::get('/sing-up', 'UsersController@newUserRegister');
+Route::get('/sign-up', 'UsersController@newUserRegister');
 Route::get('/login', function() {
     $role = Session::get('role');
     if ($role != '') {

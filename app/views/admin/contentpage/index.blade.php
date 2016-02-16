@@ -11,7 +11,7 @@
   <thead>
     <tr>
       <th>Заголовок</th>
-      <th>Контент</th>
+      <th>Description</th>
       <th>Опубликовано</th>
       <th>Действие</th>
     </tr>
@@ -20,7 +20,7 @@
     @foreach($content_pages as $content_page)
     <tr>
       <td>{{$content_page->title}}</td>
-      <td>{{$content_page->content}}</td>
+      <td>{{$content_page->discription}}</td>
       <td>{{$content_page->published}}</td>
       <td>
         {{Form::open(['method'=>'POST', 'url'=>'/admin/contentpage/edit/'.$content_page->id, 'class'=>'form-inline'])}}

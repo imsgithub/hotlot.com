@@ -8,7 +8,7 @@
 </div>
 @else
 <div class="sing-in">
-    <a class="sing-in-link" href="/sing-up"><i class="fa fa-user-plus"></i> {{Lang::get('mainpage.reg')}}</a>
+    <a class="sing-in-link" href="/sign-up"><i class="fa fa-user-plus"></i> {{Lang::get('mainpage.reg')}}</a>
     <a href="/login" class="sing-in-link" data-modal="modal-enter"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.login')}}</a>
 </div>
 @endif

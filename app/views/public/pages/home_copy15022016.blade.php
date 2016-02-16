@@ -6,21 +6,14 @@
   <meta charset="UTF-8">
   {{App::setLocale(Session::get('lang'))}}
   <title>{{Lang::get('mainpage.title')}}</title>
-  <meta name="description" content="Международные перевозки по всему миру - рассчитай онлайн стоимость грузоперевозки">
-  <meta name="keywords" content="международные перевозки, грузоперевозки, доставка, расчет стоимость перевозки ">
+  <meta name="description" content="Международные грузоперевозки от компании Rate and Go &#10004;Быстрая доставка &#10004;Гарантия качества &#10004;Бесплатная страховка!">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
   <link rel="stylesheet" href="evth/public/css/style.css">
   <link rel="stylesheet" href="evth/public/css/owl.carousel.css">
   <link rel="stylesheet" href="evth/public/css/owl.theme.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-
-  <!-- новое -->
-  <link href="/evth/public/css/pagestyle.css" rel="stylesheet">
-
   <link rel="apple-touch-icon-precomposed" href="evth/public/img/fav-01.jpg">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="evth/public/img/fav-02.jpg">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="evth/public/img/fav-03.jpg">
@@ -35,95 +28,114 @@
 {{App::setLocale(Session::get('lang'))}}
   <div class="overlay">
     <div class="wrapper top">
-
-
-
       <video poster="evth/public/img/video-preloader.png" class="background-video" id="video" autoplay="autoplay" loop="loop" muted>
         <source src="evth/public/video/screen.mp4" type='video/mp4'>
         <source src="evth/public/video/screen.webm" type='video/webm;'>
       </video>
-      <div class="header-wrapper top">
-        <div class="inner-nav">
-          <a href="/" class="header__logo">
-            <svg version="1.1" width="138" height="27" id="logo_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 245.4 47.4" enable-background="new 0 0 245.4 47.4" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path fill="#ffffff" d="M62.7,9.1c8.2,0,12.2,5.3,12.2,11.1c0,5.4-3.5,10.1-9.5,10.6l12.2,14.4l-3.5,1.8L58.9,28.5h-0.2v17.6L55,46.5V9.1H62.7z M58.6,28h4.5c4.5,0,7.8-3.5,7.8-7.9c0-4-2.9-7.7-8-7.7h-4.3V28z" />
-                          </g>
-                          <g>
-                            <path fill="#ffffff" d="M82.4,19.8c1.8-0.6,4.5-1.5,7.4-1.5c9.5,0,9.7,7.1,9.7,8.5v19.2l-3.1,0.6v-3.9h-0.2c-1.8,2.9-5,3.9-7.8,3.9c-5.3,0-10-3.7-10-9.8c0-6.4,5.1-9.7,10-9.7c2.5,0,5.6,0.9,7.7,3.4h0.1v-4.1c0-3.1-2.6-5.2-6.5-5.2c-2.5,0-5.1,0.9-7.1,1.7l-1.6,0.6L82.4,19.8z M81.9,36.7c0,3.3,2.2,7,7.1,7c4.7,0,7.4-3.2,7.4-6.6c0-3.3-2.5-6.8-7.7-6.8C84.3,30.2,81.9,33.4,81.9,36.7z"
-                            />
-                          </g>
-                          <g>
-                            <path fill="#ffffff" d="M106.3,12.3l3.3-1.7V19h7.3v3h-7.3v16.8c0,1.9,0.2,4.9,4.9,4.9c0.8,0,1.4-0.1,2.5-0.6v3.1c-0.9,0.3-2.2,0.5-3.3,0.5c-4,0-7.4-2.1-7.4-7.7V22h-3.6l0.8-3h2.9V12.3z" />
-                          </g>
-                          <g>
-                            <path fill="#ffffff" d="M143.6,42.8c-2.7,2.3-6.2,3.9-10.5,3.9c-9.7,0-14.2-7.9-14.2-14.2c0-7.9,5.9-14.1,14-14.1c4.2,0,8.7,1.8,11.5,6.4l-20.9,12.5c1.8,4,5.8,6.2,9.5,6.2c3.9,0,7.9-2.2,10.6-4.9V42.8z M139.6,24c-1.5-1.5-3.7-2.7-6.8-2.7c-4.9,0-10.6,3.6-10.6,10.7c0,0.8,0.1,1.5,0.3,2.3L139.6,24z"
-                            />
-                          </g>
-                          <g>
-                            <path fill="#ffffff" d="M168.2,34.3l6.4-6.5l2.5,2.4l-6.8,6.9l6.6,7.7l-3,2l-6-7.3l-1.9,1.9c-2.8,2.8-5.1,5.3-9.2,5.3c-5.3,0-9.4-3.9-9.4-9.3c0-5.2,3.4-7.6,5.9-10l2.6-2.5c-3.2-3.9-3.6-7-3.6-8.5c0-5,3.5-8.3,8.3-8.3c4.6,0,7.5,3.6,7.5,6.9c0,3.8-3,6.3-5.6,8.7l-1.8,1.7L168.2,34.3z M158,27.5l-2.3,2.2c-1.9,1.8-4.8,4.2-4.8,7.9c0,3.7,3.3,5.6,5.8,5.6c3,0,5.3-2.9,7-4.4l2-1.9L158,27.5z M159.2,22.3c2.1-1.6,5.2-4.4,5.2-7.6c0-2.6-2.6-3.6-4.2-3.6c-2.4,0-4.4,1.8-4.4,5.2c0,2.1,1,4.5,2.7,6.5L159.2,22.3z"
-                            />
-                          </g>
-                          <g>
-                            <path fill="#ffffff" d="M210.3,16c-2.3-2.1-5.9-4.3-10.9-4.3c-8.1,0-15.4,6.5-15.4,16.2c0,7.7,5.8,15.6,15.8,15.6c3.4,0,6.6-0.9,9.9-3.4V29.6h-12.4l1.2-3.5h15v15.7c-5.4,4.5-10.6,5.1-13.8,5.1c-12.9,0-19.6-10-19.6-19c0-9.7,7-19.7,19.5-19.7c3.8,0,8.5,0.9,12.9,4.9L210.3,16z"
-                            />
-                          </g>
-                          <g>
-                            <path fill="#ffffff" d="M231.3,18.3c7.8,0,14.1,6.3,14.1,14.2c0,7.8-6.3,14.2-14.1,14.2s-14.1-6.4-14.1-14.2C217.1,24.6,223.5,18.3,231.3,18.3z M231.3,43.7c6,0,10.7-5.1,10.7-11.2c0-6.1-4.8-11.2-10.7-11.2c-5.9,0-10.7,5-10.7,11.2C220.5,38.6,225.4,43.7,231.3,43.7z"
-                            />
-                          </g>
-                        </g>
-              <path fill="#ffffff" d="M43.9,0H24.3v20.9h-1.2V0H3.5C1.6,0,0,1.6,0,3.5v20.2h20.1v1.1H0v19.2c0,1.9,1.6,3.5,3.5,3.5H22V32.6c0-2,0.5-3.9,1.6-5.6c0.9-1.4,2.1-2.6,3.5-3.5c1.7-1,3.6-1.6,5.6-1.6h14.8V3.5C47.4,1.6,45.9,0,43.9,0z M17.6,15.2l-1.9,1.9l-3.3-3.3l-3.3,3.3l-1.9-1.9l3.3-3.3L7.2,8.6l1.9-1.9l3.3,3.3l3.3-3.3l1.9,1.9l-3.3,3.3L17.6,15.2z M18.4,36.2h-4.7v4.7h-2.7v-4.7H6.4v-2.7h4.7v-4.7h2.7v4.7h4.7V36.2z M33.3,5.9H36v2.7h-2.7V5.9z M36,17.9h-2.7v-2.7H36V17.9z M40.7,13.2H28.6v-2.7h12.1V13.2z"
-              />
-              <g>
-                <path fill="#ffffff" d="M34.5,33.3c-0.5,0.5-0.5,1.4,0,1.9c0.5,0.5,1.4,0.5,1.9,0c0.5-0.5,0.5-1.4,0-1.9C35.9,32.7,35,32.7,34.5,33.3z" />
-                <path fill="#ffffff" d="M32.5,25.4c-3.9,0-7,3.2-7.1,7.1v14.9h18.5c1.9,0,3.5-1.6,3.5-3.5V25.4H32.5z M39.7,35.4L39.7,35.4c-1.2,3.4-4.3,6.6-4.3,6.6s-3.1-3.2-4.3-6.6c-0.5-1.6-0.2-3.4,1.1-4.7c1.8-1.8,4.6-1.8,6.4,0C39.9,32,40.3,33.8,39.7,35.4z" />
-              </g>
-                      </svg>
-          </a>
-          <nav class="main-nav" role="navigation">
-            <a href="/" role="button">ГЛАВНАЯ</a>
-            <a href="/#services" role="button">УСЛУГИ</a>
-            <a href="/pages" role="button">СТАТЬИ</a>
-            <a href="/#how_we_work" role="button">О НАС</a>
-            <a href="/#contacts" role="button">КОНТАКТЫ</a>
-            <a href="/profile" class="mobile-nav-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
-          </nav>
-          <!--div class="language">
+      <div class="inner">
+        <header>
+          <div class="language">
             <select name="language" id="language">
               <option value="ru">RU</option>
               <option value="en">EN</option>
             </select>
-          </div-->
-          <div class="main-menu-button" id="main-menu-button"></div>
-          <div class="login-button">
-            @if(isset($role))
-            <a href="/profile" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
-              @else
-            <a href="/login" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
-             @endif
-
-            <div>
-              <a href="/login"><i class="fa fa-sign-in"></i> Войти</a>
-              <a href="/sign-up"><i class="fa fa-user-plus"></i> Зарегистрироваться</a>
-            </div>
+            <a href="/changelanguage/en">En</a>
+            <a href="/changelanguage/ru">Ru</a>
           </div>
+          <div class="logo">
+            <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 147 29" enable-background="new 0 0 147 29" xml:space="preserve">
+              <g>
+                <g>
+                  <g>
+                    <path fill="#fff" class="orange-path" d="M37.7,5.7c4.9,0,7.3,3.2,7.3,6.6c0,3.3-2.1,6.1-5.7,6.4l7.4,8.7l-2.1,1.1l-9.2-11.1h-0.1v10.6l-2.2,0.3
+				V5.7H37.7z M35.2,17.1h2.7c2.7,0,4.7-2.1,4.7-4.7c0-2.4-1.7-4.6-4.8-4.6h-2.6V17.1z" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="orange-path" d="M49.5,12.1c1.1-0.4,2.7-0.9,4.5-0.9c5.7,0,5.8,4.2,5.8,5.1v11.5l-1.9,0.4V26h-0.1c-1.1,1.8-3,2.3-4.7,2.3
+				c-3.2,0-6-2.2-6-5.9c0-3.8,3.1-5.8,6-5.8c1.5,0,3.3,0.5,4.6,2h0.1v-2.5c0-1.8-1.6-3.1-3.9-3.1c-1.5,0-3.1,0.5-4.3,1l-0.9,0.4
+				L49.5,12.1z M49.2,22.3c0,2,1.3,4.2,4.3,4.2c2.9,0,4.4-1.9,4.4-4c0-2-1.5-4.1-4.6-4.1C50.7,18.4,49.2,20.3,49.2,22.3z" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="orange-path" d="M63.9,7.7l2-1v5h4.4v1.8h-4.4v10.1c0,1.1,0.1,2.9,2.9,2.9c0.5,0,0.8-0.1,1.5-0.4V28
+				c-0.6,0.2-1.3,0.3-2,0.3c-2.4,0-4.4-1.3-4.4-4.6V13.5h-2.2l0.5-1.8h1.7V7.7z" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="orange-path" d="M86.3,25.9c-1.6,1.4-3.7,2.4-6.3,2.4c-5.8,0-8.6-4.7-8.6-8.6c0-4.7,3.6-8.5,8.4-8.5
+				c2.5,0,5.2,1.1,6.9,3.9l-12.5,7.5c1.1,2.4,3.5,3.7,5.7,3.7c2.3,0,4.8-1.3,6.4-2.9V25.9z M83.9,14.7c-0.9-0.9-2.2-1.6-4.1-1.6
+				c-2.9,0-6.4,2.1-6.4,6.4c0,0.5,0.1,0.9,0.2,1.4L83.9,14.7z" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="violet-path" d="M101,20.9l3.9-3.9l1.5,1.5l-4.1,4.1l4,4.6l-1.8,1.2l-3.6-4.4l-1.2,1.2c-1.7,1.7-3,3.2-5.5,3.2
+				c-3.2,0-5.6-2.4-5.6-5.6c0-3.1,2-4.6,3.5-6l1.6-1.5c-1.9-2.4-2.1-4.2-2.1-5.1c0-3,2.1-5,5-5c2.8,0,4.5,2.1,4.5,4.1
+				c0,2.3-1.8,3.8-3.3,5.2l-1.1,1L101,20.9z M94.9,16.8l-1.4,1.3c-1.2,1.1-2.9,2.5-2.9,4.7c0,2.2,2,3.4,3.5,3.4
+				c1.8,0,3.2-1.7,4.2-2.7l1.2-1.2L94.9,16.8z M95.6,13.7c1.3-1,3.1-2.6,3.1-4.5c0-1.6-1.6-2.1-2.5-2.1c-1.4,0-2.7,1.1-2.7,3.1
+				c0,1.3,0.6,2.7,1.6,3.9L95.6,13.7z" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="violet-path" d="M126.3,9.8c-1.4-1.3-3.6-2.6-6.5-2.6c-4.9,0-9.3,3.9-9.3,9.7c0,4.6,3.5,9.4,9.5,9.4c2,0,4-0.6,5.9-2V18
+				h-7.4l0.7-2.1h9v9.4c-3.2,2.7-6.4,3-8.3,3c-7.7,0-11.8-6-11.8-11.4c0-5.8,4.2-11.8,11.7-11.8c2.3,0,5.1,0.6,7.8,2.9L126.3,9.8z" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="violet-path" d="M138.9,11.3c4.7,0,8.5,3.8,8.5,8.5c0,4.7-3.8,8.5-8.5,8.5c-4.7,0-8.5-3.8-8.5-8.5
+				C130.4,15.1,134.3,11.3,138.9,11.3z M138.9,26.5c3.6,0,6.4-3.1,6.4-6.7c0-3.7-2.9-6.7-6.4-6.7c-3.5,0-6.4,3-6.4,6.7
+				C132.5,23.5,135.4,26.5,138.9,26.5z" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path fill="#fff" class="violet-path" d="M26.4,28.7H2.1c-1.2,0-2.1-0.9-2.1-2.1V2.3c0-1.2,0.9-2.1,2.1-2.1h24.3c1.2,0,2.1,0.9,2.1,2.1v24.3
+				C28.5,27.8,27.5,28.7,26.4,28.7z M2.1,0.9c-0.8,0-1.5,0.7-1.5,1.5v24.3c0,0.8,0.7,1.5,1.5,1.5h24.3c0.8,0,1.5-0.7,1.5-1.5V2.3
+				c0-0.8-0.7-1.5-1.5-1.5H2.1z" />
+                  </g>
+                  <g>
+                    <polygon fill="#fff" class="orange-path" points="6.6,20.4 3.8,20.4 3.8,22 6.6,22 6.6,24.8 8.2,24.8 8.2,22 11.1,22 11.1,20.4 8.2,20.4 8.2,17.6
+				6.6,17.6 			" />
+                  </g>
+                  <g>
+                    <polygon fill="#fff" class="orange-path" points="10.6,9.4 8.6,7.4 10.6,5.4 9.4,4.3 7.5,6.2 5.4,4.3 4.3,5.4 6.3,7.4 4.3,9.4 5.4,10.5 7.5,8.5
+				9.4,10.5 			" />
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="17.2" y="6.6" fill="#fff" class="orange-path" width="7.2" height="1.6" />
+                    </g>
+                    <g>
+                      <rect x="20" y="9.4" fill="#fff" class="orange-path" width="1.6" height="1.6" />
+                    </g>
+                    <g>
+                      <rect x="20" y="3.8" fill="#fff" class="orange-path" width="1.6" height="1.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <rect x="0.5" y="14.5" fill="#fff" class="violet-path" width="11.5" height="0.7" />
+                  </g>
+                  <g>
+                    <rect x="13.9" y="0.6" fill="#fff" class="violet-path" width="0.7" height="12.3" />
+                  </g>
+                  <g>
+                    <path fill="#fff" class="violet-path" d="M22.6,14.9h-3h-0.1c-2.7,0-4.8,2.2-4.9,4.9v0.1v3V28h-0.9v-8.1c0-1.1,0.3-2.1,0.9-3
+				c0.5-0.8,1.1-1.4,1.9-1.9c0.9-0.5,1.9-0.9,3-0.9h0h0h8.1v0.9H22.6z" />
+                    <path fill="#fff" class="violet-path" d="M15.3,28.6h-2.1v-8.8c0-1.2,0.3-2.3,0.9-3.3c0.5-0.9,1.3-1.6,2.1-2.1c1-0.6,2.2-0.9,3.3-0.9h8.8v2.1h-8.8
+				c-2.3,0-4.2,1.9-4.3,4.3V28.6z" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path fill="#fff" class="violet-path" d="M23.9,21.5c0.3-1,0.1-2.1-0.6-2.8c-1.1-1.1-2.8-1.1-3.8,0c-0.8,0.8-1,1.9-0.6,2.8c0.7,2,2.6,4,2.6,4
+				S23.1,23.6,23.9,21.5L23.9,21.5z M21.9,21.4c-0.3,0.3-0.8,0.3-1.2,0c-0.3-0.3-0.3-0.8,0-1.2c0.3-0.3,0.8-0.3,1.2,0
+				C22.2,20.6,22.2,21.1,21.9,21.4z" />
+                  </g>
+                </g>
+              </g>
+            </svg>
 
-
-        </div>
-      </div>
-
-
-      <div class="inner">
-
-
+          </div>
           <!--Composer view for unsigned users-->
-
+          @include('composers.sign')
           <!--End of composer view for unsigned users-->
+        </header>
 
-
-        <span class="top-title">{{Lang::get('mainpage.coast1')}}</span>
+        <h1 class="top-title">{{Lang::get('mainpage.coast1')}}</h1>
         <span class="top-subtitle">{{Lang::get('mainpage.belay')}}<br>
         <!--<a href="/changelanguage/en">En</a>
             <a href="/changelanguage/ru">Ru</a></span>-->
@@ -161,30 +173,28 @@
   <div class="inner-extended">
     <div id="serviceTarget"></div>
     <div class="service-row">
-
       <div class="col-4">
         <div class="service">
           <div class="service-icon">
             <span class="icon-car"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.Automobile_int_trans_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.Automobile_int_trans_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.Automobile_int_trans')}}
             </div>
           </div>
         </div>
       </div>
-
       <div class="col-4">
         <div class="service">
           <div class="service-icon">
             <span class="icon-ship"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.container_shipping_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.container_shipping_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.container_shipping')}}
             </div>
           </div>
         </div>
@@ -195,9 +205,9 @@
             <span class="icon-boxes"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.groupage_cargo_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.groupage_cargo_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.groupage_cargo')}}
             </div>
           </div>
         </div>
@@ -208,9 +218,9 @@
             <span class="icon-cross"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.multimodal_transportation_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.multimodal_transportation_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.multimodal_transportation')}}
             </div>
           </div>
         </div>
@@ -223,9 +233,9 @@
             <span class="icon-money-bag"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.brokerage_services_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.brokerage_services_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.brokerage_services')}}
             </div>
           </div>
         </div>
@@ -236,9 +246,9 @@
             <span class="icon-umbrella"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.insurance_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.insurance_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.insurance')}}
             </div>
           </div>
         </div>
@@ -249,9 +259,9 @@
             <span class="icon-rulers"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.oversized_transport_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.oversized_transport_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.oversized_transport')}}
             </div>
           </div>
         </div>
@@ -262,9 +272,9 @@
             <span class="icon-storehouse"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.storage_title')}}</span><br>
+            <h3>{{Lang::get('mainpage.storage_title')}}</h3>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              {{Lang::get('mainpage.storage')}}
             </div>
           </div>
         </div>
@@ -274,7 +284,7 @@
 </div>
     <div class="wrapper">
       <div class="inner section">
-        <span class="title">{{Lang::get('mainpage.world_delivery')}}</span>
+        <h2 class="title">{{Lang::get('mainpage.world_delivery')}}</h2>
         <div class="designer-decision">
           <div class="about-us__left">
             <iframe src="https://www.youtube.com/embed/eyx6hLcof5c?showinfo=0" width="100%" height="303" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -331,7 +341,7 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <span class="tab-comtent-text-title">{{Lang::get('mainpage.price_calc')}}</span>
+                      <h3>{{Lang::get('mainpage.price_calc')}}</h3>
                       <p>{{Lang::get('mainpage.price_calc_content')}}</p>
                     </div>
                     <div class="img">
@@ -342,7 +352,7 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <span class="tab-comtent-text-title">{{Lang::get('mainpage.checkout')}}</span>
+                      <h3>{{Lang::get('mainpage.checkout')}}</h3>
                       <p>{{Lang::get('mainpage.checkout_content')}}</p>
                     </div>
                     <div class="img">
@@ -353,7 +363,7 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <span class="tab-comtent-text-title">{{Lang::get('mainpage.delivery')}}</span>
+                      <h3>{{Lang::get('mainpage.delivery')}}</h3>
                       <p>{{Lang::get('mainpage.delivery_content')}}</p>
                     </div>
                     <div class="img">
@@ -364,7 +374,7 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <span class="tab-comtent-text-title">{{Lang::get('mainpage.payment')}}</span>
+                      <h3>{{Lang::get('mainpage.payment')}}</h3>
                       <p>{{Lang::get('mainpage.payment_content')}}</p>
                     </div>
                     <div class="img">
@@ -375,7 +385,7 @@
                 <li>
                   <div class="tab-content-wrapper">
                     <div class="tab-content-text">
-                      <span class="tab-comtent-text-title">{{Lang::get('mainpage.happy_client')}}</span>
+                      <h3>{{Lang::get('mainpage.happy_client')}}</h3>
                       <p>{{Lang::get('mainpage.happy_client_content')}}</p>
                     </div>
                     <div class="img">
@@ -386,9 +396,6 @@
               </ul>
             </div>
           </div>
-
-          <!-- Может удалить блок ниже?????? -->
-
           <div class="steps-owl" id="steps-owl">
             <div class="step-item">
               <div class="step-img-wrapper">
@@ -397,7 +404,7 @@
               <div class="step-title-owl">{{Lang::get('mainpage.price_calc')}}</div>
               <div class="step-number">1</div>
               <div class="step-content">
-                <span>{{Lang::get('mainpage.price_calc')}}</span>
+                <h3>{{Lang::get('mainpage.price_calc')}}</h3>
                 <p>{{Lang::get('mainpage.price_calc_content')}}</p>
               </div>
             </div>
@@ -408,7 +415,7 @@
               <div class="step-title-owl">{{Lang::get('mainpage.checkout')}}</div>
               <div class="step-number">2</div>
               <div class="step-content">
-                <span>{{Lang::get('mainpage.checkout')}}</span>
+                <h3>{{Lang::get('mainpage.checkout')}}</h3>
                 <p>{{Lang::get('mainpage.checkout_content')}}</p>
               </div>
             </div>
@@ -427,7 +434,7 @@
               <div class="step-title-owl">{{Lang::get('mainpage.delivery')}}</div>
               <div class="step-number">3</div>
               <div class="step-content">
-                <span>{{Lang::get('mainpage.delivery')}}</span>
+                <h3>{{Lang::get('mainpage.delivery')}}</h3>
                       <p>{{Lang::get('mainpage.delivery_content')}}</p>
               </div>
             </div>
@@ -438,7 +445,7 @@
               <div class="step-title-owl">{{Lang::get('mainpage.payment')}}</div>
               <div class="step-number">4</div>
               <div class="step-content">
-                <span>{{Lang::get('mainpage.payment')}}</span>
+                <h3>{{Lang::get('mainpage.payment')}}</h3>
                 <p>{{Lang::get('mainpage.payment_content')}}</p>
               </div>
             </div>
@@ -449,7 +456,7 @@
               <div class="step-title-owl">{{Lang::get('mainpage.happy_client')}}</div>
               <div class="step-number">5</div>
               <div class="step-content">
-                <span>{{Lang::get('mainpage.happy_client')}}</span>
+                <h3>{{Lang::get('mainpage.happy_client')}}</h3>
                 <p>{{Lang::get('mainpage.happy_client_content')}}</p>
               </div>
             </div>
@@ -462,7 +469,7 @@
       <div class="where-we-works">
         <img src="evth/public/img/test-map.png" class="map-img" alt="">
         <div class="inner">
-          <span class="title">{{Lang::get('mainpage.world_delivery')}}</span>
+          <h2 class="title">{{Lang::get('mainpage.world_delivery')}}</h2>
           <div class="works-list">
             <ul>
               <li>{{Lang::get('mainpage.we_transport')}}
@@ -1013,34 +1020,6 @@
         </div>
       </div>
     </div>
-
-<div class="wrapper grey-bg">
-  <div class="inner section">
-    <h1 class="title">Международные перевозки Rate&Go</h1>
-    <div class="content-gray">
-      <p><strong>Международные грузоперевозки</strong> - крайне популярный вид деятельности, без которого не обходится ни одно крупное предприятие, занимающееся экспортно/импортными операциями. Организация международных грузоперевозок - сложный и ответственнный процесс, требующий высокой квалификации и достаточного опыта со стороны компании-перевозчика.</p>
-
-      <p>Rate & Go - транспортная компания, которая готова обеспечить вас услугами международных грузоперевозок на любые расстояния в любую точку мира. Доверяя нам перевозку, вы гарантированно получаете высокий уровень клиентского сервиса и всегда можете быть уверены в том, что ваш груз будет доставлен в целости и в оговоренный срок. Используя размещенный на нашем сайте калькулятор стоимости доставки вы можете заранее рассчитать стоимость и срок доставки. Достаточно ввести минимальную информацию о вашем грузе: пункт отправки и пункт прибытия, вес и габариты, и уже через мгновение вы будете обладать точной информацией о стоимости перевозки. После этого вы можете легко оформить заказ, указав контактный номер телефона в соответствующем поле формы - мы свяжемся с вами в течении нескольких минут для уточнения детялей. С компанией Rate&Go зазказ международных грузоперевозок ваших товаров становится делом нескольких минут.</p>
-
-      <p>Стоимость усуг международных грузоперевозок зависит от множества факторов и часто может быть довольно высокой. Наша компания стремится предоставить свои клиентам возмонжость не только быстро рассчитать предполагаемые затраты, но и быстро оформить заявку на перевозки при помощи инструментов электронного документооборота. Необходимые инструменты реализованы в личном кабинете - достаточно зарегистрироваться на нашем сайте, и вы убедитесь, что даже ценный груз легко перевезти в другую страну и не бояться, что его задержат в пути или же он окажется не в том месте и не в то время.</p>
-
-      <p>Хотите использовать в своих целях международные грузоперевозки, которые уже давно приносят огромную прибыль тысячам предприимчивых людей? Вам нужны грузоперевозки в Европу, которые позволят вам не беспокоиться о технических деталях процесса.</p>
-
-      <h3>Почему компания Rate&Go заслуживает вашего доверия?</h3>
-
-      <p>1. Мы ежегодно перевозим более 155 000 тонн грузов всеми видами транспорта: осуществляем автомобильные перевозки, морские, железнодорожные и авиа перевозки в любую точку мира.</p>
-
-      <p>2. Налаженные маршруты в основные логистические центрые Европы, регулярно осуществляем перевозки из Украины в Германию, Италию, Польшу, и также и в обратном направлении: из Европы в Украину.</p>
-
-      <p>3. Наша компания ежегодно отправляет десятки грузов из Украины в Россию. Даже с учетом сложных геополитических условий, грузоперевозки из России в Украину осуществляются в срок.</p>
-
-      <p>4. Только компания Rate&Go предлагает полное оформление международных грузоперевозок в режиме но-лайн - вам достаточно заполнить форму в личном кабинете и мы вышлем вам все необходимые документы, на которых нужно будет всего-лишь поставить подпись.</p>
-
-      <p>Независимо от того, являетесь ли вы постоянным заказчиком услуг международных перевозок, или же заказываете их единоразово, в компании Rate&Go вы всегда получаете максимальное качество услуг при невысоких материальных и, что еще важнее, временных затратах.</p>
-    </div>
-  </div>
-</div>
-
     <div class="wrapper white-bg">
 
 
@@ -1060,7 +1039,7 @@
           <div class="modal-inner">
             <span class="close">&times;</span>
             <div>
-              <span class="modal-how-span">{{Lang::get('mainpage.how_it_worked')}}</span>
+              <span>{{Lang::get('mainpage.how_it_worked')}}</span>
               <div class="row">
                 <table>
                   <tbody>
@@ -1080,16 +1059,16 @@
                     </tr>
                     <tr>
                       <td>
-                        <span class="modal-how-title">{{Lang::get('mainpage.choose_route')}}</span>
+                        <h3>{{Lang::get('mainpage.choose_route')}}</h3>
                       </td>
                       <td>
-                        <span class="modal-how-title">{{Lang::get('mainpage.calc_coast')}}</span>
+                        <h3>{{Lang::get('mainpage.calc_coast')}}</h3>
                       </td>
                       <td>
-                        <span class="modal-how-title">{{Lang::get('mainpage.order_confirm')}}</span>
+                        <h3>{{Lang::get('mainpage.order_confirm')}}</h3>
                       </td>
                       <td>
-                        <span class="modal-how-title">{{Lang::get('mainpage.get_load')}}</span>
+                        <h3>{{Lang::get('mainpage.get_load')}}</h3>
                       </td>
                     </tr>
                     <tr>

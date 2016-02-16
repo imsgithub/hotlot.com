@@ -1704,6 +1704,12 @@ header:after {
   float: left;
   padding: 0 25px;
 }
+.about-us__right p {
+  font-family: "HelveticaLight", sans-serif;
+  font-size: 16px;
+  line-height: 1.3em;
+  padding: 5px;
+}
 p {
   font-family: "HelveticaLight", sans-serif;
   font-size: 16px;
@@ -1758,8 +1764,7 @@ p {
   border-left: 2000px solid #6a4385;
 }
 .white-bg {
-  background: url('/evth/public/img/contacts-bg-new.png') top center no-repeat;
-  background-size:cover;
+  background: #fff;
 }
 .works-list {
   color: #fff;
@@ -1973,7 +1978,7 @@ p {
   display: inline;
 }
 .service-description a {
-  color: #6a4385;
+  color: #e16f0e;
   text-decoration: none;
 }
 .service-description a:hover {
@@ -1984,6 +1989,7 @@ p {
 }
 .col-4 .service-description {
   width: 190px;
+  padding-top: 15px;
 }
 .inner > div.col-3:last-child .service-icon span {
   font-size: 41px;
@@ -2091,15 +2097,6 @@ footer .inner {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-#modal-how span {
-  font-family: "HelveticaBold", sans-serif;
-  font-size: 25px;
-  text-transform: uppercase;
-  padding-top: 23px;
-  color: #e16f0e;
-  text-align: center;
-  display: block;
-}
 #modal-how .row {
   margin: 0;
   padding: 30px 30px 0;
@@ -2117,13 +2114,6 @@ footer .inner {
 #modal-how .row table > tbody > tr:nth-child(2) td {
   padding: 18px;
   vertical-align: middle;
-}
-#modal-how .row h3 {
-  font-family: "HelveticaBold", sans-serif;
-  font-size: 17px;
-  text-transform: uppercase;
-  color: #e16f0e;
-  line-height: 1.2em;
 }
 #modal-how .row p {
   font-family: "HelveticaLight", sans-serif;
@@ -3599,7 +3589,7 @@ div.has-error {
     padding: 25px 10px 20px;
     background-color: #6a4385;
   }
-  .step-content h3 {
+  .step-content span {
     font-family: "HelveticaBold", sans-serif;
     font-size: 14px;
     text-transform: uppercase;

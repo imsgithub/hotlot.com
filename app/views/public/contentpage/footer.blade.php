@@ -510,7 +510,7 @@
 </div>
 <div class="wrapper white-bg wrapper-footer">
     <footer class=" wrapper-footer wrapper">
-        <!--img class="footer-img" src="/evth/public/img/contacts-bg-new.png"-->
+        <img class="footer-img" src="/evth/public/img/contacts-bg-new.png">
         <div class="inner">
             <div class="contacts">
                 <span>{{Lang::get('mainpage.contacts_title')}}</span>
@@ -579,14 +579,14 @@
         </div>
     </div>
 </div>
-
+<div id="mobile-check"></div>
 <script src="/evth/public/js/ready.js"></script>
 <!--<script src="evth/public/js/enter.js"></script>-->
 <script src="/evth/public/js/home.js"></script>
-<script src="/evth/public/js/TweenLite.min.js"></script>
-<script src="/evth/public/js/EasePack.min.js"></script>
-<script src="/evth/public/js/rAF.js"></script>
-<script src="/evth/public/js/demo-1.js"></script>
+{{--<script src="/evth/public/js/TweenLite.min.js"></script>--}}
+{{--<script src="/evth/public/js/EasePack.min.js"></script>--}}
+{{--<script src="/evth/public/js/rAF.js"></script>--}}
+{{--<script src="/evth/public/js/demo-1.js"></script>--}}
 @include('counters.metrika')
 </body>
 </html>
