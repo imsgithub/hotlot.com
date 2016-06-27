@@ -6,6 +6,7 @@
 
             <a href="/changelanguage/en">En</a>
 			<a href="/changelanguage/ru">Ru</a>
+			<a href="/changelanguage/de">De</a>
 <table class="table table-striped table-hover">
   <thead>
     <tr>

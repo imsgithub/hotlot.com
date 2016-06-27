@@ -14,13 +14,20 @@ class PageController extends \BaseController
     }
 
     public function index($alias){
-        $content = ContentPage::where('published','=',1)->get();
+        $lang = Session::get('lang');
+        $content = ContentPage::where('published','=',1)->where('language','=',$lang)->get();
         $pages = ContentPage::where('alias','=',$alias)->get();
+        if(count($pages) == 0) {
+            return Response::view('errors.missing', array(), 404);
+        }
         return View::make('public.contentpage.index')->withPages($pages)->withContent($content);
     }
     public function indexPage(){
-        $content = ContentPage::where('published','=',1)->paginate(5);
+//        Lang::setLocale('de');
+        $lang = Session::get('lang');
+        $content = $this->content_page->where('published','=',1)->where('language','=',$lang)->paginate(5);
+//        return var_dump($content);
         //$pages = ContentPage::where('alias','=',$alias)->get();
-        return View::make('public.contentpage.contentpage')->withContent($content);
+        return View::make('public.contentpage.contentpage')->withContent($content)->with('lang', $lang);
     }
 }

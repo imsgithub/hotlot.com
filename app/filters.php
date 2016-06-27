@@ -10,10 +10,13 @@ class LanguageC
 		$langf = $lang_arr[0];
 		$rupos = strpos($langf,'ru');
 		$enpos = strpos($langf,'en');
+		$depos = strpos($langf,'de');
 		if($rupos !== false){
 			return 'ru';
 		}elseif($enpos !== false){
 			return 'en';
+		}elseif($depos !== false){
+			return 'de';
 		}else{
 			return 'en';
 		}

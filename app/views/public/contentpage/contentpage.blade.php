@@ -11,7 +11,5 @@
         @endforeach
             {{$content->links()}}
     </div>
-
 </div>
-
 @include('public.contentpage.footer')

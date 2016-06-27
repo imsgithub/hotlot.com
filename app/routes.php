@@ -15,7 +15,12 @@
 */
 
 Route::get('/', function(){
-    return View::make('public.pages.home');
+	if(Session::get('role')){
+			$role = Session::get('role');
+		}else{
+			$role = '';
+		}
+    return View::make('public.pages.home')->withRole($role);
 });
 
 //	>>> Языки
@@ -37,7 +42,12 @@ Route::group(array('prefix' => '{lang}'), function($lang){//для безбол�
 Route::group(array('prefix' => Session::get('lang')), function () {//просто префикс
 	Route::get('/', function()
 	{
-	    return View::make('public.pages.home');
+		if(Session::get('role')){
+			$role = Session::get('role');
+		}else{
+			$role = '';
+		}
+	    return View::make('public.pages.home')->withRole($role);
 	});
 	Route::get('/sign-up', 'UsersController@newUserRegister');
 	Route::get('/login', function()

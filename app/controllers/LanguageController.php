@@ -10,10 +10,13 @@ class LanguageController extends \BaseController
 		$langf = $lang_arr[0];
 		$rupos = strpos($langf,'ru');
 		$enpos = strpos($langf,'en');
+		$depos = strpos($langf,'de');
 		if($rupos !== false){
 			return 'ru';
 		}elseif($enpos !== false){
 			return 'en';
+		}elseif($depos !== false){
+			return 'de';
 		}else{
 			return 'ru';
 		}
@@ -35,19 +38,20 @@ class LanguageController extends \BaseController
     	$root = Request::root();
     	$ruroot = $root.'/ru';
     	$enroot = $root.'/en';
-		$url = URL::previous();//	
+    	$deroot = $root.'/de';
+		$url = URL::previous();//
 		Session::put('seg', $url);
 		$request = parse_url($url, PHP_URL_PATH);
 		
 		$parse_array = explode("/",$request);// превращаю в массив		
 		if(in_array('login', $parse_array) or in_array('sign-up', $parse_array) or in_array('map', $parse_array)){
-			if(in_array('ru', $parse_array) or in_array('en', $parse_array)){
-				$request = ltrim($request,'/ruen');
+			if(in_array('ru', $parse_array) or in_array('en', $parse_array) or in_array('de', $parse_array)){
+				$request = ltrim($request,'/ruden');
 				$myurl = $root.'/'.$lang.'/'.$request;
 			}else{
 			$myurl = $root.'/'.$lang.$request;	
 			}
-		}elseif($url == $ruroot or $url == $enroot or $url == "$root/"){
+		}elseif($url == $ruroot or $url == $enroot or $url == $deroot or $url == "$root/"){
 			$myurl = $root.'/'.$lang;
 		}else{
 			$myurl = $url;
@@ -63,6 +67,8 @@ class LanguageController extends \BaseController
 			Session::put('lang','ru');
 		}elseif($segment=='en'){
 			Session::put('lang','en');
+		}elseif($segment=='de'){
+			Session::put('lang','de');
 		}
 		$url = Request::url();
 		return $url;

@@ -9,6 +9,7 @@ $http_path = '/upload/'.$file_name;
 $error = '';
 
 if( move_uploaded_file($file_name_tmp, $full_path)) {
+    $error = 'File Upload';
 } else {
     $error = 'Some error occured please try again later';
     $http_path = '';

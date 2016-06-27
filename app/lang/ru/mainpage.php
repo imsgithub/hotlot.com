@@ -6,7 +6,7 @@ foreach ($datas as $data) {
 	$$name = $data;
 }
 return[
-	'title' => 'Международные перевозки. Грузоперевозки в Европу, Азию, Россию с компанией Rate&Go',
+	'title' => 'Международные перевозки. Международные грузоперевозки в Европу, Азию, Россию с компанией Rate&Go',
 	'coast1' => 'расчет стоимости и доставка грузов <br> по всему миру!',
 	'coast2' => '',
 	'belay' => 'страховка груза бесплатно',
@@ -17,6 +17,13 @@ return[
 	'your_phone' => 'Ваш телефон',
 	'calculate' => 'Расчитать',
 	'how_it_works' => 'Как это работает?',
+
+	'main_menu' => 'ГЛАВНАЯ',
+	'services_menu' => 'УСЛУГИ',
+	'pages_menu' => 'СТАТЬИ',
+	'how_we_work_menu' => 'О НАС',
+	'contacts_menu' => 'КОНТАКТЫ',
+	'profile_menu' => '',
 
 	'login' => 'Войти',
 	'reg' => 'Зарегистрироваться',
@@ -141,6 +148,8 @@ return[
 	'delivery_to_you' => 'Доставляем Ваш груз в назначенное место.',
 
 	'gallery_cargo_params' => 'вес 20 т, объем 86 м<sup>3</sup>.',
+	'content_on_main_title' => $content_on_main->title,
+	'content_on_main_content' => $content_on_main->content,
 	'' => '',
 	'' => '',
 	'' => '',

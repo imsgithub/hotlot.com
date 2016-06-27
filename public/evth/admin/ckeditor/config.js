@@ -36,5 +36,5 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
-	config.filebrowserUploadUrl = 'http://hotlot.com/ckupload.php';
+	config.filebrowserUploadUrl = '/ckupload.php';
 };

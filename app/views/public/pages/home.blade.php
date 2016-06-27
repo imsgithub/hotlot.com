@@ -29,9 +29,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
   <script src="evth/public/js/owl.carousel.min.js"></script>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 
 <body id="home">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5RWGWK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RWGWK');</script>
+<!-- End Google Tag Manager -->
 {{App::setLocale(Session::get('lang'))}}
   <div class="overlay">
     <div class="wrapper top">
@@ -83,11 +100,11 @@
                       </svg>
           </a>
           <nav class="main-nav" role="navigation">
-            <a href="/" role="button">ГЛАВНАЯ</a>
-            <a href="/#services" role="button">УСЛУГИ</a>
-            <a href="/pages" role="button">СТАТЬИ</a>
-            <a href="/#how_we_work" role="button">О НАС</a>
-            <a href="/#contacts" role="button">КОНТАКТЫ</a>
+            <a href="/" role="button">{{ Lang::get('mainpage.main_menu') }}</a>
+            <a href="/#services" role="button">{{ Lang::get('mainpage.services_menu') }}</a>
+            <a href="/pages" role="button">{{ Lang::get('mainpage.pages_menu') }}</a>
+            <a href="/#how_we_work" role="button">{{ Lang::get('mainpage.how_we_work_menu') }}</a>
+            <a href="/#contacts" role="button">{{ Lang::get('mainpage.contacts_menu') }}</a>
             <a href="/profile" class="mobile-nav-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
           </nav>
           <!--div class="language">
@@ -98,15 +115,17 @@
           </div-->
           <div class="main-menu-button" id="main-menu-button"></div>
           <div class="login-button">
-            @if(isset($role))
-            <a href="/profile" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
-              @else
-            <a href="/login" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
-             @endif
+            @if(($role=='admin')||($role=='miniadmin'))
+				<a href="/admin" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
+			@elseif($role=='member')
+				<a href="/profile" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
+            @else
+				<a href="/login" class="sing-in-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
+            @endif
 
             <div>
-              <a href="/login"><i class="fa fa-sign-in"></i> Войти</a>
-              <a href="/sign-up"><i class="fa fa-user-plus"></i> Зарегистрироваться</a>
+              <a href="/login"><i class="fa fa-sign-in"></i>Войти</a>
+              <a href="/sign-up"><i class="fa fa-user-plus"></i>Зарегистрироваться</a>
             </div>
           </div>
 
@@ -168,9 +187,9 @@
             <span class="icon-car"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.Automobile_int_trans_title')}}</span><br>
+            <a href="/pages/auto-perevozki"><span class="service-description-title">{{Lang::get('mainpage.Automobile_int_trans_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -182,9 +201,9 @@
             <span class="icon-ship"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.container_shipping_title')}}</span><br>
+            <a href="/pages/morskie-perevozki"><span class="service-description-title">{{Lang::get('mainpage.container_shipping_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -195,9 +214,9 @@
             <span class="icon-boxes"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.groupage_cargo_title')}}</span><br>
+            <a href="/pages/perevozka-sbornih-gruzov"><span class="service-description-title">{{Lang::get('mainpage.groupage_cargo_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -208,9 +227,9 @@
             <span class="icon-cross"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.multimodal_transportation_title')}}</span><br>
+            <a href="/pages/multimodalnie-perevozki"><span class="service-description-title">{{Lang::get('mainpage.multimodal_transportation_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -223,9 +242,9 @@
             <span class="icon-money-bag"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.brokerage_services_title')}}</span><br>
+            <a href="/pages/brokerskie-uslugi"><span class="service-description-title">{{Lang::get('mainpage.brokerage_services_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -236,9 +255,9 @@
             <span class="icon-umbrella"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.insurance_title')}}</span><br>
+            <a href="/pages/insurance"><span class="service-description-title">{{Lang::get('mainpage.insurance_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -249,9 +268,9 @@
             <span class="icon-rulers"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.oversized_transport_title')}}</span><br>
+            <a href="/pages/negabaritnie-gruzoperevozki"><span class="service-description-title">{{Lang::get('mainpage.oversized_transport_title')}}</span></a>
             <div class="display">
-              <a href="/pages/#">Подробнее</a>
+              
             </div>
           </div>
         </div>
@@ -262,10 +281,8 @@
             <span class="icon-storehouse"></span>
           </div>
           <div class="service-description">
-            <span class="service-description-title">{{Lang::get('mainpage.storage_title')}}</span><br>
-            <div class="display">
-              <a href="/pages/#">Подробнее</a>
-            </div>
+            <a href="/pages/storage"><span class="service-description-title">{{Lang::get('mainpage.storage_title')}}</span></a>
+            <div class="display"></div>
           </div>
         </div>
       </div>
@@ -1016,27 +1033,9 @@
 
 <div class="wrapper grey-bg">
   <div class="inner section">
-    <h1 class="title">Международные перевозки Rate&Go</h1>
+    <h1 class="title">{{ Lang::get('mainpage.content_on_main_title') }}</h1>
     <div class="content-gray">
-      <p><strong>Международные грузоперевозки</strong> - крайне популярный вид деятельности, без которого не обходится ни одно крупное предприятие, занимающееся экспортно/импортными операциями. Организация международных грузоперевозок - сложный и ответственнный процесс, требующий высокой квалификации и достаточного опыта со стороны компании-перевозчика.</p>
-
-      <p>Rate & Go - транспортная компания, которая готова обеспечить вас услугами международных грузоперевозок на любые расстояния в любую точку мира. Доверяя нам перевозку, вы гарантированно получаете высокий уровень клиентского сервиса и всегда можете быть уверены в том, что ваш груз будет доставлен в целости и в оговоренный срок. Используя размещенный на нашем сайте калькулятор стоимости доставки вы можете заранее рассчитать стоимость и срок доставки. Достаточно ввести минимальную информацию о вашем грузе: пункт отправки и пункт прибытия, вес и габариты, и уже через мгновение вы будете обладать точной информацией о стоимости перевозки. После этого вы можете легко оформить заказ, указав контактный номер телефона в соответствующем поле формы - мы свяжемся с вами в течении нескольких минут для уточнения детялей. С компанией Rate&Go зазказ международных грузоперевозок ваших товаров становится делом нескольких минут.</p>
-
-      <p>Стоимость усуг международных грузоперевозок зависит от множества факторов и часто может быть довольно высокой. Наша компания стремится предоставить свои клиентам возмонжость не только быстро рассчитать предполагаемые затраты, но и быстро оформить заявку на перевозки при помощи инструментов электронного документооборота. Необходимые инструменты реализованы в личном кабинете - достаточно зарегистрироваться на нашем сайте, и вы убедитесь, что даже ценный груз легко перевезти в другую страну и не бояться, что его задержат в пути или же он окажется не в том месте и не в то время.</p>
-
-      <p>Хотите использовать в своих целях международные грузоперевозки, которые уже давно приносят огромную прибыль тысячам предприимчивых людей? Вам нужны грузоперевозки в Европу, которые позволят вам не беспокоиться о технических деталях процесса.</p>
-
-      <h3>Почему компания Rate&Go заслуживает вашего доверия?</h3>
-
-      <p>1. Мы ежегодно перевозим более 155 000 тонн грузов всеми видами транспорта: осуществляем автомобильные перевозки, морские, железнодорожные и авиа перевозки в любую точку мира.</p>
-
-      <p>2. Налаженные маршруты в основные логистические центрые Европы, регулярно осуществляем перевозки из Украины в Германию, Италию, Польшу, и также и в обратном направлении: из Европы в Украину.</p>
-
-      <p>3. Наша компания ежегодно отправляет десятки грузов из Украины в Россию. Даже с учетом сложных геополитических условий, грузоперевозки из России в Украину осуществляются в срок.</p>
-
-      <p>4. Только компания Rate&Go предлагает полное оформление международных грузоперевозок в режиме но-лайн - вам достаточно заполнить форму в личном кабинете и мы вышлем вам все необходимые документы, на которых нужно будет всего-лишь поставить подпись.</p>
-
-      <p>Независимо от того, являетесь ли вы постоянным заказчиком услуг международных перевозок, или же заказываете их единоразово, в компании Rate&Go вы всегда получаете максимальное качество услуг при невысоких материальных и, что еще важнее, временных затратах.</p>
+      {{ Lang::get('mainpage.content_on_main_content') }}
     </div>
   </div>
 </div>
@@ -1051,6 +1050,15 @@
             <span>{{Lang::get('mainpage.contacts_title')}}</span>
             {{Lang::get('mainpage.contacts')}}
             <p><a href="mailto:info@rate-and-go.com">info@rate-and-go.com</a></p>
+            <!-- Вставьте этот тег в заголовке страницы или непосредственно перед закрывающим тегом основной части. -->
+                <script src="https://apis.google.com/js/platform.js" async defer>
+                    {lang: 'ru'}
+                </script>
+                <!-- Поместите этот тег туда, где должна отображаться кнопка +1. -->
+                <div class="g-plusone" data-annotation="none" data-href="http://rate-and-go.com/"></div>
+                
+                <div class="fb-like" data-href="http://rate-and-go.com/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" style="margin: 4px; position: absolute;"></div>
+                
             <div class="copyright"><a href="http://imsmedia.net.ua/" target="_blank">IMS MEDIA 2015</a></div>
           </div>
         </div>

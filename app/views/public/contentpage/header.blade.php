@@ -43,6 +43,15 @@
             {lang: 'ru'}
         </script>
 <body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5RWGWK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RWGWK');</script>
+<!-- End Google Tag Manager -->
 <div class="overlay">
 
 
@@ -90,11 +99,11 @@
                       </svg>
                 </a>
                 <nav class="main-nav" role="navigation">
-                    <a href="/" role="button">ГЛАВНАЯ</a>
-                    <a href="/#services" role="button">УСЛУГИ</a>
-                    <a href="/pages" role="button">СТАТЬИ</a>
-                    <a href="/#how_we_work" role="button">О НАС</a>
-                    <a href="/#contacts" role="button">КОНТАКТЫ</a>
+                    <a href="/" role="button">{{ Lang::get('mainpage.main_menu') }}</a>
+                    <a href="/#services" role="button">{{ Lang::get('mainpage.services_menu') }}</a>
+                    <a href="/pages" role="button">{{ Lang::get('mainpage.pages_menu') }}</a>
+                    <a href="/#how_we_work" role="button">{{ Lang::get('mainpage.how_we_work_menu') }}</a>
+                    <a href="/#contacts" role="button">{{ Lang::get('mainpage.contacts_menu') }}</a>
                     <a href="/profile" class="mobile-nav-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
                 </nav>
                 <!--div class="language">
@@ -143,3 +152,8 @@
         </div>
     </div>
     </div>
+{{ Lang::getLocale(); }}
+
+<a href="/changelanguage/ru">Ru</a>
+<a href="/changelanguage/en">En</a>
+<a href="/changelanguage/de">De</a>

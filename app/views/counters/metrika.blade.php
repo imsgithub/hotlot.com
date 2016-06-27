@@ -25,14 +25,14 @@ d.addEventListener("DOMContentLoaded", f, false);
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/32691885" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<script>
+<!--script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-68488094-1', 'auto');
 ga('send', 'pageview');
-</script>
+</script-->
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 934685651;
