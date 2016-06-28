@@ -3,7 +3,7 @@
     <div class="inner section">
         <div class="col-md-4">
             <div class="side-bar">
-                <div class="side-bar-title"><a href="/pages"> СПИСОК СТАТЕЙ </a></div>
+                <div class="side-bar-title"><a href="/pages"> {{ Lang::get('contentpages.articles_list') }} </a></div>
                     <ul class="side-bar-list">
                         @foreach($content as $cont)
                             <li><a href="/pages/{{$cont->alias}}">{{$cont->title}}</a></li>

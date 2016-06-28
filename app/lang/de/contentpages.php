@@ -1,5 +1,4 @@
 <?php
-
 //$table = 'content_pages';
 //$datas = DB::table($table)->where('language','=','ru');
 //
@@ -13,7 +12,7 @@ return[
     'choose_sity' => '',
     'calculate_price' => '',
     'how_it_work' => '',
-    'articles_list' => 'СПИСОК СТАТЕЙ',
+    'articles_list' => 'ARTIKELVERZEICHNIS',
 
 
 //    'auto-perevozki_title' => $content['auto-perevozki']->title,

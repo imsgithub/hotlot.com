@@ -19,6 +19,8 @@ class CodesController extends \BaseController {
     }
     //тест инпутов для гет запроса
     public function showNiceMap(){
+		$lang = Session::get('lang');
+		App::setLocale($lang);
         $code = $this->code->all();
         $coeff = $this->coeff->all();
         $currency = $this->currency->all();

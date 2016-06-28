@@ -1,8 +1,15 @@
 <?php
 $table = 'ru_blocks';
+
+$content_table = 'content_pages';
 $datas = DB::table($table)->get();
 foreach ($datas as $data) {
 	$name = $data->name;
+	$$name = $data;
+}
+$content_datas = DB::table($content_table)->where('language','=','ru')->get();
+foreach ($content_datas as $data) {
+	$name = $data->data_name;
 	$$name = $data;
 }
 return[
@@ -120,22 +127,31 @@ return[
 	'services' => 'Услуги',
 	'Automobile_int_trans_title' => $automobile_int_trans->title,
 	'Automobile_int_trans' => $automobile_int_trans->content,
+	'Automobile_int_trans_alias' => $auto_perevozki->alias,
 	'container_shipping_title' => $container_shipping->title,
 	'container_shipping' => $container_shipping->content,
+	'container_shipping_alias' => $morskie_perevozki->alias,
 	'groupage_cargo_title' => $groupage_cargo->title,
 	'groupage_cargo' => $groupage_cargo->content,
+	'groupage_cargo_alias' => $perevozka_sbornih_gruzov->alias,
 	'multimodal_transportation_title' => $multimodal_transportation->title,
 	'multimodal_transportation' => $multimodal_transportation->content,
+	'multimodal_transportation_alias' => $multimodalnie_perevozki->alias,
 	'brokerage_services_title' => $brokerage_services->title,
 	'brokerage_services' => $brokerage_services->content,
+	'brokerage_services_alias' => $brokerskie_uslugi->alias,
 	'insurance_title' => $insurance->title,
 	'insurance' => $insurance->content,
+	'insurance_alias' => $insurance->alias,
 	'oversized_transport_title' => $oversized_transport->title,
 	'oversized_transport' => $oversized_transport->content,
+	'oversized_transport_alias' => $negabaritnie_gruzoperevozki->alias,
 	'storage_title' => $storage->title,
 	'storage' => $storage->content,
+	'storage_alias' => $storage->alias,
 	'contacts_title' => $contacts->title,
 	'contacts' => $contacts->content,
+//	'contacts_alias' => $contacts->alias,
 
 	'how_it_worked' => 'Как это работает?',
 	'choose_route' => 'Выбираете маршрут',

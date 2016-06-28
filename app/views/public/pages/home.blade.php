@@ -107,12 +107,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a href="/#contacts" role="button">{{ Lang::get('mainpage.contacts_menu') }}</a>
             <a href="/profile" class="mobile-nav-link"><i class="fa fa-sign-in"></i> {{Lang::get('mainpage.go_in_private')}}</a>
           </nav>
-          <!--div class="language">
-            <select name="language" id="language">
-              <option value="ru">RU</option>
-              <option value="en">EN</option>
-            </select>
-          </div-->
+          <div class="language">
+            {{--<select name="language" id="language">--}}
+              {{--<option value="ru"><a href="/changelanguage/ru">RU</a></option>--}}
+              {{--<option value="en"><a href="/changelanguage/de">DE</a></option>--}}
+            {{--</select>--}}
+            <a href="/changelanguage/ru">RU</a>
+            <a href="/changelanguage/de">DE</a>
+          </div>
           <div class="main-menu-button" id="main-menu-button"></div>
           <div class="login-button">
             @if(($role=='admin')||($role=='miniadmin'))
@@ -187,7 +189,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-car"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/auto-perevozki"><span class="service-description-title">{{Lang::get('mainpage.Automobile_int_trans_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.Automobile_int_trans_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.Automobile_int_trans_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -201,7 +203,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-ship"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/morskie-perevozki"><span class="service-description-title">{{Lang::get('mainpage.container_shipping_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.container_shipping_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.container_shipping_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -214,7 +216,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-boxes"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/perevozka-sbornih-gruzov"><span class="service-description-title">{{Lang::get('mainpage.groupage_cargo_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.groupage_cargo_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.groupage_cargo_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -227,7 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-cross"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/multimodalnie-perevozki"><span class="service-description-title">{{Lang::get('mainpage.multimodal_transportation_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.multimodal_transportation_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.multimodal_transportation_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -242,7 +244,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-money-bag"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/brokerskie-uslugi"><span class="service-description-title">{{Lang::get('mainpage.brokerage_services_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.brokerage_services_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.brokerage_services_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -255,7 +257,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-umbrella"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/insurance"><span class="service-description-title">{{Lang::get('mainpage.insurance_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.insurance_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.insurance_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -268,7 +270,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-rulers"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/negabaritnie-gruzoperevozki"><span class="service-description-title">{{Lang::get('mainpage.oversized_transport_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.oversized_transport_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.oversized_transport_title')}}</span></a>
             <div class="display">
               
             </div>
@@ -281,7 +283,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="icon-storehouse"></span>
           </div>
           <div class="service-description">
-            <a href="/pages/storage"><span class="service-description-title">{{Lang::get('mainpage.storage_title')}}</span></a>
+            <a href="/pages/{{ Lang::get('mainpage.storage_alias') }}"><span class="service-description-title">{{Lang::get('mainpage.storage_title')}}</span></a>
             <div class="display"></div>
           </div>
         </div>

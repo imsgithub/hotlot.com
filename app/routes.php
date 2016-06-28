@@ -58,6 +58,7 @@ Route::group(array('prefix' => Session::get('lang')), function () {//прост�
     }
     return View::make('public.pages.login');
 	});
+
 	Route::post('/login', 'UsersController@notAjaxLogin');
 	Route::get('/map', ['as'=>'/map','uses'=>'CodesController@showNiceMap'] );
 
